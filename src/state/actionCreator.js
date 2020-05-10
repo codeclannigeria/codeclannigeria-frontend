@@ -15,5 +15,5 @@ export const signup = (userData) => {
       .catch((err) => {
         dispatch({ type: types.SIGNUP_FAILURE });
       });
-  }
+  };
 };

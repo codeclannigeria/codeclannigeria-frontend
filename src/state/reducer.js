@@ -12,7 +12,7 @@ export function AuthReducer(state = initialSIgnupState, action) {
       return {
         ...state,
         loading: true
-      }
+      };
 
     case (types.SIGNUP_SUCCESS):
       return {
@@ -32,4 +32,4 @@ export function AuthReducer(state = initialSIgnupState, action) {
       return state;
   }
 
-};
+}
