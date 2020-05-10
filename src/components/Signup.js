@@ -19,7 +19,7 @@ const mapStateToProps = (store) => {
     loading: store.auth.loading,
     token: store.auth.token,
     error: store.auth.error
-  }
+  };
 };
 
 const mapDispatchToProps = {

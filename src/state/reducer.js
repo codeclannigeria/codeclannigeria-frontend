@@ -19,7 +19,7 @@ export function AuthReducer(state = initialSIgnupState, action) {
         ...state,
         loading: false,
         token: action.payload
-      }
+      };
 
     case (types.SIGNUP_FAILURE):
       return {
@@ -32,4 +32,4 @@ export function AuthReducer(state = initialSIgnupState, action) {
       return state;
   }
 
-}
+};

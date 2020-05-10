@@ -9,11 +9,11 @@ export const signup = (userData) => {
     dispatch({ type: types.SIGNUP_START });
     return axios.post(`${apiURL}/register/`, userData)
       .then((res) => {
-        localStorage.setItem('token', res.data.key);
+        localStorage.setItem("token", res.data.key);
         dispatch({ type: types.SIGNUP_SUCCESS, payload: res.data.key });
       })
       .catch((err) => {
         dispatch({ type: types.SIGNUP_FAILURE });
       });
   }
-}
+};
