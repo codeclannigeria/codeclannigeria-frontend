@@ -1,9 +1,8 @@
-import React from 'react';
-import { signup } from '../state/actionCreator'
-import { connect } from 'react-redux';
+import React from "react";
+import { signup } from "../state/actionCreator";
+import { connect } from "react-redux";
 
 function Signup(props) {
-  console.log(props)
   return (
     <div className="App">
       <h1>Oya Signup</h1>
@@ -15,16 +14,16 @@ function Signup(props) {
 
 // export default Signup;
 
-const mapStateToProps = store => {
+const mapStateToProps = (store) => {
   return {
     loading: store.auth.loading,
     token: store.auth.token,
     error: store.auth.error
   }
-}
+};
 
 const mapDispatchToProps = {
-  register:signup
-}
+  register: signup
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Signup);

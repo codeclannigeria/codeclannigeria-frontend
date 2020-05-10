@@ -1,8 +1,8 @@
-import * as types from './actionType';
+import * as types from "./actionType";
 
 const initialSIgnupState = {
   loading: false,
-  token: '',
+  token: "",
   error: false
 };
 
@@ -26,7 +26,7 @@ export function AuthReducer(state = initialSIgnupState, action) {
         ...state,
         loading: false,
         error: true
-      }
+      };
 
     default:
       return state;
