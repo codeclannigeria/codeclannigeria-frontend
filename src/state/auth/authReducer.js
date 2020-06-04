@@ -29,6 +29,13 @@ export function AuthReducer(state = initialSIgnupState, action) {
         error: true,
         errResponse: action.payload,
       }
+    case types.AUTH_RESET:
+      return {
+        ...state,
+        loading: false,
+        error: false,
+        errResponse: "",
+      }
 
     default:
       return state

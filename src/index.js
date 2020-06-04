@@ -6,6 +6,8 @@ import logger from "redux-logger"
 import thunk from "redux-thunk"
 import MonsterReducer from "./state/monsterReducer"
 import "./index.css"
+import "bootstrap/dist/css/bootstrap.min.css"
+
 import App from "./App"
 
 const middleWare = [thunk, logger]
