@@ -1,7 +1,7 @@
 import * as types from "./authActionTypes"
 import axios from "axios"
 
-export const apiURL = "http://codeclannigeria-api.herokuapp.com/auth"
+export const apiURL = "https://codeclannigeria-api.herokuapp.com/auth"
 
 export const signup = (userData) => {
   return (dispatch) => {
