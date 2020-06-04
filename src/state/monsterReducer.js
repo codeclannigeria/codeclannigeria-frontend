@@ -1,8 +1,8 @@
-import { combineReducers } from "redux";
-import { AuthReducer } from "./reducer";
+import { combineReducers } from "redux"
+import { AuthReducer } from "./auth/authReducer"
 
 const MonsterReducer = combineReducers({
-  auth:AuthReducer
-});
+  auth: AuthReducer,
+})
 
-export default MonsterReducer;
+export default MonsterReducer
