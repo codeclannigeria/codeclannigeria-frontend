@@ -1,35 +1,36 @@
-import * as types from "./actionType";
+import * as types from "./authActionTypes"
 
 const initialSIgnupState = {
   loading: false,
   token: "",
-  error: false
-};
+  error: false,
+  errResponse: "",
+}
 
 export function AuthReducer(state = initialSIgnupState, action) {
   switch (action.type) {
-    case (types.SIGNUP_START):
+    case types.AUTH_START:
       return {
         ...state,
-        loading: true
-      };
+        loading: true,
+      }
 
-    case (types.SIGNUP_SUCCESS):
+    case types.AUTH_SUCCESS:
       return {
         ...state,
         loading: false,
-        token: action.payload
-      };
+        token: action.payload,
+      }
 
-    case (types.SIGNUP_FAILURE):
+    case types.AUTH_FAILURE:
       return {
         ...state,
         loading: false,
-        error: true
-      };
+        error: true,
+        errResponse: action.payload,
+      }
 
     default:
-      return state;
+      return state
   }
-
 }

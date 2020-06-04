@@ -1,14 +1,16 @@
-import React from "react";
-import Signup from "./components/Signup";
-import "./App.css";
+import React from "react"
+import { BrowserRouter as Router } from "react-router-dom"
+
+import BaseRouter from "./routes"
 
 function App() {
   return (
-    <div className="App">
-      <h1>Welcome to Code_Clan</h1>
-      <Signup />
-    </div>
-  );
+    <Router>
+      <div>
+        <BaseRouter />
+      </div>
+    </Router>
+  )
 }
 
-export default App;
+export default App
