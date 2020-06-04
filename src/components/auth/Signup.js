@@ -1,17 +1,26 @@
 import React, { useState, useEffect } from "react"
 import { signup } from "../../state/auth/authActionCreator"
-import { connect } from "react-redux"
+import { connect, useDispatch } from "react-redux"
 import SignupStyled from "./SignupStyled"
 import { validateEmail } from "./utils"
+import { Link } from "react-router-dom"
 
-function Signup({ register, loading, error, errResponse, token, history }) {
+function Signup({
+  register,
+  loading,
+  error,
+  errResponse,
+  token,
+  history,
+  location,
+}) {
   const [values, setValues] = useState({
     firstName: "",
     lastName: "",
     email: "",
     password: "",
   })
-
+  const dispatch = useDispatch()
   const [emailError, setEmailError] = useState(false)
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -23,7 +32,10 @@ function Signup({ register, loading, error, errResponse, token, history }) {
     if (token) {
       history.push("/dashboard")
     }
-  }, [token, history])
+    return () => {
+      dispatch({ type: "AUTH_RESET" })
+    }
+  }, [token, history, dispatch])
 
   const handleChange = (e) => {
     if (e.target.name === "email") {
@@ -101,7 +113,7 @@ function Signup({ register, loading, error, errResponse, token, history }) {
           <p className="info blue signIn">
             already have an account?
             <span>
-              <a href="signin.html">Sign In</a>
+              <Link to="/login/">Sign In</Link>
             </span>
           </p>
         </form>

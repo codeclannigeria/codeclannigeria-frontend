@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { authLogin } from "../../state/auth/authActionCreator"
-import { connect } from "react-redux"
-// import "./css/signin.css"
+import { connect, useDispatch } from "react-redux"
 import { validateEmail } from "./utils"
 import { Link } from "react-router-dom"
 import LoginStyled from "./LoginStyled"
@@ -11,6 +10,7 @@ function LoginForm({ authLogin, loading, error, errResponse, token, history }) {
     password: "",
   })
 
+  const dispatch = useDispatch()
   const [emailError, setEmailError] = useState(false)
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -21,7 +21,11 @@ function LoginForm({ authLogin, loading, error, errResponse, token, history }) {
     if (token) {
       history.push("/dashboard")
     }
-  }, [token, history])
+
+    return () => {
+      dispatch({ type: "AUTH_RESET" })
+    }
+  }, [token, history, dispatch])
 
   const handleChange = (e) => {
     if (e.target.name === "email") {
