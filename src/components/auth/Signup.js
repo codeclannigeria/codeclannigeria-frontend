@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react"
-import { signup } from "../../state/auth/authActionCreator"
-import { connect, useDispatch } from "react-redux"
-import SignupStyled from "./SignupStyled"
-import { validateEmail } from "./utils"
-import { Link } from "react-router-dom"
+import React, { useState, useEffect } from 'react';
+import { signup } from '../../state/auth/authActionCreator';
+import { connect, useDispatch } from 'react-redux';
+import SignupStyled from './SignupStyled';
+import { validateEmail } from './utils';
+import { Link } from 'react-router-dom';
 
 function Signup({
   register,
@@ -15,44 +15,44 @@ function Signup({
   location,
 }) {
   const [values, setValues] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-  })
-  const dispatch = useDispatch()
-  const [emailError, setEmailError] = useState(false)
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    register(values)
-    console.log(loading)
-  }
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+  });
+  const dispatch = useDispatch();
+  const [emailError, setEmailError] = useState(false);
+  const handleSubmit = e => {
+    e.preventDefault();
+    register(values);
+    console.log(loading);
+  };
 
   useEffect(() => {
     if (token) {
-      history.push("/dashboard")
+      history.push('/email-verification-sent/');
     }
     return () => {
-      dispatch({ type: "AUTH_RESET" })
-    }
-  }, [token, history, dispatch])
+      dispatch({ type: 'AUTH_RESET' });
+    };
+  }, [token, history, dispatch]);
 
-  const handleChange = (e) => {
-    if (e.target.name === "email") {
-      setEmailError(!validateEmail(e.target.value))
+  const handleChange = e => {
+    if (e.target.name === 'email') {
+      setEmailError(!validateEmail(e.target.value));
     }
 
     setValues({
       ...values,
       [e.target.name]: e.target.value,
-    })
-  }
+    });
+  };
 
   return (
     <SignupStyled>
       <p className="title">Sign Up</p>
       <div className="signUpDiv">
-        <form action="" id="signUpForm" onSubmit={handleSubmit}>
+        <form action="" id="signUpForm" onSubmit={handleSubmit} noValidate>
           <p className="info blue signUp">sign up with email</p>
           {error ? <div className="error"> {errResponse}</div> : null}
           <div className="nameInputGroup">
@@ -88,7 +88,7 @@ function Signup({
               id="email"
               onChange={handleChange}
               required
-              className={emailError ? "box-error" : "dd"}
+              className={emailError ? 'box-error' : 'dd'}
             />
           </label>
           <label for="password">
@@ -108,7 +108,7 @@ function Signup({
             privacy policy
           </p>
           <button disabled={emailError} className="submit">
-            {!loading ? "get started" : "Signing up...."}
+            {!loading ? 'get started' : 'Signing up....'}
           </button>
           <p className="info blue signIn">
             already have an account?
@@ -119,22 +119,22 @@ function Signup({
         </form>
       </div>
     </SignupStyled>
-  )
+  );
 }
 
 // export default Signup;
 
-const mapStateToProps = (store) => {
+const mapStateToProps = store => {
   return {
     loading: store.auth.loading,
     token: store.auth.token,
     error: store.auth.error,
     errResponse: store.auth.errResponse,
-  }
-}
+  };
+};
 
 const mapDispatchToProps = {
   register: signup,
-}
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Signup)
+export default connect(mapStateToProps, mapDispatchToProps)(Signup);
