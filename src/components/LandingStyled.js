@@ -1,32 +1,17 @@
-import styled from "styled-components"
+import styled from 'styled-components';
 
 export const LandingStyled = styled.div`
   .btn-primary {
-    background-color: ${(props) => props.theme.primaryColor};
+    background-color: ${props => props.theme.primaryColor};
   }
   .btn-outline-primary {
-    border-color: ${(props) => props.theme.primaryColor};
+    border-color: ${props => props.theme.primaryColor};
   }
 
   .wrapper {
     background: #fff;
   }
 
-  nav {
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem 4rem;
-    align-items: center;
-    background: #fff;
-  }
-  nav ul {
-    display: flex;
-    align-items: center;
-  }
-  nav ul li {
-    list-style: none;
-    margin: 0 10px;
-  }
   .header-about {
     display: grid;
     grid-template-columns: 1fr 1.5fr;
@@ -103,10 +88,7 @@ export const LandingStyled = styled.div`
   ul {
     list-style-type: none;
   }
-  header {
-    display: flex;
-    padding-top: 2.6rem;
-  }
+
   a {
     text-decoration: none;
   }
@@ -204,19 +186,19 @@ export const LandingStyled = styled.div`
     width: 3rem;
     height: 3rem;
     border-radius: 3rem;
-    background: url("./assets/svgs/Ellipse.svg");
+    background: url('./assets/svgs/Ellipse.svg');
   }
   .section-five .testimonies .testimony-2 .student-image {
     width: 3rem;
     height: 3rem;
     border-radius: 3rem;
-    background: url("./assets/svgs/Ellipse-1.svg");
+    background: url('./assets/svgs/Ellipse-1.svg');
   }
   .section-five .testimonies .testimony-3 .student-image {
     width: 3rem;
     height: 3rem;
     border-radius: 3rem;
-    background: url("./assets/svgs/Ellipse-2.svg");
+    background: url('./assets/svgs/Ellipse-2.svg');
   }
   .section-five .testimonies .testimony > div {
     display: flex;
@@ -353,4 +335,4 @@ export const LandingStyled = styled.div`
       width: 10rem;
     }
   }
-`
+`;

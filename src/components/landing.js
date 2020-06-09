@@ -1,44 +1,25 @@
-import React from "react"
-import { LandingStyled } from "./LandingStyled"
-import building_blocks from "./assets/image/building_blocks.png"
-import real_time_collaboration from "./assets/image/real_time_collaboration.png"
-import assigned_mentor from "./assets/image/assigned_mentor.png"
-import dev_productivity from "./assets/image/dev_productivity.png"
-import porfolio_wireframe from "./assets/image/porfolio_wireframe.png"
-import goal_target from "./assets/image/goal_target.png"
-import { ReactComponent as CommunitySVG } from "./assets/svgs/community.svg"
-import { ReactComponent as SharingArticlesSVG } from "./assets/svgs/sharing_articles.svg"
-import { ReactComponent as ProjectCompletedSVG } from "./assets/svgs/project_completed.svg"
-import { ReactComponent as StatusUpdateSVG } from "./assets/svgs/status_update.svg"
-import { ReactComponent as QuizSVG } from "./assets/svgs/quiz.svg"
-import { ReactComponent as AboutSVG } from "./assets/svgs/about_me.svg"
-import { Link } from "react-router-dom"
+import React from 'react';
+import { LandingStyled } from './LandingStyled';
+import building_blocks from './assets/image/building_blocks.png';
+import real_time_collaboration from './assets/image/real_time_collaboration.png';
+import assigned_mentor from './assets/image/assigned_mentor.png';
+import dev_productivity from './assets/image/dev_productivity.png';
+import porfolio_wireframe from './assets/image/porfolio_wireframe.png';
+import goal_target from './assets/image/goal_target.png';
+import { ReactComponent as CommunitySVG } from './assets/svgs/community.svg';
+import { ReactComponent as SharingArticlesSVG } from './assets/svgs/sharing_articles.svg';
+import { ReactComponent as ProjectCompletedSVG } from './assets/svgs/project_completed.svg';
+import { ReactComponent as StatusUpdateSVG } from './assets/svgs/status_update.svg';
+import { ReactComponent as QuizSVG } from './assets/svgs/quiz.svg';
+import { ReactComponent as AboutSVG } from './assets/svgs/about_me.svg';
+import { Link } from 'react-router-dom';
+import Navbar from './Navbar';
 
 function Landing() {
   return (
     <LandingStyled>
       <div className="wrapper">
-        <nav className="">
-          <header>
-            <p>CodeClan</p>
-          </header>
-          <ul>
-            <li>
-              <i className="fas fa-search"></i>
-            </li>
-            <li>
-              <Link className="btn btn-outline-primary" to="/login/">
-                Login
-              </Link>
-            </li>
-            <li>
-              <Link className="btn btn-primary" to="/register/">
-                Sign up
-              </Link>
-            </li>
-          </ul>
-        </nav>
-
+        <Navbar />
         <section className="header__section container">
           <div className="header-about p-4">
             <div className="header__about__text">
@@ -332,7 +313,7 @@ function Landing() {
         </footer>
       </div>
     </LandingStyled>
-  )
+  );
 }
 
-export default Landing
+export default Landing;
