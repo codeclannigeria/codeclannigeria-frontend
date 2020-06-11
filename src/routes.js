@@ -6,6 +6,7 @@ import Landing from './components/landing';
 import LoginForm from './components/auth/Login';
 import SignupForm from './components/auth/Form';
 import EmailConfirmationSent from './components/auth/EmailConfirmationSent';
+import ForgotPassword from './components/auth/ForgotPassword';
 
 const BaseRouter = () => (
   <Switch>
@@ -18,6 +19,7 @@ const BaseRouter = () => (
       path="/email-verification-sent/"
       component={EmailConfirmationSent}
     />
+    <Route exact path = "/forgotpass" component={ForgotPassword} />
 
     <Route path="/dashboard/" component={Dashboard} />
   </Switch>
