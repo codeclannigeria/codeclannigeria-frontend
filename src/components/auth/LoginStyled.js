@@ -1,56 +1,70 @@
-import styled from "styled-components"
+import styled from 'styled-components';
 
 const LoginStyled = styled.div`
-  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
-
-  * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  .login-container {
+    display: flex;
+    min-height: 100vh;
   }
 
-  body {
-    margin: 50px auto;
-    background-color: rgba(241, 241, 241, 0.9);
-    font-family: "Poppins", sans-serif;
-    font-weight: 700;
-  }
-
-  h1 {
-    text-align: center;
-    color: #1f59bb;
-    padding-top: 20px;
-  }
-
-  .wrapper {
-    width: 550px;
+  .info-wrap {
+    background: ${props => props.theme.primaryColor};
+    width: 50%;
     display: block;
-    background-color: #fff;
-    position: absolute;
-    left: 35%;
-    top: 17%;
-    margin-left: -55px;
-    box-sizing: border-box;
-    border-radius: 5px;
-    margin-bottom: 60px;
+  }
+
+  .logo {
+    padding: 25px 60px;
+    margin-top: 7px;
+    height: 100px;
+  }
+
+  .info-wrap h1 {
+    color: #fff;
+    padding-left: 60px;
+    font-size: 40px;
+  }
+
+  h5 {
+    color: #fff;
+    font-weight: 300;
+    padding: 10px 60px;
+  }
+
+  .info-img {
+    height: 400px;
+    width: 280px;
+    margin: 0 auto;
+  }
+
+  .info-img img {
+    height: auto;
+    max-width: 100%;
+    padding-top: 30px;
+  }
+
+  .signin-wrap {
+    margin: 8rem auto;
+    width: 50%;
+    padding: 0 30px;
   }
 
   label {
-    color: #1f59bb;
+    color: ${props => props.theme.primaryColor};
+    font-size: 14px;
+    font-weight: 700;
   }
 
   form {
-    max-width: 100%;
     padding: 40px;
   }
 
   form input {
     width: 100%;
-    padding: 13px 50px;
+    padding: 10px 10px;
+    font-size: 14px;
     border-radius: 5px;
-    border: 1px solid #1f59bb;
+    border: 1px solid ${props => props.theme.primaryColor};
     margin-bottom: 20px;
-    margin-top: 1%;
     background: rgba(31, 89, 187, 0.05);
   }
 
@@ -65,22 +79,24 @@ const LoginStyled = styled.div`
 
   .form-con input {
     width: 5%;
-    float: left;
-    margin-top: 1.5%;
+    margin-top: 1.2%;
   }
 
   .form-con a {
     float: right;
     text-decoration: none;
-    color: #1f59bb;
+    color: ${props => props.theme.primaryColor};
+    font-size: 14px;
+    padding-right: 10px;
   }
 
   .form-text {
     text-align: center;
     margin-top: -30px;
     padding-bottom: 40px;
+    font-size: 14px;
     font-weight: 400;
-    color: #1f59bb;
+    color: ${props => props.theme.primaryColor};
   }
 
   .form-text a {
@@ -89,21 +105,51 @@ const LoginStyled = styled.div`
   }
 
   .btn {
-    background: #1f59bb;
+    background: ${props => props.theme.primaryColor};
     color: #fff;
   }
 
-  @media screen and (max-width: 851px) {
-    .wrapper {
-      width: 340px;
-      position: absolute;
-      left: 19%;
+  .form-header h1,
+  p {
+    color: ${props => props.theme.primaryColor};
+    padding-left: 2rem;
+  }
+
+  @media (max-width: 874px) {
+    .info-wrap {
+      display: none;
+    }
+    .signin-wrap {
+      margin: 8rem auto;
+      width: 100%;
+      padding: 0 30px;
     }
 
+    .form-con input {
+      margin-top: 2%;
+      margin-right: 3px;
+    }
+  }
+
+  @media (max-width: 400px) {
     .form-con a {
       float: left;
       text-decoration: none;
+      color: ${props => props.theme.primaryColor};
+      font-size: 14px;
+      padding-top: 6px;
+      padding-right: 10px;
+    }
+
+    .signin-wrap {
+      margin: 6rem auto;
+      width: 100%;
+      padding: 0 30px;
+    }
+    .form-con input {
+      margin-top: 3%;
+      margin-right: 3px;
     }
   }
-`
-export default LoginStyled
+`;
+export default LoginStyled;

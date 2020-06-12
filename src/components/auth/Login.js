@@ -1,109 +1,172 @@
-import React, { useState, useEffect } from "react"
-import { authLogin } from "../../state/auth/authActionCreator"
-import { connect, useDispatch } from "react-redux"
-import { validateEmail } from "./utils"
-import { Link } from "react-router-dom"
-import LoginStyled from "./LoginStyled"
-function LoginForm({ authLogin, loading, error, errResponse, token, history }) {
-  const [values, setValues] = useState({
-    email: "",
-    password: "",
-  })
+import React, { useEffect } from 'react';
+import { authLogin } from '../../state/auth/authActionCreator';
+import { connect, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import LoginStyled from './LoginStyled';
+import AlertComponent from '../common/AuthAlert';
+import { Formik, Field, Form, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
+import codeClanLogoWhite from '../assets/image/codeClanLogoWhite.png';
+import Spinner from 'react-bootstrap/Spinner';
+import loginAmico from '../assets/image/Login-amico.png';
 
-  const dispatch = useDispatch()
-  const [emailError, setEmailError] = useState(false)
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    authLogin(values)
-  }
+function LoginForm({ authLogin, loading, error, errResponse, token, history }) {
+  // const [values, setValues] = useState({
+  //   email: '',
+  //   password: '',
+  // });
+
+  const dispatch = useDispatch();
+  // const [emailError, setEmailError] = useState(false);
+  // const handleSubmit = e => {
+  //   e.preventDefault();
+  //   authLogin(values);
+  // };
 
   useEffect(() => {
     if (token) {
-      history.push("/dashboard")
+      history.push('/dashboard');
     }
 
     return () => {
-      dispatch({ type: "AUTH_RESET" })
-    }
-  }, [token, history, dispatch])
+      dispatch({ type: 'AUTH_RESET' });
+    };
+  }, [token, history, dispatch]);
 
-  const handleChange = (e) => {
-    if (e.target.name === "email") {
-      setEmailError(!validateEmail(e.target.value))
-    }
+  // const handleChange = e => {
+  //   if (e.target.name === 'email') {
+  //     setEmailError(!validateEmail(e.target.value));
+  //   }
 
-    setValues({
-      ...values,
-      [e.target.name]: e.target.value,
-    })
-  }
+  //   setValues({
+  //     ...values,
+  //     [e.target.name]: e.target.value,
+  //   });
+  // };
+
+  const errorClassNames = 'border input border-danger';
+  const validClassNames = 'border input border-green';
 
   return (
-    <LoginStyled>
-      <div className="wrapper">
-        <h1>Sign In</h1>
-        {error ? <div className="error"> {errResponse}</div> : null}
+    <Formik
+      initialValues={{ email: '', password: '' }}
+      validationSchema={Yup.object({
+        email: Yup.string()
+          .email('Invalid email address')
+          .required('Enter your email address'),
+        password: Yup.string().required('Enter your password'),
+      })}
+      onSubmit={(values, { setSubmitting }) => {
+        // setSubmitting(true);
+        authLogin(values);
+        // setSubmitting(false);
+      }}
+    >
+      {({ errors, touched, isSubmitting }) => (
+        <LoginStyled>
+          <div className="login-container">
+            <div class="info-wrap">
+              <img src={codeClanLogoWhite} alt="" class="logo" />
+              <h1>
+                Welcome to CodeClan <br />
+                Nigeria
+              </h1>
+              <h5>Login to access your account</h5>
+              <div class="info-img">
+                <img src={loginAmico} alt="Login Animation" />
+              </div>
+            </div>
+            <div class="signin-wrap">
+              <div className="form-header">
+                <h1>Welcome back,</h1>
+                <p>Please login in to continue</p>
+              </div>
+              <Form>
+                <AlertComponent variant="danger" text={errResponse} />
 
-        <form onSubmit={handleSubmit}>
-          <label>Email address</label>
-          <br />
-          <input
-            type="text"
-            name="email"
-            onChange={handleChange}
-            value={values.email}
-            required
-            className={emailError ? "box-error" : "dd"}
-          />
-          <br />
-          <label>password</label>
-          <br />
-          <input
-            type="password"
-            name="password"
-            value={values.password}
-            onChange={handleChange}
-            required
-          />
-          <br />
-          <div className="form-con">
-            <label>
-              <input type="checkbox" name="checked" />
-              Remember me
-            </label>
-            <a href="forgetPassword.html">forgot password ?</a>
-            <br />
+                <label htmlFor="email">Email address</label>
+                <br />
+                <Field
+                  name="email"
+                  className={
+                    touched.email && errors.email
+                      ? errorClassNames
+                      : validClassNames
+                  }
+                  type="email"
+                />
+                <div className="d-block text-monospace text-danger small-text">
+                  <ErrorMessage name="email" className="d-block" />
+                </div>
+
+                <br />
+                <label htmlFor="password">Password</label>
+                <br />
+                <Field
+                  name="password"
+                  className={
+                    touched.password && errors.password
+                      ? errorClassNames
+                      : validClassNames
+                  }
+                  type="password"
+                />
+                <div className="d-block text-monospace text-danger small-text">
+                  <ErrorMessage name="password" className="d-block" />
+                </div>
+                <br />
+                <div className="form-con">
+                  <div className="checkbox-container">
+                    <input
+                      type="checkbox"
+                      className="regular-checkbox"
+                      name="checked"
+                    />
+                    <span> Remember me </span>
+                  </div>
+                  <a href="forgetPassword.html">forgot password ?</a>
+                  <br />
+                </div>
+                <button
+                  disabled={loading}
+                  className={loading ? 'btn btn-light w-100' : 'btn w-100'}
+                >
+                  {!loading ? (
+                    'Sign In'
+                  ) : (
+                    <span>
+                      <Spinner animation="border" variant="primary" /> Signing
+                      in....
+                    </span>
+                  )}
+                </button>
+              </Form>
+              <div className="form-text">
+                <p>
+                  Don't have an account? <Link to="/register">Sign up</Link>
+                </p>
+              </div>
+            </div>
           </div>
-          <input
-            type="submit"
-            disabled={emailError}
-            value={!loading ? "Sign in" : "Loading..."}
-            className="btn"
-          />
-        </form>
-        <div className="form-text">
-          <p>
-            Don't have an account? <Link to="/register">Sign up</Link>
-          </p>
-        </div>
-      </div>
-    </LoginStyled>
-  )
+        </LoginStyled>
+      )}
+    </Formik>
+  );
 }
 
 // export default Signup;
 
-const mapStateToProps = (store) => {
+const mapStateToProps = store => {
   return {
     loading: store.auth.loading,
     token: store.auth.token,
     error: store.auth.error,
     errResponse: store.auth.errResponse,
-  }
-}
+  };
+};
 
 const mapDispatchToProps = {
   authLogin,
-}
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginForm)
+export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);

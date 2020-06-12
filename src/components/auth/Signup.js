@@ -67,12 +67,12 @@ function Signup({ register, loading, error, errResponse, token, history }) {
         password: Yup.string().required('Enter a password of your choice'),
       })}
       onSubmit={(values, { setSubmitting }) => {
+        setSubmitting(true);
         register(values);
       }}
     >
-      {({ errors, touched }) => (
+      {({ errors, touched, isSubmitting }) => (
         <SignupStyled>
-          {/* {errors.firstName ? <div>{errors.firstName}</div> : null} */}
           <div id="wrapper">
             <div id="signUpInfo">
               <img
@@ -159,7 +159,7 @@ function Signup({ register, loading, error, errResponse, token, history }) {
                   privacy policy
                 </p>
                 <button
-                  disabled={emailError}
+                  disabled={isSubmitting}
                   className={loading ? 'btn btn-light w-100' : 'submit'}
                 >
                   {!loading ? (

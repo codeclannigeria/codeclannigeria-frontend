@@ -6,7 +6,7 @@ const SignupStyled = styled.div`
   }
   /**Reusables*/
   .blue {
-    color: #1f59bb;
+    color: ${props => props.theme.primaryColor};
     text-transform: capitalize;
     font-weight: 400;
   }
@@ -24,7 +24,7 @@ const SignupStyled = styled.div`
   }
   /**SignUpInfo Styles*/
   #signUpInfo {
-    background-color: #1f59bb;
+    background-color: ${props => props.theme.primaryColor};
     color: #ffffff;
     padding: 2rem;
     width: 100%;
@@ -80,14 +80,14 @@ const SignupStyled = styled.div`
     margin-left: 1rem;
   }
   label {
-    color: #1f59bb;
+    color: ${props => props.theme.primaryColor};
     font-size: 14px;
     margin-bottom: 0.5rem;
     margin-top: 0.5rem;
     line-height: 21px;
   }
   .input {
-    border: 0.25px solid #1f59bb;
+    border: 0.25px solid ${props => props.theme.primaryColor};
     background: rgba(31, 89, 187, 0.05);
     border-radius: 5px;
     height: 2.3rem;
@@ -110,7 +110,7 @@ const SignupStyled = styled.div`
     text-align: center;
     color: #fff;
     width: 100%;
-    background-color: #1f59bb;
+    background-color: ${props => props.theme.primaryColor};
     border: transparent;
     padding: 0.5rem 0;
     border-radius: 5px;
@@ -155,7 +155,7 @@ const SignupStyled = styled.div`
     h1.show {
       display: block;
       font-size: 35px;
-      color: #1f59bb;
+      color: ${props => props.theme.primaryColor};
       text-transform: capitalize;
       font-weight: 600;
     }
@@ -167,7 +167,7 @@ const SignupStyled = styled.div`
     h2.display {
       margin-top: 0.5rem;
       display: block;
-      color: #1f59bb;
+      color: ${props => props.theme.primaryColor};
       font-size: 20px;
       font-weight: 400;
       opacity: 1;
