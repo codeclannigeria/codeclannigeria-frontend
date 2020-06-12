@@ -53,22 +53,37 @@ function Signup({ register, loading, error, errResponse, token, history }) {
 
   return (
     <Formik
-      initialValues={{ firstName: '', lastName: '', email: '', password: '' }}
+      initialValues={{ fullName: '', email: '', password1: '', password2: '' }}
       validationSchema={Yup.object({
-        firstName: Yup.string()
-          .max(15, 'Must be 15 characters or less')
-          .required('Enter your first name'),
-        lastName: Yup.string()
-          .max(20, 'Must be 20 characters or less')
-          .required('Enter your last name'),
+        fullName: Yup.string()
+          .min(3, 'Too short')
+          .max(64, 'Must be 64 characters or less')
+
+          .matches(
+            /*eslint no-useless-escape: "error"*/
+            '/^[a-zA-Z].*[s.]*$/g;',
+            'Enter your Enter your full name i.e John Doe'
+          )
+          .required('Enter your full name i.e John Doe'),
         email: Yup.string()
           .email('Invalid email address')
           .required('Enter your email address'),
-        password: Yup.string().required('Enter a password of your choice'),
+        password1: Yup.string().required('Enter a password of your choice'),
+        password2: Yup.string()
+          .required('Confirm the password entered above')
+          .oneOf([Yup.ref('password1'), null], 'Passwords must match'),
       })}
       onSubmit={(values, { setSubmitting }) => {
         setSubmitting(true);
-        register(values);
+        const tempValues = { ...values };
+        const nameArray = tempValues.fullName.split(' ');
+        tempValues.firstName = nameArray[0];
+        tempValues.lastName = nameArray[1];
+        tempValues.password = tempValues.password1;
+        delete tempValues.fullName;
+        delete tempValues.password1;
+        delete tempValues.password2;
+        register(tempValues);
       }}
     >
       {({ errors, touched, isSubmitting }) => (
@@ -110,10 +125,7 @@ function Signup({ register, loading, error, errResponse, token, history }) {
                     type="text"
                   />
                   <div className="d-block text-monospace text-danger small-text">
-                    <ErrorMessage
-                      name="firstfullNameName"
-                      className="d-block"
-                    />
+                    <ErrorMessage name="fullName" className="d-block" />
                   </div>
                 </div>
 
