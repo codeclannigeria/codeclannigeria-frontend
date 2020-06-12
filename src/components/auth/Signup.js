@@ -50,6 +50,7 @@ function Signup({ register, loading, error, errResponse, token, history }) {
 
   const errorClassNames = 'border input border-danger';
   const validClassNames = 'border input border-green';
+  const regex = /^[a-z]([-']?[a-z]+)*( [a-z]([-']?[a-z]+)*)+$/i;
 
   return (
     <Formik
@@ -59,11 +60,7 @@ function Signup({ register, loading, error, errResponse, token, history }) {
           .min(3, 'Too short')
           .max(64, 'Must be 64 characters or less')
 
-          .matches(
-            /*eslint no-useless-escape: "error"*/
-            '/^[a-zA-Z].*[s.]*$/g;',
-            'Enter your Enter your full name i.e John Doe'
-          )
+          .matches(regex, 'Enter your full name i.e John Doe')
           .required('Enter your full name i.e John Doe'),
         email: Yup.string()
           .email('Invalid email address')
@@ -176,8 +173,9 @@ function Signup({ register, loading, error, errResponse, token, history }) {
                   privacy policy
                 </p>
                 <button
-                  disabled={isSubmitting}
+                  disabled={loading}
                   className={loading ? 'btn btn-light w-100' : 'submit'}
+                  type="submit"
                 >
                   {!loading ? (
                     'get started'
