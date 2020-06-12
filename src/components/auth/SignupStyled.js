@@ -132,6 +132,11 @@ const SignupStyled = styled.div`
     color: darkblue;
     font-weight: 500;
   }
+  .form-header {
+    color: ${props => props.theme.primaryColor};
+    /* padding-left: 9rem; */
+  }
+
   /**Responsiveness**/
 
   @media only screen and (max-width: 850px) {

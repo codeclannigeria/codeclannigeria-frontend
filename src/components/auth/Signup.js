@@ -89,43 +89,34 @@ function Signup({ register, loading, error, errResponse, token, history }) {
               />
             </div>
             <div id="signUpDiv">
-              <h1 class="none show">register</h1>
-              <h2 class="none display">Create a Code Clan account</h2>
               <Form id="signUpForm">
+                <div className="form-header">
+                  <h1 class="show">Create Account</h1>
+                  <p class=" display">
+                    Start your journey to becoming a world class developer
+                  </p>
+                </div>
                 <AlertComponent variant="danger" text={errResponse} />
-                <div className="nameInputGroup form-row">
-                  <div className="col">
-                    <label htmlFor="firstName">First Name</label>
-                    <Field
-                      name="firstName"
-                      id="firstName"
-                      className={
-                        touched.firstName && errors.firstName
-                          ? errorClassNames
-                          : validClassNames
-                      }
-                      type="text"
+                <div className="nameInputGroup">
+                  <label htmlFor="fullName">Full Name</label>
+                  <Field
+                    name="fullName"
+                    id="fullName"
+                    className={
+                      touched.fullName && errors.fullName
+                        ? errorClassNames
+                        : validClassNames
+                    }
+                    type="text"
+                  />
+                  <div className="d-block text-monospace text-danger small-text">
+                    <ErrorMessage
+                      name="firstfullNameName"
+                      className="d-block"
                     />
-                    <div className="d-block text-monospace text-danger small-text">
-                      <ErrorMessage name="firstName" className="d-block" />
-                    </div>
-                  </div>
-                  <div className="col">
-                    <label htmlFor="lastName">Last Name</label>
-                    <Field
-                      name="lastName"
-                      className={
-                        touched.lastName && errors.lastName
-                          ? errorClassNames
-                          : validClassNames
-                      }
-                      type="text"
-                    />
-                    <div className="d-block text-monospace text-danger small-text">
-                      <ErrorMessage name="lastName" className="d-block" />
-                    </div>
                   </div>
                 </div>
+
                 <label htmlFor="email">Email Address</label>
                 <Field
                   name="email"
@@ -140,18 +131,32 @@ function Signup({ register, loading, error, errResponse, token, history }) {
                   <ErrorMessage name="email" className="d-block" />
                 </div>
 
-                <label htmlFor="password">Password</label>
+                <label htmlFor="password1">Password</label>
                 <Field
-                  name="password"
+                  name="password1"
                   className={
-                    touched.password && errors.password
+                    touched.password1 && errors.password1
                       ? errorClassNames
                       : validClassNames
                   }
                   type="password"
                 />
                 <div className="d-block text-monospace text-danger small-text">
-                  <ErrorMessage name="password" className="d-block" />
+                  <ErrorMessage name="password1" className="d-block" />
+                </div>
+
+                <label htmlFor="password2">Password</label>
+                <Field
+                  name="password2"
+                  className={
+                    touched.password2 && errors.password2
+                      ? errorClassNames
+                      : validClassNames
+                  }
+                  type="password"
+                />
+                <div className="d-block text-monospace text-danger small-text">
+                  <ErrorMessage name="password2" className="d-block" />
                 </div>
 
                 <p className="info blue privacy">
