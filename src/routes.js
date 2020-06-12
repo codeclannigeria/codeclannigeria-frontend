@@ -11,16 +11,11 @@ import ForgotPassword from './components/auth/ForgotPassword';
 const BaseRouter = () => (
   <Switch>
     <Route exact path="/" component={Landing} />
-    <Route exact path="/register/" component={Signup} />
-    <Route exact path="/login/" component={LoginForm} />
-    <Route exact path="/form/" component={SignupForm} />
-    <Route
-      exact
-      path="/email-verification-sent/"
-      component={EmailConfirmationSent}
-    />
-    <Route exact path = "/forgotpass" component={ForgotPassword} />
-
+    <Route path="/register/" component={Signup} />
+    <Route path="/login/" component={LoginForm} />
+    <Route path="/form/" component={SignupForm} />
+    <Route path="/email-verification-sent/" component={EmailConfirmationSent} />
+    <Route path="/forgotpass" component={ForgotPassword} />
     <Route path="/dashboard/" component={Dashboard} />
   </Switch>
 );

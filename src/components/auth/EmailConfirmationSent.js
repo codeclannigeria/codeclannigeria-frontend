@@ -1,5 +1,5 @@
 import React from 'react';
-import { ReactComponent as EmailSent } from '../assets/svgs/mail_sent.svg';
+
 import { ReactComponent as EmailArrived } from '../assets/svgs/email_arrived.svg';
 import ConfirmedStyled from './EmailConfirmationSentStyled';
 import { Link } from 'react-router-dom';
