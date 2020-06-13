@@ -24,12 +24,16 @@ function Signup({ register, loading, error, errResponse, token, history }) {
   const [emailError, setEmailError] = useState(false);
 
   useEffect(() => {
+    dispatch({ type: 'AUTH_RESET' });
+  }, [dispatch]);
+
+  useEffect(() => {
     if (token) {
       history.push('/email-verification-sent/');
     }
-    return () => {
-      dispatch({ type: 'AUTH_RESET' });
-    };
+    // return () => {
+    //   dispatch({ type: 'AUTH_RESET' });
+    // };
   }, [token, history, dispatch]);
 
   // const handleChange = e => {
