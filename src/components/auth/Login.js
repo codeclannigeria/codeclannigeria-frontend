@@ -24,13 +24,17 @@ function LoginForm({ authLogin, loading, error, errResponse, token, history }) {
   // };
 
   useEffect(() => {
+    dispatch({ type: 'AUTH_RESET' });
+  }, [dispatch]);
+
+  useEffect(() => {
     if (token) {
       history.push('/dashboard');
     }
 
-    return () => {
-      dispatch({ type: 'AUTH_RESET' });
-    };
+    // return () => {
+    //   dispatch({ type: 'AUTH_RESET' });
+    // };
   }, [token, history, dispatch]);
 
   // const handleChange = e => {
