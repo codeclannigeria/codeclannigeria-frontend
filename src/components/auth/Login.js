@@ -13,18 +13,17 @@ import loginAmico from '../assets/image/Login-amico.png';
 function LoginForm({ authLogin, loading, error, errResponse, token, history }) {
   const dispatch = useDispatch();
 
-  // const resetAuthState = useCallback(() => {
-  //   // dispatch({ type: 'AUTH_RESET' });
-  //   if (token) {
-  //     history.push('/dashboard');
-  //   }
-  // }, [dispatch, token, history]);
-
-  // useEffect(() => {
-  //   resetAuthState();
-  // }, [token]);
+  const resetAuthState = useCallback(() => {
+    dispatch({ type: 'AUTH_RESET' });
+  }, [dispatch]);
 
   useEffect(() => {
+    resetAuthState();
+  }, []);
+
+  useEffect(() => {
+    console.log(token);
+
     if (token) {
       history.push('/dashboard');
     }
