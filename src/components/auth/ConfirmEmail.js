@@ -15,12 +15,8 @@ function ConfirmEmail(props) {
 
   useEffect(() => {
     setLoading(true);
-    console.log(props.location);
     const UrlQueryStrings = props.location.search;
     const queryValues = queryString.parse(UrlQueryStrings);
-
-    console.log(); // Gives "top"
-    console.log(queryValues.email); // Gives "im"
 
     const token = queryValues.token || undefined;
     const email = queryValues.email || undefined;

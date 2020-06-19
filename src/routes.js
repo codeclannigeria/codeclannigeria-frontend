@@ -8,6 +8,7 @@ import SignupForm from './components/auth/Form';
 import EmailConfirmationSent from './components/auth/EmailConfirmationSent';
 import ForgotPassword from './components/auth/ForgotPassword';
 import ConfirmEmail from './components/auth/ConfirmEmail';
+import { PrivateRoute } from './components/containers/PrivateRoute';
 
 const BaseRouter = () => (
   <Switch>
@@ -17,9 +18,8 @@ const BaseRouter = () => (
     <Route path="/form/" component={SignupForm} />
     <Route path="/email-verification-sent/" component={EmailConfirmationSent} />
     <Route path="/confirm-email/" component={ConfirmEmail} />
-
     <Route path="/forgotpass" component={ForgotPassword} />
-    <Route path="/dashboard/" component={Dashboard} />
+    <PrivateRoute path="/dashboard/" component={Dashboard} />
   </Switch>
 );
 
