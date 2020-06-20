@@ -35,7 +35,6 @@ function Signup({ register, loading, errResponse, token, history }) {
         fullName: Yup.string()
           .min(3, 'Too short')
           .max(64, 'Must be 64 characters or less')
-
           .matches(regex, 'Enter your full name i.e John Doe')
           .required('Enter your full name i.e John Doe'),
         email: Yup.string()

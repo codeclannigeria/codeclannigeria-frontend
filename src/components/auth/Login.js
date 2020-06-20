@@ -14,8 +14,10 @@ function LoginForm({ authLogin, loading, error, errResponse, token, history }) {
   const dispatch = useDispatch();
 
   const resetAuthState = useCallback(() => {
-    dispatch({ type: 'AUTH_RESET' });
-  }, [dispatch]);
+    if (errResponse) {
+      dispatch({ type: 'AUTH_RESET' });
+    }
+  }, [dispatch, errResponse]);
 
   useEffect(() => {
     resetAuthState();

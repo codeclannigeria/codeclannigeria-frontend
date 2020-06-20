@@ -1,9 +1,10 @@
 import * as types from './authActionTypes';
 import axios from 'axios';
+import history from '../../history';
 
 export const apiURL = 'https://codeclannigeria-api.herokuapp.com/auth';
 
-export const signup = async userData => {
+export const signup = userData => {
   return dispatch => {
     dispatch({ type: types.AUTH_START });
     const token_data = {
@@ -28,7 +29,7 @@ export const signup = async userData => {
 
         dispatch({
           type: types.AUTH_FAILURE,
-          payload: err.response.data.message,
+          payload: err.response.data.message || 'An error occured',
         });
       });
   };
@@ -67,6 +68,7 @@ export const authSendEmailConfirmationToken = data => {
     })
     .catch(err => {
       console.log(err);
+      history.push('/');
       throw err;
     });
 };
