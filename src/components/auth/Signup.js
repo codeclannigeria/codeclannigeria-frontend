@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { signup } from '../../state/auth/authActionCreator';
 import { connect, useDispatch } from 'react-redux';
 import SignupStyled from './SignupStyled';
@@ -11,17 +11,8 @@ import codeClanLogoWhite from '../assets/image/codeClanLogoWhite.png';
 import Spinner from 'react-bootstrap/Spinner';
 import loginAmico from '../assets/image/Login-amico.png';
 
-function Signup({ register, loading, error, errResponse, token, history }) {
-  // const [values, setValues] = useState({
-  //   firstName: '',
-  //   lastName: '',
-  //   email: '',
-  //   password: '',
-  // });
+function Signup({ register, loading, errResponse, token, history }) {
   const dispatch = useDispatch();
-
-  // eslint-disable-next-line
-  const [emailError, setEmailError] = useState(false);
 
   useEffect(() => {
     dispatch({ type: 'AUTH_RESET' });
@@ -31,26 +22,7 @@ function Signup({ register, loading, error, errResponse, token, history }) {
     if (token) {
       history.push('/email-verification-sent/');
     }
-    // return () => {
-    //   dispatch({ type: 'AUTH_RESET' });
-    // };
   }, [token, history, dispatch]);
-
-  // const handleChange = e => {
-  //   if (e.target.name === 'email') {
-  //     setEmailError(!validateEmail(e.target.value));
-  //   }
-
-  //   setValues({
-  //     ...values,
-  //     [e.target.name]: e.target.value,
-  //   });
-  // };
-
-  // const handleSubmit = e => {
-  //   e.preventDefault();
-  //   register(values);
-  // };
 
   const errorClassNames = 'border input border-danger';
   const validClassNames = 'border input border-green';
@@ -63,7 +35,6 @@ function Signup({ register, loading, error, errResponse, token, history }) {
         fullName: Yup.string()
           .min(3, 'Too short')
           .max(64, 'Must be 64 characters or less')
-
           .matches(regex, 'Enter your full name i.e John Doe')
           .required('Enter your full name i.e John Doe'),
         email: Yup.string()

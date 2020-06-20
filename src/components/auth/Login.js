@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { authLogin } from '../../state/auth/authActionCreator';
 import { connect, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -11,42 +11,25 @@ import Spinner from 'react-bootstrap/Spinner';
 import loginAmico from '../assets/image/Login-amico.png';
 
 function LoginForm({ authLogin, loading, error, errResponse, token, history }) {
-  // const [values, setValues] = useState({
-  //   email: '',
-  //   password: '',
-  // });
-
   const dispatch = useDispatch();
-  // const [emailError, setEmailError] = useState(false);
-  // const handleSubmit = e => {
-  //   e.preventDefault();
-  //   authLogin(values);
-  // };
+
+  const resetAuthState = useCallback(() => {
+    if (errResponse) {
+      dispatch({ type: 'AUTH_RESET' });
+    }
+  }, [dispatch, errResponse]);
 
   useEffect(() => {
-    dispatch({ type: 'AUTH_RESET' });
-  }, [dispatch]);
+    resetAuthState();
+  }, []);
 
   useEffect(() => {
+    console.log(token);
+
     if (token) {
       history.push('/dashboard');
     }
-
-    // return () => {
-    //   dispatch({ type: 'AUTH_RESET' });
-    // };
   }, [token, history, dispatch]);
-
-  // const handleChange = e => {
-  //   if (e.target.name === 'email') {
-  //     setEmailError(!validateEmail(e.target.value));
-  //   }
-
-  //   setValues({
-  //     ...values,
-  //     [e.target.name]: e.target.value,
-  //   });
-  // };
 
   const errorClassNames = 'border input border-danger';
   const validClassNames = 'border input border-green';

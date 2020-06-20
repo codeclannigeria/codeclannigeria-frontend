@@ -1,5 +1,6 @@
 import * as types from './authActionTypes';
 import axios from 'axios';
+import history from '../../history';
 
 export const apiURL = 'https://codeclannigeria-api.herokuapp.com/auth';
 
@@ -7,16 +8,15 @@ export const signup = userData => {
   return dispatch => {
     dispatch({ type: types.AUTH_START });
     const token_data = {
-      email: 'onasanyatunde67@gmail.com',
-      clientBaseUrl: 'https://codeclannigeria-frontend.now.sh/',
+      email: userData.email,
+      clientBaseUrl: 'https://codeclannigeria-frontend.now.sh/confirm-email',
       tokenParamName: 'token',
       emailParamName: 'email',
     };
     return axios
       .post(`${apiURL}/register`, userData)
       .then(res => {
-        const test = authSendEmailConfirmationToken(token_data);
-        console.log(test);
+        authSendEmailConfirmationToken(token_data);
         const expirationDate = new Date(new Date().getTime() + 3600 * 1000);
         localStorage.setItem('codeclan_token', res.data);
         localStorage.setItem('expirationDate', expirationDate);
@@ -29,7 +29,7 @@ export const signup = userData => {
 
         dispatch({
           type: types.AUTH_FAILURE,
-          payload: err.response.data.message,
+          payload: err.response.data.message || 'An error occured',
         });
       });
   };
@@ -42,7 +42,8 @@ export const authLogin = userData => {
     return axios
       .post(`${apiURL}/login`, userData)
       .then(res => {
-        const token = res.data.key;
+        console.log(res.data);
+        const token = res.data.accessToken;
         const expirationDate = new Date(new Date().getTime() + 3600 * 1000);
         localStorage.setItem('codeclan_token', token);
         localStorage.setItem('expirationDate', expirationDate);
@@ -67,6 +68,7 @@ export const authSendEmailConfirmationToken = data => {
     })
     .catch(err => {
       console.log(err);
+      history.push('/');
       throw err;
     });
 };
