@@ -1,93 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { DashboardStyled } from './dashboardStyled';
+import DashboardSidebar from './common/DashboardSidebar';
+import DashboardHeader from './common/DashboardHeader';
 
 function Dashboard() {
+  const [showSidebar, setshowSidebar] = useState(false);
+  const toggleSidebar = () => {
+    setshowSidebar(!showSidebar);
+  };
   return (
     <DashboardStyled>
       <div class="dashboard-wrap row">
-        <nav class="col-2 sidebar">
-          <ul class="nav flex-column">
-            <li class="nav-item mb-5 mt-3">
-              <a class="active" href="#">
-                <img
-                  class="img-fluid"
-                  src="img/svgs/ccn-logo-white.svg"
-                  alt="code clan logo"
-                />
-              </a>
-            </li>
-            <li class="nav-item mb-5 active-icon">
-              <a class="nav-link" href="#">
-                <img src="img/svgs/home-icon.svg" alt="home-icon" />
-              </a>
-            </li>
-            <li class="nav-item mb-5">
-              <a class="nav-link" href="#">
-                <img src="img/svgs/group-icon.svg" alt="group-icon" />
-              </a>
-            </li>
-            <li class="nav-item mb-5">
-              <a class="nav-link" href="#">
-                <img src="img/svgs/comment-icon.svg" alt="comment-icon" />
-              </a>
-            </li>
-            <li class="nav-item mb-5">
-              <a class="nav-link" href="#">
-                <img src="img/svgs/Vector-2.svg" alt="icon" />
-              </a>
-            </li>
-            <li class="nav-item mb-5">
-              <a class="nav-link" href="#">
-                <img src="img/svgs/Vector-1.svg" alt="icon" />
-              </a>
-            </li>
-            <li class="nav-item mt-5 mb-5">
-              <a class="nav-link" href="#">
-                <img src="img/svgs/settings.svg" alt="settings-icon" />
-              </a>
-            </li>
-          </ul>
-        </nav>
-
+        <DashboardSidebar showSidebar={showSidebar} />
         <div class="dashboard-content col-md-10 container">
-          <div class="top-bar mt-3 mb-4">
-            <nav class="top-nav">
-              <div class="input-group">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Search dashboard"
-                  aria-label="Recipient's username"
-                  aria-describedby="button-addon2"
-                />
-                <div class="input-group-append">
-                  <button
-                    class="btn btn-outline-secondary bg-blue"
-                    type="button"
-                    id="button-addon2"
-                  >
-                    <img src="img/search.png" alt="" />
-                  </button>
-                </div>
-              </div>
-
-              <div class="user__details">
-                <div class="">
-                  <img src="img/notification.png" alt="notification-icon" />
-                </div>
-
-                <div class="display-profile">
-                  <div class="display-picture"></div>
-                  <p class="mt-2 ml-4">John Doe</p>
-                </div>
-
-                <div class="hamburger-menu">
-                  <i class="fas fa-bars fa-2x text-blue"></i>
-                </div>
-              </div>
-            </nav>
-          </div>
-
+          <DashboardHeader toggleSidebar={toggleSidebar} />
           <div class="main-top">
             <img class="ellipse_top img-fluid" src="img/Ellipse.png" />
 

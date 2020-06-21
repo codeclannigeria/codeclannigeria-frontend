@@ -26,10 +26,11 @@ export const signup = userData => {
       })
       .catch(err => {
         console.log(err, err.response);
+        const error_msg = err.response.data.message || 'An error occured';
 
         dispatch({
           type: types.AUTH_FAILURE,
-          payload: err.response.data.message || 'An error occured',
+          payload: error_msg,
         });
       });
   };
