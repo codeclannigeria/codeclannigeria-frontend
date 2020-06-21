@@ -3,6 +3,11 @@ import { DashboardStyled } from './dashboardStyled';
 import DashboardSidebar from './common/DashboardSidebar';
 import DashboardHeader from './common/DashboardHeader';
 
+// Images
+import newspaper from './assets/image/dashboard/newspaper.png';
+import resource from './assets/image/dashboard/resources.png';
+import { ReactComponent as Avatar } from './assets/svgs/dashboard/user_avatar.svg';
+
 function Dashboard() {
   const [showSidebar, setshowSidebar] = useState(false);
   const toggleSidebar = () => {
@@ -41,7 +46,7 @@ function Dashboard() {
             <div class="card">
               <div class="card-body mentor-card">
                 <div class=" card-image card-image-1">
-                  <img class="img-fluid" src="img/Group.png" />
+                  <Avatar />
                 </div>
                 <h6 class="card-subtitle">
                   <span>1</span>
@@ -53,7 +58,7 @@ function Dashboard() {
             <div class="card">
               <div class="card-body resource-card">
                 <div class="card-image card-image-2">
-                  <img class="img-fluid" src="img/newspaper.png" />
+                  <img class="img-fluid" alt="Resource" src={resource} />
                 </div>
                 <h6 class="card-subtitle">
                   <span>2</span>
@@ -65,7 +70,7 @@ function Dashboard() {
             <div class="card">
               <div class="card-body task-card">
                 <div class="card-image card-image-3">
-                  <img class="img-fluid" src="img/newspaper2.png" />
+                  <img class="img-fluid" alt="contents" src={newspaper} />
                 </div>
                 <h6 class="card-subtitle">
                   <span>1</span>

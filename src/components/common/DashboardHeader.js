@@ -20,14 +20,15 @@ function DashboardHeader({ toggleSidebar }) {
                 type="button"
                 id="button-addon2"
               >
-                <img src="img/search.png" alt="" />
+                <i class="fas fa-search text-white"></i>
+                {/* <img src="img/search.png" alt="" /> */}
               </button>
             </div>
           </div>
 
           <div class="user__details">
             <div class="">
-              <img src="img/notification.png" alt="notification-icon" />
+              <i class="far fa-bell fa-2x"></i>
             </div>
 
             <div class="display-profile">

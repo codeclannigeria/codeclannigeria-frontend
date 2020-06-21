@@ -23,61 +23,6 @@ export const DashboardStyled = styled.div`
     margin: 0 auto;
   }
 
-  .dashboard-wrap .top-bar {
-    margin: 0 auto;
-    width: 100%;
-  }
-
-  .top-nav {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-  }
-
-  .top-bar nav .input-group .input-group-append > button:hover {
-    background: #1f59bb;
-    opacity: 0.9;
-  }
-
-  .input-group {
-    margin: 0 auto;
-    width: 50%;
-  }
-  .user__details {
-    display: flex;
-    align-items: center;
-    margin-right: 2rem;
-  }
-  .top-bar .display-profile {
-    display: flex;
-  }
-
-  .top-bar .display-picture {
-    border-radius: 200px;
-    width: 50px;
-    height: 50px;
-    background: #fff;
-  }
-
-  .dashboard-content .profile-summary {
-    background-image: url('img/svgs/profile-summary-bg.svg');
-    background-size: 100%;
-    background-repeat: no-repeat;
-    min-height: 20%;
-    background-position: 50% 50%;
-    margin-top: 20px;
-    position: relative;
-  }
-
-  .dashboard-content .profile-summary > p {
-    color: #fff;
-    position: absolute;
-    top: 36px;
-    left: 60px;
-    width: 90%;
-    min-height: 100%;
-  }
-
   .main-top {
     margin-bottom: 2rem;
     padding: 0.75rem;
@@ -89,7 +34,7 @@ export const DashboardStyled = styled.div`
     background-image: url('../img/card_back.png');
     background-size: 100%;
     background-repeat: no-repeat;
-    max-height: 15rem;
+    max-height: 17rem;
     max-width: 1198px;
   }
 
@@ -239,16 +184,7 @@ export const DashboardStyled = styled.div`
     border: 1px solid #1f59bb;
   }
 
-  .hamburger-menu {
-    display: none;
-  }
-
   @media (max-width: 820px) {
-    .sidebar {
-      position: absolute;
-      z-index: 1;
-    }
-
     .cards {
       grid-template-columns: 1fr 1fr;
     }
@@ -274,10 +210,6 @@ export const DashboardStyled = styled.div`
       position: absolute;
       top: 1rem;
       right: 1rem;
-    }
-
-    .user__details {
-      margin-right: 3rem;
     }
 
     .display-profile {
