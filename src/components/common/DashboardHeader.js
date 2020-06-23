@@ -1,7 +1,7 @@
 import React from 'react';
 import DashboardHeaderStyled from './DashboardHeaderStyled';
 
-function DashboardHeader({ toggleSidebar }) {
+function DashboardHeader({ toggleSidebar, showSidebar }) {
   return (
     <DashboardHeaderStyled>
       <div class="top-bar mt-3 mb-4">
@@ -37,7 +37,11 @@ function DashboardHeader({ toggleSidebar }) {
             </div>
 
             <div class="hamburger-menu" onClick={() => toggleSidebar()}>
-              <i class="fas fa-bars fa-2x text-blue"></i>
+              {!showSidebar ? (
+                <i class="fas fa-bars fa-2x text-blue"></i>
+              ) : (
+                <i class="fas fa-times fa-2x text-blue"></i>
+              )}
             </div>
           </div>
         </nav>
