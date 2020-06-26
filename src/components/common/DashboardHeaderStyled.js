@@ -1,6 +1,14 @@
 import styled from 'styled-components';
 
 const DashboardHeaderStyled = styled.div`
+  .bg-blue {
+    background-color: ${props => props.theme.primaryColor};
+  }
+
+  .text-blue {
+    color: ${props => props.theme.primaryColor};
+  }
+
   .top-bar {
     margin: 0 auto;
     width: 100%;

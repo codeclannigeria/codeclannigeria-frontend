@@ -13,16 +13,6 @@ export const DashboardStyled = styled.div`
     padding: 0;
   }
 
-  .dashboard-wrap {
-    display: flex;
-    justify-content: space-between;
-    margin: 0;
-  }
-
-  .dashboard-content {
-    margin: 0 auto;
-  }
-
   .main-top {
     margin-bottom: 2rem;
     padding: 0.75rem;
@@ -177,14 +167,10 @@ export const DashboardStyled = styled.div`
     border-radius: 5px;
   }
 
-  .active-page {
-    font-weight: 600;
-    background: #fff;
-    color: #1f59bb;
-    border: 1px solid #1f59bb;
-  }
-
   @media (max-width: 820px) {
+    .dashboard-wrap {
+      margin: 0;
+    }
     .cards {
       grid-template-columns: 1fr 1fr;
     }

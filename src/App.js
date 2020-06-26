@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Router } from 'react-router-dom';
+import { Router } from 'react-router-dom';
 import BaseRouter from './routes';
 import { ThemeProvider } from 'styled-components';
 import { globalStyles } from './globalStyles';

@@ -14,14 +14,14 @@ function LoginForm({ authLogin, loading, error, errResponse, token, history }) {
   const dispatch = useDispatch();
 
   const resetAuthState = useCallback(() => {
-    if (errResponse) {
-      dispatch({ type: 'AUTH_RESET' });
-    }
-  }, [dispatch, errResponse]);
+    dispatch({ type: 'AUTH_RESET' });
+  }, [dispatch]);
 
   useEffect(() => {
-    resetAuthState();
-  }, []);
+    if (errResponse) {
+      resetAuthState();
+    }
+  }, [errResponse, resetAuthState]);
 
   useEffect(() => {
     console.log(token);
