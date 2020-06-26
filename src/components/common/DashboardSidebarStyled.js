@@ -1,6 +1,13 @@
 import styled from 'styled-components';
 
 const DashboardSidebarStyled = styled.div`
+  .bg-blue {
+    background-color: ${props => props.theme.primaryColor};
+  }
+
+  .text-blue {
+    color: ${props => props.theme.primaryColor};
+  }
   nav {
     background-color: ${props => props.theme.primaryColor};
     text-align: center;
@@ -11,10 +18,6 @@ const DashboardSidebarStyled = styled.div`
   }
   nav div {
     text-align: center;
-  }
-
-  .nav {
-    /* margin-bottom: 11rem; */
   }
 
   .sidebar {

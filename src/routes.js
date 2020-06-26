@@ -9,7 +9,7 @@ import EmailConfirmationSent from './components/auth/EmailConfirmationSent';
 import ForgotPassword from './components/auth/ForgotPassword';
 import ConfirmEmail from './components/auth/ConfirmEmail';
 import decode from 'jwt-decode';
-import pendingTasks from './components/dashboard/pendingTask/pendingTasks';
+import PendingTasks from './components/dashboard/pendingTask/pendingTasks';
 
 const checkAuth = () => {
   const token = localStorage.getItem('codeclan_token');
@@ -52,7 +52,11 @@ const BaseRouter = () => (
     <Route path="/confirm-email/" component={ConfirmEmail} />
     <Route path="/forgotpass" component={ForgotPassword} />
     <PrivateRoute exact path="/dashboard/" component={Dashboard} />
-    <PrivateRoute path="/dashboard/pending-task" component={pendingTasks} />
+    <PrivateRoute
+      path="/dashboard/pending-task"
+      component={PendingTasks}
+      id={'1'}
+    />
   </Switch>
 );
 

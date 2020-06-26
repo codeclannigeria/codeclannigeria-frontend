@@ -1,8 +1,10 @@
 import React from 'react';
-import pendingTaskStyled from './pendingTaskStyled';
+import PendingTaskStyled from './pendingTaskStyled';
 import { Link } from 'react-router-dom';
+import DashboardLayout from '../../common/DashboardLayout';
+import SinglePendingTask from './singlePendingTask';
 
-function pendingTasks() {
+function PendingTasks() {
   const dummyData = [
     { taskName: ' Task 4: Build an API', track: 'Frontend', deadline: '19/03' },
     { taskName: ' Task 4: Build an API', track: 'Frontend', deadline: '19/03' },
@@ -11,7 +13,7 @@ function pendingTasks() {
     { taskName: ' Task 4: Build an API', track: 'Frontend', deadline: '19/03' },
   ];
   return (
-    <pendingTaskStyled>
+    <PendingTaskStyled>
       <div class="pending-tasks-wrap mt-5">
         <div class="header">
           <p class="p-2 pl-5">Pending Tasks</p>
@@ -20,8 +22,8 @@ function pendingTasks() {
         <div class="solid-bar"></div>
 
         <div class="pending-tasks">
-          {dummyData.map((idx, data) => (
-            <singlePendingTask key={idx} data={data} />
+          {dummyData.map((data, idx) => (
+            <SinglePendingTask key={idx} data={data} />
           ))}
         </div>
 
@@ -32,8 +34,8 @@ function pendingTasks() {
           </p>
         </div>
       </div>
-    </pendingTaskStyled>
+    </PendingTaskStyled>
   );
 }
 
-export default pendingTasks;
+export default DashboardLayout(PendingTasks);

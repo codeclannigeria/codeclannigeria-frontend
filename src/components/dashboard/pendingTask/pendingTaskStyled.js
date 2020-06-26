@@ -1,42 +1,21 @@
 import styled from 'styled-components';
 
-const pendingTaskStyled = styled.div`
-  .pending-task {
-    height: 80px;
+const PendingTaskStyled = styled.div`
+  .pending-tasks-wrap {
+    background: #fbfcff;
+    box-shadow: 0px 0px 4px rgba(31, 89, 187, 0.15);
+    border-radius: 10px;
+    margin-bottom: 90px;
   }
 
-  .task-box {
-    padding: 5px 0;
-    height: 80px;
-    width: 90%;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    position: relative;
-    justify-content: space-between;
+  .pending-tasks-wrap .header p {
+    font-weight: 600;
+    font-size: 18px;
   }
 
-  .task-name {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 23px;
-    color: #000000;
-  }
-
-  .task-track {
-    text-align: center;
-    max-width: 80px;
-    background: #ffa8a7;
-    border-radius: 5px;
-    padding: 0 2px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 11px;
-    color: #ffffff;
-  }
-
-  .task-deadline p {
-    line-height: 80px;
+  .pending-tasks-wrap .solid-bar {
+    background: rgba(200, 212, 233, 0.5);
+    height: 30px;
   }
 
   .next-button {
@@ -64,23 +43,6 @@ const pendingTaskStyled = styled.div`
     text-decoration: none;
     color: #ffffff;
   }
-
-  @media (max-width: 600px) {
-    .pending-task {
-      height: 120px;
-    }
-
-    .task-box {
-      padding: 5px 0;
-      height: 120px;
-      display: block;
-    }
-    .task-deadline p {
-      align-self: center;
-      margin-top: 20px;
-      line-height: 0;
-    }
-  }
 `;
 
-export default pendingTaskStyled;
+export default PendingTaskStyled;

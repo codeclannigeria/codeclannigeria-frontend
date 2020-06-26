@@ -1,8 +1,9 @@
 import React from 'react';
+import SinglePendingTaskStyled from './SinglePendingTaskStyled';
 
-function singlePendingTask({ taskName, track, deadline }) {
+function SinglePendingTask({ taskName, track, deadline }) {
   return (
-    <>
+    <SinglePendingTaskStyled>
       <div class="pending-task">
         <div class="task-box">
           <div class="task-details">
@@ -14,8 +15,8 @@ function singlePendingTask({ taskName, track, deadline }) {
           </div>
         </div>
       </div>
-    </>
+    </SinglePendingTaskStyled>
   );
 }
 
-export default singlePendingTask;
+export default SinglePendingTask;
