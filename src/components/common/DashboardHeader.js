@@ -4,6 +4,7 @@ import DashboardHeaderStyled from './DashboardHeaderStyled';
 function DashboardHeader({ toggleSidebar, showSidebar }) {
   return (
     <DashboardHeaderStyled>
+      
       <div class="top-bar mt-3 mb-4">
         <nav class="top-nav">
           <div class="input-group">

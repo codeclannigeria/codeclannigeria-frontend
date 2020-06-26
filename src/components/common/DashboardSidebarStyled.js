@@ -5,11 +5,22 @@ const DashboardSidebarStyled = styled.div`
     background-color: ${props => props.theme.primaryColor};
     text-align: center;
     max-width: 115px;
-    height: 100%;
+    /* height: 100%; */
     padding: 0;
+    height: 150vh;
   }
   nav div {
     text-align: center;
+  }
+
+  .nav {
+    /* margin-bottom: 11rem; */
+  }
+
+  .sidebar {
+    position: absolute;
+    z-index: 1;
+    top: 0;
   }
 
   .active-icon {
@@ -26,8 +37,6 @@ const DashboardSidebarStyled = styled.div`
 
   @media (max-width: 820px) {
     .sidebar {
-      position: absolute;
-      z-index: 1;
       transition: transform 0.3s ease-in-out;
       transform: ${({ showSidebar }) =>
         showSidebar ? 'translateX(0)' : 'translateX(-100%)'};

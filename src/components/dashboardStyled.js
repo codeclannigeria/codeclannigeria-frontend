@@ -16,7 +16,7 @@ export const DashboardStyled = styled.div`
   .dashboard-wrap {
     display: flex;
     justify-content: space-between;
-    margin: 0;
+    margin-left: 5rem;
   }
 
   .dashboard-content {
@@ -185,6 +185,9 @@ export const DashboardStyled = styled.div`
   }
 
   @media (max-width: 820px) {
+    .dashboard-wrap {
+      margin: 0;
+    }
     .cards {
       grid-template-columns: 1fr 1fr;
     }

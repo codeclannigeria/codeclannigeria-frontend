@@ -15,13 +15,13 @@ function Dashboard() {
   };
   return (
     <DashboardStyled>
+      <DashboardSidebar showSidebar={showSidebar} />
+      <DashboardHeader
+        toggleSidebar={toggleSidebar}
+        showSidebar={showSidebar}
+      />
       <div class="dashboard-wrap row">
-        <DashboardSidebar showSidebar={showSidebar} />
         <div class="dashboard-content col-md-10 container">
-          <DashboardHeader
-            toggleSidebar={toggleSidebar}
-            showSidebar={showSidebar}
-          />
           <div class="main-top">
             <img class="ellipse_top img-fluid" src="img/Ellipse.png" />
 
