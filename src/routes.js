@@ -10,6 +10,8 @@ import ForgotPassword from './components/auth/ForgotPassword';
 import ConfirmEmail from './components/auth/ConfirmEmail';
 import decode from 'jwt-decode';
 import PendingTasks from './components/dashboard/pendingTask/pendingTasks';
+import CoursesList from './components/dashboard/courses/CoursesList';
+import TrackList from './components/dashboard/tracks/TrackList';
 
 const checkAuth = () => {
   const token = localStorage.getItem('codeclan_token');
@@ -51,12 +53,10 @@ const BaseRouter = () => (
     <Route path="/email-verification-sent/" component={EmailConfirmationSent} />
     <Route path="/confirm-email/" component={ConfirmEmail} />
     <Route path="/forgotpass" component={ForgotPassword} />
-    <PrivateRoute exact path="/dashboard/" component={Dashboard} />
-    <PrivateRoute
-      path="/dashboard/pending-task"
-      component={PendingTasks}
-      id={'1'}
-    />
+    <Route exact path="/dashboard/" component={Dashboard} />
+    <Route path="/dashboard/pending-task" component={PendingTasks} />
+    <Route exact path="/dashboard/track" component={TrackList} />
+    <Route path="/dashboard/track/:track" component={CoursesList} />
   </Switch>
 );
 
