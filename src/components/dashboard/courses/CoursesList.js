@@ -4,7 +4,7 @@ import TrackCard from '../../common/TrackCard/TrackCard';
 import DashboardLayout from '../../common/DashboardLayout';
 import CoursesListStyled from './CourseListStyled';
 
-function CoursesList() {
+function CoursesList(props) {
   const courses = [
     {
       title: 'JavaScript Fundamentals',
@@ -43,6 +43,10 @@ function CoursesList() {
       image: tempCourseLogo,
     },
   ];
+
+  const { track } = props.match.params;
+  console.log(track);
+
   return (
     <CoursesListStyled>
       <div class="courses mt-5 pb-5">
