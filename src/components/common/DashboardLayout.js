@@ -18,12 +18,13 @@ const DashboardLayout = Component => {
     const tabs = [
       { id: 1, icon: <HomeIcon />, link: '/dashboard' },
       { id: 2, icon: <UserGroup />, link: '#' },
-      { id: 3, icon: <Message />, link: '#' },
+      { id: 3, icon: <Message />, link: '/dashboard/track' },
       { id: 4, icon: <Bookmark />, link: '/dashboard/pending-task' },
       { id: 5, icon: <Avatar />, link: '#' },
       { id: 6, icon: <Settings />, link: '#' },
     ];
     const { url } = props.match;
+
     return (
       <DashboardLayoutStyled>
         <DashboardSidebar tabs={tabs} path={url} showSidebar={showSidebar} />
