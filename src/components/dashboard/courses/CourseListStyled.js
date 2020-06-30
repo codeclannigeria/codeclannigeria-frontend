@@ -7,49 +7,6 @@ const CoursesListStyled = styled.div`
     grid-gap: 4.7rem;
   }
 
-  .courses > .card {
-    border-radius: 6.5px;
-  }
-
-  .courses > .card .card-buttons {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .courses > .card .card-buttons > button {
-    width: 47%;
-  }
-
-  .courses > .card .card-buttons > button {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .courses > .card .card-buttons > .btn-delete {
-    border: 1.4px solid #0050af;
-    color: #0050af;
-  }
-
-  .courses > .card .card-buttons > .btn-delete:hover {
-    background-color: #0050af;
-    color: #fff;
-  }
-
-  .courses > .card .card-buttons > .btn-edit {
-    background-color: #0050af;
-    border: none;
-  }
-
-  .add-new-course {
-    border: 2px dashed #0050af;
-  }
-
-  .add-new-course > div > button {
-    border: none;
-    background: none;
-  }
-
   @media (max-width: 1164px) {
     .courses {
       grid-row-gap: 4.5rem;

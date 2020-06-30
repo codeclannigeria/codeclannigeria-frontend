@@ -3,6 +3,7 @@ import tempCourseLogo from '../../assets/image/dashboard/science_image.png';
 import TrackCard from '../../common/TrackCard/TrackCard';
 import DashboardLayout from '../../common/DashboardLayout';
 import CoursesListStyled from './CourseListStyled';
+import { Link } from 'react-router-dom';
 
 function CoursesList(props, rest) {
   const courses = [
@@ -51,6 +52,9 @@ function CoursesList(props, rest) {
 
   return (
     <CoursesListStyled>
+      <Link to="/dashboard/track" className="btn btn-primary">
+        <i class="fas fa-arrow-left"></i> Back to tracks
+      </Link>
       <div class="courses mt-5 pb-5">
         {courses.map((data, idx) => (
           <TrackCard data={data} key={idx} />

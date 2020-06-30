@@ -8,7 +8,7 @@ const TrackCardStyled = styled.div`
 
   .card-title {
     font-weight: bold;
-    font-size: 21.253px;
+    font-size: 1.2rem;
     line-height: 29px;
     /* identical to box height */
 
