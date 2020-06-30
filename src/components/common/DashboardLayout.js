@@ -15,7 +15,6 @@ const DashboardLayout = Component => {
     const toggleSidebar = () => {
       setshowSidebar(!showSidebar);
     };
-    // const [activeTab, setactiveTab] = useState(1);
     const tabs = [
       { id: 1, icon: <HomeIcon />, link: '/dashboard' },
       { id: 2, icon: <UserGroup />, link: '#' },
