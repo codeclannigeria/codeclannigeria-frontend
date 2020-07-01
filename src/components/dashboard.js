@@ -1,7 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { DashboardStyled } from './dashboardStyled';
-import DashboardSidebar from './common/DashboardSidebar';
-import DashboardHeader from './common/DashboardHeader';
 
 // Images
 import newspaper from './assets/image/dashboard/newspaper.png';

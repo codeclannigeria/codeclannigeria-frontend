@@ -6,6 +6,7 @@ const PendingTaskStyled = styled.div`
     box-shadow: 0px 0px 4px rgba(31, 89, 187, 0.15);
     border-radius: 10px;
     margin-bottom: 90px;
+    clear: both;
   }
 
   .pending-tasks-wrap .header p {
@@ -42,6 +43,18 @@ const PendingTaskStyled = styled.div`
     height: 30px;
     text-decoration: none;
     color: #ffffff;
+  }
+
+  button {
+    float: right;
+    margin-bottom: 1rem;
+    border-color: ${props => props.theme.primaryColor};
+    color: ${props => props.theme.primaryColor};
+    :hover {
+      color: #fff;
+      background-color: ${props => props.theme.primaryColor};
+      border-color: ${props => props.theme.primaryColor};
+    }
   }
 `;
 
