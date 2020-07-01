@@ -17,7 +17,7 @@ const DashboardLayout = Component => {
     };
     const tabs = [
       { id: 1, icon: <HomeIcon />, link: '/dashboard' },
-      { id: 2, icon: <UserGroup />, link: '#' },
+      { id: 2, icon: <UserGroup />, link: '/dashboard/mentor' },
       { id: 3, icon: <Message />, link: '/dashboard/track' },
       { id: 4, icon: <Bookmark />, link: '/dashboard/pending-task' },
       { id: 5, icon: <Avatar />, link: '#' },

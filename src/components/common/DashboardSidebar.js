@@ -5,8 +5,6 @@ import codeClanLogo from '../assets/image/codeClanLogoWhite.png';
 import { Link } from 'react-router-dom';
 
 function DashboardSidebar({ showSidebar, tabs, path }) {
-  console.log(showSidebar);
-
   return (
     <DashboardSidebarStyled showSidebar={showSidebar}>
       <nav className="col-2 sidebar">
@@ -24,7 +22,7 @@ function DashboardSidebar({ showSidebar, tabs, path }) {
                 path === tab.link ? 'active-icon ' : ''
               } `}
             >
-              <Link className="nav-link" to={tab.link}>
+              <Link className="nav-link" to={`${tab.link}`}>
                 {tab.icon}
               </Link>
             </li>

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const MentorDetailsStyled = styled.div`
   .image-container {
-    width: 30%;
+    width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -83,12 +83,6 @@ export const MentorDetailsStyled = styled.div`
     color: #000000;
   }
 
-  /* .nav-item < a {
-    color: #000;
-    font-size: 36px;
-    line-height: 49px;
-  } */
-
   .tab-button {
     width: 25%;
     height: 100%;
@@ -119,16 +113,16 @@ export const MentorDetailsStyled = styled.div`
   .details__container {
     display: grid;
     grid-template-columns: 1fr 2fr;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-gap: 2rem;
   }
-  @media only screen and (max-width: 600px) {
-    * {
-      padding-top: 9px;
-    }
-
+  @media only screen and (max-width: 800px) {
     .details__container {
       grid-template-columns: 1fr;
-      grid-gap: 2rem;
+    }
+
+    .nav-item > a {
+      font-size: 1.5rem;
     }
 
     .image-container {
