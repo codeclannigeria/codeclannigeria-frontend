@@ -12,6 +12,7 @@ import decode from 'jwt-decode';
 import PendingTasks from './components/dashboard/pendingTask/pendingTasks';
 import CoursesList from './components/dashboard/courses/CoursesList';
 import TrackList from './components/dashboard/tracks/TrackList';
+import MentorDetails from './components/dashboard/mentorInfo/mentorDetails';
 
 const checkAuth = () => {
   const token = localStorage.getItem('codeclan_token');
@@ -57,6 +58,7 @@ const BaseRouter = () => (
     <Route path="/dashboard/pending-task" component={PendingTasks} />
     <Route exact path="/dashboard/track" component={TrackList} />
     <Route path="/dashboard/track/:track" component={CoursesList} />
+    <Route path="/dashboard/mentor/" component={MentorDetails} />
   </Switch>
 );
 
