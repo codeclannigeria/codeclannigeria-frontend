@@ -68,6 +68,10 @@ const SubmitTaskStyled = styled.div`
 
     color: #1f59bb;
   }
+
+  .border-green {
+    border: 1px solid #52c41a;
+  }
 `;
 
 export default SubmitTaskStyled;

@@ -19,15 +19,17 @@ function SubmitTask(props) {
     };
     return <SuccessfulSubmission data={data} />;
   }
+  const errorClassNames = 'border input border-danger';
+  const validClassNames = 'border input border-green';
   return (
     <SubmitTaskStyled>
-      <div class="container-fluid mt-5 py-3">
-        <div class="row">
-          <div class="col-md-5 col-sm-12">
-            <div class="card mb-3 tasks" style={{ maxWidth: '23rem' }}>
-              <div class="card-header font-weight-bold">Task {id}</div>
-              <div class="card-body px-5">
-                <p class="card-text">
+      <div className="container-fluid mt-5 py-3">
+        <div className="row">
+          <div className="col-md-5 col-sm-12">
+            <div className="card mb-3 tasks" style={{ maxWidth: '23rem' }}>
+              <div className="card-header font-weight-bold">Task {id}</div>
+              <div className="card-body px-5">
+                <p className="card-text">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Elementum tortor risus, in eu. Quis bibendum libero tellus
                   vestibulum convallis arcu.
@@ -35,10 +37,10 @@ function SubmitTask(props) {
               </div>
             </div>
           </div>
-          <div class="col-md-7 col-sm-12 submitTask">
-            <div class="card">
-              <h5 class="submit-card-header"> Submit Task</h5>
-              <div class="card-body">
+          <div className="col-md-7 col-sm-12 submitTask">
+            <div className="card">
+              <h5 className="submit-card-header"> Submit Task</h5>
+              <div className="card-body">
                 <Formik
                   initialValues={{ url: '', comments: '' }}
                   validationSchema={Yup.object({
@@ -57,13 +59,17 @@ function SubmitTask(props) {
                 >
                   {({ errors, touched, isSubmmiting }) => (
                     <Form>
-                      <div class="form-group mt-5">
+                      <div className="form-group mt-5">
                         <label for="FormControlInput font-weight-bold">
                           Url
                         </label>
                         <Field
                           name="url"
-                          class="urlInput form-control"
+                          className={`urlInput form-control ${
+                            touched.url && errors.url
+                              ? errorClassNames
+                              : validClassNames
+                          }`}
                           id="FormControlInput"
                           placeholder="Provide the link to your task"
                           type="url"
@@ -74,12 +80,16 @@ function SubmitTask(props) {
                       </div>
                       <a href="#">Submission Guidelines</a>
 
-                      <div class="form-group mt-5">
+                      <div className="form-group mt-5">
                         <label for="FormControlTextarea font-weight-bold">
                           Comments
                         </label>
                         <Field
-                          class="form-control "
+                          className={`form-control ${
+                            touched.comments && errors.comments
+                              ? errorClassNames
+                              : validClassNames
+                          } `}
                           id="FormControlTextarea"
                           placeholder="Include any challenges encounter"
                           rows="5"
@@ -90,11 +100,11 @@ function SubmitTask(props) {
                           <ErrorMessage name="comments" className="d-block" />
                         </div>
                       </div>
-                      <p class="text-center">
+                      <p className="text-center">
                         <input
                           value="SUBMIT TASK"
                           type="submit"
-                          class="btn btn-lg btn-primary w-75 text-center mt-5 mb-5"
+                          className="btn btn-lg btn-primary w-75 text-center mt-5 mb-5"
                         />
                       </p>
                     </Form>
