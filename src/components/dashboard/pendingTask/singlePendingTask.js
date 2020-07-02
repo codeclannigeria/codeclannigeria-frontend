@@ -1,17 +1,24 @@
 import React from 'react';
 import SinglePendingTaskStyled from './SinglePendingTaskStyled';
+import { Link } from 'react-router-dom';
 
-function SinglePendingTask({ taskName, track, deadline }) {
+function SinglePendingTask({ data }) {
+  const { taskName, track, deadline, id } = data;
   return (
     <SinglePendingTaskStyled>
-      <div class="pending-task">
-        <div class="task-box">
-          <div class="task-details">
-            <p class="task-name">Task 4 : Build an API</p>
-            <p class="task-track">Frontend</p>
+      <div className="pending-task">
+        <div className="task-box">
+          <div className="task-details">
+            <Link
+              className="task-name"
+              to={`/dashboard/pending-task/submit/${id}`}
+            >
+              {taskName}
+            </Link>
+            <p className="task-track">{track}</p>
           </div>
-          <div class="task-deadline">
-            <p>Deadline 19/03</p>
+          <div className="task-deadline">
+            <p>Deadline {deadline}</p>
           </div>
         </div>
       </div>
