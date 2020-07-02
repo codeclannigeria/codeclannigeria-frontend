@@ -27,11 +27,8 @@ function SubmitTask(props) {
       <div class="container-fluid mt-5 py-3">
         <div class="row">
           <div class="col-md-5 col-sm-12">
-            <div
-              class="card border-light mb-3 tasks"
-              style={{ maxWidth: '23rem', height: 40 }}
-            >
-              <div class="card-header font-weight-bold">Task 3</div>
+            <div class="card mb-3 tasks" style={{ maxWidth: '23rem' }}>
+              <div class="card-header font-weight-bold">Task {id}</div>
               <div class="card-body px-5">
                 <p class="card-text">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -43,14 +40,14 @@ function SubmitTask(props) {
           </div>
           <div class="col-md-7 col-sm-12 submitTask">
             <div class="card">
-              <h5 class="card-header font-weight-bold"> Submit Task - Day 3</h5>
+              <h5 class="submit-card-header"> Submit Task</h5>
               <div class="card-body">
                 <form onSubmit={handleSubmit}>
                   <div class="form-group mt-5">
                     <label for="FormControlInput font-weight-bold">Url</label>
                     <input
                       type="url"
-                      class="form-control"
+                      class="urlInput form-control"
                       id="FormControlInput"
                       placeholder="Provide the link to your task"
                     />
@@ -72,7 +69,7 @@ function SubmitTask(props) {
                     <input
                       value="SUBMIT TASK"
                       type="submit"
-                      class="btn btn-primary w-75 text-center mt-5 mb-5"
+                      class="btn btn-lg btn-primary w-75 text-center mt-5 mb-5"
                     />
                   </p>
                 </form>
