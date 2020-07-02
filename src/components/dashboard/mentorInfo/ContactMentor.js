@@ -20,11 +20,10 @@ function ContactMentor() {
       <form onSubmit={handleSubmit}>
         <textarea onChange={handleChange} name="message"></textarea>
         <div className="text-center d-flex justify-content-center align-items-center">
-          <input
-            className="btn btn-primary send-message-cta"
-            value="Send this message"
-            type="submit"
-          />
+          <button className="btn btn-primary send-message-cta" type="submit">
+            <i class="fas fa-paper-plane" style={{ marginRight: 5 }}></i> Send
+            this message
+          </button>
         </div>
       </form>
     </ContactMentorStyled>

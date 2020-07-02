@@ -8,6 +8,34 @@ import { ReactComponent as Settings } from '../assets/svgs/dashboard/cli_setting
 import { ReactComponent as Bookmark } from '../assets/svgs/dashboard/cli_bookmark.svg';
 import { ReactComponent as Message } from '../assets/svgs/dashboard/cli_message.svg';
 import { ReactComponent as Avatar } from '../assets/svgs/dashboard/cli_avatar.svg';
+import { motion } from 'framer-motion';
+const pageVariants = {
+  initial: {
+    opacity: 0,
+    x: '-100vw',
+    scale: 0.8,
+  },
+  in: {
+    opacity: 1,
+    x: 0,
+    scale: 1,
+  },
+  out: {
+    opacity: 0,
+    x: '100vw',
+    scale: 1.2,
+  },
+};
+
+const pageTransition = {
+  type: 'tween',
+  ease: 'linear',
+  duration: 0.3,
+};
+
+// const pageStyle = {
+//   position: 'absolute',
+// };
 
 const DashboardLayout = Component => {
   return function DashboardPage(props) {
@@ -28,15 +56,24 @@ const DashboardLayout = Component => {
     return (
       <DashboardLayoutStyled>
         <DashboardSidebar tabs={tabs} path={url} showSidebar={showSidebar} />
-        <DashboardHeader
-          toggleSidebar={toggleSidebar}
-          showSidebar={showSidebar}
-        />
-        <div class="dashboard-wrap row">
-          <div class="dashboard-content col-md-10 container">
-            <Component {...props} />
+        <motion.div
+          // style={pageStyle}
+          initial="initial"
+          animate="in"
+          exit="out"
+          variants={pageVariants}
+          transition={pageTransition}
+        >
+          <DashboardHeader
+            toggleSidebar={toggleSidebar}
+            showSidebar={showSidebar}
+          />
+          <div class="dashboard-wrap row">
+            <div class="dashboard-content col-md-10 container">
+              <Component {...props} />
+            </div>
           </div>
-        </div>
+        </motion.div>
       </DashboardLayoutStyled>
     );
   };

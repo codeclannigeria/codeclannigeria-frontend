@@ -1,19 +1,17 @@
 import React from 'react';
-import { Router } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import BaseRouter from './routes';
 import { ThemeProvider } from 'styled-components';
 import { globalStyles } from './globalStyles';
-import history from './history';
 
 function App() {
+  const location = useLocation();
   return (
-    <Router history={history}>
-      <div>
-        <ThemeProvider theme={globalStyles}>
-          <BaseRouter />
-        </ThemeProvider>
-      </div>
-    </Router>
+    <div>
+      <ThemeProvider theme={globalStyles}>
+        <BaseRouter location={location} />
+      </ThemeProvider>
+    </div>
   );
 }
 
