@@ -6,11 +6,36 @@ import SinglePendingTask from './singlePendingTask';
 
 function PendingTasks() {
   const dummyData = [
-    { taskName: ' Task 4: Build an API', track: 'Frontend', deadline: '19/03' },
-    { taskName: ' Task 4: Build an API', track: 'Frontend', deadline: '19/03' },
-    { taskName: ' Task 4: Build an API', track: 'Frontend', deadline: '19/03' },
-    { taskName: ' Task 4: Build an API', track: 'Frontend', deadline: '19/03' },
-    { taskName: ' Task 4: Build an API', track: 'Frontend', deadline: '19/03' },
+    {
+      id: 1,
+      taskName: ' Task 4: Build an API',
+      track: 'Frontend',
+      deadline: '19/03',
+    },
+    {
+      id: 2,
+      taskName: ' Task 4: Build an API',
+      track: 'Frontend',
+      deadline: '19/03',
+    },
+    {
+      id: 3,
+      taskName: ' Task 4: Build an API',
+      track: 'Frontend',
+      deadline: '19/03',
+    },
+    {
+      id: 4,
+      taskName: ' Task 4: Build an API',
+      track: 'Frontend',
+      deadline: '19/03',
+    },
+    {
+      id: 5,
+      taskName: ' Task 4: Build an API',
+      track: 'Frontend',
+      deadline: '19/03',
+    },
   ];
   return (
     <PendingTaskStyled>
