@@ -9,11 +9,12 @@ import EmailConfirmationSent from './components/auth/EmailConfirmationSent';
 import ForgotPassword from './components/auth/ForgotPassword';
 import ConfirmEmail from './components/auth/ConfirmEmail';
 import decode from 'jwt-decode';
-import PendingTasks from './components/dashboard/pendingTask/pendingTasks';
 import CoursesList from './components/dashboard/courses/CoursesList';
 import TrackList from './components/dashboard/tracks/TrackList';
 import MentorDetails from './components/dashboard/mentorInfo/mentorDetails';
 import SubmitTask from './components/dashboard/pendingTask/SubmitTask';
+import PendingTasksPage from './components/dashboard/pendingTask/PendingTasksPage';
+import { AnimatePresence } from 'framer-motion';
 
 const checkAuth = () => {
   const token = localStorage.getItem('codeclan_token');
@@ -46,22 +47,32 @@ export const PrivateRoute = ({ component: Component, ...rest }) => (
   />
 );
 
-const BaseRouter = () => (
-  <Switch>
-    <Route exact path="/" component={Landing} />
-    <Route path="/register/" component={Signup} />
-    <Route path="/login/" component={LoginForm} />
-    <Route path="/form/" component={SignupForm} />
-    <Route path="/email-verification-sent/" component={EmailConfirmationSent} />
-    <Route path="/confirm-email/" component={ConfirmEmail} />
-    <Route path="/forgotpass" component={ForgotPassword} />
-    <Route exact path="/dashboard/" component={Dashboard} />
-    <Route exact path="/dashboard/pending-task" component={PendingTasks} />
-    <Route path="/dashboard/pending-task/submit/:id" component={SubmitTask} />
-    <Route exact path="/dashboard/track" component={TrackList} />
-    <Route path="/dashboard/track/:track" component={CoursesList} />
-    <Route path="/dashboard/mentor/" component={MentorDetails} />
-  </Switch>
+// const location = useLocation();
+const BaseRouter = ({ location }) => (
+  <AnimatePresence>
+    <Switch location={location} key={location.pathname}>
+      <Route exact path="/" component={Landing} />
+      <Route path="/register/" component={Signup} />
+      <Route path="/login/" component={LoginForm} />
+      <Route path="/form/" component={SignupForm} />
+      <Route
+        path="/email-verification-sent/"
+        component={EmailConfirmationSent}
+      />
+      <Route path="/confirm-email/" component={ConfirmEmail} />
+      <Route path="/forgotpass" component={ForgotPassword} />
+      <Route exact path="/dashboard/" component={Dashboard} />
+      <Route
+        exact
+        path="/dashboard/pending-task"
+        component={PendingTasksPage}
+      />
+      <Route path="/dashboard/pending-task/submit/:id" component={SubmitTask} />
+      <Route exact path="/dashboard/track" component={TrackList} />
+      <Route path="/dashboard/track/:track" component={CoursesList} />
+      <Route path="/dashboard/mentor/" component={MentorDetails} />
+    </Switch>
+  </AnimatePresence>
 );
 
 export default BaseRouter;

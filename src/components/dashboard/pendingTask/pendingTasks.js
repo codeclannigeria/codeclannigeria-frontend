@@ -1,7 +1,6 @@
 import React from 'react';
 import PendingTaskStyled from './pendingTaskStyled';
 import { Link } from 'react-router-dom';
-import DashboardLayout from '../../common/DashboardLayout';
 import SinglePendingTask from './singlePendingTask';
 
 function PendingTasks() {
@@ -63,4 +62,4 @@ function PendingTasks() {
   );
 }
 
-export default DashboardLayout(PendingTasks);
+export default PendingTasks;

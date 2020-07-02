@@ -139,32 +139,31 @@ export const DashboardStyled = styled.div`
     margin-bottom: 90px;
   }
 
-  .pending-tasks-wrap .header p {
-    font-weight: 600;
-    font-size: 18px;
+  .alert-enter {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  .alert-enter-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 300ms, transform 300ms;
+  }
+  .alert-exit {
+    opacity: 1;
+  }
+  .alert-exit-active {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 300ms, transform 300ms;
   }
 
-  .pending-tasks-wrap .solid-bar {
-    background: rgba(200, 212, 233, 0.5);
-    height: 30px;
+  .alert-exit {
+    opacity: 1;
   }
-
-  .pending-task {
-    border-bottom: 1px solid rgba(31, 89, 187, 0.25);
-    height: 40px;
-  }
-
-  .pending-tasks-wrap .pagination {
-    display: flex;
-    justify-content: flex-end;
-    padding: 0 20px;
-  }
-
-  .pending-tasks-wrap .pagination nav ul li a {
-    font-weight: 600;
-    background: rgba(31, 89, 187, 0.1);
-    margin: 0 4px;
-    border-radius: 5px;
+  .alert-exit-active {
+    opacity: 0;
+    transform: scale(0.4);
+    transition: opacity 300ms, transform 300ms;
   }
 
   @media (max-width: 820px) {

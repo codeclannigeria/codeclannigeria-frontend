@@ -14,9 +14,6 @@ export const MentorDetailsStyled = styled.div`
     border-radius: 100px;
   }
   .summary {
-    /* position: absolute;
-    width: 350px;
-    top: 280px; */
     padding: 15px;
     background: #fbfcff;
     box-shadow: 0px 4px 15px rgba(31, 89, 187, 0.1);
@@ -26,16 +23,12 @@ export const MentorDetailsStyled = styled.div`
     margin-top: 4.2rem;
   }
   .name {
-    font-family: Nunito;
-    font-style: normal;
     font-weight: 350;
     font-size: 35px;
     text-align: center;
     color: #000000;
   }
   .info {
-    font-family: Nunito;
-    color: #000000;
     font-size: 15px;
   }
   .goodluck {
@@ -44,10 +37,6 @@ export const MentorDetailsStyled = styled.div`
     font-size: 15px;
   }
   .contact {
-    /* position: absolute;
-    width: 697px;
-    left: 400px;
-    top: 280px; */
     background: #fbfcff;
     box-shadow: 0px 4px 15px rgba(31, 89, 187, 0.1);
     border-radius: 10px;
@@ -89,7 +78,6 @@ export const MentorDetailsStyled = styled.div`
     border: none;
     outline: none;
     cursor: pointer;
-    font-family: Nunito;
     font-style: normal;
     font-weight: 350;
     text-align: center;
