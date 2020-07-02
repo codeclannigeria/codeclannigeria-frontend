@@ -1,11 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import SubmitTaskStyled from './submitTaskStyled';
 import DashboardLayout from '../../common/DashboardLayout';
+import SuccessfulSubmission from '../../common/SuccessfulSubmission';
 
-function SubmitTask() {
+function SubmitTask(props) {
+  const [submitted, setSubmitted] = useState(false);
+  const { id } = props.match.params;
+
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    setSubmitted(true);
+  };
+  if (submitted) {
+    const data = {
+      header: `Successfully sumitted Task #${id}`,
+      description:
+        'Your mentor will review your submission and will get back to you',
+      backLink: '/dashboard/pending-task',
+      id,
+    };
+    return <SuccessfulSubmission data={data} />;
+  }
   return (
     <SubmitTaskStyled>
-      {' '}
       <div class="container-fluid mt-5 py-3">
         <div class="row">
           <div class="col-md-5 col-sm-12">
@@ -27,7 +45,7 @@ function SubmitTask() {
             <div class="card">
               <h5 class="card-header font-weight-bold"> Submit Task - Day 3</h5>
               <div class="card-body">
-                <form>
+                <form onSubmit={handleSubmit}>
                   <div class="form-group mt-5">
                     <label for="FormControlInput font-weight-bold">Url</label>
                     <input
@@ -51,12 +69,11 @@ function SubmitTask() {
                     ></textarea>
                   </div>
                   <p class="text-center">
-                    <a
-                      href="#"
+                    <input
+                      value="SUBMIT TASK"
+                      type="submit"
                       class="btn btn-primary w-75 text-center mt-5 mb-5"
-                    >
-                      SUBMIT TASK
-                    </a>
+                    />
                   </p>
                 </form>
               </div>

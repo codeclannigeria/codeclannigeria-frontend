@@ -39,12 +39,9 @@ function PendingTasks() {
   ];
   return (
     <PendingTaskStyled>
-      <button className=" btn btn-outline-primary text-right">
-        Submit Task
-      </button>
       <div class="pending-tasks-wrap mt-5">
         <div class="header">
-          <p class="p-2 pl-5">Pending Tasks</p>
+          <p class="p-2 pl-5">Tasks</p>
         </div>
 
         <div class="solid-bar"></div>
