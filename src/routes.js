@@ -15,6 +15,7 @@ import MentorDetails from './components/dashboard/mentorInfo/mentorDetails';
 import SubmitTask from './components/dashboard/pendingTask/SubmitTask';
 import PendingTasksPage from './components/dashboard/pendingTask/PendingTasksPage';
 import { AnimatePresence } from 'framer-motion';
+import TaskBrief from './components/dashboard/pendingTask/TaskBrief/TaskBrief';
 
 const checkAuth = () => {
   const token = localStorage.getItem('codeclan_token');
@@ -70,6 +71,12 @@ export const DashboardRouter = ({ location }) => (
         exact
         path="/dashboard/pending-task"
         component={PendingTasksPage}
+      />
+
+      <PrivateRoute
+        exact
+        path="/dashboard/pending-task/:id"
+        component={TaskBrief}
       />
       <PrivateRoute
         path="/dashboard/pending-task/submit/:id"
