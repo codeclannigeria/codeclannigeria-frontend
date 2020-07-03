@@ -23,6 +23,8 @@ const checkAuth = () => {
   if (!token) return false;
 
   try {
+    console.log(decode(token));
+
     const { exp } = decode(token);
 
     if (exp < new Date().getTime() / 1000) {
@@ -48,29 +50,34 @@ export const PrivateRoute = ({ component: Component, ...rest }) => (
 );
 
 // const location = useLocation();
-const BaseRouter = ({ location }) => (
+export const BaseRouter = ({ location }) => (
+  <Switch>
+    <Route exact path="/" component={Landing} />
+    <Route path="/register/" component={Signup} />
+    <Route path="/login/" component={LoginForm} />
+    <Route path="/form/" component={SignupForm} />
+    <Route path="/email-verification-sent/" component={EmailConfirmationSent} />
+    <Route path="/confirm-email/" component={ConfirmEmail} />
+    <Route path="/forgotpass" component={ForgotPassword} />
+  </Switch>
+);
+
+export const DashboardRouter = ({ location }) => (
   <AnimatePresence>
     <Switch location={location} key={location.pathname}>
-      <Route exact path="/" component={Landing} />
-      <Route path="/register/" component={Signup} />
-      <Route path="/login/" component={LoginForm} />
-      <Route path="/form/" component={SignupForm} />
-      <Route
-        path="/email-verification-sent/"
-        component={EmailConfirmationSent}
-      />
-      <Route path="/confirm-email/" component={ConfirmEmail} />
-      <Route path="/forgotpass" component={ForgotPassword} />
-      <Route exact path="/dashboard/" component={Dashboard} />
-      <Route
+      <PrivateRoute exact path="/dashboard/" component={Dashboard} />
+      <PrivateRoute
         exact
         path="/dashboard/pending-task"
         component={PendingTasksPage}
       />
-      <Route path="/dashboard/pending-task/submit/:id" component={SubmitTask} />
-      <Route exact path="/dashboard/track" component={TrackList} />
-      <Route path="/dashboard/track/:track" component={CoursesList} />
-      <Route path="/dashboard/mentor/" component={MentorDetails} />
+      <PrivateRoute
+        path="/dashboard/pending-task/submit/:id"
+        component={SubmitTask}
+      />
+      <PrivateRoute exact path="/dashboard/track" component={TrackList} />
+      <PrivateRoute path="/dashboard/track/:track" component={CoursesList} />
+      <PrivateRoute path="/dashboard/mentor/" component={MentorDetails} />
     </Switch>
   </AnimatePresence>
 );
