@@ -16,6 +16,7 @@ import SubmitTask from './components/dashboard/pendingTask/SubmitTask';
 import PendingTasksPage from './components/dashboard/pendingTask/PendingTasksPage';
 import { AnimatePresence } from 'framer-motion';
 import TaskBrief from './components/dashboard/pendingTask/TaskBrief/TaskBrief';
+import SingleCoursePage from './components/dashboard/courses/SingleCoursePage';
 
 const checkAuth = () => {
   const token = localStorage.getItem('codeclan_token');
@@ -79,6 +80,7 @@ export const DashboardRouter = ({ location }) => (
         component={TaskBrief}
       />
       <PrivateRoute
+        exact
         path="/dashboard/pending-task/submit/:id"
         component={SubmitTask}
       />
@@ -86,6 +88,10 @@ export const DashboardRouter = ({ location }) => (
       <PrivateRoute
         path="/dashboard/track/:trackName/:trackId"
         component={CoursesList}
+      />
+      <PrivateRoute
+        path="/dashboard/course/:courseTitle/:courseId"
+        component={SingleCoursePage}
       />
       <PrivateRoute path="/dashboard/mentor/" component={MentorDetails} />
     </Switch>

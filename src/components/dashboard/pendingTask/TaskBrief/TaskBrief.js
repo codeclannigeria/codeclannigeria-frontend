@@ -60,7 +60,7 @@ function TaskBrief(props) {
 
         <p>
           For this Task, ensure you check out{' '}
-          <Link>Html Fundamental course</Link>{' '}
+          <Link to="/dashboard/course/frontend/1">Html Fundamental course</Link>{' '}
         </p>
       </div>
       <div className="cta_container">
