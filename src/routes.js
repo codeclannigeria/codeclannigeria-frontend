@@ -76,7 +76,10 @@ export const DashboardRouter = ({ location }) => (
         component={SubmitTask}
       />
       <PrivateRoute exact path="/dashboard/track" component={TrackList} />
-      <PrivateRoute path="/dashboard/track/:track" component={CoursesList} />
+      <PrivateRoute
+        path="/dashboard/track/:trackName/:trackId"
+        component={CoursesList}
+      />
       <PrivateRoute path="/dashboard/mentor/" component={MentorDetails} />
     </Switch>
   </AnimatePresence>

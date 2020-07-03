@@ -4,6 +4,7 @@ const TrackCardStyled = styled.div`
   .card {
     border-radius: 6.5px;
     width: 19.59rem;
+    min-height: 273.75px;
   }
 
   .card-title {

@@ -38,14 +38,18 @@ function TracksList({ getTracksAction, loading, error, errResponse, data }) {
       link: '/dashboard/track/devops',
     },
   ];
+  const { items } = data;
+
   useEffect(() => {
     getTracksAction();
   }, []);
   return (
     <CoursesListStyled>
       <div class="courses mt-5 pb-5">
-        {!loading ? (
-          courses.map((data, idx) => <TrackCard data={data} key={idx} />)
+        {!loading && items ? (
+          items.map((item, idx) => (
+            <TrackCard data={item} key={idx} logo={tempCourseLogo} />
+          ))
         ) : (
           <CustomLoader />
         )}

@@ -19,7 +19,7 @@ export function TracksReducer(state = initialSIgnupState, action) {
       return {
         ...state,
         loading: false,
-        token: action.payload,
+        data: action.payload,
       };
 
     case types.TRACKS_FAILURE:

@@ -6,11 +6,7 @@ export const getTracksAction = () => {
   return dispatch => {
     dispatch({ type: types.TRACKS_START });
     return codeClanApi
-      .get(`/tracks`, {
-        params: {
-          limit: 100,
-        },
-      })
+      .get('/tracks')
       .then(res => {
         dispatch({ type: types.TRACKS_SUCCESS, payload: res.data });
         // history.push(`/dashboard`)

@@ -10,7 +10,7 @@ codeClanApi.interceptors.request.use(function (config) {
   console.log(token);
 
   if (token) {
-    config.headers.Authorizaion = `Bearer ${token}`;
+    config.headers.Authorization = `Bearer ${token}`;
   }
 
   return config;
