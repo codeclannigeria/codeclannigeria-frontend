@@ -22,7 +22,7 @@ const DashboardSidebarStyled = styled.div`
     max-width: 115px;
     /* height: 100%; */
     padding: 0;
-    height: 200%;
+    height: 150%;
   }
 
   .nav-item:hover {

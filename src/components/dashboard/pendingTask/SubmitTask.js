@@ -30,9 +30,7 @@ function SubmitTask(props) {
               <div className="card-header font-weight-bold">Task {id}</div>
               <div className="card-body px-5">
                 <p className="card-text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Elementum tortor risus, in eu. Quis bibendum libero tellus
-                  vestibulum convallis arcu.
+                  Responsive Web Design Projects - Build a Tribute Page
                 </p>
               </div>
             </div>

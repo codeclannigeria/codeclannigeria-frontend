@@ -18,10 +18,13 @@ function LoginForm({ authLogin, loading, error, errResponse, token, history }) {
   }, [dispatch]);
 
   useEffect(() => {
-    if (errResponse) {
-      resetAuthState();
-    }
-  }, [errResponse, resetAuthState]);
+    dispatch({ type: 'AUTH_RESET' });
+  }, [dispatch]);
+  // useEffect(() => {
+  //   if (errResponse) {
+  //     resetAuthState();
+  //   }
+  // }, [errResponse, resetAuthState]);
 
   useEffect(() => {
     console.log(token);

@@ -9,10 +9,7 @@ function SinglePendingTask({ data }) {
       <div className="pending-task">
         <div className="task-box">
           <div className="task-details">
-            <Link
-              className="task-name"
-              to={`/dashboard/pending-task/submit/${id}`}
-            >
+            <Link className="task-name" to={`/dashboard/pending-task/${id}`}>
               {taskName}
             </Link>
             <p className="task-track">{track}</p>

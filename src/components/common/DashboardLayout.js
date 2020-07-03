@@ -29,7 +29,7 @@ const pageVariants = {
 
 const pageTransition = {
   type: 'tween',
-  ease: 'linear',
+  ease: 'easeInOut',
   duration: 0.3,
 };
 
@@ -68,8 +68,8 @@ const DashboardLayout = Component => {
             toggleSidebar={toggleSidebar}
             showSidebar={showSidebar}
           />
-          <div class="dashboard-wrap row">
-            <div class="dashboard-content col-md-10 container">
+          <div className="dashboard-wrap row">
+            <div className="dashboard-content col-md-10 container">
               <Component {...props} />
             </div>
           </div>
