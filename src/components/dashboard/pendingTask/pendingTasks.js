@@ -7,8 +7,7 @@ function PendingTasks() {
   const dummyData = [
     {
       id: 1,
-      taskName:
-        ' Task 1: Responsive Web Design Projects - Build a Tribute Page',
+      taskName: ' Task 1: Article preview component ',
       track: 'Frontend',
       deadline: '19/03',
     },

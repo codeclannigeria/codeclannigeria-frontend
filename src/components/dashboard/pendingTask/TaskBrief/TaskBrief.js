@@ -2,11 +2,18 @@ import React from 'react';
 import DashboardLayout from '../../../common/DashboardLayout';
 import TaskBriefStyled from './TaskBriefStyled';
 import { Link } from 'react-router-dom';
-import { Tag, Divider } from 'antd';
+import { Tag } from 'antd';
 
-function TaskBrief() {
+function TaskBrief(props) {
+  const { id } = props.match.params;
   return (
     <TaskBriefStyled>
+      <Link
+        to="/dashboard/pending-task"
+        className="btn btn-outline-primary btn-sm mb-3 "
+      >
+        <i class="fas fa-arrow-left"></i> Back to Tasks
+      </Link>
       <h2>Task 1: Article preview component</h2>
       <Tag color="#1f59bb">Frontend</Tag>
       <Tag color="#1f59bb">Stage 1</Tag>
@@ -60,7 +67,12 @@ function TaskBrief() {
         {/* <button className="btn btn-outline-secondary">
           Download starter files
         </button> */}
-        <button className="btn btn-outline-primary mr-0">Submit Task</button>
+        <Link
+          to={`/dashboard/pending-task/submit/${id}`}
+          className="btn btn-outline-primary mr-0"
+        >
+          Submit Task
+        </Link>
       </div>
     </TaskBriefStyled>
   );
