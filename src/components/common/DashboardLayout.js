@@ -9,7 +9,7 @@ import { ReactComponent as Bookmark } from '../assets/svgs/dashboard/cli_bookmar
 import { ReactComponent as Message } from '../assets/svgs/dashboard/cli_message.svg';
 import { ReactComponent as Avatar } from '../assets/svgs/dashboard/cli_avatar.svg';
 import { motion } from 'framer-motion';
-import { useStore, useDispatch } from 'react-redux';
+import { useStore, useDispatch, connect } from 'react-redux';
 import { getUserProfileApi } from '../../state/user/userActionCreator';
 import CustomLoader from './Spinner/CustomLoader';
 const pageVariants = {
@@ -43,6 +43,7 @@ const pageTransition = {
 const DashboardLayout = Component => {
   return function DashboardPage(props) {
     const [showSidebar, setshowSidebar] = useState(false);
+    const [userLoading, setUserLoading] = useState(false);
     const toggleSidebar = () => {
       setshowSidebar(!showSidebar);
     };
@@ -62,9 +63,11 @@ const DashboardLayout = Component => {
 
     useEffect(() => {
       if (!userState) {
+        setUserLoading(true);
         dispatch(getUserProfileApi());
       }
-    }, [userState, dispatch]);
+      setUserLoading(false);
+    }, [userState, dispatch, userLoading]);
 
     return (
       <DashboardLayoutStyled>
@@ -77,7 +80,7 @@ const DashboardLayout = Component => {
           variants={pageVariants}
           transition={pageTransition}
         >
-          {!userState ? (
+          {!userLoading ? (
             <>
               <DashboardHeader
                 toggleSidebar={toggleSidebar}

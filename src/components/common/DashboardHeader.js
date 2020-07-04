@@ -1,7 +1,9 @@
 import React from 'react';
 import DashboardHeaderStyled from './DashboardHeaderStyled';
+import { connect } from 'react-redux';
 
-function DashboardHeader({ toggleSidebar, showSidebar }) {
+function DashboardHeader({ toggleSidebar, showSidebar, data }) {
+  const { firstName } = data;
   return (
     <DashboardHeaderStyled>
       <div className="top-bar mt-3 mb-4">
@@ -28,12 +30,12 @@ function DashboardHeader({ toggleSidebar, showSidebar }) {
 
           <div className="user__details">
             <div className="">
-              <i className="far fa-bell fa-2x"></i>
+              <i style={{ color: '#B2BED3' }} className="far fa-bell fa-2x"></i>
             </div>
 
             <div className="display-profile">
               <div className="display-picture"></div>
-              <p className="mt-2 ml-4">John Doe</p>
+              <p className="mt-2 ml-4">{firstName}</p>
             </div>
 
             <div className="hamburger-menu" onClick={() => toggleSidebar()}>
@@ -50,4 +52,16 @@ function DashboardHeader({ toggleSidebar, showSidebar }) {
   );
 }
 
-export default DashboardHeader;
+const mapStateToProps = store => {
+  const { loading, data, error, errResponse } = store.user;
+  return {
+    loading,
+    data,
+    error,
+    errResponse,
+  };
+};
+
+// const mapDispatchToProps = { getTracksAction };
+
+export default connect(mapStateToProps)(DashboardHeader);

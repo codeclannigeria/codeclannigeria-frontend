@@ -8,11 +8,12 @@ import { ReactComponent as Avatar } from './assets/svgs/dashboard/user_avatar.sv
 import DashboardLayout from './common/DashboardLayout';
 import PendingTasks from './dashboard/pendingTask/pendingTasks';
 import WelcomeAlert from './dashboard/WelcomeAlert';
+import { connect } from 'react-redux';
 
-function Dashboard() {
+function Dashboard({ loading, data, error, errResponse }) {
   return (
     <DashboardStyled>
-      <WelcomeAlert />
+      <WelcomeAlert user={data} />
       <div className="cards">
         <div className="card">
           <div className="card-body mentor-card">
@@ -65,4 +66,16 @@ function Dashboard() {
   );
 }
 
-export default DashboardLayout(Dashboard);
+const mapStateToProps = store => {
+  const { loading, data, error, errResponse } = store.user;
+  return {
+    loading,
+    data,
+    error,
+    errResponse,
+  };
+};
+
+// const mapDispatchToProps = { getTracksAction };
+
+export default DashboardLayout(connect(mapStateToProps)(Dashboard));
