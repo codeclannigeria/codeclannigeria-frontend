@@ -52,7 +52,7 @@ export const PrivateRoute = ({ component: Component, ...rest }) => (
 );
 
 // const location = useLocation();
-export const BaseRouter = ({ location }) => (
+export const BaseRouter = () => (
   <Switch>
     <Route exact path="/" component={Landing} />
     <Route path="/register/" component={Signup} />
@@ -67,7 +67,8 @@ export const BaseRouter = ({ location }) => (
 export const DashboardRouter = ({ location }) => (
   <AnimatePresence>
     <Switch location={location} key={location.pathname}>
-      <PrivateRoute exact path="/dashboard/" component={Dashboard} />
+      <PrivateRoute exact path="/dashboard" component={Dashboard} />
+
       <PrivateRoute
         exact
         path="/dashboard/pending-task"

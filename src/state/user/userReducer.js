@@ -1,4 +1,4 @@
-import * as types from './coursesActionTypes';
+import * as types from './userActionTypes';
 
 const initialState = {
   loading: false,
@@ -7,29 +7,29 @@ const initialState = {
   errResponse: '',
 };
 
-export function CoursesReducer(state = initialState, action) {
+export function UserReducer(state = initialState, action) {
   switch (action.type) {
-    case types.COURSES_START:
+    case types.USER_START:
       return {
         ...state,
         loading: true,
       };
 
-    case types.COURSES_SUCCESS:
+    case types.USER_SUCCESS:
       return {
         ...state,
         loading: false,
-        token: action.payload,
+        data: action.payload,
       };
 
-    case types.COURSES_FAILURE:
+    case types.USER_FAILURE:
       return {
         ...state,
         loading: false,
         error: true,
         errResponse: action.payload,
       };
-    case types.COURSES_RESET:
+    case types.USER_RESET:
       return {
         ...state,
         loading: false,
