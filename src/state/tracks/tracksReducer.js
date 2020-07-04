@@ -1,13 +1,13 @@
 import * as types from './tracksActionTypes';
 
-const initialSIgnupState = {
+const initialState = {
   loading: false,
   data: '',
   error: false,
   errResponse: '',
 };
 
-export function TracksReducer(state = initialSIgnupState, action) {
+export function TracksReducer(state = initialState, action) {
   switch (action.type) {
     case types.TRACKS_START:
       return {

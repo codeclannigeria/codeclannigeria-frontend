@@ -1,6 +1,5 @@
 import * as types from './tracksActionTypes';
 import codeClanApi from '../../api/apiUtils';
-import history from '../../history';
 
 export const getTracksAction = () => {
   return dispatch => {

@@ -5,8 +5,9 @@ import Ellipse from '../assets/image/dashboard/Ellipse.png';
 import './WelcomeAlert.css';
 import { DashboardStyled } from '../dashboardStyled';
 
-function WelcomeAlert() {
+function WelcomeAlert({ user }) {
   const [showMessage, setShowMessage] = useState(true);
+  const { firstName, lastName } = user;
   return (
     <DashboardStyled>
       <CSSTransition
@@ -24,7 +25,9 @@ function WelcomeAlert() {
 
           <div className="row">
             <div className="user__welcome col-lg-8 col-md-8 col-sm-8">
-              <p className="user__name">Hi, Barly Vallendito</p>
+              <p className="user__name">
+                Hi, {firstName} {lastName}
+              </p>
               <p>
                 Sinau Business className Student is a shared for className to
                 collaborate, communicate, manage information. Powerful Features
