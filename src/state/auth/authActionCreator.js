@@ -59,6 +59,14 @@ export const authLogin = userData => {
   };
 };
 
+export const authLogoutApi = () => {
+  return function (dispatch) {
+    dispatch({ type: types.AUTH_LOGOUT });
+    localStorage.removeItem('codeclan_token');
+    localStorage.removeItem('expirationDate');
+  };
+};
+
 export const authSendEmailConfirmationToken = data => {
   return axios
     .post(`${apiURL}/send-email-confirmation-token`, data)

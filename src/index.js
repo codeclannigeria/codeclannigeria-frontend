@@ -9,7 +9,7 @@ import './index.css';
 import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import history from './history';
-import { Router } from 'react-router-dom';
+import { Router, BrowserRouter } from 'react-router-dom';
 
 import App from './App';
 
@@ -26,9 +26,9 @@ export const store = createStore(
 ReactDOM.render(
   <Provider store={store}>
     <React.StrictMode>
-    <Router history={history}>
-      <App />
-      </Router>
+      <BrowserRouter history={history}>
+        <App />
+      </BrowserRouter>
     </React.StrictMode>
   </Provider>,
   document.getElementById('root')

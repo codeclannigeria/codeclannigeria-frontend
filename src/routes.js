@@ -21,6 +21,7 @@ import SingleCoursePage from './components/dashboard/courses/SingleCoursePage';
 const checkAuth = () => {
   const token = localStorage.getItem('codeclan_token');
   // const refreshToken
+  console.log('checked');
 
   if (!token) return false;
 

@@ -1,11 +1,11 @@
-import * as types from "./authActionTypes"
+import * as types from './authActionTypes';
 
 const initialSIgnupState = {
   loading: false,
-  token: "",
+  token: '',
   error: false,
-  errResponse: "",
-}
+  errResponse: '',
+};
 
 export function AuthReducer(state = initialSIgnupState, action) {
   switch (action.type) {
@@ -13,14 +13,14 @@ export function AuthReducer(state = initialSIgnupState, action) {
       return {
         ...state,
         loading: true,
-      }
+      };
 
     case types.AUTH_SUCCESS:
       return {
         ...state,
         loading: false,
-        token: action.payload,
-      }
+        token: action.payload.accessToken,
+      };
 
     case types.AUTH_FAILURE:
       return {
@@ -28,16 +28,24 @@ export function AuthReducer(state = initialSIgnupState, action) {
         loading: false,
         error: true,
         errResponse: action.payload,
-      }
+      };
     case types.AUTH_RESET:
       return {
         ...state,
         loading: false,
         error: false,
-        errResponse: "",
-      }
+        errResponse: '',
+      };
+    case types.AUTH_LOGOUT:
+      return {
+        ...state,
+        loading: false,
+        error: false,
+        errResponse: '',
+        token: '',
+      };
 
     default:
-      return state
+      return state;
   }
 }
