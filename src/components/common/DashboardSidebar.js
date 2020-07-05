@@ -1,10 +1,22 @@
 import React from 'react';
 import DashboardSidebarStyled from './DashboardSidebarStyled';
 import codeClanLogo from '../assets/image/codeClanLogoWhite.png';
+import { Popconfirm } from 'antd';
+import { QuestionCircleOutlined, LogoutOutlined } from '@ant-design/icons';
+import { Link, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { authLogoutApi } from '../../state/auth/authActionCreator';
+import { useHistory } from 'react-router-dom';
 
-import { Link } from 'react-router-dom';
+function DashboardSidebar({ showSidebar, tabs, path, authLogoutApi }) {
+  const history = useHistory();
 
-function DashboardSidebar({ showSidebar, tabs, path }) {
+  const logoutUser = () => {
+    authLogoutApi();
+    history.push('/login/');
+    // window.localStorage.removeItem("basemailer_acccess_token");
+    // <Redirect to="/login" />
+  };
   return (
     <DashboardSidebarStyled showSidebar={showSidebar}>
       <nav className="col-2 sidebar">
@@ -14,7 +26,6 @@ function DashboardSidebar({ showSidebar, tabs, path }) {
               <img className="img-fluid" src={codeClanLogo} alt="code clan" />
             </Link>
           </li>
-
           {tabs.map(tab => (
             <li
               key={tab.id}
@@ -27,10 +38,32 @@ function DashboardSidebar({ showSidebar, tabs, path }) {
               </Link>
             </li>
           ))}
+          <Popconfirm
+            title="Are sure you want to log out？"
+            okText="Yes"
+            cancelText="Oppss"
+            onConfirm={() => logoutUser()}
+            icon={<QuestionCircleOutlined style={{ color: 'red' }} />}
+          >
+            <LogoutOutlined style={{ fontSize: '2rem', color: '#fff' }} />
+          </Popconfirm>
+          ,
         </ul>
       </nav>
     </DashboardSidebarStyled>
   );
 }
 
-export default DashboardSidebar;
+// const mapStateToProps = store => {
+//   const { loading, data, error, errResponse } = store.auth;
+//   return {
+//     loading,
+//     data,
+//     error,
+//     errResponse,
+//   };
+// };
+
+const mapDispatchToProps = { authLogoutApi };
+
+export default connect(null, mapDispatchToProps)(DashboardSidebar);

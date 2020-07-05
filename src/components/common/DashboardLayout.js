@@ -62,6 +62,7 @@ const DashboardLayout = Component => {
     const dispatch = useDispatch();
 
     useEffect(() => {
+      console.log('mounted');
       if (!userState) {
         setUserLoading(true);
         dispatch(getUserProfileApi());
