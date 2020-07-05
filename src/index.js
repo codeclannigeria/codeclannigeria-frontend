@@ -26,9 +26,9 @@ export const store = createStore(
 ReactDOM.render(
   <Provider store={store}>
     <React.StrictMode>
-      <BrowserRouter history={history}>
+      <Router history={history}>
         <App />
-      </BrowserRouter>
+      </Router>
     </React.StrictMode>
   </Provider>,
   document.getElementById('root')

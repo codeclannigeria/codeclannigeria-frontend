@@ -46,7 +46,8 @@ export const PrivateRoute = ({ component: Component, ...rest }) => (
       checkAuth() ? (
         <Component {...props} />
       ) : (
-        <Redirect to={{ pathname: '/login' }} />
+        // <Redirect to={{ pathname: '/login' }} />
+        window.location.replace('/login')
       )
     }
   />
