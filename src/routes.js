@@ -17,6 +17,7 @@ import PendingTasksPage from './components/dashboard/pendingTask/PendingTasksPag
 import { AnimatePresence } from 'framer-motion';
 import TaskBrief from './components/dashboard/pendingTask/TaskBrief/TaskBrief';
 import SingleCoursePage from './components/dashboard/courses/SingleCoursePage';
+import UserProfile from './components/dashboard/userProfile/userProfile';
 
 const checkAuth = () => {
   const token = localStorage.getItem('codeclan_token');
@@ -96,7 +97,12 @@ export const DashboardRouter = ({ location }) => (
         path="/dashboard/course/:courseTitle/:courseId"
         component={SingleCoursePage}
       />
-      <PrivateRoute path="/dashboard/mentor/" component={MentorDetails} />
+      <PrivateRoute exact path="/dashboard/mentor/" component={MentorDetails} />
+      <PrivateRoute
+        exact
+        path="/dashboard/mentee/profile"
+        component={UserProfile}
+      />
     </Switch>
   </AnimatePresence>
 );
