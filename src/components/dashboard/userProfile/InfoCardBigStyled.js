@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const InfoCardBigStyled = styled.div`
+  margin-bottom: 1rem;
   hr {
     margin: 0;
   }
