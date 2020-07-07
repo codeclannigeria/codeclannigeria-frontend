@@ -1,11 +1,16 @@
 import styled from 'styled-components';
 
 const UserProfileStyled = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-gap: 2rem;
   .personal--details--card {
     background: #ffffff;
     box-shadow: 2px 8px 20px rgba(181, 181, 181, 0.2);
     border-radius: 5px;
-    max-width: 325px;
+    /* max-width: 325px; */
+
+    height: 60%;
   }
 
   .user__personal__details {
@@ -73,6 +78,22 @@ const UserProfileStyled = styled.div`
 
   hr {
     margin: 0;
+  }
+  @media (max-width: 800px) {
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 1fr;
+
+    .personal--details--card {
+      /* max-width: 325px; */
+      height: 100%;
+    }
+  }
+
+  @media (min-width: 800px) {
+    .personal--details--card {
+      max-width: 325px;
+    }
   }
 `;
 

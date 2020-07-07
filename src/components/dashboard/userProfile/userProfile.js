@@ -28,12 +28,35 @@ function UserProfile() {
     },
   ];
 
+  const SocialMedia = [
+    {
+      icon: <i class="fab fa-twitter"></i>,
+      title: 'Twitter',
+    },
+    {
+      icon: <i class="fab fa-dribbble"></i>,
+      title: 'Dribble',
+    },
+    {
+      icon: <i class="fab fa-behance"></i>,
+      title: 'Behance',
+    },
+    {
+      icon: <i class="fab fa-linkedin-in"></i>,
+      title: 'LinkedIn',
+    },
+    {
+      icon: <i class="fab fa-github"></i>,
+      title: 'Github',
+    },
+  ];
+
   return (
     <UserProfileStyled>
       <div className="personal--details--card">
         <div className="user__personal__details">
           <img
-            src="https://i.pinimg.com/originals/ae/ec/c2/aeecc22a67dac7987a80ac0724658493.jpg"
+            src="https://onasanyatunde.codes/onasanya_tunde.jpg"
             alt="user"
             className="rounded-circle user__image"
           />
@@ -47,11 +70,11 @@ function UserProfile() {
         <hr />
         <div className="user__contact__info">
           <div>
-            <i class="far fa-envelope"></i>
+            <i class="fas fa-map-marker-alt"></i>
             <span>Ibadan, Nigeria</span>
           </div>
           <div>
-            <i class="fas fa-map-marker-alt"></i>
+            <i class="far fa-envelope"></i>
             <span>codeclan@gmail.com</span>
           </div>
         </div>
@@ -65,6 +88,8 @@ function UserProfile() {
 
       <div className="public__info__grid">
         <InfoCardBig header="Tracks Completed" data={Tracks} />
+        <InfoCardBig header="Skillsets" data={SocialMedia} />
+
         {/* <div className="list__container">
           <div className="list_header">
             <p>Tracks Completed</p>
