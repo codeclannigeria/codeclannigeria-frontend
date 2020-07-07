@@ -9,6 +9,7 @@ import DashboardLayout from './common/DashboardLayout';
 import PendingTasks from './dashboard/pendingTask/pendingTasks';
 import WelcomeAlert from './dashboard/WelcomeAlert';
 import { connect } from 'react-redux';
+import { Progress } from 'antd';
 
 function Dashboard({ loading, data, error, errResponse }) {
   return (
@@ -53,8 +54,15 @@ function Dashboard({ loading, data, error, errResponse }) {
 
         <div className="card">
           <div className="card-body progress-card">
-            <img className="card-title" src="img/Progress Bar.png" />
-            <p className="card-subtitle">HTML Fundamentals II</p>
+            <Progress
+              type="circle"
+              width={80}
+              strokeColor="#1f59bb"
+              percent={75}
+            />
+            <p className="card-subtitle" style={{ marginTop: '0' }}>
+              Stage I
+            </p>
           </div>
         </div>
       </div>
