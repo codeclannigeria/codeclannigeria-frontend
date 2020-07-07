@@ -73,7 +73,8 @@ export const DashboardStyled = styled.div`
 
   .cards .card .card-body {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
     align-items: center;
   }
 
@@ -83,9 +84,9 @@ export const DashboardStyled = styled.div`
   }
 
   .card-image {
-    width: 65px;
-    height: 65px;
-    border-radius: 32.5px;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
