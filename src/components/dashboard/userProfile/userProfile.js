@@ -1,8 +1,33 @@
 import React from 'react';
 import UserProfileStyled from './userProfileStyled';
 import DashboardLayout from '../../common/DashboardLayout';
+import { useState } from 'react';
+import InfoCardBig from './InfoCardBig';
 
 function UserProfile() {
+  const Tracks = [
+    {
+      icon: <i class="far fa-check-circle"></i>,
+      title: 'Frontend Development',
+    },
+    {
+      icon: <i class="far fa-check-circle"></i>,
+      title: 'Backend Development',
+    },
+    {
+      icon: <i class="far fa-check-circle"></i>,
+      title: 'Mobile Development',
+    },
+    {
+      icon: <i class="far fa-check-circle"></i>,
+      title: 'Desktop Development',
+    },
+    {
+      icon: <i class="far fa-check-circle"></i>,
+      title: 'Ui/UX',
+    },
+  ];
+
   return (
     <UserProfileStyled>
       <div className="personal--details--card">
@@ -39,7 +64,26 @@ function UserProfile() {
       </div>
 
       <div className="public__info__grid">
-        <div className="resume__container"></div>
+        <InfoCardBig header="Tracks Completed" data={Tracks} />
+        {/* <div className="list__container">
+          <div className="list_header">
+            <p>Tracks Completed</p>
+            <i class="fas fa-plus"></i>
+          </div>
+          <div
+            className="list-item"
+            onMouseEnter={() => setshowEdit(true)}
+            onMouseLeave={() => setshowEdit(false)}
+          >
+            <div className="list-item-name">
+              <i class="far fa-check-circle"></i>
+              <span>Frontend Development</span>
+            </div>
+            <div className={`edit__item ${showEdit ? 'd-block' : 'd-none'}`}>
+              <i class="fas fa-pencil-alt"></i>
+            </div>
+          </div>
+        </div> */}
       </div>
     </UserProfileStyled>
   );
