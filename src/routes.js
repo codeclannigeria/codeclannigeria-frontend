@@ -18,6 +18,7 @@ import { AnimatePresence } from 'framer-motion';
 import TaskBrief from './components/dashboard/pendingTask/TaskBrief/TaskBrief';
 import SingleCoursePage from './components/dashboard/courses/SingleCoursePage';
 import UserProfile from './components/dashboard/userProfile/userProfile';
+import MentorDashboard from './components/MentorDashbord/MentorDashboard';
 
 const checkAuth = () => {
   const token = localStorage.getItem('codeclan_token');
@@ -103,6 +104,7 @@ export const DashboardRouter = ({ location }) => (
         path="/dashboard/mentee/profile"
         component={UserProfile}
       />
+      <Route exact path="/dashboard/mentor/page" component={MentorDashboard} />
     </Switch>
   </AnimatePresence>
 );
