@@ -7,6 +7,13 @@ const EditProfileStyled = styled.div`
     color: #353a45;
     margin: 0;
   }
+
+  .ant-upload-picture-card-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
 `;
 
 export default EditProfileStyled;

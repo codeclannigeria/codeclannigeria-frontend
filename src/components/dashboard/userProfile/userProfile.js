@@ -77,15 +77,22 @@ function UserProfile({ loading, data }) {
             />
             <div class="img__description">
               <i class="fas fa-camera"></i>
-              <button class="btn btn-sm" onClick={() => setshowImageEdit(true)}>
-                Change Picture
-              </button>
-              <ProfileImageUpload
-                visible={showImageEdit}
-                photoUrl={photoUrl}
-                name={lastName}
-                onCreate={onCreate}
-              />
+              {photoUrl ? (
+                <>
+                  <button
+                    class="btn btn-sm"
+                    onClick={() => setshowImageEdit(true)}
+                  >
+                    Change Picture
+                  </button>
+                  <ProfileImageUpload
+                    visible={showImageEdit}
+                    photoUrl={photoUrl}
+                    name={lastName}
+                    onCreate={onCreate}
+                  />{' '}
+                </>
+              ) : null}
             </div>
           </div>
           <div className="user__details">

@@ -62,6 +62,8 @@ flex-direction: column;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #fff;
+
 }
 button{
 padding:2rem;
