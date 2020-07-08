@@ -1,9 +1,30 @@
 import React, { useState } from 'react';
 import EditProfileStyled from './EditProfileStyled';
-import { Button, Modal, Form, Input, InputNumber } from 'antd';
+import { Button, Modal, Form, Input, InputNumber, message } from 'antd';
+import { connect } from 'react-redux';
+import { editUserProfileApi } from '../../../state/user/userActionCreator';
 
-const EditProfileForm = ({ visible, onCreate, onCancel }) => {
+const EditProfileForm = ({
+  visible,
+  onCreate,
+  onCancel,
+  initialData,
+  editUserProfileApi,
+  loading,
+  error,
+  errResponse,
+}) => {
   const [form] = Form.useForm();
+
+  const handleFormSubmit = async values => {
+    values.technologies = [''];
+    values.description = '';
+    await editUserProfileApi(values);
+    if (error) {
+      message.error(errResponse);
+    }
+    onCreate(values);
+  };
   return (
     <EditProfileStyled>
       <Modal
@@ -21,6 +42,7 @@ const EditProfileForm = ({ visible, onCreate, onCancel }) => {
           </p>
         }
         okText="Edit"
+        confirmLoading={loading && error}
         cancelText="Cancel"
         onCancel={onCancel}
         onOk={() => {
@@ -28,10 +50,11 @@ const EditProfileForm = ({ visible, onCreate, onCancel }) => {
             .validateFields()
             .then(values => {
               form.resetFields();
-              onCreate(values);
+              // onCreate(values);
+              handleFormSubmit(values);
             })
             .catch(info => {
-              console.log('Validate Failed:', info);
+              // console.log('Validate Failed:', info);
             });
         }}
       >
@@ -39,9 +62,7 @@ const EditProfileForm = ({ visible, onCreate, onCancel }) => {
           form={form}
           layout="vertical"
           name="form_in_modal"
-          initialValues={{
-            modifier: 'public',
-          }}
+          initialValues={initialData}
           size={'large'}
         >
           <Form.Item
@@ -77,4 +98,17 @@ const EditProfileForm = ({ visible, onCreate, onCancel }) => {
     </EditProfileStyled>
   );
 };
-export default EditProfileForm;
+
+const mapStateToProps = store => {
+  const { loading, data, error, errResponse } = store.user;
+  return {
+    loading,
+    data,
+    error,
+    errResponse,
+  };
+};
+
+const mapDispatchToProps = { editUserProfileApi };
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditProfileForm);
