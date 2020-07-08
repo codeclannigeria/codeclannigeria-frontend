@@ -19,9 +19,59 @@ const UserProfileStyled = styled.div`
     align-items: center;
     flex-direction: column;
   }
-
+  .img__wrap {
+    position: relative;
+    height: 12rem;
+    width: 12rem;
+    border-radius: 50%;
+  }
   .user__image {
     width: 12rem;
+    :hover {
+      /* width: 1rem; */
+      /* background-color: rgba(181, 181, 181, 0.2); */
+    }
+  }
+
+  .img__description {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(29, 106, 154, 0.72);
+    color: #fff;
+    visibility: hidden;
+    opacity: 0;
+
+    border-radius: 50% !important;
+    height: 12rem;
+    width: 12rem;
+    display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+
+    border-radius: 50%;
+    /* display: inline-block; */
+
+    /* transition effect. not necessary */
+    transition: opacity 0.2s, visibility 0.2s;
+
+    button, i{  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+button{
+padding:2rem;
+}
+    }
+  }
+
+  .img__wrap:hover .img__description {
+    visibility: visible;
+    opacity: 1;
   }
   .user__details {
     /* identical to box height */
@@ -92,7 +142,7 @@ const UserProfileStyled = styled.div`
 
   @media (min-width: 800px) {
     .personal--details--card {
-      max-width: 325px;
+      /* max-width: 325px; */
     }
   }
 `;
