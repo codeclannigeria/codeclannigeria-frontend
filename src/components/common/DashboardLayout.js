@@ -52,7 +52,7 @@ const DashboardLayout = Component => {
       { id: 2, icon: <UserGroup />, link: '/dashboard/mentor' },
       { id: 3, icon: <Message />, link: '/dashboard/track' },
       { id: 4, icon: <Bookmark />, link: '/dashboard/pending-task' },
-      { id: 5, icon: <Avatar />, link: '#' },
+      { id: 5, icon: <Avatar />, link: '/dashboard/mentee/profile' },
       { id: 6, icon: <Settings />, link: '#' },
     ];
     const { url } = props.match;

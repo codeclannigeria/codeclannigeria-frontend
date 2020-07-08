@@ -77,15 +77,22 @@ function UserProfile({ loading, data }) {
             />
             <div class="img__description">
               <i class="fas fa-camera"></i>
-              <button class="btn btn-sm" onClick={() => setshowImageEdit(true)}>
-                Change Picture
-              </button>
-              <ProfileImageUpload
-                visible={showImageEdit}
-                photoUrl={photoUrl}
-                name={lastName}
-                onCreate={onCreate}
-              />
+              {photoUrl ? (
+                <>
+                  <button
+                    class="btn btn-sm"
+                    onClick={() => setshowImageEdit(true)}
+                  >
+                    Change Picture
+                  </button>
+                  <ProfileImageUpload
+                    visible={showImageEdit}
+                    photoUrl={photoUrl}
+                    name={lastName}
+                    onCreate={onCreate}
+                  />{' '}
+                </>
+              ) : null}
             </div>
           </div>
           <div className="user__details">
@@ -110,21 +117,26 @@ function UserProfile({ loading, data }) {
         </div>
         <hr />
         <div className="text-center edit__profile__btn__container">
-          <button
-            className="btn btn-lg edit__profile__btn"
-            onClick={() => {
-              setVisible(true);
-            }}
-          >
-            Edit profile
-          </button>
-          <EditProfileForm
-            visible={visible}
-            onCreate={onCreate}
-            onCancel={() => {
-              setVisible(false);
-            }}
-          />
+          {data ? (
+            <>
+              <button
+                className="btn btn-lg edit__profile__btn"
+                onClick={() => {
+                  setVisible(true);
+                }}
+              >
+                Edit profile
+              </button>
+              <EditProfileForm
+                visible={visible}
+                onCreate={onCreate}
+                initialData={data}
+                onCancel={() => {
+                  setVisible(false);
+                }}
+              />
+            </>
+          ) : null}
         </div>
       </div>
 

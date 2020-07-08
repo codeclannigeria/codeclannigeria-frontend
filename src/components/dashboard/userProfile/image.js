@@ -1,17 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Upload, Modal, message, Col, Row } from 'antd';
 import ImgCrop from 'antd-img-crop';
 import codeClanApi from '../../../api/apiUtils';
+import EditProfileStyled from './EditProfileStyled';
+import { useDispatch } from 'react-redux';
+import { getUserProfileApi } from '../../../state/user/userActionCreator';
+// import {  } from 'react';
 
 const ProfileImageUpload = ({ visible, name, photoUrl, onCreate }) => {
-  const [fileList, setFileList] = useState([
-    {
-      uid: '-1',
-      name,
-      status: 'done',
-      url: photoUrl,
-    },
-  ]);
+  const [fileList, setFileList] = useState([]);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    setFileList([
+      {
+        uid: '-1',
+        name,
+        status: 'done',
+        url: photoUrl,
+      },
+    ]);
+  }, []);
 
   const onChange = ({ fileList: newFileList, file }) => {
     setFileList(newFileList);
@@ -20,6 +30,7 @@ const ProfileImageUpload = ({ visible, name, photoUrl, onCreate }) => {
     }
     if (file.status === 'done') {
       message.success(`${file.name} file uploaded successfully`);
+      dispatch(getUserProfileApi());
     } else if (file.status === 'error') {
       message.error(`${file.name} file upload failed.`);
     }
@@ -92,46 +103,50 @@ const ProfileImageUpload = ({ visible, name, photoUrl, onCreate }) => {
         </p>
       }
       onCancel={onCreate}
+      // confirmLoading={}
       onOk={onCreate}
     >
-      <Row>
-        <Col span={24}>
-          <ImgCrop rotate>
-            <Upload
-              style={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignContent: 'center',
-                padding: '2rem',
-              }}
-              // action={handleOk}
-              listType="picture-card"
-              fileList={fileList}
-              onChange={onChange}
-              onPreview={onPreview}
-              beforeUpload={beforeUpload}
-              action={
-                'https://codeclannigeria-api.herokuapp.com/profile/upload_profile_photo'
-              }
-              headers={{
-                Authorization: `Bearer ${localStorage.getItem(
-                  'codeclan_token'
-                )}`,
-              }}
-              progress={{
-                strokeColor: {
-                  '0%': '#108ee9',
-                  '100%': '#87d068',
-                },
-                strokeWidth: 3,
-                format: percent => `${parseFloat(percent.toFixed(2))}%`,
-              }}
-            >
-              {fileList.length < 1 && '+ Upload'}
-            </Upload>
-          </ImgCrop>
-        </Col>
-      </Row>
+      <EditProfileStyled>
+        <Row>
+          <Col span={24}>
+            <ImgCrop rotate>
+              <Upload
+                className="ant-upload-picture-card-wrapper"
+                style={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignContent: 'center',
+                  padding: '2rem',
+                }}
+                // action={handleOk}
+                listType="picture-card"
+                fileList={fileList}
+                onChange={onChange}
+                onPreview={onPreview}
+                beforeUpload={beforeUpload}
+                action={
+                  'https://codeclannigeria-api.herokuapp.com/profile/upload_profile_photo'
+                }
+                headers={{
+                  Authorization: `Bearer ${localStorage.getItem(
+                    'codeclan_token'
+                  )}`,
+                }}
+                progress={{
+                  strokeColor: {
+                    '0%': '#108ee9',
+                    '100%': '#87d068',
+                  },
+                  strokeWidth: 3,
+                  format: percent => `${parseFloat(percent.toFixed(2))}%`,
+                }}
+              >
+                {fileList.length < 1 && '+ Upload'}
+              </Upload>
+            </ImgCrop>
+          </Col>
+        </Row>
+      </EditProfileStyled>
     </Modal>
   );
 };

@@ -98,7 +98,11 @@ export const DashboardRouter = ({ location }) => (
         component={SingleCoursePage}
       />
       <PrivateRoute exact path="/dashboard/mentor/" component={MentorDetails} />
-      <Route exact path="/dashboard/mentee/profile" component={UserProfile} />
+      <PrivateRoute
+        exact
+        path="/dashboard/mentee/profile"
+        component={UserProfile}
+      />
     </Switch>
   </AnimatePresence>
 );
