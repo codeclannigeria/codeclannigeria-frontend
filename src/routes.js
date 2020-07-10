@@ -19,6 +19,9 @@ import TaskBrief from './components/dashboard/pendingTask/TaskBrief/TaskBrief';
 import SingleCoursePage from './components/dashboard/courses/SingleCoursePage';
 import UserProfile from './components/dashboard/userProfile/userProfile';
 
+import MenteeList from './components/MentorDashbord/Mentees/MenteeList';
+import MenteeProfile from './components/MentorDashbord/Mentees/MenteeProfile';
+
 const checkAuth = () => {
   const token = localStorage.getItem('codeclan_token');
   // const refreshToken
@@ -102,6 +105,12 @@ export const DashboardRouter = ({ location }) => (
         exact
         path="/dashboard/mentee/profile"
         component={UserProfile}
+      />
+      <Route exact path="/dashboard/mentor/page" component={MenteeList} />
+      <Route
+        exact
+        path="/dashboard/mentor/mentee/:userID"
+        component={MenteeProfile}
       />
     </Switch>
   </AnimatePresence>

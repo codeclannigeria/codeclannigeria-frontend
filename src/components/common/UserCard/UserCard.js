@@ -1,68 +1,22 @@
 import React from 'react';
-import UserProfileStyled from './userProfileStyled';
-import DashboardLayout from '../../common/DashboardLayout';
+import UserCardStyled from './UserCardStyled';
+import ProfileImageUpload from '../../dashboard/userProfile/image';
 import { useState } from 'react';
-import InfoCardBig from './InfoCardBig';
-import { connect } from 'react-redux';
-import EditProfileForm from './EditProfileForm';
-import ProfileImageUpload from './image';
-import UserCard from '../../common/UserCard/UserCard';
+import EditProfileForm from '../../dashboard/userProfile/EditProfileForm';
 
-function UserProfile({ loading, data }) {
-  const { firstName, lastName, email, photoUrl } = data;
+function UserCard({ data, mode }) {
+  const { photoUrl, firstName, lastName, email } = data;
+  const [showImageEdit, setshowImageEdit] = useState(null);
+  const [visible, setVisible] = useState(false);
 
-  const Tracks = [
-    {
-      icon: <i class="far fa-check-circle"></i>,
-      title: 'Frontend Development',
-    },
-    {
-      icon: <i class="far fa-check-circle"></i>,
-      title: 'Backend Development',
-    },
-    {
-      icon: <i class="far fa-check-circle"></i>,
-      title: 'Mobile Development',
-    },
-    {
-      icon: <i class="far fa-check-circle"></i>,
-      title: 'Desktop Development',
-    },
-    {
-      icon: <i class="far fa-check-circle"></i>,
-      title: 'Ui/UX',
-    },
-  ];
-
-  const SocialMedia = [
-    {
-      icon: <i class="fab fa-twitter"></i>,
-      title: 'Twitter',
-    },
-    {
-      icon: <i class="fab fa-dribbble"></i>,
-      title: 'Dribble',
-    },
-    {
-      icon: <i class="fab fa-behance"></i>,
-      title: 'Behance',
-    },
-    {
-      icon: <i class="fab fa-linkedin-in"></i>,
-      title: 'LinkedIn',
-    },
-    {
-      icon: <i class="fab fa-github"></i>,
-      title: 'Github',
-    },
-  ];
-
-
+  const onCreate = values => {
+    setVisible(false);
+    setshowImageEdit(false);
+  };
 
   return (
-    <UserProfileStyled>
-      <UserCard data={data} mode="mentee" />
-      {/* <div className="personal--details--card">
+    <UserCardStyled>
+      <div className="personal--details--card">
         <div className="user__personal__details">
           <div className="img__wrap">
             <img
@@ -73,7 +27,7 @@ function UserProfile({ loading, data }) {
             />
             <div class="img__description">
               <i class="fas fa-camera"></i>
-              {photoUrl ? (
+              {photoUrl && mode === 'mentee' ? (
                 <>
                   <button
                     class="btn btn-sm"
@@ -113,7 +67,17 @@ function UserProfile({ loading, data }) {
         </div>
         <hr />
         <div className="text-center edit__profile__btn__container">
-          {data ? (
+          {mode === 'mentor' ? (
+            <button
+              className="btn btn-lg edit__profile__btn"
+              onClick={() => {
+                setVisible(true);
+              }}
+            >
+              Promote to Next Stage
+            </button>
+          ) : null}
+          {data && mode === 'mentee' ? (
             <>
               <button
                 className="btn btn-lg edit__profile__btn"
@@ -134,28 +98,9 @@ function UserProfile({ loading, data }) {
             </>
           ) : null}
         </div>
-      </div> */}
-
-      <div className="public__info__grid">
-        <InfoCardBig header="Tracks Completed" data={Tracks} />
-        <InfoCardBig header="Social Media" data={SocialMedia} />
       </div>
-    </UserProfileStyled>
+    </UserCardStyled>
   );
 }
 
-const mapStateToProps = store => {
-  const { loading, data, error, errResponse } = store.user;
-  return {
-    loading,
-    data,
-    error,
-    errResponse,
-  };
-};
-
-const mapDispatchToProps = {};
-
-export default DashboardLayout(
-  connect(mapStateToProps, mapDispatchToProps)(UserProfile)
-);
+export default UserCard;

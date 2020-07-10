@@ -91,7 +91,14 @@ const EditProfileForm = ({
             <Input />
           </Form.Item>
           <Form.Item name="phoneNumber" label="Phone Number">
-            <InputNumber style={{ width: '100%' }} />
+            <Input
+              type="number"
+              addonBefore="+234"
+              // formatter={value => `+234 ${value}`}
+              // formatter={value => `+234${value}`}
+              // parser={value => value.replace('+234', '')}
+              style={{ width: '100%' }}
+            />
           </Form.Item>
         </Form>
       </Modal>
