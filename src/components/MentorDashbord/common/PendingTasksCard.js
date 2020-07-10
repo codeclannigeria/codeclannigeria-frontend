@@ -4,14 +4,14 @@ import PendingTasksStyled from './PendingTasksStyled';
 
 function PendingTasksCard({ header, data }) {
   const [showEdit, setshowEdit] = useState(null);
-  const [visible, setVisible] = useState(false)
+  const [visible, setVisible] = useState(false);
 
   return (
     <PendingTasksStyled>
       <div className="list__container">
         <div className="list_header">
           <p>{header}</p>
-          <i onClick={() => } class="fas fa-plus"></i>
+          <i class="fas fa-plus"></i>
         </div>
         {data.map((item, idx) => (
           <div
