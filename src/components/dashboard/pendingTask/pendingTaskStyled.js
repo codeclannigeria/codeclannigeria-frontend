@@ -22,9 +22,10 @@ const PendingTaskStyled = styled.div`
   .next-button {
     display: flex;
     justify-content: flex-end;
-    width: 90%;
+    width: 100%;
+
     margin: 0 auto;
-    padding: 25px 0 10px 0;
+    /* padding: 25px 0 10px 0; */
   }
 
   .next-button p {

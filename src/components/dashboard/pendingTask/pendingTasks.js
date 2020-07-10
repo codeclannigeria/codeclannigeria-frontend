@@ -38,7 +38,7 @@ function PendingTasks() {
   ];
   return (
     <PendingTaskStyled>
-      <div className="pending-tasks-wrap mt-5">
+      <div className="pending-tasks-wrap">
         <div className="header">
           <p className="p-2 pl-5">Tasks</p>
         </div>
