@@ -3,7 +3,7 @@ import { CSSTransition } from 'react-transition-group';
 import Ellipse from '../assets/image/dashboard/Ellipse.png';
 
 import './WelcomeAlert.css';
-import { DashboardStyled } from '../dashboardStyled';
+import { DashboardStyled } from '../MenteeDashboard/MenteeDashboardStyled';
 
 function WelcomeAlert({ user }) {
   const [showMessage, setShowMessage] = useState(true);
