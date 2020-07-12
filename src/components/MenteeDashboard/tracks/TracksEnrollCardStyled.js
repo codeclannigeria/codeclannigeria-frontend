@@ -25,10 +25,20 @@ const TracksEnrollCardStyled = styled.div`
     color: #747474;
   }
 
+  .stages-card-text {
+    font-weight: normal;
+    font-size: 0.75rem;
+    line-height: 14px;
+    margin-bottom: 0;
+    color: #747474;
+  }
+
   @media (max-width: 767px) {
     .card {
       width: 100%;
     }
+
+    margin-bottom: 1rem;
   }
 
   @media (max-width: 320px) {

@@ -120,4 +120,33 @@ code {
 .tracks-card {
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.ant-radio-group {
+  width: 100% !important;
+}
+
+.ant-radio-button-wrapper {
+  height: 100% !important;
+  width: 100% !important;
+  padding: 0 !important;
+  border-radius: 6.5px !important;
+}
+
+.tracks-stages-card {
+  padding: 1rem;
+}
+
+.steps-action {
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem 5rem;
+}
+
+@media (max-width: 600px) {
+  .ant-radio-button-wrapper {
+    /* margin-bottom: 1rem !important; */
+  }
 }

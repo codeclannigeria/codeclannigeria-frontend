@@ -1,24 +1,31 @@
 import React, { useState, useEffect } from 'react';
-import { Steps, Button, message, Modal } from 'antd';
+import { Steps, Button, message, Modal, Radio } from 'antd';
 import { connect } from 'react-redux';
 import { getTracksAction } from '../../../state/tracks/tracksActionCreator';
 import TrackCard from './TracksEnrollCard';
 import CustomLoader from '../../common/Spinner/CustomLoader';
 import tempCourseLogo from '../../assets/image/dashboard/science_image.png';
 import TrackEnrollStyled from './TrackEnrollStyled';
+import TracksEnrollStages from './TracksEnrollStages';
+import { Popconfirm } from 'antd';
+import { QuestionCircleOutlined } from '@ant-design/icons';
+import codeClanApi from '../../../api/apiUtils';
+import EnrollmentStatus from './EnrollmentStatus';
+
+// import TrackEnrollCard from './TracksEnrollCard';
 const { Step } = Steps;
 
 const steps = [
   {
-    title: 'First',
+    title: 'Tracks',
     content: 'First-content',
   },
   {
-    title: 'Second',
+    title: 'Stages',
     content: 'Second-content',
   },
   {
-    title: 'Last',
+    title: 'Confirmation',
     content: 'Last-content',
   },
 ];
@@ -34,6 +41,9 @@ function TrackEnroll({
 }) {
   const [current, setCurrent] = useState(0);
 
+  const [trackId, setTrackId] = useState(null);
+  const [enrollStatus, setEnrollStatus] = useState(null);
+
   function next() {
     const newCurrent = current + 1;
     setCurrent(newCurrent);
@@ -43,6 +53,23 @@ function TrackEnroll({
     const newCurrent = current - 1;
     setCurrent(newCurrent);
   }
+
+  const handleSetTrackId = e => {
+    setTrackId(e.target.value);
+  };
+
+  const userEnrollTrackAction = async id => {
+    try {
+      const res = codeClanApi.post(`/tracks/${id}/enroll`);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleEnrollTrack = async id => {
+    await userEnrollTrackAction(id);
+    next();
+  };
   const { items } = data;
 
   useEffect(() => {
@@ -51,52 +78,55 @@ function TrackEnroll({
 
   return (
     <TrackEnrollStyled>
-      <Modal visible={visible} onCancel={onCancel} className="custom-ant-modal">
+      <Modal
+        visible={visible}
+        onCancel={onCancel}
+        className="custom-ant-modal"
+        footer={null}
+        closable={false}
+      >
         <Steps current={current}>
           {steps.map(item => (
             <Step key={item.title} title={item.title} />
           ))}
         </Steps>
 
-        <div className="tracks-card">
-          {current === 0 && items
-            ? items.map((item, idx) => (
+        {current === 0 && items ? (
+          <Radio.Group onChange={handleSetTrackId} defaultValue={null}>
+            <div className="tracks-card">
+              {items.map((item, idx) => (
                 <TrackCard
                   next={() => next()}
                   data={item}
                   key={idx}
                   logo={tempCourseLogo}
+                  // handleSetTrackId={id (id)}
                 />
-              ))
-            : null}
-          {current === 1 && items
-            ? items.map((item, idx) => (
-                <TrackCard
-                  next={() => next()}
-                  data={item}
-                  key={idx}
-                  logo={tempCourseLogo}
-                />
-              ))
-            : null}
-        </div>
+              ))}
+            </div>
+          </Radio.Group>
+        ) : null}
+        {current === 1 ? <TracksEnrollStages id={trackId} /> : null}
+        {current === 2 ? <EnrollmentStatus id={trackId} /> : null}
+
         <div className="steps-action">
-          {current < steps.length - 1 && (
-            <Button type="primary" onClick={() => next()}>
+          {current === 0 && (
+            <Button type="primary" disabled={!trackId} onClick={() => next()}>
               Next
             </Button>
           )}
-          {current === steps.length - 1 && (
-            <Button
-              type="primary"
-              onClick={() => message.success('Processing complete!')}
+          {current === 1 && (
+            <Popconfirm
+              title="Are you sure？"
+              onConfirm={() => next()}
+              icon={<QuestionCircleOutlined style={{ color: 'green' }} />}
             >
-              Done
-            </Button>
+              <Button type="primary">Enroll</Button>
+            </Popconfirm>
           )}
-          {current > 0 && (
-            <Button style={{ margin: '0 8px' }} onClick={() => prev()}>
-              Previous
+          {current === 2 && (
+            <Button type="primary" onClick={() => onCancel()}>
+              Done
             </Button>
           )}
         </div>
