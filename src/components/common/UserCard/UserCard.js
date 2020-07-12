@@ -1,8 +1,8 @@
 import React from 'react';
 import UserCardStyled from './UserCardStyled';
-import ProfileImageUpload from '../../dashboard/userProfile/image';
+import ProfileImageUpload from '../../MenteeDashboard/userProfile/image';
 import { useState } from 'react';
-import EditProfileForm from '../../dashboard/userProfile/EditProfileForm';
+import EditProfileForm from '../../MenteeDashboard/userProfile/EditProfileForm';
 
 function UserCard({ data, mode }) {
   const { photoUrl, firstName, lastName, email } = data;

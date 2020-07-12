@@ -109,3 +109,15 @@ code {
   transform: scale(0.9);
   transition: opacity 300ms, transform 300ms;
 }
+
+/* Enroll Tracks */
+
+.custom-ant-modal {
+  width: 100% !important;
+  padding: 0 2rem !important;
+}
+
+.tracks-card {
+  display: flex;
+  justify-content: space-evenly;
+}

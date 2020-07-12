@@ -1,19 +1,30 @@
-import React from 'react';
-import { DashboardStyled } from './dashboardStyled';
+import React, { useState } from 'react';
+import { DashboardStyled } from './MenteeDashboardStyled';
 
 // Images
-import newspaper from './assets/image/dashboard/newspaper.png';
-import resource from './assets/image/dashboard/resources.png';
-import { ReactComponent as Avatar } from './assets/svgs/dashboard/user_avatar.svg';
-import DashboardLayout from './common/DashboardLayout';
-import PendingTasks from './dashboard/pendingTask/pendingTasks';
-import WelcomeAlert from './dashboard/WelcomeAlert';
+import newspaper from '../assets/image/dashboard/newspaper.png';
+import resource from '../assets/image/dashboard/resources.png';
+import { ReactComponent as Avatar } from '../assets/svgs/dashboard/user_avatar.svg';
+import DashboardLayout from '../common/DashboardLayout';
+import PendingTasks from './pendingTask/pendingTasks';
+import WelcomeAlert from './WelcomeAlert';
 import { connect } from 'react-redux';
 import { Progress } from 'antd';
+import TrackEnroll from './tracks/TrackEnroll';
 
 function Dashboard({ loading, data, error, errResponse }) {
+  const [showTracksEnrollModal, setshowTracksEnrollModal] = useState(true);
+
   return (
     <DashboardStyled>
+      <TrackEnroll
+        visible={showTracksEnrollModal}
+        onCreate={() => setshowTracksEnrollModal(false)}
+        // initialData={data}
+        onCancel={() => {
+          setshowTracksEnrollModal(false);
+        }}
+      />
       <WelcomeAlert user={data} />
       <div className="cards">
         <div className="card">

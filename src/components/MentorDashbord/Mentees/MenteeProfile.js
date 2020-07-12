@@ -2,8 +2,7 @@ import React from 'react';
 import UserProfileStyled from './MenteeProfileStyled';
 import UserCard from '../../common/UserCard/UserCard';
 import MentorDashboardLayout from '../MentorDashboardHOC';
-import PendingTasks from '../../dashboard/pendingTask/pendingTasks';
-import InfoCardBig from '../../dashboard/userProfile/InfoCardBig';
+
 import PendingTasksCard from '../common/PendingTasksCard';
 
 function MenteeProfile() {
