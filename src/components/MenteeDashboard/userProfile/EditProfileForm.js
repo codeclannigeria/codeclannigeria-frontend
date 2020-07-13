@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import EditProfileStyled from './EditProfileStyled';
-import { Button, Modal, Form, Input, InputNumber, message } from 'antd';
+import { Modal, Form, Input, message } from 'antd';
 import { connect } from 'react-redux';
 import { editUserProfileApi } from '../../../state/user/userActionCreator';
 
@@ -17,14 +17,21 @@ const EditProfileForm = ({
   const [form] = Form.useForm();
 
   const handleFormSubmit = async values => {
-    values.technologies = [''];
+    console.log(values);
+
+    values.technologies = [];
     values.description = '';
+    values.phoneNumber = `+234${values.phoneNumber}`;
     await editUserProfileApi(values);
     if (error) {
       message.error(errResponse);
     }
+    message.success('Profile succesfully updated');
     onCreate(values);
   };
+  useEffect(() => {
+    initialData.phoneNumber = initialData.phoneNumber.replace('+234', '');
+  }, []);
   return (
     <EditProfileStyled>
       <Modal

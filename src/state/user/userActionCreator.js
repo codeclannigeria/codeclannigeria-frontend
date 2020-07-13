@@ -29,7 +29,9 @@ export const editUserProfileApi = userData => {
     return codeClanApi
       .put('profile', userData)
       .then(res => {
-        dispatch({ type: types.USER_SUCCESS, payload: res.data });
+        console.log(res.data);
+
+        dispatch({ type: types.USER_SUCCESS, payload: userData });
       })
       .catch(err => {
         console.log(err, err.response);

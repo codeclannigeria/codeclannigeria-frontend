@@ -19,18 +19,10 @@ function TracksEnrollStages({ id }) {
     getTrackStages(id);
   }, []);
 
-  function onChange(e) {
-    console.log(`radio checked:${e.target.value}`);
-  }
-
   return (
     <div className="tracks-stages-card">
       {trackData ? (
-        <Radio.Group onChange={onChange} defaultValue="a">
-          {trackData.map((data, idx) => (
-            <TracksStagesCard key={idx} data={data} logo={tempCourseLogo} />
-          ))}
-        </Radio.Group>
+        <TracksStagesCard trackData={trackData} />
       ) : (
         <CustomLoader />
       )}
