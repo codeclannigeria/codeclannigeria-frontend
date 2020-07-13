@@ -20,15 +20,18 @@ import TracksEnrollCardStyled from './TracksEnrollCardStyled';
 
 import { Descriptions } from 'antd';
 
-const TracksStagesCard = ({ trackData }) => {
-  const avgTasksPerStage = Math.round(
-    trackData
-      .map(track => track.taskCount)
-      .reduce(function (accumulator, currentValue) {
-        return accumulator + currentValue;
-      }, 0) / trackData.length
-  );
-  const { description, title } = trackData[0].track;
+const TracksStagesCard = ({ trackData, stageData }) => {
+  const avgTasksPerStage = stageData
+    ? Math.round(
+        stageData
+          .map(stage => stage.taskCount)
+          .reduce(function (accumulator, currentValue) {
+            return accumulator + currentValue;
+          }, 0) / stageData.length
+      )
+    : 0;
+
+  const { description, title } = trackData;
   return (
     <div>
       <Descriptions
@@ -39,7 +42,7 @@ const TracksStagesCard = ({ trackData }) => {
       >
         <Descriptions.Item label="Track Name">{title}</Descriptions.Item>
         <Descriptions.Item label="No of Stages">
-          {trackData.length}
+          {stageData.length}
         </Descriptions.Item>
         <Descriptions.Item label="Certificate upon Completion">
           Yes

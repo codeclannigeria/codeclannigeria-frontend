@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Steps, Button, message, Modal, Radio } from 'antd';
 import { connect } from 'react-redux';
-import { getTracksAction } from '../../../state/tracks/tracksActionCreator';
+import {
+  getTracksAction,
+  userEnrollTrackAction,
+} from '../../../state/tracks/tracksActionCreator';
 import TrackCard from './TracksEnrollCard';
 import CustomLoader from '../../common/Spinner/CustomLoader';
 import tempCourseLogo from '../../assets/image/dashboard/science_image.png';
@@ -35,6 +38,7 @@ function TrackEnroll({
   getTracksAction,
   loading,
   error,
+  userEnrollTrackAction,
   errResponse,
   data,
   onCancel,
@@ -58,17 +62,28 @@ function TrackEnroll({
     setTrackId(e.target.value);
   };
 
-  const userEnrollTrackAction = async id => {
-    try {
-      const res = codeClanApi.post(`/tracks/${id}/enroll`);
-    } catch (error) {
-      console.log(error);
+  useEffect(() => {
+    if (enrollStatus) {
+      next();
     }
-  };
+  }, [enrollStatus]);
+
+  // const userEnrollTrackAction = async id => {
+  //   try {
+  //     const res = codeClanApi.post(`/tracks/${id}/enroll`);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   const handleEnrollTrack = async id => {
-    await userEnrollTrackAction(id);
-    next();
+    try {
+      await userEnrollTrackAction(id);
+      setEnrollStatus(true);
+    } catch (error) {
+      setEnrollStatus(false);
+    }
+    // next();
   };
   const { items } = data;
 
@@ -107,7 +122,13 @@ function TrackEnroll({
           </Radio.Group>
         ) : null}
         {current === 1 ? <TracksEnrollStages id={trackId} /> : null}
-        {current === 2 ? <EnrollmentStatus id={trackId} /> : null}
+        {current === 2 ? (
+          <EnrollmentStatus
+            status={enrollStatus ? 'Success' : 'error'}
+            id={trackId}
+            prev={() => prev()}
+          />
+        ) : null}
 
         <div className="steps-action">
           {current === 0 && (
@@ -116,13 +137,21 @@ function TrackEnroll({
             </Button>
           )}
           {current === 1 && (
-            <Popconfirm
-              title="Are you sure？"
-              onConfirm={() => next()}
-              icon={<QuestionCircleOutlined style={{ color: 'green' }} />}
-            >
-              <Button type="primary">Enroll</Button>
-            </Popconfirm>
+            <>
+              <Button type="default" onClick={() => prev()}>
+                Back
+              </Button>
+
+              <Popconfirm
+                title="Are you sure？"
+                onConfirm={() => handleEnrollTrack(trackId)}
+                icon={<QuestionCircleOutlined style={{ color: 'green' }} />}
+              >
+                <Button type="primary" className="ml-2">
+                  Enroll
+                </Button>
+              </Popconfirm>
+            </>
           )}
           {current === 2 && (
             <Button type="primary" onClick={() => onCancel()}>
@@ -145,6 +174,6 @@ const mapStateToProps = store => {
   };
 };
 
-const mapDispatchToProps = { getTracksAction };
+const mapDispatchToProps = { getTracksAction, userEnrollTrackAction };
 
 export default connect(mapStateToProps, mapDispatchToProps)(TrackEnroll);
