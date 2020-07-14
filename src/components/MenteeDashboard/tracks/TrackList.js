@@ -8,41 +8,41 @@ import { getTracksAction } from '../../../state/tracks/tracksActionCreator';
 import CustomLoader from '../../common/Spinner/CustomLoader';
 
 function TracksList({ getTracksAction, loading, error, errResponse, data }) {
-  const courses = [
-    {
-      title: 'Backend Development',
-      description:
-        'Our introductory course serves as an easy way in for people just starting out in their developer journey.',
-      image: tempCourseLogo,
-      link: '/dashboard/track/backend',
-    },
-    {
-      title: 'Frontend Developmentt',
-      description:
-        'Our introductory course serves as an easy way in for people just starting out in their developer journey.',
-      image: tempCourseLogo,
-      link: '/dashboard/track/frontend',
-    },
-    {
-      title: 'Mobile Development',
-      description:
-        'Our introductory course serves as an easy way in for people just starting out in their developer journey.',
-      image: tempCourseLogo,
-      link: '/dashboard/track/mobile',
-    },
-    {
-      title: 'Dev Ops',
-      description:
-        'Our introductory course serves as an easy way in for people just starting out in their developer journey.',
-      image: tempCourseLogo,
-      link: '/dashboard/track/devops',
-    },
-  ];
+  // const courses = [
+  //   {
+  //     title: 'Backend Development',
+  //     description:
+  //       'Our introductory course serves as an easy way in for people just starting out in their developer journey.',
+  //     image: tempCourseLogo,
+  //     link: '/dashboard/track/backend',
+  //   },
+  //   {
+  //     title: 'Frontend Developmentt',
+  //     description:
+  //       'Our introductory course serves as an easy way in for people just starting out in their developer journey.',
+  //     image: tempCourseLogo,
+  //     link: '/dashboard/track/frontend',
+  //   },
+  //   {
+  //     title: 'Mobile Development',
+  //     description:
+  //       'Our introductory course serves as an easy way in for people just starting out in their developer journey.',
+  //     image: tempCourseLogo,
+  //     link: '/dashboard/track/mobile',
+  //   },
+  //   {
+  //     title: 'Dev Ops',
+  //     description:
+  //       'Our introductory course serves as an easy way in for people just starting out in their developer journey.',
+  //     image: tempCourseLogo,
+  //     link: '/dashboard/track/devops',
+  //   },
+  // ];
   const { items } = data;
 
   useEffect(() => {
     getTracksAction();
-  }, []);
+  }, [getTracksAction]);
   return (
     <CoursesListStyled>
       <div class="courses mt-5 pb-5">

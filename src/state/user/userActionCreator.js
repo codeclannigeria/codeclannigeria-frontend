@@ -1,6 +1,4 @@
 import * as types from './userActionTypes';
-import axios from 'axios';
-import history from '../../history';
 import codeClanApi from '../../api/apiUtils';
 
 export const getUserProfileApi = () => {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import EditProfileStyled from './EditProfileStyled';
 import { Modal, Form, Input, message } from 'antd';
 import { connect } from 'react-redux';
@@ -31,7 +31,7 @@ const EditProfileForm = ({
   };
   useEffect(() => {
     initialData.phoneNumber = initialData.phoneNumber.replace('+234', '');
-  }, []);
+  }, [initialData.phoneNumber]);
   return (
     <EditProfileStyled>
       <Modal

@@ -1,16 +1,12 @@
 import React from 'react';
 import UserProfileStyled from './userProfileStyled';
 import DashboardLayout from '../../common/DashboardLayout';
-import { useState } from 'react';
 import InfoCardBig from './InfoCardBig';
 import { connect } from 'react-redux';
-import EditProfileForm from './EditProfileForm';
-import ProfileImageUpload from './image';
+
 import UserCard from '../../common/UserCard/UserCard';
 
 function UserProfile({ loading, data }) {
-  const { firstName, lastName, email, photoUrl } = data;
-
   const Tracks = [
     {
       icon: <i class="far fa-check-circle"></i>,
@@ -56,8 +52,6 @@ function UserProfile({ loading, data }) {
       title: 'Github',
     },
   ];
-
-
 
   return (
     <UserProfileStyled>

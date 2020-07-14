@@ -7,7 +7,6 @@ const codeClanApi = axios.create({
 codeClanApi.interceptors.request.use(function (config) {
   console.log('Request Sent');
   const token = localStorage.getItem('codeclan_token');
-  console.log(token);
 
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;

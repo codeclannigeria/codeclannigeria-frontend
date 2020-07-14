@@ -76,7 +76,7 @@ function SubmitTask(props) {
                           <ErrorMessage name="url" className="d-block" />
                         </div>
                       </div>
-                      <a href="#">Submission Guidelines</a>
+                      <a href="/">Submission Guidelines</a>
 
                       <div className="form-group mt-5">
                         <label for="FormControlTextarea font-weight-bold">

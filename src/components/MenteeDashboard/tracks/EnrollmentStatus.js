@@ -33,13 +33,3 @@ function EnrollmentStatus({ title, status, prev }) {
 }
 
 export default EnrollmentStatus;
-
-// function DisplayEnrollmentStatus({}){
-//   <Result
-//     title="Your operation has been executed"
-//     extra={
-//       <Button type="primary" key="console">
-//         Go Console
-//       </Button>
-//     }
-// }

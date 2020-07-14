@@ -29,7 +29,8 @@ export const userEnrollTrackAction = id => {
     return codeClanApi
       .post(`/tracks/${id}/enroll`)
       .then(res => {
-        dispatch({ type: types.TRACKS_SUCCESS, payload: res.data });
+        console.log(res);
+        // dispatch({ type: types.TRACKS_SUCCESS, payload: res.data });
         // history.push(`/dashboard`)
       })
       .catch(err => {
