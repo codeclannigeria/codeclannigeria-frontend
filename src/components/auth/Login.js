@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect } from 'react';
 import { authLogin } from '../../state/auth/authActionCreator';
 import { connect, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -13,9 +13,9 @@ import loginAmico from '../assets/image/Login-amico.png';
 function LoginForm({ authLogin, loading, error, errResponse, token, history }) {
   const dispatch = useDispatch();
 
-  const resetAuthState = useCallback(() => {
-    dispatch({ type: 'AUTH_RESET' });
-  }, [dispatch]);
+  // const resetAuthState = useCallback(() => {
+  //   dispatch({ type: 'AUTH_RESET' });
+  // }, [dispatch]);
 
   useEffect(() => {
     dispatch({ type: 'AUTH_RESET' });

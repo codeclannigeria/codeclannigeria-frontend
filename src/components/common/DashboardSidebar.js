@@ -3,7 +3,7 @@ import DashboardSidebarStyled from './DashboardSidebarStyled';
 import codeClanLogo from '../assets/image/codeClanLogoWhite.png';
 import { Popconfirm } from 'antd';
 import { QuestionCircleOutlined, LogoutOutlined } from '@ant-design/icons';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { authLogoutApi } from '../../state/auth/authActionCreator';
 import { useHistory } from 'react-router-dom';

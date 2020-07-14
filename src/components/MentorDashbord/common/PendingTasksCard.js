@@ -4,7 +4,6 @@ import PendingTasksStyled from './PendingTasksStyled';
 
 function PendingTasksCard({ header, data }) {
   const [showEdit, setshowEdit] = useState(null);
-  const [visible, setVisible] = useState(false);
 
   return (
     <PendingTasksStyled>

@@ -1,36 +1,34 @@
 import React, { useEffect, useCallback, useState } from 'react';
 import codeClanApi from '../../../api/apiUtils';
 import CustomLoader from '../../common/Spinner/CustomLoader';
-import { Radio } from 'antd';
-import tempCourseLogo from '../../assets/image/dashboard/science_image.png';
 import TracksStagesCard from './TracksStagesCard';
+import { useStore } from 'react-redux';
 
 function TracksEnrollStages({ id }) {
   const [trackData, settrackData] = useState(null);
-  const getTrackStages = useCallback(async id => {
-    try {
-      let res = await codeClanApi.get(`tracks/${id}/stages`);
-      settrackData(res.data);
-    } catch (e) {
-      console.log(e);
-    }
-  }, []);
+  const [stageData, setStageData] = useState(null);
+  const store = useStore().getState().tracks;
+  const getTrackStages = useCallback(
+    async id => {
+      try {
+        let res = await codeClanApi.get(`tracks/${id}/stages`);
+        setStageData(res.data);
+        let resData = store.data.items.filter(data => data.id === id);
+        settrackData(resData[0]);
+      } catch (e) {
+        console.log(e);
+      }
+    },
+    [store.data.items]
+  );
   useEffect(() => {
     getTrackStages(id);
-  }, []);
-
-  function onChange(e) {
-    console.log(`radio checked:${e.target.value}`);
-  }
+  }, [getTrackStages, id]);
 
   return (
     <div className="tracks-stages-card">
       {trackData ? (
-        <Radio.Group onChange={onChange} defaultValue="a">
-          {trackData.map((data, idx) => (
-            <TracksStagesCard key={idx} data={data} logo={tempCourseLogo} />
-          ))}
-        </Radio.Group>
+        <TracksStagesCard trackData={trackData} stageData={stageData} />
       ) : (
         <CustomLoader />
       )}

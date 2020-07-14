@@ -1,32 +1,29 @@
 import React, { useState, useEffect } from 'react';
-import { Steps, Button, message, Modal, Radio } from 'antd';
+import { Steps, Button, Modal, Radio } from 'antd';
 import { connect } from 'react-redux';
-import { getTracksAction } from '../../../state/tracks/tracksActionCreator';
+import {
+  getTracksAction,
+  userEnrollTrackAction,
+} from '../../../state/tracks/tracksActionCreator';
 import TrackCard from './TracksEnrollCard';
-import CustomLoader from '../../common/Spinner/CustomLoader';
+// import CustomLoader from '../../common/Spinner/CustomLoader';
 import tempCourseLogo from '../../assets/image/dashboard/science_image.png';
 import TrackEnrollStyled from './TrackEnrollStyled';
 import TracksEnrollStages from './TracksEnrollStages';
 import { Popconfirm } from 'antd';
 import { QuestionCircleOutlined } from '@ant-design/icons';
-import codeClanApi from '../../../api/apiUtils';
 import EnrollmentStatus from './EnrollmentStatus';
-
-// import TrackEnrollCard from './TracksEnrollCard';
 const { Step } = Steps;
 
 const steps = [
   {
     title: 'Tracks',
-    content: 'First-content',
   },
   {
     title: 'Stages',
-    content: 'Second-content',
   },
   {
     title: 'Confirmation',
-    content: 'Last-content',
   },
 ];
 
@@ -35,15 +32,22 @@ function TrackEnroll({
   getTracksAction,
   loading,
   error,
+  userEnrollTrackAction,
   errResponse,
   data,
   onCancel,
 }) {
   const [current, setCurrent] = useState(0);
-
   const [trackId, setTrackId] = useState(null);
-  const [enrollStatus, setEnrollStatus] = useState(null);
+  const [trackTitle, setTrackTitle] = useState(null);
+  const { items } = data;
 
+  const getTrackName = id => {
+    const track = items.filter(data => data.id === id);
+    console.log(track);
+
+    setTrackTitle(track[0].title);
+  };
   function next() {
     const newCurrent = current + 1;
     setCurrent(newCurrent);
@@ -58,23 +62,19 @@ function TrackEnroll({
     setTrackId(e.target.value);
   };
 
-  const userEnrollTrackAction = async id => {
-    try {
-      const res = codeClanApi.post(`/tracks/${id}/enroll`);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   const handleEnrollTrack = async id => {
-    await userEnrollTrackAction(id);
+    try {
+      await userEnrollTrackAction(id);
+      await getTrackName(trackId);
+    } catch (error) {
+      console.log({ error });
+    }
     next();
   };
-  const { items } = data;
 
   useEffect(() => {
     getTracksAction();
-  }, []);
+  }, [getTracksAction]);
 
   return (
     <TrackEnrollStyled>
@@ -96,18 +96,23 @@ function TrackEnroll({
             <div className="tracks-card">
               {items.map((item, idx) => (
                 <TrackCard
-                  next={() => next()}
+                  next={next}
                   data={item}
                   key={idx}
                   logo={tempCourseLogo}
-                  // handleSetTrackId={id (id)}
                 />
               ))}
             </div>
           </Radio.Group>
         ) : null}
         {current === 1 ? <TracksEnrollStages id={trackId} /> : null}
-        {current === 2 ? <EnrollmentStatus id={trackId} /> : null}
+        {current === 2 ? (
+          <EnrollmentStatus
+            status={error ? 'error' : 'success'}
+            title={trackTitle}
+            prev={prev}
+          />
+        ) : null}
 
         <div className="steps-action">
           {current === 0 && (
@@ -116,13 +121,21 @@ function TrackEnroll({
             </Button>
           )}
           {current === 1 && (
-            <Popconfirm
-              title="Are you sure？"
-              onConfirm={() => next()}
-              icon={<QuestionCircleOutlined style={{ color: 'green' }} />}
-            >
-              <Button type="primary">Enroll</Button>
-            </Popconfirm>
+            <>
+              <Button type="default" onClick={() => prev()}>
+                Back
+              </Button>
+
+              <Popconfirm
+                title="Are you sure？"
+                onConfirm={() => handleEnrollTrack(trackId)}
+                icon={<QuestionCircleOutlined style={{ color: 'green' }} />}
+              >
+                <Button type="primary" className="ml-2">
+                  Enroll
+                </Button>
+              </Popconfirm>
+            </>
           )}
           {current === 2 && (
             <Button type="primary" onClick={() => onCancel()}>
@@ -145,6 +158,6 @@ const mapStateToProps = store => {
   };
 };
 
-const mapDispatchToProps = { getTracksAction };
+const mapDispatchToProps = { getTracksAction, userEnrollTrackAction };
 
 export default connect(mapStateToProps, mapDispatchToProps)(TrackEnroll);

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Upload, Modal, message, Col, Row } from 'antd';
 import ImgCrop from 'antd-img-crop';
-import codeClanApi from '../../../api/apiUtils';
 import EditProfileStyled from './EditProfileStyled';
 import { useDispatch } from 'react-redux';
 import { getUserProfileApi } from '../../../state/user/userActionCreator';
@@ -21,7 +20,7 @@ const ProfileImageUpload = ({ visible, name, photoUrl, onCreate }) => {
         url: photoUrl,
       },
     ]);
-  }, []);
+  }, [name, photoUrl]);
 
   const onChange = ({ fileList: newFileList, file }) => {
     setFileList(newFileList);
@@ -36,22 +35,22 @@ const ProfileImageUpload = ({ visible, name, photoUrl, onCreate }) => {
     }
   };
 
-  const handleOk = async file => {
-    try {
-      console.log({ fileList });
+  // const handleOk = async file => {
+  //   try {
+  //     console.log({ fileList });
 
-      const res = await codeClanApi.post(
-        'profile/upload_profile_photo',
-        {
-          file: file,
-        },
-        { headers: { 'Content-Type': 'multipart/form-data' } }
-      );
-      console.log(res);
-    } catch (error) {
-      console.log({ error });
-    }
-  };
+  //     const res = await codeClanApi.post(
+  //       'profile/upload_profile_photo',
+  //       {
+  //         file: file,
+  //       },
+  //       { headers: { 'Content-Type': 'multipart/form-data' } }
+  //     );
+  //     console.log(res);
+  //   } catch (error) {
+  //     console.log({ error });
+  //   }
+  // };
 
   const onPreview = async file => {
     let src = file.url;

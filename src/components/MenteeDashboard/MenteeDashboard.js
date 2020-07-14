@@ -15,6 +15,10 @@ import TrackEnroll from './tracks/TrackEnroll';
 function Dashboard({ loading, data, error, errResponse }) {
   const [showTracksEnrollModal, setshowTracksEnrollModal] = useState(true);
 
+  const handleShowTracksEnrollModal = () => {
+    setshowTracksEnrollModal(true);
+  };
+
   return (
     <DashboardStyled>
       <TrackEnroll
@@ -25,7 +29,11 @@ function Dashboard({ loading, data, error, errResponse }) {
           setshowTracksEnrollModal(false);
         }}
       />
-      <WelcomeAlert user={data} />
+      <WelcomeAlert
+        user={data}
+        enroll={handleShowTracksEnrollModal}
+        visible={showTracksEnrollModal}
+      />
       <div className="cards">
         <div className="card">
           <div className="card-body mentor-card">

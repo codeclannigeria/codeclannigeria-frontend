@@ -5,8 +5,8 @@ import Ellipse from '../assets/image/dashboard/Ellipse.png';
 import './WelcomeAlert.css';
 import { DashboardStyled } from '../MenteeDashboard/MenteeDashboardStyled';
 
-function WelcomeAlert({ user }) {
-  const [showMessage, setShowMessage] = useState(true);
+function WelcomeAlert({ user, enroll, visible }) {
+  const [showMessage] = useState(true);
   const { firstName, lastName } = user;
   return (
     <DashboardStyled>
@@ -29,22 +29,27 @@ function WelcomeAlert({ user }) {
                 Hi, {firstName} {lastName}
               </p>
               <p>
-                Sinau Business className Student is a shared for className to
-                collaborate, communicate, manage information. Powerful Features
-                And Integrations.
+                Welcome to CodeClan Nigeria, Our goal is to turn 500+ people
+                into developers every 3 months. To achieve this, we are creating
+                clans in each of Nigeria city.
               </p>
-              <small>*Business className Start Early October 2019</small>
+              <small>
+                *Start your journey with CodeClan by enrolling in a track
+              </small>
             </div>
 
             <div className="get__started col-lg-4 col-md-4 col-sm-8 d-flex align-items-end">
-              <button className="btn btn-block btn-primary mr-5">
-                Get Started
+              <button
+                className="btn btn-block btn-primary mr-5"
+                onClick={() => enroll()}
+              >
+                Enroll Now
               </button>
             </div>
           </div>
-          <span id="close__user__info" onClick={() => setShowMessage(false)}>
+          {/* <span id="close__user__info" onClick={() => setShowMessage(false)}>
             x
-          </span>
+          </span> */}
         </div>
       </CSSTransition>
     </DashboardStyled>
