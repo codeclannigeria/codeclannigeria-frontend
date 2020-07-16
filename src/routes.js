@@ -100,24 +100,33 @@ export const DashboardRouter = ({ location }) => (
         path="/dashboard/course/:courseTitle/:courseId"
         component={SingleCoursePage}
       />
-      <PrivateRoute exact path="/dashboard/mentor/" component={MentorDetails} />
+      <PrivateRoute
+        exact
+        path="/dashboard/mentee/mentor/"
+        component={MentorDetails}
+      />
       <PrivateRoute
         exact
         path="/dashboard/mentee/profile"
         component={UserProfile}
       />
-      <PrivateRoute
-        exact
-        path="/dashboard/mentor/mentees"
-        component={MenteeList}
-      />
-      <PrivateRoute
-        exact
-        path="/dashboard/mentor/mentee/:userID"
-        component={MenteeProfile}
-      />
     </Switch>
   </AnimatePresence>
+);
+
+export const MentorRouter = () => (
+  <Switch>
+    <PrivateRoute
+      exact
+      path="/dashboard/mentor/mentees"
+      component={MenteeList}
+    />
+    <PrivateRoute
+      exact
+      path="/dashboard/mentor/mentee/:userID"
+      component={MenteeProfile}
+    />
+  </Switch>
 );
 
 export default BaseRouter;

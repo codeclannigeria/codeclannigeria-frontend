@@ -4,7 +4,7 @@ import { DashboardStyled } from './MenteeDashboardStyled';
 // Images
 import newspaper from '../assets/image/dashboard/newspaper.png';
 import resource from '../assets/image/dashboard/resources.png';
-import { ReactComponent as Avatar } from '../assets/svgs/dashboard/user_avatar.svg';
+// import { ReactComponent as Avatar } from '../assets/svgs/dashboard/user_avatar.svg';
 import DashboardLayout from '../common/DashboardLayout';
 import PendingTasks from './pendingTask/pendingTasks';
 import WelcomeAlert from './WelcomeAlert';
@@ -38,7 +38,8 @@ function Dashboard({ loading, data, error, errResponse }) {
         <div className="card">
           <div className="card-body mentor-card">
             <div className=" card-image card-image-1">
-              <Avatar />
+              {/* <Avatar /> */}
+              <i class="text-blue fas fa-user-check"></i>
             </div>
             <h6 className="card-subtitle">
               <span>1</span>

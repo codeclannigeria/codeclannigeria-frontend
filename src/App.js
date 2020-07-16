@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import BaseRouter, { DashboardRouter } from './routes';
+import BaseRouter, { DashboardRouter, MentorRouter } from './routes';
 import { ThemeProvider } from 'styled-components';
 import { globalStyles } from './globalStyles';
 
@@ -11,6 +11,7 @@ function App() {
       <ThemeProvider theme={globalStyles}>
         <BaseRouter location={location} />
         <DashboardRouter location={location} />
+        <MentorRouter location={location} />
       </ThemeProvider>
     </div>
   );
