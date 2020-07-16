@@ -39,6 +39,7 @@ const SignupStyled = styled.div`
     font-weight: 500;
     font-size: 50px;
     line-height: 75px;
+    color: #fff;
   }
 
   .infoSubheading {
@@ -135,6 +136,9 @@ const SignupStyled = styled.div`
   .form-header {
     color: ${props => props.theme.primaryColor};
     /* padding-left: 9rem; */
+    h1 {
+      color: ${props => props.theme.primaryColor};
+    }
   }
 
   /**Responsiveness**/

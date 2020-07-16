@@ -10,6 +10,7 @@ import * as Yup from 'yup';
 import codeClanLogoWhite from '../assets/image/codeClanLogoWhite.png';
 import Spinner from 'react-bootstrap/Spinner';
 import loginAmico from '../assets/image/Login-amico.png';
+import { notification } from 'antd';
 
 function Signup({ register, loading, errResponse, token, history }) {
   const dispatch = useDispatch();
@@ -18,8 +19,16 @@ function Signup({ register, loading, errResponse, token, history }) {
     dispatch({ type: 'AUTH_RESET' });
   }, [dispatch]);
 
+  const openNotification = () => {
+    notification.success({
+      message: 'Registration Successful',
+      description: 'Kindly check your email for further instructions',
+    });
+  };
+
   useEffect(() => {
     if (token) {
+      openNotification();
       history.push('/email-verification-sent/');
     }
   }, [token, history, dispatch]);
@@ -129,7 +138,7 @@ function Signup({ register, loading, errResponse, token, history }) {
                   <ErrorMessage name="password1" className="d-block" />
                 </div>
 
-                <label htmlFor="password2">Password</label>
+                <label htmlFor="password2">Confirm Password</label>
                 <Field
                   name="password2"
                   className={

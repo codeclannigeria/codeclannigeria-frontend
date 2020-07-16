@@ -19,7 +19,7 @@ export function AuthReducer(state = initialSIgnupState, action) {
       return {
         ...state,
         loading: false,
-        token: action.payload.accessToken,
+        token: action.payload,
       };
 
     case types.AUTH_FAILURE:
