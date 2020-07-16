@@ -3,7 +3,7 @@ import DashboardHeaderStyled from './DashboardHeaderStyled';
 import { connect } from 'react-redux';
 
 function DashboardHeader({ toggleSidebar, showSidebar, data }) {
-  const { firstName } = data;
+  const { photoUrl } = data;
   return (
     <DashboardHeaderStyled>
       <div className="top-bar mt-3 mb-4">
@@ -30,19 +30,21 @@ function DashboardHeader({ toggleSidebar, showSidebar, data }) {
 
           <div className="user__details">
             <div className="">
-              <i style={{ color: '#B2BED3' }} className="far fa-bell fa-2x"></i>
+              <i style={{ color: '#B2BED3' }} className="far fa-bell"></i>
             </div>
 
             <div className="display-profile">
-              <div className="display-picture"></div>
-              <p className="mt-2 ml-4">{firstName}</p>
+              <div className="display-picture">
+                <img src={photoUrl} alt="user" />
+              </div>
+              {/* <p className="mt-2 ml-4">{firstName}</p> */}
             </div>
 
             <div className="hamburger-menu" onClick={() => toggleSidebar()}>
               {!showSidebar ? (
-                <i className="fas fa-bars fa-2x text-blue"></i>
+                <i className="fas fa-bars text-blue"></i>
               ) : (
-                <i className="fas fa-times fa-2x text-blue"></i>
+                <i className="fas fa-times  text-blue"></i>
               )}
             </div>
           </div>
