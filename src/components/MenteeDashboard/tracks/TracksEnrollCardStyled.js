@@ -2,9 +2,13 @@ import styled from 'styled-components';
 
 const TracksEnrollCardStyled = styled.div`
   .card {
-    border-radius: 6.5px;
     width: 19.59rem;
     min-height: 273.75px;
+    background: #fbfcff;
+    box-shadow: 0px 4px 15px rgba(31, 89, 187, 0.1);
+    border: none;
+    height: 148px;
+    border-radius: 10px;
   }
 
   .card-title {
