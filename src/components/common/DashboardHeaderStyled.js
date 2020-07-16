@@ -36,34 +36,20 @@ const DashboardHeaderStyled = styled.div`
     width: 50%;
   }
 
-  .top-bar .display-profile {
+  .display-profile {
     display: flex;
   }
 
-  .top-bar .display-picture {
-    border-radius: 200px;
-    width: 50px;
-    height: 50px;
+  .display-picture {
     background: #fff;
+    padding: 0 1rem;
   }
 
-  .profile-summary {
-    background-image: url('img/svgs/profile-summary-bg.svg');
-    background-size: 100%;
-    background-repeat: no-repeat;
-    min-height: 20%;
-    background-position: 50% 50%;
-    margin-top: 20px;
-    position: relative;
-  }
-
-  .profile-summary > p {
-    color: #fff;
-    position: absolute;
-    top: 36px;
-    left: 60px;
-    width: 90%;
-    min-height: 100%;
+  .display-picture img {
+    border-radius: 16px;
+    width: 32px;
+    height: 32px;
+    border: 1px solid ${props => props.theme.primaryColor};
   }
 
   .hamburger-menu {
@@ -82,16 +68,12 @@ const DashboardHeaderStyled = styled.div`
     .hamburger-menu {
       display: block;
       position: absolute;
-      top: 1rem;
-      right: 1rem;
+      top: 1.5rem;
+      right: 1.2rem;
     }
 
     .display-profile {
       margin-left: 1rem;
-    }
-
-    .display-profile p {
-      display: none;
     }
   }
 `;

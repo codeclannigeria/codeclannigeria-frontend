@@ -106,7 +106,7 @@ export const DashboardRouter = ({ location }) => (
         path="/dashboard/mentee/profile"
         component={UserProfile}
       />
-      <Route exact path="/dashboard/mentor/page" component={MenteeList} />
+      <Route exact path="/dashboard/mentor/mentees" component={MenteeList} />
       <Route
         exact
         path="/dashboard/mentor/mentee/:userID"

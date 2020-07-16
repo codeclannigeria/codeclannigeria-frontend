@@ -67,7 +67,7 @@ function UserCard({ data, mode }) {
         </div>
         <hr />
         <div className="text-center edit__profile__btn__container">
-          {mode === 'mentor' ? (
+          {/* {mode === 'mentor' ? (
             <button
               className="btn btn-lg edit__profile__btn"
               onClick={() => {
@@ -76,7 +76,7 @@ function UserCard({ data, mode }) {
             >
               Promote to Next Stage
             </button>
-          ) : null}
+          ) : null} */}
           {data && mode === 'mentee' ? (
             <>
               <button
