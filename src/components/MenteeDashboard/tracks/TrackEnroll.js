@@ -42,6 +42,7 @@ function TrackEnroll({
   const [trackId, setTrackId] = useState(null);
   const [trackTitle, setTrackTitle] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
+  // eslint-disable-next-line
   const [trackPerPage, setTrackperPage] = useState(2);
 
   const indexOfLastTrack = currentPage * trackPerPage;
@@ -55,8 +56,6 @@ function TrackEnroll({
 
   const getTrackName = id => {
     const track = items.filter(data => data.id === id);
-    console.log(track);
-
     setTrackTitle(track[0].title);
   };
   function next() {
@@ -120,15 +119,17 @@ function TrackEnroll({
                 )}
               </div>
             </Radio.Group>
-            <Pagination
-              // postPerPage={postPerPage}
-              total={currentTracks.length}
-              defaultCurrent={currentPage}
-              // paginate={paginate}
-              onChange={paginate}
-              pageSize={trackPerPage}
-              showSizeChanger={false}
-            />
+            <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+              <Pagination
+                // postPerPage={postPerPage}
+                total={items.length}
+                defaultCurrent={currentPage}
+                // paginate={paginate}
+                onChange={paginate}
+                pageSize={trackPerPage}
+                showSizeChanger={false}
+              />
+            </div>
           </>
         ) : null}
         {current === 1 ? <TracksEnrollStages id={trackId} /> : null}
