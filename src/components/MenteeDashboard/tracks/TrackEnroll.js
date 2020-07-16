@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Steps, Button, Modal, Radio } from 'antd';
+import { Steps, Button, Modal, Radio, Pagination } from 'antd';
 import { connect } from 'react-redux';
 import {
   getTracksAction,
@@ -13,6 +13,7 @@ import TracksEnrollStages from './TracksEnrollStages';
 import { Popconfirm } from 'antd';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 import EnrollmentStatus from './EnrollmentStatus';
+import CustomLoader from '../../common/Spinner/CustomLoader';
 const { Step } = Steps;
 
 const steps = [
@@ -40,12 +41,21 @@ function TrackEnroll({
   const [current, setCurrent] = useState(0);
   const [trackId, setTrackId] = useState(null);
   const [trackTitle, setTrackTitle] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  // eslint-disable-next-line
+  const [trackPerPage, setTrackperPage] = useState(2);
+
+  const indexOfLastTrack = currentPage * trackPerPage;
+  const indexOfFirstTrack = indexOfLastTrack - trackPerPage;
   const { items } = data;
+
+  const paginate = pageNumber => setCurrentPage(pageNumber);
+  const currentTracks = items
+    ? items.slice(indexOfFirstTrack, indexOfLastTrack)
+    : null;
 
   const getTrackName = id => {
     const track = items.filter(data => data.id === id);
-    console.log(track);
-
     setTrackTitle(track[0].title);
   };
   function next() {
@@ -92,18 +102,35 @@ function TrackEnroll({
         </Steps>
 
         {current === 0 && items ? (
-          <Radio.Group onChange={handleSetTrackId} defaultValue={null}>
-            <div className="tracks-card">
-              {items.map((item, idx) => (
-                <TrackCard
-                  next={next}
-                  data={item}
-                  key={idx}
-                  logo={tempCourseLogo}
-                />
-              ))}
+          <>
+            <Radio.Group onChange={handleSetTrackId} defaultValue={null}>
+              <div className="tracks-card">
+                {currentTracks ? (
+                  currentTracks.map((item, idx) => (
+                    <TrackCard
+                      next={next}
+                      data={item}
+                      key={idx}
+                      logo={tempCourseLogo}
+                    />
+                  ))
+                ) : (
+                  <CustomLoader />
+                )}
+              </div>
+            </Radio.Group>
+            <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+              <Pagination
+                // postPerPage={postPerPage}
+                total={items.length}
+                defaultCurrent={currentPage}
+                // paginate={paginate}
+                onChange={paginate}
+                pageSize={trackPerPage}
+                showSizeChanger={false}
+              />
             </div>
-          </Radio.Group>
+          </>
         ) : null}
         {current === 1 ? <TracksEnrollStages id={trackId} /> : null}
         {current === 2 ? (

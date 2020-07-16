@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
-const active = `    background: #004699;
-`;
+const active = 'background: #004699;';
 const MentorDashboardSidebarStyled = styled.div`
   width: 10rem;
   position: absolute;

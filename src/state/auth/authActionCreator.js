@@ -16,12 +16,14 @@ export const signup = userData => {
     return axios
       .post(`${apiURL}/register`, userData)
       .then(res => {
+        dispatch({ type: types.AUTH_SUCCESS, payload: { token: 'true' } });
+        console.log({ res });
         authSendEmailConfirmationToken(token_data);
-        const expirationDate = new Date(new Date().getTime() + 3600 * 1000);
-        localStorage.setItem('codeclan_token', res.data);
-        localStorage.setItem('expirationDate', expirationDate);
 
-        dispatch({ type: types.AUTH_SUCCESS, payload: res.data });
+        // const expirationDate = new Date(new Date().getTime() + 3600 * 1000);
+        // localStorage.setItem('codeclan_token', res.data);
+        // localStorage.setItem('expirationDate', expirationDate);
+
         // history.push(`/dashboard`)
       })
       .catch(err => {
@@ -48,7 +50,7 @@ export const authLogin = userData => {
         const expirationDate = new Date(new Date().getTime() + 3600 * 1000);
         localStorage.setItem('codeclan_token', token);
         localStorage.setItem('expirationDate', expirationDate);
-        dispatch({ type: types.AUTH_SUCCESS, payload: res.data });
+        dispatch({ type: types.AUTH_SUCCESS, payload: token });
       })
       .catch(err => {
         dispatch({
