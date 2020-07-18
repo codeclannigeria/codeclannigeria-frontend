@@ -1,6 +1,7 @@
 import React from 'react';
 import { Table } from 'antd';
 import MentorDashboardLayout from '../MentorDashboardHOC';
+import { Link } from 'react-router-dom';
 
 function MenteeList() {
   const columns = [
@@ -8,7 +9,7 @@ function MenteeList() {
       title: 'Name',
       dataIndex: 'name',
       key: 'name',
-      render: text => <a href="/">{text}</a>,
+      render: text => <Link to="/dashboard/mentor/mentee/1">{text}</Link>,
     },
     {
       title: 'Track',
@@ -42,7 +43,7 @@ function MenteeList() {
   return (
     <div>
       <Table
-        className="mentee-table"
+        className="mentee-table ml-4"
         columns={columns}
         dataSource={data}
         size="small"

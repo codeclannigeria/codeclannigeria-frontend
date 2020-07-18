@@ -7,7 +7,10 @@ import { DashboardStyled } from '../MenteeDashboard/MenteeDashboardStyled';
 
 function WelcomeAlert({ user, enroll, visible }) {
   const [showMessage] = useState(true);
-  const { firstName, lastName } = user;
+  const { firstName, lastName, tracks } = user;
+
+  console.log({ user });
+
   return (
     <DashboardStyled>
       <CSSTransition
@@ -38,14 +41,16 @@ function WelcomeAlert({ user, enroll, visible }) {
               </small>
             </div>
 
-            <div className="get__started col-lg-4 col-md-4 col-sm-8 d-flex align-items-end">
-              <button
-                className="btn btn-block btn-primary mr-5"
-                onClick={() => enroll()}
-              >
-                Enroll Now
-              </button>
-            </div>
+            {tracks && tracks.length >= 1 ? null : (
+              <div className="get__started col-lg-4 col-md-4 col-sm-8 d-flex align-items-end">
+                <button
+                  className="btn btn-block btn-primary mr-5"
+                  onClick={() => enroll()}
+                >
+                  Enroll Now
+                </button>
+              </div>
+            )}
           </div>
           {/* <span id="close__user__info" onClick={() => setShowMessage(false)}>
             x

@@ -14,8 +14,6 @@ function DashboardSidebar({ showSidebar, tabs, path, authLogoutApi }) {
   const logoutUser = () => {
     authLogoutApi();
     history.push('/login/');
-    // window.localStorage.removeItem("basemailer_acccess_token");
-    // <Redirect to="/login" />
   };
   return (
     <DashboardSidebarStyled showSidebar={showSidebar}>

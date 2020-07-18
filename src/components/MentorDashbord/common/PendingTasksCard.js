@@ -1,16 +1,24 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import PendingTasksStyled from './PendingTasksStyled';
+import AssignTaskForm from '../tasks/AssignTaskForm';
 
 function PendingTasksCard({ header, data }) {
   const [showEdit, setshowEdit] = useState(null);
+  const [assignTaskModalVisible, setassignTaskModalVisible] = useState(null);
+
+  const handleTaskModalCreate = () => {
+    setassignTaskModalVisible(false);
+  };
 
   return (
     <PendingTasksStyled>
       <div className="list__container">
         <div className="list_header">
           <p>{header}</p>
-          <i class="fas fa-plus"></i>
+          <i
+            onClick={() => setassignTaskModalVisible(true)}
+            class="fas fa-plus"
+          ></i>
         </div>
         {data.map((item, idx) => (
           <div
@@ -36,6 +44,11 @@ function PendingTasksCard({ header, data }) {
           </div>
         ))}
       </div>
+      <AssignTaskForm
+        visible={assignTaskModalVisible}
+        onCreate={handleTaskModalCreate}
+        onCancel={handleTaskModalCreate}
+      />
     </PendingTasksStyled>
   );
 }
