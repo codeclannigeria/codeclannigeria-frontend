@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { DashboardStyled } from './MenteeDashboardStyled';
+import { Skeleton } from 'antd';
 
 // Images
 import newspaper from '../assets/image/dashboard/newspaper.png';
@@ -13,7 +14,13 @@ import { Progress } from 'antd';
 import TrackEnroll from './tracks/TrackEnroll';
 
 function Dashboard({ loading, data, error, errResponse }) {
-  const [showTracksEnrollModal, setshowTracksEnrollModal] = useState(true);
+  const [showTracksEnrollModal, setshowTracksEnrollModal] = useState(null);
+
+  useEffect(() => {
+    if (data && data.tracks.length >= 1) {
+      setshowTracksEnrollModal(false);
+    }
+  }, []);
 
   const handleShowTracksEnrollModal = () => {
     setshowTracksEnrollModal(true);
@@ -33,6 +40,7 @@ function Dashboard({ loading, data, error, errResponse }) {
         user={data}
         enroll={handleShowTracksEnrollModal}
         visible={showTracksEnrollModal}
+        loading={loading}
       />
       <div className="cards">
         <div className="card">
@@ -51,11 +59,15 @@ function Dashboard({ loading, data, error, errResponse }) {
         <div className="card">
           <div className="card-body resource-card">
             <div className="card-image card-image-2">
-              <img className="img-fluid" alt="Resource" src={resource} />
+              <i class="fa fa-code" aria-hidden="true"></i>
             </div>
             <h6 className="card-subtitle">
-              <span>2</span>
-              <p>New Resources</p>
+              {/* <span>2</span> */}
+              <p>
+                {data && data.tracks.length > 0
+                  ? `${data.tracks[0].title} Enrolled`
+                  : 'No Track enrolled'}
+              </p>
             </h6>
           </div>
         </div>
