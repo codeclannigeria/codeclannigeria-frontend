@@ -4,16 +4,17 @@ import { Skeleton } from 'antd';
 
 // Images
 import newspaper from '../assets/image/dashboard/newspaper.png';
-import resource from '../assets/image/dashboard/resources.png';
 // import { ReactComponent as Avatar } from '../assets/svgs/dashboard/user_avatar.svg';
 import DashboardLayout from '../common/DashboardLayout';
 import PendingTasks from './pendingTask/pendingTasks';
 import WelcomeAlert from './WelcomeAlert';
-import { connect } from 'react-redux';
 import { Progress } from 'antd';
 import TrackEnroll from './tracks/TrackEnroll';
 
-function Dashboard({ loading, data, error, errResponse }) {
+import { connect } from 'react-redux';
+import { getAllTasksAction } from '../../state/tasks/tasksActionCreator';
+
+function Dashboard({ loading, data, error, errResponse, getAllTasksAction }) {
   const [showTracksEnrollModal, setshowTracksEnrollModal] = useState(null);
 
   useEffect(() => {
@@ -21,6 +22,10 @@ function Dashboard({ loading, data, error, errResponse }) {
       setshowTracksEnrollModal(false);
     }
   }, []);
+
+  useEffect(() => {
+    getAllTasksAction();
+  }, [getAllTasksAction]);
 
   const handleShowTracksEnrollModal = () => {
     setshowTracksEnrollModal(true);
@@ -116,6 +121,8 @@ const mapStateToProps = store => {
   };
 };
 
-// const mapDispatchToProps = { getTracksAction };
+const mapDispatchToProps = { getAllTasksAction };
 
-export default DashboardLayout(connect(mapStateToProps)(Dashboard));
+export default DashboardLayout(
+  connect(mapStateToProps, mapDispatchToProps)(Dashboard)
+);

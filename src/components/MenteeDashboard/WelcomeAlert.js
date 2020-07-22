@@ -4,7 +4,7 @@ import Ellipse from '../assets/image/dashboard/Ellipse.png';
 
 import './WelcomeAlert.css';
 import { DashboardStyled } from '../MenteeDashboard/MenteeDashboardStyled';
-import { Skeleton } from 'antd';
+// import { Skeleton } from 'antd';
 
 function WelcomeAlert({ user, enroll, visible, loading }) {
   const [showMessage, setShowMessage] = useState(true);
