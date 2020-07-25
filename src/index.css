@@ -157,6 +157,9 @@ code {
 }
 
 @media (max-width: 600px) {
+  html {
+    font-size: 12px;
+  }
   .ant-radio-button-wrapper {
     /* margin-bottom: 1rem !important; */
   }

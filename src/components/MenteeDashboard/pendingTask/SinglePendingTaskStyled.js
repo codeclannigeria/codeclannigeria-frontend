@@ -20,7 +20,7 @@ const SinglePendingTaskStyled = styled.div`
   .task-name {
     font-style: normal;
     font-weight: 400;
-    font-size: 23px;
+    font-size: 1.2rem;
     color: #000000;
   }
 
@@ -40,46 +40,30 @@ const SinglePendingTaskStyled = styled.div`
     line-height: 80px;
   }
 
-  .next-button {
-    display: flex;
-    justify-content: flex-end;
-    width: 90%;
-    margin: 0 auto;
-    padding: 25px 0 10px 0;
-  }
-
-  .next-button p {
-    width: 80px;
-    background: #153d80;
-    border-radius: 5px;
-    text-align: center;
-    font-style: normal;
-    font-weight: 800;
-    font-size: 14px;
-    line-height: 30px;
-  }
-
-  .next-button p a {
-    width: 80px;
-    height: 30px;
-    text-decoration: none;
-    color: #ffffff;
-  }
+ 
 
   @media (max-width: 600px) {
+
+    .task-box{
+      display:block
+    }
     .pending-task {
-      height: 120px;
+      width: 100%;
+      height: auto;
+      display:block
     }
 
-    .task-box {
-      padding: 5px 0;
-      height: 120px;
-      display: block;
-    }
+    padding: 0rem 1rem;
+    height: auto;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
     .task-deadline p {
       align-self: center;
-      margin-top: 20px;
+      /* margin-top: 20px; */
       line-height: 0;
+      margin: 0;
     }
   }
 `;

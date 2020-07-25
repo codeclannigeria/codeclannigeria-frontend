@@ -11,7 +11,9 @@ const PendingTaskStyled = styled.div`
 
   .pending-tasks-wrap .header p {
     font-weight: 600;
-    font-size: 18px;
+    padding: 1rem;
+    margin: 0;
+    font-size: 1.2rem;
   }
 
   .pending-tasks-wrap .solid-bar {
@@ -19,42 +21,36 @@ const PendingTaskStyled = styled.div`
     height: 30px;
   }
 
-  .next-button {
+  .pagination {
     display: flex;
     justify-content: flex-end;
     width: 100%;
-
-    margin: 0 auto;
-    /* padding: 25px 0 10px 0; */
+    padding-right: 1rem;
   }
 
-  .next-button p {
-    width: 80px;
-    background: #153d80;
+  .next-button {
+    padding: 0.1rem 2rem;
+    margin: 1rem 0;
+    border-color: ${props => props.theme.primaryColor};
+    background-color: ${props => props.theme.primaryColor};
     border-radius: 5px;
     text-align: center;
     font-style: normal;
     font-weight: 800;
     font-size: 14px;
     line-height: 30px;
-  }
+    cursor: pointer;
 
-  .next-button p a {
-    width: 80px;
-    height: 30px;
-    text-decoration: none;
-    color: #ffffff;
-  }
-
-  button {
-    float: right;
-    margin-bottom: 1rem;
-    border-color: ${props => props.theme.primaryColor};
-    color: ${props => props.theme.primaryColor};
+    color: #fff;
     :hover {
       color: #fff;
       background-color: ${props => props.theme.primaryColor};
       border-color: ${props => props.theme.primaryColor};
+    }
+  }
+  @media (max-width: 600px) {
+    .pending-tasks-wrap .header p {
+      padding: 1rem 2rem;
     }
   }
 `;

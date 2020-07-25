@@ -1,19 +1,42 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { DashboardStyled } from './MenteeDashboardStyled';
+import { Skeleton } from 'antd';
 
 // Images
 import newspaper from '../assets/image/dashboard/newspaper.png';
-import resource from '../assets/image/dashboard/resources.png';
 // import { ReactComponent as Avatar } from '../assets/svgs/dashboard/user_avatar.svg';
 import DashboardLayout from '../common/DashboardLayout';
 import PendingTasks from './pendingTask/pendingTasks';
 import WelcomeAlert from './WelcomeAlert';
-import { connect } from 'react-redux';
 import { Progress } from 'antd';
 import TrackEnroll from './tracks/TrackEnroll';
 
-function Dashboard({ loading, data, error, errResponse }) {
-  const [showTracksEnrollModal, setshowTracksEnrollModal] = useState(true);
+import { connect } from 'react-redux';
+import { getAllTasksAction } from '../../state/tasks/tasksActionCreator';
+import CustomLoader from '../common/Spinner/CustomLoader';
+
+function Dashboard({
+  userLoading,
+  userData,
+  error,
+  errResponse,
+  getAllTasksAction,
+  tasksData,
+}) {
+  const [showTracksEnrollModal, setshowTracksEnrollModal] = useState(null);
+
+  useEffect(() => {
+    if (userData && userData.tracks.length >= 1) {
+      setshowTracksEnrollModal(false);
+    }
+    if (userData) {
+      console.log(userData);
+    }
+  }, []);
+
+  useEffect(() => {
+    getAllTasksAction();
+  }, [getAllTasksAction]);
 
   const handleShowTracksEnrollModal = () => {
     setshowTracksEnrollModal(true);
@@ -24,15 +47,16 @@ function Dashboard({ loading, data, error, errResponse }) {
       <TrackEnroll
         visible={showTracksEnrollModal}
         onCreate={() => setshowTracksEnrollModal(false)}
-        // initialData={data}
+        // initialData={userData}
         onCancel={() => {
           setshowTracksEnrollModal(false);
         }}
       />
       <WelcomeAlert
-        user={data}
+        user={userData}
         enroll={handleShowTracksEnrollModal}
         visible={showTracksEnrollModal}
+        looading={userLoading}
       />
       <div className="cards">
         <div className="card">
@@ -51,11 +75,15 @@ function Dashboard({ loading, data, error, errResponse }) {
         <div className="card">
           <div className="card-body resource-card">
             <div className="card-image card-image-2">
-              <img className="img-fluid" alt="Resource" src={resource} />
+              <i class="fa fa-code" aria-hidden="true"></i>
             </div>
             <h6 className="card-subtitle">
-              <span>2</span>
-              <p>New Resources</p>
+              {/* <span>2</span> */}
+              <p>
+                {userData && userData.tracks.length > 0
+                  ? `${userData.tracks[0].title} Enrolled`
+                  : 'No Track enrolled'}
+              </p>
             </h6>
           </div>
         </div>
@@ -66,7 +94,7 @@ function Dashboard({ loading, data, error, errResponse }) {
               <img className="img-fluid" alt="contents" src={newspaper} />
             </div>
             <h6 className="card-subtitle">
-              <span>1</span>
+              <span>{tasksData ? tasksData.totalCount : 0}</span>
               <p>Pending Task</p>
             </h6>
           </div>
@@ -88,22 +116,39 @@ function Dashboard({ loading, data, error, errResponse }) {
       </div>
 
       <div className="pending-tasks-wrap mt-5">
-        <PendingTasks />
+        {userData && userData.tracks.length > 0 ? (
+          <PendingTasks
+            tasksData={tasksData}
+            track={userData.tracks[0].title}
+          />
+        ) : (
+          <CustomLoader />
+        )}{' '}
       </div>
     </DashboardStyled>
   );
 }
 
 const mapStateToProps = store => {
-  const { loading, data, error, errResponse } = store.user;
-  return {
-    loading,
-    data,
+  const {
+    loading: userLoading,
+    data: userData,
     error,
     errResponse,
+  } = store.user;
+
+  const { data: tasksData } = store.tasks;
+  return {
+    userLoading,
+    userData,
+    error,
+    errResponse,
+    tasksData,
   };
 };
 
-// const mapDispatchToProps = { getTracksAction };
+const mapDispatchToProps = { getAllTasksAction };
 
-export default DashboardLayout(connect(mapStateToProps)(Dashboard));
+export default DashboardLayout(
+  connect(mapStateToProps, mapDispatchToProps)(Dashboard)
+);

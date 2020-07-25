@@ -4,10 +4,13 @@ import DashboardLayout from '../../common/DashboardLayout';
 import SuccessfulSubmission from '../../common/SuccessfulSubmission';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { submitTaskAction } from '../../../state/tasks/tasksActionCreator';
+import { useDispatch } from 'react-redux';
 
 function SubmitTask(props) {
   const [submitted, setSubmitted] = useState(false);
   const { id } = props.match.params;
+  const dispatch = useDispatch();
 
   if (submitted) {
     const data = {
@@ -50,6 +53,7 @@ function SubmitTask(props) {
                   onSubmit={(values, { setSubmitting }) => {
                     const { url, comments } = values;
                     alert(url, comments);
+                    dispatch(submitTaskAction({ taskId: id }));
                     console.log(values);
 
                     setSubmitted(true);

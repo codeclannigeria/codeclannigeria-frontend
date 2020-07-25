@@ -30,7 +30,7 @@ export const userEnrollTrackAction = id => {
       .post(`/tracks/${id}/enroll`)
       .then(res => {
         console.log(res);
-        // dispatch({ type: types.TRACKS_SUCCESS, payload: res.data });
+        dispatch({ type: types.TRACKS_SUCCESS, payload: res.data });
         // history.push(`/dashboard`)
       })
       .catch(err => {

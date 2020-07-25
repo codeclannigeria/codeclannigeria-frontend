@@ -4,9 +4,10 @@ import Ellipse from '../assets/image/dashboard/Ellipse.png';
 
 import './WelcomeAlert.css';
 import { DashboardStyled } from '../MenteeDashboard/MenteeDashboardStyled';
+// import { Skeleton } from 'antd';
 
-function WelcomeAlert({ user, enroll, visible }) {
-  const [showMessage] = useState(true);
+function WelcomeAlert({ user, enroll, visible, loading }) {
+  const [showMessage, setShowMessage] = useState(true);
   const { firstName, lastName, tracks } = user;
 
   console.log({ user });
@@ -29,7 +30,15 @@ function WelcomeAlert({ user, enroll, visible }) {
           <div className="row">
             <div className="user__welcome col-lg-8 col-md-8 col-sm-8">
               <p className="user__name">
-                Hi, {firstName} {lastName}
+                Hi,
+                {!loading
+                  ? ` ${firstName} ${lastName}`
+                  : // <Skeleton.Button
+                    //   active
+                    //   size="small"
+                    //   // style={{ display: 'inline' }}
+                    // />
+                    null}
               </p>
               <p>
                 Welcome to CodeClan Nigeria, Our goal is to turn 500+ people
@@ -41,7 +50,14 @@ function WelcomeAlert({ user, enroll, visible }) {
               </small>
             </div>
 
-            {tracks && tracks.length >= 1 ? null : (
+            {tracks && tracks.length >= 1 ? (
+              <span
+                id="close__user__info"
+                onClick={() => setShowMessage(false)}
+              >
+                x
+              </span>
+            ) : (
               <div className="get__started col-lg-4 col-md-4 col-sm-8 d-flex align-items-end">
                 <button
                   className="btn btn-block btn-primary mr-5"
@@ -52,9 +68,6 @@ function WelcomeAlert({ user, enroll, visible }) {
               </div>
             )}
           </div>
-          {/* <span id="close__user__info" onClick={() => setShowMessage(false)}>
-            x
-          </span> */}
         </div>
       </CSSTransition>
     </DashboardStyled>
