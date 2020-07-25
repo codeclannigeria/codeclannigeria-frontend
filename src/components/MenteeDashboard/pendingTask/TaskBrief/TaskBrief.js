@@ -1,29 +1,72 @@
-import React from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import DashboardLayout from '../../../common/DashboardLayout';
 import TaskBriefStyled from './TaskBriefStyled';
 import { Link } from 'react-router-dom';
 import { Tag } from 'antd';
+import { useDispatch, useSelector } from 'react-redux';
+import { getSingleTaskAction } from '../../../../state/tasks/tasksActionCreator';
 
 function TaskBrief(props) {
   const { id } = props.match.params;
+  let { query } = props.location;
+  const dispatch = useDispatch();
+  // const [singleTask, setSingleTask] = useState(null);
+  const task = useSelector(state => state.tasks);
+  // console.log(props);
+
+  const fetchData = useCallback(async () => {
+    await dispatch(getSingleTaskAction(id));
+    // setSingleTask(task);
+    // console.log(singleTask);
+  }, []);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  // useEffect(() => {
+  //   if (task) {
+  //     setSingleTask(task);
+  //     console.log(singleTask);
+  //   }
+  // }, [task]);
+
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     if (!query) {
+  //       console.log('make some calls here');
+  //       await dispatch(getSingleTaskAction(id));
+  //       // setSingleTask(task);
+  //       // console.log('jfjfjf', await dispatch(getSingleTaskAction(id)));
+  //     }
+  //     // if (task) {
+  //     //   setSingleTask(task);
+  //     // }
+  //     // setSingleTask(query);
+  //   }
+  //   fetchData();
+  //   // if () {
+
+  //   // }
+  //   query = task;
+  // }, [query, dispatch]);
+
   return (
     <TaskBriefStyled>
       <Link
         to="/dashboard/pending-task"
         className="btn btn-outline-primary btn-sm mb-3 "
       >
-        <i class="fas fa-arrow-left"></i> Back to Tasks
+        <i className="fas fa-arrow-left"></i> Back to Tasks
       </Link>
-      <h2>Task 1: Article preview component</h2>
+
+      <h2>{task.singleTask ? <p>{task.singleTask.title}</p> : 'nulssssl'}</h2>
       <Tag color="#1f59bb">Frontend</Tag>
       <Tag color="#1f59bb">Stage 1</Tag>
-      <div className="task-details mt-3">
+      <div classNameName="task-details mt-3">
         <h4>Task Brief</h4>
-        <p>
-          Your challenge is to build out this article preview component and get
-          it looking as close to the design as possible.
-        </p>
-
+        <p>{task.singleTask ? task.singleTask.description : null}</p>
+        {/* 
         <p>
           You can use any tools you like to help you complete the challenge. So
           if you've got something you'd like to practice, feel free to give it a
@@ -61,10 +104,10 @@ function TaskBrief(props) {
         <p>
           For this Task, ensure you check out{' '}
           <Link to="/dashboard/course/frontend/1">Html Fundamental course</Link>{' '}
-        </p>
+        </p> */}
       </div>
       <div className="cta_container">
-        {/* <button className="btn btn-outline-secondary">
+        {/* <button classNameName="btn btn-outline-secondary">
           Download starter files
         </button> */}
         <Link

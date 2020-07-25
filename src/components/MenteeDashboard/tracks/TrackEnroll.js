@@ -43,7 +43,7 @@ function TrackEnroll({
   const [trackTitle, setTrackTitle] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   // eslint-disable-next-line
-  const [trackPerPage, setTrackperPage] = useState(2);
+  const [trackPerPage, setTrackperPage] = useState(3);
 
   const indexOfLastTrack = currentPage * trackPerPage;
   const indexOfFirstTrack = indexOfLastTrack - trackPerPage;

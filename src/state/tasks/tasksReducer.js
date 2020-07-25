@@ -5,6 +5,7 @@ const initialState = {
   data: '',
   error: false,
   errResponse: '',
+  singleTask: null,
 };
 
 export function TaskReducer(state = initialState, action) {
@@ -28,6 +29,15 @@ export function TaskReducer(state = initialState, action) {
         loading: false,
         error: false,
         errResponse: '',
+      };
+
+    case types.GET_TASK:
+      return {
+        ...state,
+        loading: false,
+        error: false,
+        errResponse: '',
+        singleTask: action.payload,
       };
 
     case types.TASKS_FAILURE:

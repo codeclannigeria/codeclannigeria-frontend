@@ -13,13 +13,24 @@ import TrackEnroll from './tracks/TrackEnroll';
 
 import { connect } from 'react-redux';
 import { getAllTasksAction } from '../../state/tasks/tasksActionCreator';
+import CustomLoader from '../common/Spinner/CustomLoader';
 
-function Dashboard({ loading, data, error, errResponse, getAllTasksAction }) {
+function Dashboard({
+  userLoading,
+  userData,
+  error,
+  errResponse,
+  getAllTasksAction,
+  tasksData,
+}) {
   const [showTracksEnrollModal, setshowTracksEnrollModal] = useState(null);
 
   useEffect(() => {
-    if (data && data.tracks.length >= 1) {
+    if (userData && userData.tracks.length >= 1) {
       setshowTracksEnrollModal(false);
+    }
+    if (userData) {
+      console.log(userData);
     }
   }, []);
 
@@ -36,16 +47,16 @@ function Dashboard({ loading, data, error, errResponse, getAllTasksAction }) {
       <TrackEnroll
         visible={showTracksEnrollModal}
         onCreate={() => setshowTracksEnrollModal(false)}
-        // initialData={data}
+        // initialData={userData}
         onCancel={() => {
           setshowTracksEnrollModal(false);
         }}
       />
       <WelcomeAlert
-        user={data}
+        user={userData}
         enroll={handleShowTracksEnrollModal}
         visible={showTracksEnrollModal}
-        loading={loading}
+        looading={userLoading}
       />
       <div className="cards">
         <div className="card">
@@ -69,8 +80,8 @@ function Dashboard({ loading, data, error, errResponse, getAllTasksAction }) {
             <h6 className="card-subtitle">
               {/* <span>2</span> */}
               <p>
-                {data && data.tracks.length > 0
-                  ? `${data.tracks[0].title} Enrolled`
+                {userData && userData.tracks.length > 0
+                  ? `${userData.tracks[0].title} Enrolled`
                   : 'No Track enrolled'}
               </p>
             </h6>
@@ -83,7 +94,7 @@ function Dashboard({ loading, data, error, errResponse, getAllTasksAction }) {
               <img className="img-fluid" alt="contents" src={newspaper} />
             </div>
             <h6 className="card-subtitle">
-              <span>1</span>
+              <span>{tasksData ? tasksData.totalCount : 0}</span>
               <p>Pending Task</p>
             </h6>
           </div>
@@ -105,19 +116,34 @@ function Dashboard({ loading, data, error, errResponse, getAllTasksAction }) {
       </div>
 
       <div className="pending-tasks-wrap mt-5">
-        <PendingTasks />
+        {userData && userData.tracks.length > 0 ? (
+          <PendingTasks
+            tasksData={tasksData}
+            track={userData.tracks[0].title}
+          />
+        ) : (
+          <CustomLoader />
+        )}{' '}
       </div>
     </DashboardStyled>
   );
 }
 
 const mapStateToProps = store => {
-  const { loading, data, error, errResponse } = store.user;
-  return {
-    loading,
-    data,
+  const {
+    loading: userLoading,
+    data: userData,
     error,
     errResponse,
+  } = store.user;
+
+  const { data: tasksData } = store.tasks;
+  return {
+    userLoading,
+    userData,
+    error,
+    errResponse,
+    tasksData,
   };
 };
 

@@ -3,7 +3,7 @@ import PendingTaskStyled from './pendingTaskStyled';
 import { Link } from 'react-router-dom';
 import SinglePendingTask from './singlePendingTask';
 
-function PendingTasks() {
+function PendingTasks({ tasksData, track }) {
   const dummyData = [
     {
       id: 1,
@@ -40,22 +40,24 @@ function PendingTasks() {
     <PendingTaskStyled>
       <div className="pending-tasks-wrap">
         <div className="header">
-          <p className="p-2 pl-5">Tasks</p>
+          <p className="">Tasks</p>
         </div>
 
         <div className="solid-bar"></div>
 
         <div className="pending-tasks">
-          {dummyData.map((data, idx) => (
-            <SinglePendingTask key={idx} data={data} />
-          ))}
+          {tasksData
+            ? tasksData.items.map((data, idx) => (
+                <SinglePendingTask key={idx} data={data} track={track} />
+              ))
+            : null}
         </div>
 
-        <div className="next-button">
-          <p>
-            <Link to="#">Next</Link>
-            {/* <a href="#">Next</a> */}
-          </p>
+        <div className="pagination">
+          <Link className="next-button" to="#">
+            Next
+          </Link>
+          {/* <a href="#">Next</a> */}
         </div>
       </div>
     </PendingTaskStyled>
