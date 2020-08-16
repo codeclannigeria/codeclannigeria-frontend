@@ -10,7 +10,7 @@ function SingleMentorCard() {
   return (
     <>
       <Card
-        style={{ width: 'auto', marginBottom: '1rem' }}
+        style={{ width: 'auto' }}
         cover={
           <img
             alt="example"

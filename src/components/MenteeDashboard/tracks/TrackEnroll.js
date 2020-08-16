@@ -15,6 +15,7 @@ import { QuestionCircleOutlined } from '@ant-design/icons';
 import EnrollmentStatus from './EnrollmentStatus';
 import CustomLoader from '../../common/Spinner/CustomLoader';
 import { TrackMentors } from './MentorSelector/TrackMentors';
+import SelectMentorStep from './MentorSelector/SelectMentorStep';
 const { Step } = Steps;
 
 const steps = [
@@ -139,11 +140,7 @@ function TrackEnroll({
         {current === 1 ? <TracksEnrollStages id={trackId} /> : null}
         {current === 2 ? (
           <>
-            <Radio.Group onChange={handleSetTrackId} defaultValue={null}>
-              <div className="tracks-card">
-                <TrackMentors />
-              </div>
-            </Radio.Group>
+            <SelectMentorStep />
           </>
         ) : null}
 
@@ -156,7 +153,7 @@ function TrackEnroll({
         ) : null}
 
         <div className="steps-action">
-          {current === 0 && (
+          {(current === 0 || current === 2) && (
             <Button type="primary" disabled={!trackId} onClick={() => next()}>
               Next
             </Button>
