@@ -23,15 +23,15 @@ function Dashboard({
   getAllTasksAction,
   tasksData,
 }) {
-  const [showTracksEnrollModal, setshowTracksEnrollModal] = useState(null);
+  const [showTracksEnrollModal, setshowTracksEnrollModal] = useState(true);
 
   useEffect(() => {
     if (userData && userData.tracks.length >= 1) {
-      setshowTracksEnrollModal(false);
+      setshowTracksEnrollModal(true);
     }
-    if (userData) {
-      console.log(userData);
-    }
+    // if (userData) {
+    //   // console.log(userData);
+    // }
   }, []);
 
   useEffect(() => {
@@ -81,7 +81,7 @@ function Dashboard({
               {/* <span>2</span> */}
               <p>
                 {userData && userData.tracks.length > 0
-                  ? `${userData.tracks[0].title} Enrolled`
+                  ? `${userData.tracks[0].title || 'No Track'} Enrolled`
                   : 'No Track enrolled'}
               </p>
             </h6>

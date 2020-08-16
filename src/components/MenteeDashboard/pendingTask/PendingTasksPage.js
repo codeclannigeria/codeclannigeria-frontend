@@ -15,7 +15,7 @@ function PendingTasksPage() {
   }, []);
 
   if (tasksState.error) {
-    return 'Errro';
+    return 'Errror';
   }
   return (
     <>
