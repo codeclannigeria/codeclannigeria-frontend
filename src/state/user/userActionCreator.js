@@ -29,7 +29,7 @@ export const editUserProfileApi = userData => {
       .then(res => {
         console.log(res.data);
 
-        dispatch({ type: types.USER_SUCCESS, payload: userData });
+        dispatch({ type: types.USER_SUCCESS, payload: res.data });
       })
       .catch(err => {
         console.log(err, err.response);

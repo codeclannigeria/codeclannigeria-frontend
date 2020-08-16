@@ -14,6 +14,7 @@ import { Popconfirm } from 'antd';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 import EnrollmentStatus from './EnrollmentStatus';
 import CustomLoader from '../../common/Spinner/CustomLoader';
+import { TrackMentors } from './MentorSelector/TrackMentors';
 const { Step } = Steps;
 
 const steps = [
@@ -22,6 +23,9 @@ const steps = [
   },
   {
     title: 'Stages',
+  },
+  {
+    title: 'Mentor Selection',
   },
   {
     title: 'Confirmation',
@@ -134,6 +138,16 @@ function TrackEnroll({
         ) : null}
         {current === 1 ? <TracksEnrollStages id={trackId} /> : null}
         {current === 2 ? (
+          <>
+            <Radio.Group onChange={handleSetTrackId} defaultValue={null}>
+              <div className="tracks-card">
+                <TrackMentors />
+              </div>
+            </Radio.Group>
+          </>
+        ) : null}
+
+        {current === 3 ? (
           <EnrollmentStatus
             status={error ? 'error' : 'success'}
             title={trackTitle}
@@ -164,7 +178,7 @@ function TrackEnroll({
               </Popconfirm>
             </>
           )}
-          {current === 2 && (
+          {current === 3 && (
             <Button type="primary" onClick={() => onCancel()}>
               Done
             </Button>

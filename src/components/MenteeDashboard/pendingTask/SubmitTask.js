@@ -1,16 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import SubmitTaskStyled from './submitTaskStyled';
 import DashboardLayout from '../../common/DashboardLayout';
 import SuccessfulSubmission from '../../common/SuccessfulSubmission';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { submitTaskAction } from '../../../state/tasks/tasksActionCreator';
-import { useDispatch } from 'react-redux';
+import {
+  submitTaskAction,
+  getSingleTaskAction,
+} from '../../../state/tasks/tasksActionCreator';
+import { useDispatch, useSelector } from 'react-redux';
+import { Spin } from 'antd';
 
 function SubmitTask(props) {
   const [submitted, setSubmitted] = useState(false);
   const { id } = props.match.params;
   const dispatch = useDispatch();
+  const tasks = useSelector(state => state.tasks);
+
+  const fetchData = useCallback(async () => {
+    await dispatch(getSingleTaskAction(id));
+  }, []);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   if (submitted) {
     const data = {
@@ -30,10 +43,10 @@ function SubmitTask(props) {
         <div className="row">
           <div className="col-md-5 col-sm-12">
             <div className="card mb-3 tasks" style={{ maxWidth: '23rem' }}>
-              <div className="card-header font-weight-bold">Task {id}</div>
+              <div className="card-header font-weight-bold">Task id {id}</div>
               <div className="card-body px-5">
                 <p className="card-text">
-                  Responsive Web Design Projects - Build a Tribute Page
+                  {tasks.singleTask ? tasks.singleTask.title : <Spin />}
                 </p>
               </div>
             </div>
