@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import InfoCardBigStyled from './InfoCardBigStyled';
 
-function InfoCardBig({ header, data }) {
+function InfoCardBig({ header, data, editable }) {
   const [showEdit, setshowEdit] = useState(null);
 
   return (
@@ -10,13 +10,15 @@ function InfoCardBig({ header, data }) {
       <div className="list__container">
         <div className="list_header">
           <p>{header}</p>
-          <i class="fas fa-plus"></i>
+          {editable ? <i class="fas fa-plus"></i> : null}
         </div>
         {data.map((item, idx) => (
           <div
             className="list-item"
             onMouseEnter={e =>
-              setshowEdit(Number(e.target.getAttribute('data-key')))
+              editable
+                ? setshowEdit(Number(e.target.getAttribute('data-key')))
+                : null
             }
             onMouseLeave={() => setshowEdit(null)}
             key={idx}

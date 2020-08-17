@@ -48,11 +48,27 @@ const DashboardLayout = Component => {
       setshowSidebar(!showSidebar);
     };
     const tabs = [
-      { id: 1, icon: <HomeIcon />, link: '/dashboard' },
-      { id: 2, icon: <UserGroup />, link: '/dashboard/mentee/mentor' },
-      { id: 3, icon: <Message />, link: '/dashboard/track' },
-      { id: 4, icon: <Bookmark />, link: '/dashboard/pending-task' },
-      { id: 5, icon: <Avatar />, link: '/dashboard/mentee/profile' },
+      { id: 1, icon: <i class="fas fa-home fa-2x"></i>, link: '/dashboard' },
+      {
+        id: 2,
+        icon: <i class="fas fa-user-friends fa-2x"></i>,
+        link: '/dashboard/mentee/mentor',
+      },
+      {
+        id: 3,
+        icon: <i class="fas fa-code fa-2x"></i>,
+        link: '/dashboard/track',
+      },
+      {
+        id: 4,
+        icon: <i class="fas fa-tasks fa-2x"></i>,
+        link: '/dashboard/pending-task',
+      },
+      {
+        id: 5,
+        icon: <i class="fas fa-user-ninja fa-2x"></i>,
+        link: '/dashboard/mentee/profile',
+      },
       { id: 6, icon: <Settings />, link: '#' },
     ];
     const { url } = props.match;

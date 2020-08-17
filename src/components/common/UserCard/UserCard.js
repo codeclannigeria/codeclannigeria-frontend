@@ -5,7 +5,14 @@ import { useState } from 'react';
 import EditProfileForm from '../../MenteeDashboard/userProfile/EditProfileForm';
 
 function UserCard({ data, mode }) {
-  const { photoUrl, firstName, lastName, email } = data;
+  const {
+    photoUrl,
+    firstName,
+    lastName,
+    email,
+    phoneNumber,
+    description,
+  } = data;
   const [showImageEdit, setshowImageEdit] = useState(null);
   const [visible, setVisible] = useState(false);
 
@@ -17,6 +24,27 @@ function UserCard({ data, mode }) {
   return (
     <UserCardStyled>
       <div className="personal--details--card">
+        {data && mode === 'mentee' ? (
+          <>
+            <div className="edit-button">
+              <i
+                onClick={() => {
+                  setVisible(true);
+                }}
+                class="fas fa-user-edit float-right "
+              ></i>
+            </div>
+
+            <EditProfileForm
+              visible={visible}
+              onCreate={onCreate}
+              initialData={data}
+              onCancel={() => {
+                setVisible(false);
+              }}
+            />
+          </>
+        ) : null}
         <div className="user__personal__details">
           <div className="img__wrap">
             <img
@@ -64,39 +92,14 @@ function UserCard({ data, mode }) {
             <i class="far fa-envelope"></i>
             <span>{email}</span>
           </div>
+          <div>
+            <i class="fas fa-phone-alt"></i>
+            <span>{phoneNumber}</span>
+          </div>
         </div>
         <hr />
         <div className="text-center edit__profile__btn__container">
-          {/* {mode === 'mentor' ? (
-            <button
-              className="btn btn-lg edit__profile__btn"
-              onClick={() => {
-                setVisible(true);
-              }}
-            >
-              Promote to Next Stage
-            </button>
-          ) : null} */}
-          {data && mode === 'mentee' ? (
-            <>
-              <button
-                className="btn btn-lg edit__profile__btn"
-                onClick={() => {
-                  setVisible(true);
-                }}
-              >
-                Edit profile
-              </button>
-              <EditProfileForm
-                visible={visible}
-                onCreate={onCreate}
-                initialData={data}
-                onCancel={() => {
-                  setVisible(false);
-                }}
-              />
-            </>
-          ) : null}
+          {description}
         </div>
       </div>
     </UserCardStyled>
