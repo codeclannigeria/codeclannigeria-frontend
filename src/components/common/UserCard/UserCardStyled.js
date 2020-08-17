@@ -10,6 +10,13 @@ const UserCardStyled = styled.div`
     height: 60%;
   }
 
+  .edit-button{
+    color: #4c5059;
+    padding: 1rem;
+    cursor: pointer;
+    /* width: 1.5rem; */
+  }
+
   .user__personal__details {
     display: flex;
     justify-content: center;

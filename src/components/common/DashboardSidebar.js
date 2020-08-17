@@ -31,7 +31,7 @@ function DashboardSidebar({ showSidebar, tabs, path, authLogoutApi }) {
                 path === tab.link ? 'active-icon ' : ''
               } `}
             >
-              <Link className="nav-link" to={`${tab.link}`}>
+              <Link className="nav-link text-white" to={`${tab.link}`}>
                 {tab.icon}
               </Link>
             </li>
