@@ -4,6 +4,7 @@ import Signup from './components/auth/Signup';
 import Dashboard from './components/MenteeDashboard/MenteeDashboard';
 import Landing from './components/landing';
 import LoginForm from './components/auth/Login';
+import Homepage from './components/Homepage';
 import SignupForm from './components/auth/Form';
 import EmailConfirmationSent from './components/auth/EmailConfirmationSent';
 import ForgotPassword from './components/auth/ForgotPassword';
@@ -60,7 +61,7 @@ export const PrivateRoute = ({ component: Component, ...rest }) => (
 // const location = useLocation();
 export const BaseRouter = () => (
   <Switch>
-    <Route exact path="/" component={Landing} />
+    <Route exact path="/" component={Homepage} />
     <Route path="/register/" component={Signup} />
     <Route path="/login/" component={LoginForm} />
     <Route path="/form/" component={SignupForm} />
