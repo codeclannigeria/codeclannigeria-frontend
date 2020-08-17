@@ -114,7 +114,7 @@ function LoginForm({ authLogin, loading, error, errResponse, token, history }) {
                     />
                     <span> Remember me </span>
                   </div>
-                  <a href="forgetPassword.html">forgot password ?</a>
+                  <a href="/forgotpass">forgot password ?</a>
                   <br />
                 </div>
                 <button
