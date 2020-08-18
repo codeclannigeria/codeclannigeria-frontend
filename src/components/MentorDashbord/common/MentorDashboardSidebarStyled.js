@@ -39,6 +39,10 @@ const MentorDashboardSidebarStyled = styled.div`
     }
   }
 
+  .active-icon {
+    ${active}
+  }
+
   img {
     margin: 0 auto;
     padding: 1rem;
@@ -81,6 +85,7 @@ const MentorDashboardSidebarStyled = styled.div`
   }
 
   @media (max-width: 820px) {
+    width: 12rem;
     transition: transform 0.3s ease-in-out;
     transform: ${({ showSidebar }) =>
       showSidebar ? 'translateX(0)' : 'translateX(-100%)'};
