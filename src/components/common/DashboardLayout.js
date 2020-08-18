@@ -12,29 +12,7 @@ import { motion } from 'framer-motion';
 import { useStore, useDispatch } from 'react-redux';
 import { getUserProfileApi } from '../../state/user/userActionCreator';
 import CustomLoader from './Spinner/CustomLoader';
-const pageVariants = {
-  initial: {
-    opacity: 0,
-    x: '-100vw',
-    scale: 0.8,
-  },
-  in: {
-    opacity: 1,
-    x: 0,
-    scale: 1,
-  },
-  out: {
-    opacity: 0,
-    x: '100vw',
-    scale: 1.2,
-  },
-};
-
-const pageTransition = {
-  type: 'tween',
-  ease: 'easeInOut',
-  duration: 0.3,
-};
+import MentorDashboardStyled from '../MentorDashbord/MentorDashboardStyled';
 
 // const pageStyle = {
 //   position: 'absolute',
@@ -48,28 +26,38 @@ const DashboardLayout = Component => {
       setshowSidebar(!showSidebar);
     };
     const tabs = [
-      { id: 1, icon: <i class="fas fa-home fa-2x"></i>, link: '/dashboard' },
+      // {
+      //   id: 1,
+      //   icon: <i class="fas fa-home fa-2x"></i>,
+      //   link: '/dashboard',
+      //   name: '',
+      // },
       {
-        id: 2,
+        id: 1,
         icon: <i class="fas fa-user-friends fa-2x"></i>,
         link: '/dashboard/mentee/mentor',
+        name: 'Mentor',
+      },
+      {
+        id: 2,
+        icon: <i class="fas fa-code fa-2x"></i>,
+        link: '/dashboard/track',
+        name: 'Tracks',
       },
       {
         id: 3,
-        icon: <i class="fas fa-code fa-2x"></i>,
-        link: '/dashboard/track',
+        icon: <i class="fas fa-tasks fa-2x"></i>,
+        link: '/dashboard/pending-task',
+        name: 'Tasks',
       },
       {
         id: 4,
-        icon: <i class="fas fa-tasks fa-2x"></i>,
-        link: '/dashboard/pending-task',
-      },
-      {
-        id: 5,
         icon: <i class="fas fa-user-ninja fa-2x"></i>,
         link: '/dashboard/mentee/profile',
+        name: 'Profile',
       },
-      { id: 6, icon: <Settings />, link: '#' },
+
+      { id: 5, icon: <Settings />, link: '#', name: 'Settings' },
     ];
     const { url } = props.match;
 
@@ -87,33 +75,25 @@ const DashboardLayout = Component => {
     }, [userState, dispatch, userLoading]);
 
     return (
-      <DashboardLayoutStyled>
+      <MentorDashboardStyled>
         <DashboardSidebar tabs={tabs} path={url} showSidebar={showSidebar} />
-        <motion.div
-          // style={pageStyle}
-          initial="initial"
-          animate="in"
-          exit="out"
-          variants={pageVariants}
-          transition={pageTransition}
-        >
-          {!userLoading ? (
-            <>
-              <DashboardHeader
-                toggleSidebar={toggleSidebar}
-                showSidebar={showSidebar}
-              />
-              <div className="dashboard-wrap row">
-                <div className="dashboard-content col-md-10 container">
-                  <Component {...props} />
-                </div>
+
+        {!userLoading ? (
+          <>
+            <DashboardHeader
+              toggleSidebar={toggleSidebar}
+              showSidebar={showSidebar}
+            />
+            <div className="dashboard-wrap row">
+              <div className="dashboard-content col-md-10 container">
+                <Component {...props} />
               </div>
-            </>
-          ) : (
-            <CustomLoader />
-          )}
-        </motion.div>
-      </DashboardLayoutStyled>
+            </div>
+          </>
+        ) : (
+          <CustomLoader />
+        )}
+      </MentorDashboardStyled>
     );
   };
 };

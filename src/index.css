@@ -161,6 +161,10 @@ code {
   padding: 1rem 5rem;
 }
 
+.react-tel-input .form-control {
+  width: 100% !important;
+}
+
 @media (max-width: 600px) {
   html {
     font-size: 12px;

@@ -14,6 +14,10 @@ const EditProfileStyled = styled.div`
     justify-content: center;
     padding: 1rem;
   }
+
+  .react-tel-input .form-control {
+    width: 100%;
+  }
 `;
 
 export default EditProfileStyled;

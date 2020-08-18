@@ -25,14 +25,10 @@ import MenteeProfile from './components/MentorDashbord/Mentees/MenteeProfile';
 
 const checkAuth = () => {
   const token = localStorage.getItem('codeclan_token');
-  // const refreshToken
-  console.log('checked');
 
   if (!token) return false;
 
   try {
-    console.log(decode(token));
-
     const { exp } = decode(token);
 
     if (exp < new Date().getTime() / 1000) {
@@ -72,47 +68,45 @@ export const BaseRouter = () => (
 );
 
 export const DashboardRouter = ({ location }) => (
-  <AnimatePresence>
-    <Switch location={location} key={location.pathname}>
-      <PrivateRoute exact path="/dashboard" component={Dashboard} />
+  <Switch location={location} key={location.pathname}>
+    <PrivateRoute exact path="/dashboard" component={Dashboard} />
 
-      <PrivateRoute
-        exact
-        path="/dashboard/pending-task"
-        component={PendingTasksPage}
-      />
+    <PrivateRoute
+      exact
+      path="/dashboard/pending-task"
+      component={PendingTasksPage}
+    />
 
-      <PrivateRoute
-        exact
-        path="/dashboard/pending-task/:id"
-        component={TaskBrief}
-      />
-      <PrivateRoute
-        exact
-        path="/dashboard/pending-task/submit/:id"
-        component={SubmitTask}
-      />
-      <PrivateRoute exact path="/dashboard/track" component={TrackList} />
-      <PrivateRoute
-        path="/dashboard/track/:trackName/:trackId"
-        component={CoursesList}
-      />
-      <PrivateRoute
-        path="/dashboard/course/:courseTitle/:courseId"
-        component={SingleCoursePage}
-      />
-      <PrivateRoute
-        exact
-        path="/dashboard/mentee/mentor/"
-        component={MentorDetails}
-      />
-      <PrivateRoute
-        exact
-        path="/dashboard/mentee/profile"
-        component={UserProfile}
-      />
-    </Switch>
-  </AnimatePresence>
+    <PrivateRoute
+      exact
+      path="/dashboard/pending-task/:id"
+      component={TaskBrief}
+    />
+    <PrivateRoute
+      exact
+      path="/dashboard/pending-task/submit/:id"
+      component={SubmitTask}
+    />
+    <PrivateRoute exact path="/dashboard/track" component={TrackList} />
+    <PrivateRoute
+      path="/dashboard/track/:trackName/:trackId"
+      component={CoursesList}
+    />
+    <PrivateRoute
+      path="/dashboard/course/:courseTitle/:courseId"
+      component={SingleCoursePage}
+    />
+    <PrivateRoute
+      exact
+      path="/dashboard/mentee/mentor/"
+      component={MentorDetails}
+    />
+    <PrivateRoute
+      exact
+      path="/dashboard/mentee/profile"
+      component={UserProfile}
+    />
+  </Switch>
 );
 
 export const MentorRouter = () => (

@@ -76,6 +76,9 @@ const HomepageStyled = styled.div`
     text-align: center;
     border-radius: 4px;
     cursor: pointer;
+    a {
+      color: #004296;
+    }
   }
 
   .sorround {
