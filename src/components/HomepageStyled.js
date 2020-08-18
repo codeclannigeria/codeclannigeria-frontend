@@ -418,6 +418,7 @@ const HomepageStyled = styled.div`
       position: absolute;
       top: 0.5rem;
       right: 2rem;
+      cursor: pointer;
     }
 
     .inner-header {
@@ -439,11 +440,18 @@ const HomepageStyled = styled.div`
     } */
 
     .mobile-menu {
-      display: flex;
+      /* 
+     
+    };
+       */
       background: #fff;
       padding: 1rem;
       flex-direction: column;
       margin-top: 1em;
+      display: ${({ openNav }) => (openNav ? 'flex' : 'none')};
+      transition: transform 0.3s ease-in-out;
+      transform: ${({ openNav }) =>
+        openNav ? 'translateX(0)' : 'translateX(-100%)'};
       ul {
         display: flex;
         flex-direction: column;

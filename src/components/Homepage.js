@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import HomepageStyled from './HomepageStyled';
 import CodeClanLogo from './assets/image/codeClanLogoWhite.png';
 import HeaderImage from './assets/image/homepage/Header.png';
@@ -40,8 +40,13 @@ function Homepage() {
   function goLeft() {
     animateScroll(row.current, 800, 1, 'left');
   }
+  const [openMobileNav, setopenMobileNav] = useState(false);
+
+  const handleOpenMobileNav = () => {
+    setopenMobileNav(!openMobileNav);
+  };
   return (
-    <HomepageStyled>
+    <HomepageStyled openNav={openMobileNav}>
       <header>
         <div className="inner-header">
           <div>
@@ -69,7 +74,14 @@ function Homepage() {
               <li className="button">Sign Up</li>
             </ul>
           </div>
-          <i class="fas fa-bars toggle-btn"></i>
+
+          <div className="toggle-btn" onClick={() => handleOpenMobileNav()}>
+            {!openMobileNav ? (
+              <i className="fas fa-bars text-white"></i>
+            ) : (
+              <i className="fas fa-times  text-white"></i>
+            )}
+          </div>
           <div className="mobile-menu">
             <div>
               <ul>
