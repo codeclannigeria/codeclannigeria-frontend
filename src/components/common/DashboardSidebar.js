@@ -80,6 +80,7 @@ function DashboardSidebar({ showSidebar, tabs, path, authLogoutApi }) {
           <DashboardStackLogo /> Tasks
         </li>
 
+         */}
         <li className="logout__link">
           <Popconfirm
             title="Are sure you want to log out？"
@@ -93,7 +94,7 @@ function DashboardSidebar({ showSidebar, tabs, path, authLogoutApi }) {
               <i class="fas fa-power-off"></i> Logout
             </button>
           </Popconfirm>
-        </li> */}
+        </li>
       </ul>
     </MentorDashboardSidebarStyled>
   );
