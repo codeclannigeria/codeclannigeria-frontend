@@ -2,6 +2,11 @@
 
 /* The styles here are used to override  */
 
+@font-face {
+  font-family: 'Gilroy';
+  src: url('./components/assets/fonts/Gilroy-Light.otf');
+}
+
 body {
   margin: 0;
   font-family: 'Nunito', sans-serif !important;
