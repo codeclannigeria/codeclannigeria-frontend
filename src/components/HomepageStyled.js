@@ -396,9 +396,78 @@ const HomepageStyled = styled.div`
     line-height: 30px;
   }
 
+  .mobile-menu {
+    display: none;
+  }
+
+  .mobile-sign {
+    display: none;
+  }
+
+  .toggle-btn {
+    display: none;
+  }
+
   @media only screen and (max-width: 968px) {
     header {
       position: unset;
+    }
+
+    .toggle-btn {
+      display: block;
+      position: absolute;
+      top: 0.5rem;
+      right: 2rem;
+    }
+
+    .inner-header {
+      display: flex;
+      width: 100%;
+      justify-content: space-around;
+    }
+
+    .menu {
+      display: none;
+    }
+
+    .desktop-sign {
+      display: none;
+    }
+
+    /* .menu {
+      display: unset;
+    } */
+
+    .mobile-menu {
+      display: flex;
+      background: #fff;
+      padding: 1rem;
+      flex-direction: column;
+      ul {
+        display: flex;
+        flex-direction: column;
+        li {
+          color: #004296;
+        }
+      }
+      /* background: #fff; */
+    }
+
+    .mobile-sign {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      ul {
+        display: flex;
+        flex-direction: column;
+        li {
+          color: #004296;
+        }
+        .mobile-button {
+          background: #004296;
+          color: #fff;
+        }
+      }
     }
     .inner-header {
       padding: 1em;
@@ -406,11 +475,8 @@ const HomepageStyled = styled.div`
       text-align: center;
     }
     .logo {
-      width: 20%;
+      width: auto;
       height: auto;
-    }
-    .menu {
-      display: unset;
     }
 
     .pic img {

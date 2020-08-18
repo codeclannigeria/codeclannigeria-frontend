@@ -63,35 +63,37 @@ function Homepage() {
               </a>
             </ul>
           </div>
-          <div className="menu sign">
+          <div className="menu sign desktop-sign">
             <ul>
               <li>Login</li>
               <li className="button">Sign Up</li>
             </ul>
           </div>
-          {/* 
+          <i class="fas fa-bars toggle-btn"></i>
           <div className="mobile-menu">
-            <ul>
-              <a href="teams.html">
-                <li>Team</li>
-              </a>
-              <a href="events.html">
-                <li>Events</li>
-              </a>
-              <a href="about.html">
-                <li>About</li>
-              </a>
-              <a href="contact-us.html">
-                <li>Contact Us</li>
-              </a>
-            </ul>
+            <div>
+              <ul>
+                <a href="teams.html">
+                  <li>Team</li>
+                </a>
+                <a href="events.html">
+                  <li>Events</li>
+                </a>
+                <a href="about.html">
+                  <li>About</li>
+                </a>
+                <a href="contact-us.html">
+                  <li>Contact Us</li>
+                </a>
+              </ul>
+            </div>
+            <div className="menu sign mobile-sign">
+              <ul>
+                <li>Login</li>
+                <li className="mobile-button">Sign Up</li>
+              </ul>
+            </div>
           </div>
-          <div className="menu sign">
-            <ul>
-              <li>Login</li>
-              <li className="button">Sign Up</li>
-            </ul>
-          </div> */}
         </div>
       </header>
       <div className="back">
@@ -228,10 +230,10 @@ function Homepage() {
             </div>
           </div>
           <button className="go go-right" onClick={() => goRight()}>
-            <ChevronRight />
+            <ChevronRight height="20px" width="20px" />
           </button>
           <button className="go go-left" onClick={() => goLeft()}>
-            <ChevronLeft />
+            <ChevronLeft height="20px" width="20px" />
           </button>
         </div>
       </div>
