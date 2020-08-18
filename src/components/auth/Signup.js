@@ -7,9 +7,9 @@ import { Link } from 'react-router-dom';
 import AlertComponent from '../common/AuthAlert';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import codeClanLogoWhite from '../assets/image/codeClanLogoWhite.png';
+import codeClanLogo from '../assets/image/codeClanLogo.png';
 import Spinner from 'react-bootstrap/Spinner';
-import loginAmico from '../assets/image/Login-amico.png';
+import loginAmico from '../assets/image/auth/login.jpg';
 import { notification } from 'antd';
 
 function Signup({ register, loading, errResponse, token, history }) {
@@ -69,114 +69,136 @@ function Signup({ register, loading, errResponse, token, history }) {
     >
       {({ errors, touched, isSubmitting }) => (
         <SignupStyled>
-          <div id="wrapper">
-            <div id="signUpInfo">
-              <img
-                src={codeClanLogoWhite}
-                className="img-fluid"
-                alt="Code Clan Logo"
-              />
-              <h1 class="infoHeading">welcome to CodeClan Nigeria</h1>
-              <p class="infoSubheading">sign up to</p>
-              <img
-                src={loginAmico}
-                alt="Login Animation"
-                id="infoIllustration"
-              />
-            </div>
-            <div id="signUpDiv">
-              <Form id="signUpForm">
-                <div className="form-header">
-                  <h1 class="show">Create Account</h1>
-                  <p class=" display">
-                    Start your journey to becoming a world class developer
-                  </p>
-                </div>
-                <AlertComponent variant="danger" text={errResponse} />
-                <div className="nameInputGroup">
-                  <label htmlFor="fullName">Full Name</label>
-                  <Field
-                    name="fullName"
-                    id="fullName"
-                    className={
-                      touched.fullName && errors.fullName
-                        ? errorClassNames
-                        : validClassNames
-                    }
-                    type="text"
-                  />
-                  <div className="d-block text-monospace text-danger small-text">
-                    <ErrorMessage name="fullName" className="d-block" />
+          <div>
+            <div class="main">
+              <div class="left">
+                <div class="logo">
+                  <div>
+                    <img src={codeClanLogo} alt="Code claan" />
                   </div>
                 </div>
+                <div class="titles"> Create your account </div>
+                <form>
+                  <AlertComponent variant="danger" text={errResponse} />
+                  <label htmlFor="fullName">
+                    Full Name <span class="text-danger">*</span>
+                  </label>
+                  <div class="block">
+                    <div className="">
+                      <Field
+                        name="fullName"
+                        id="fullName"
+                        className={
+                          touched.fullName && errors.fullName
+                            ? errorClassNames
+                            : validClassNames
+                        }
+                        type="text"
+                      />
+                      <div className="d-block text-monospace text-danger small-text">
+                        <ErrorMessage name="fullName" className="d-block" />
+                      </div>
+                    </div>
+                  </div>
+                  <label htmlFor="email">
+                    E-mail <span class="text-danger">*</span>
+                  </label>
 
-                <label htmlFor="email">Email Address</label>
-                <Field
-                  name="email"
-                  className={
-                    touched.email && errors.email
-                      ? errorClassNames
-                      : validClassNames
-                  }
-                  type="email"
-                />
-                <div className="d-block text-monospace text-danger small-text">
-                  <ErrorMessage name="email" className="d-block" />
-                </div>
-
-                <label htmlFor="password1">Password</label>
-                <Field
-                  name="password1"
-                  className={
-                    touched.password1 && errors.password1
-                      ? errorClassNames
-                      : validClassNames
-                  }
-                  type="password"
-                />
-                <div className="d-block text-monospace text-danger small-text">
-                  <ErrorMessage name="password1" className="d-block" />
-                </div>
-
-                <label htmlFor="password2">Confirm Password</label>
-                <Field
-                  name="password2"
-                  className={
-                    touched.password2 && errors.password2
-                      ? errorClassNames
-                      : validClassNames
-                  }
-                  type="password"
-                />
-                <div className="d-block text-monospace text-danger small-text">
-                  <ErrorMessage name="password2" className="d-block" />
-                </div>
-
-                <p className="info blue privacy">
-                  by clicking on this button, you agree to our Terms of use and
-                  privacy policy
-                </p>
-                <button
-                  disabled={loading}
-                  className={loading ? 'btn btn-light w-100' : 'submit'}
-                  type="submit"
-                >
-                  {!loading ? (
-                    'get started'
-                  ) : (
+                  <div className="block">
+                    <input
+                      id="email"
+                      type="email"
+                      name="email"
+                      className={
+                        touched.email && errors.email
+                          ? errorClassNames
+                          : validClassNames
+                      }
+                    />
                     <span>
-                      <Spinner animation="border" variant="primary" /> Signing
-                      up....
+                      <i class="fa fa-at" aria-hidden="true"></i>
                     </span>
-                  )}
-                </button>
-                <p className="info blue signIn">
-                  already have an account?
-                  <span>
-                    <Link to="/login/">Sign In</Link>
-                  </span>
+                    <div className="d-block text-monospace text-danger small-text">
+                      <ErrorMessage name="email" className="d-block" />
+                    </div>
+                  </div>
+                  <label htmlFor="password1">
+                    Password <span class="text-danger">*</span>
+                  </label>
+
+                  <div class="block">
+                    <input
+                      id="password1"
+                      name="password1"
+                      className={
+                        touched.password1 && errors.password1
+                          ? errorClassNames
+                          : validClassNames
+                      }
+                      type="password"
+                    />
+                    <span>
+                      <i class="fa fa-eye" aria-hidden="true"></i>
+                    </span>
+                    <div className="d-block text-monospace text-danger small-text">
+                      <ErrorMessage name="password1" className="d-block" />
+                    </div>
+                  </div>
+                  <label htmlFor="password2">
+                    Confirm Password <span class="text-danger">*</span>
+                  </label>
+
+                  <div class="block">
+                    <input
+                      id="password2"
+                      name="password2"
+                      className={
+                        touched.password2 && errors.password2
+                          ? errorClassNames
+                          : validClassNames
+                      }
+                      type="password"
+                    />
+                    <span>
+                      <i class="fa fa-eye" aria-hidden="true"></i>
+                    </span>
+                    <div className="d-block text-monospace text-danger small-text">
+                      <ErrorMessage name="password2" className="d-block" />
+                    </div>
+                  </div>
+
+                  <button
+                    disabled={loading}
+                    className={loading ? 'btn btn-light w-100' : 'submit'}
+                    type="submit"
+                  >
+                    {!loading ? (
+                      'get started'
+                    ) : (
+                      <span>
+                        <Spinner animation="border" variant="primary" /> Signing
+                        up....
+                      </span>
+                    )}
+                  </button>
+                  <div class="centralize" style={{ lineHeight: '2em' }}>
+                    <p>
+                      Already have an account? <Link to="/login">Log in</Link>
+                    </p>
+                  </div>
+                </form>
+              </div>
+              <div class="right">
+                <img
+                  alt="Login animation"
+                  src={loginAmico}
+                  style={{ height: '50%' }}
+                />
+                <p class="small">CODECLAN NIGERIA</p>
+                <p class="normal">
+                  Join us and take your programming career to the next level
                 </p>
-              </Form>
+              </div>
             </div>
           </div>
         </SignupStyled>

@@ -63,7 +63,8 @@ function DashboardSidebar({ showSidebar, tabs, path, authLogoutApi }) {
             key={tab.id}
             className={` sub-menu ${path === tab.link ? 'active-icon ' : ''} `}
           >
-            <DashboardStackLogo />
+            {/* <DashboardStackLogo /> */}
+            {tab.icon}
 
             <Link to={`${tab.link}`}> {tab.name}</Link>
           </li>
