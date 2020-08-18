@@ -12,6 +12,7 @@ import LaptopOnTable from './assets/image/homepage/laptopOnTable.jpg';
 import laptopWithBook from './assets/image/homepage/laptopWithBook.jpg';
 import { ReactComponent as ChevronLeft } from './assets/svgs/homepage/chevron-left.svg';
 import { ReactComponent as ChevronRight } from './assets/svgs/homepage/chevron-right.svg';
+import { Link } from 'react-router-dom';
 
 function Homepage() {
   const row = useRef();
@@ -70,8 +71,12 @@ function Homepage() {
           </div>
           <div className="menu sign desktop-sign">
             <ul>
-              <li>Login</li>
-              <li className="button">Sign Up</li>
+              <li>
+                <Link to="/login/">Login</Link>
+              </li>
+              <li className="button">
+                <Link to="/register/">Sign Up</Link>
+              </li>
             </ul>
           </div>
 
@@ -101,8 +106,12 @@ function Homepage() {
             </div>
             <div className="menu sign mobile-sign">
               <ul>
-                <li>Login</li>
-                <li className="mobile-button">Sign Up</li>
+                <li>
+                  <Link to="/login/">Login</Link>
+                </li>
+                <li className="mobile-button">
+                  <Link to="/register/">Sign Up</Link>
+                </li>
               </ul>
             </div>
           </div>

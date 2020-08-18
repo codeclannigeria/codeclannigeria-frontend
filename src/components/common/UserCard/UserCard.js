@@ -12,6 +12,8 @@ function UserCard({ data, mode }) {
     email,
     phoneNumber,
     description,
+    city,
+    country,
   } = data;
   const [showImageEdit, setshowImageEdit] = useState(null);
   const [visible, setVisible] = useState(false);
@@ -86,7 +88,9 @@ function UserCard({ data, mode }) {
         <div className="user__contact__info">
           <div>
             <i class="fas fa-map-marker-alt"></i>
-            <span>Ibadan, Nigeria</span>
+            <span>
+              {city}, {country}
+            </span>
           </div>
           <div>
             <i class="far fa-envelope"></i>
