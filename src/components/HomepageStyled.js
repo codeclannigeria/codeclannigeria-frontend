@@ -218,6 +218,7 @@ const HomepageStyled = styled.div`
   }
 
   .row {
+    display: block;
     white-space: nowrap;
     overflow-x: hidden;
     position: relative;

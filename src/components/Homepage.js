@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import HomepageStyled from './HomepageStyled';
 import CodeClanLogo from './assets/image/codeClanLogoWhite.png';
 import HeaderImage from './assets/image/homepage/Header.png';
@@ -10,8 +10,36 @@ import groupSession from './assets/image/homepage/groupSession.jpg';
 import hpLaptop from './assets/image/homepage/hpLaptop.jpg';
 import LaptopOnTable from './assets/image/homepage/laptopOnTable.jpg';
 import laptopWithBook from './assets/image/homepage/laptopWithBook.jpg';
+import { ReactComponent as ChevronLeft } from './assets/svgs/homepage/chevron-left.svg';
+import { ReactComponent as ChevronRight } from './assets/svgs/homepage/chevron-right.svg';
 
 function Homepage() {
+  const row = useRef();
+  const animateScroll = (el, scrollLength, speed, where) => {
+    var start = 0;
+    const scrol = setInterval(function () {
+      start += 5;
+      where === 'right' ? (el.scrollLeft += 5) : (el.scrollLeft -= 5);
+
+      if (start >= 130) {
+        start += 5;
+        where === 'right' ? (el.scrollLeft += 5) : (el.scrollLeft -= 5);
+      }
+
+      if (start >= scrollLength) {
+        clearInterval(scrol);
+      }
+    }, speed);
+  };
+
+  function goRight() {
+    // console.log(row);
+    animateScroll(row.current, 800, 1, 'right');
+  }
+
+  function goLeft() {
+    animateScroll(row.current, 800, 1, 'left');
+  }
   return (
     <HomepageStyled>
       <header>
@@ -41,6 +69,29 @@ function Homepage() {
               <li className="button">Sign Up</li>
             </ul>
           </div>
+          {/* 
+          <div className="mobile-menu">
+            <ul>
+              <a href="teams.html">
+                <li>Team</li>
+              </a>
+              <a href="events.html">
+                <li>Events</li>
+              </a>
+              <a href="about.html">
+                <li>About</li>
+              </a>
+              <a href="contact-us.html">
+                <li>Contact Us</li>
+              </a>
+            </ul>
+          </div>
+          <div className="menu sign">
+            <ul>
+              <li>Login</li>
+              <li className="button">Sign Up</li>
+            </ul>
+          </div> */}
         </div>
       </header>
       <div className="back">
@@ -130,7 +181,7 @@ function Homepage() {
           Tracks
         </div>
         <div style={{ position: 'relative' }}>
-          <div id="row" className="row">
+          <div ref={row} id="row" className="row">
             <div className="inner">
               <div className="pic">
                 <img src={LaptopOnTable} />
@@ -176,11 +227,11 @@ function Homepage() {
               </div>
             </div>
           </div>
-          <button className="go go-right" onclick="goRight()">
-            <img src="./assets/icons/chevron-right.svg" />
+          <button className="go go-right" onClick={() => goRight()}>
+            <ChevronRight />
           </button>
-          <button className="go go-left" onclick="goLeft()">
-            <img src="./assets/icons/chevron-left.svg" />
+          <button className="go go-left" onClick={() => goLeft()}>
+            <ChevronLeft />
           </button>
         </div>
       </div>
