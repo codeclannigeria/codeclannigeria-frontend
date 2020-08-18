@@ -34,30 +34,35 @@ const DashboardLayout = Component => {
       // },
       {
         id: 1,
-        icon: <i class="fas fa-user-friends fa-2x"></i>,
+        icon: <i class="fas fa-user-friends"></i>,
         link: '/dashboard/mentee/mentor',
         name: 'Mentor',
       },
       {
         id: 2,
-        icon: <i class="fas fa-code fa-2x"></i>,
+        icon: <i class="fas fa-code"></i>,
         link: '/dashboard/track',
         name: 'Tracks',
       },
       {
         id: 3,
-        icon: <i class="fas fa-tasks fa-2x"></i>,
+        icon: <i class="fas fa-tasks"></i>,
         link: '/dashboard/pending-task',
         name: 'Tasks',
       },
       {
         id: 4,
-        icon: <i class="fas fa-user-ninja fa-2x"></i>,
+        icon: <i class="fas fa-user-ninja"></i>,
         link: '/dashboard/mentee/profile',
         name: 'Profile',
       },
 
-      { id: 5, icon: <Settings />, link: '#', name: 'Settings' },
+      {
+        id: 5,
+        icon: <i class="fas fa-sliders-h"></i>,
+        link: '#',
+        name: 'Settings',
+      },
     ];
     const { url } = props.match;
 
@@ -85,7 +90,7 @@ const DashboardLayout = Component => {
               showSidebar={showSidebar}
             />
             <div className="dashboard-wrap row">
-              <div className="dashboard-content col-md-10 container">
+              <div className="dashboard-content col-md-9 container">
                 <Component {...props} />
               </div>
             </div>
