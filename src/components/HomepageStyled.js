@@ -443,11 +443,13 @@ const HomepageStyled = styled.div`
       background: #fff;
       padding: 1rem;
       flex-direction: column;
+      margin-top: 1em;
       ul {
         display: flex;
         flex-direction: column;
         li {
           color: #004296;
+          font-size: 1.1em;
         }
       }
       /* background: #fff; */
