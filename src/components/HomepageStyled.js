@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import Mask from './assets/image/homepage/mask.png';
 
 const HomepageStyled = styled.div`
-  font-family: 'Gilroy';
+  font-family: 'Gilroy', 'Nunito', sans-serif;
   a {
     color: white;
     text-decoration: none;
@@ -11,11 +11,15 @@ const HomepageStyled = styled.div`
     color: #d0d0d0;
   }
 
+  .fas {
+    font-family: 'Font Awesome 5 Free';
+  }
+
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Gilroy';
+    font-family: 'Gilroy', 'Nunito', sans-serif;
   }
 
   .logo {
