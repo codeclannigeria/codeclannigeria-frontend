@@ -131,7 +131,7 @@ const LoginStyled = styled.div`
 
   form input,
   form button {
-    width: 100%;
+    width: 90%;
   }
 
   .form-con {

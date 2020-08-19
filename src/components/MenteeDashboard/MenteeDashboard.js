@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { DashboardStyled } from './MenteeDashboardStyled';
-import { Skeleton } from 'antd';
 
 // Images
 import newspaper from '../assets/image/dashboard/newspaper.png';
@@ -14,7 +13,6 @@ import TrackEnroll from './tracks/TrackEnroll';
 import { connect } from 'react-redux';
 import { getAllTasksAction } from '../../state/tasks/tasksActionCreator';
 import CustomLoader from '../common/Spinner/CustomLoader';
-import { Redirect } from 'react-router-dom';
 
 function Dashboard({
   userLoading,
@@ -25,7 +23,7 @@ function Dashboard({
   tasksData,
   history,
 }) {
-  const [showTracksEnrollModal, setshowTracksEnrollModal] = useState(true);
+  const [showTracksEnrollModal, setshowTracksEnrollModal] = useState();
 
   useEffect(() => {
     if (userData && userData.tracks.length >= 1) {
