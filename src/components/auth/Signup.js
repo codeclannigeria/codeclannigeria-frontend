@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { signup } from '../../state/auth/authActionCreator';
 import { connect, useDispatch } from 'react-redux';
 import SignupStyled from './SignupStyled';
@@ -14,6 +14,14 @@ import { notification } from 'antd';
 
 function Signup({ register, loading, errResponse, token, history }) {
   const dispatch = useDispatch();
+  const passwordRef = useRef();
+  const confirmPasswordRef = useRef();
+
+  const togglePasswordToText = ref => {
+    ref.current.firstChild.type === 'password'
+      ? (ref.current.firstChild.type = 'text')
+      : (ref.current.firstChild.type = 'password');
+  };
 
   useEffect(() => {
     dispatch({ type: 'AUTH_RESET' });
@@ -78,34 +86,35 @@ function Signup({ register, loading, errResponse, token, history }) {
                   </div>
                 </div>
                 <div class="titles"> Create your account </div>
-                <form>
+                <Form>
                   <AlertComponent variant="danger" text={errResponse} />
                   <label htmlFor="fullName">
                     Full Name <span class="text-danger">*</span>
                   </label>
                   <div class="block">
-                    <div className="">
-                      <Field
-                        name="fullName"
-                        id="fullName"
-                        className={
-                          touched.fullName && errors.fullName
-                            ? errorClassNames
-                            : validClassNames
-                        }
-                        type="text"
-                      />
-                      <div className="d-block text-monospace text-danger small-text">
-                        <ErrorMessage name="fullName" className="d-block" />
-                      </div>
-                    </div>
+                    <Field
+                      name="fullName"
+                      id="fullName"
+                      className={
+                        touched.fullName && errors.fullName
+                          ? errorClassNames
+                          : validClassNames
+                      }
+                      type="text"
+                    />
+                    <span>
+                      <i class="far fa-user"></i>
+                    </span>
+                  </div>
+                  <div className="d-block text-monospace text-danger small-text">
+                    <ErrorMessage name="fullName" className="d-block" />
                   </div>
                   <label htmlFor="email">
                     E-mail <span class="text-danger">*</span>
                   </label>
 
                   <div className="block">
-                    <input
+                    <Field
                       id="email"
                       type="email"
                       name="email"
@@ -118,16 +127,16 @@ function Signup({ register, loading, errResponse, token, history }) {
                     <span>
                       <i class="fa fa-at" aria-hidden="true"></i>
                     </span>
-                    <div className="d-block text-monospace text-danger small-text">
-                      <ErrorMessage name="email" className="d-block" />
-                    </div>
+                  </div>
+                  <div className="d-block text-monospace text-danger small-text">
+                    <ErrorMessage name="email" className="d-block" />
                   </div>
                   <label htmlFor="password1">
                     Password <span class="text-danger">*</span>
                   </label>
 
-                  <div class="block">
-                    <input
+                  <div class="block" ref={passwordRef}>
+                    <Field
                       id="password1"
                       name="password1"
                       className={
@@ -137,19 +146,19 @@ function Signup({ register, loading, errResponse, token, history }) {
                       }
                       type="password"
                     />
-                    <span>
+                    <span onClick={() => togglePasswordToText(passwordRef)}>
                       <i class="fa fa-eye" aria-hidden="true"></i>
                     </span>
-                    <div className="d-block text-monospace text-danger small-text">
-                      <ErrorMessage name="password1" className="d-block" />
-                    </div>
+                  </div>
+                  <div className="d-block text-monospace text-danger small-text">
+                    <ErrorMessage name="password1" className="d-block" />
                   </div>
                   <label htmlFor="password2">
                     Confirm Password <span class="text-danger">*</span>
                   </label>
 
-                  <div class="block">
-                    <input
+                  <div class="block" ref={confirmPasswordRef}>
+                    <Field
                       id="password2"
                       name="password2"
                       className={
@@ -159,12 +168,14 @@ function Signup({ register, loading, errResponse, token, history }) {
                       }
                       type="password"
                     />
-                    <span>
+                    <span
+                      onClick={() => togglePasswordToText(confirmPasswordRef)}
+                    >
                       <i class="fa fa-eye" aria-hidden="true"></i>
                     </span>
-                    <div className="d-block text-monospace text-danger small-text">
-                      <ErrorMessage name="password2" className="d-block" />
-                    </div>
+                  </div>
+                  <div className="d-block text-monospace text-danger small-text">
+                    <ErrorMessage name="password2" className="d-block" />
                   </div>
 
                   <button
@@ -186,7 +197,7 @@ function Signup({ register, loading, errResponse, token, history }) {
                       Already have an account? <Link to="/login">Log in</Link>
                     </p>
                   </div>
-                </form>
+                </Form>
               </div>
               <div class="right">
                 <img

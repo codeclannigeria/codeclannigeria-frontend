@@ -43,11 +43,14 @@ export const getSingleTaskAction = id => {
   };
 };
 
-export const submitTaskAction = taskId => {
+export const submitTaskAction = (taskId, url, comments) => {
   return dispatch => {
     dispatch({ type: types.TASKS_START });
     return codeClanApi
-      .post('/tasks', taskId)
+      .post(`/tasks/${taskId}/submit`, {
+        description: comments,
+        taskUrl: url,
+      })
       .then(res => {
         dispatch({ type: types.SUBMIT_TASK });
       })

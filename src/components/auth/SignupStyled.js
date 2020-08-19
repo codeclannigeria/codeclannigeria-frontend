@@ -92,7 +92,7 @@ const SignupStyled = styled.div`
     background: rgba(31, 89, 187, 0.05);
     border-radius: 5px;
     height: 2.3rem;
-    width: 100%;
+    width: 90%;
   }
   input[type='password'],
   [type='email'] {
@@ -219,8 +219,9 @@ const SignupStyled = styled.div`
     overflow: hidden;
     display: inline-block;
   }
-  .fa {
-    font-family: 'Font Awesome 5 Free';
+  .fa,
+  .far {
+    font-family: 'FontAwesome';
     font-weight: lighter;
   }
 
@@ -304,6 +305,13 @@ const SignupStyled = styled.div`
     /* margin-bottom: 1em; */
     border: 1px solid gainsboro;
     border-radius: 4px;
+    display: flex;
+
+    align-items: center;
+  }
+
+  .block span {
+    margin-left: 4px;
   }
 
   form .block i {
