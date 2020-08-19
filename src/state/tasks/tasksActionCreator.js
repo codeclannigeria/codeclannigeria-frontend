@@ -1,18 +1,24 @@
 import * as types from './tasksActionTypes';
 import codeClanApi from '../../api/apiUtils';
 
-export const getAllTasksAction = () => {
+export const getAllTasksAction = trackId => {
   return dispatch => {
     dispatch({ type: types.TASKS_START });
     return codeClanApi
       .get('/tasks')
       .then(res => {
-        dispatch({ type: types.TASKS_SUCCESS, payload: res.data });
+        console.log({ trackId });
+        console.log(res.data.items);
+        const tasks = res.data.items.filter(task => task.track === trackId);
+        const tasksObj = { items: tasks, totalCount: tasks.length };
+        dispatch({ type: types.TASKS_SUCCESS, payload: tasksObj });
+
         // history.push(`/dashboard`)
       })
       .catch(err => {
-        console.log({ err });
-        const error_msg = err.response.data.message || 'An error occured';
+        const error_msg = err.response
+          ? err.response.data.message
+          : 'An error occured';
 
         dispatch({
           type: types.TASKS_FAILURE,

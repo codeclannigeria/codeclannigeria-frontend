@@ -35,6 +35,7 @@ const EditProfileForm = ({
 
     values.technologies = [];
     values.description = '';
+    values.dob = values.dob._d.toISOString();
     if (!values.phoneNumber.startsWith('+')) {
       values.phoneNumber = `+${values.phoneNumber}`;
     }

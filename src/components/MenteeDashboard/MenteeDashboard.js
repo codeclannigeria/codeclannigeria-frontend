@@ -34,21 +34,26 @@ function Dashboard({
   }, []);
 
   useEffect(() => {
-    const { city, country, phoneNumber } = userData;
-
-    console.log(userData, 'profile');
-    if (!city || !country || !phoneNumber) {
-      // return
-      history.push({
-        pathname: '/dashboard/mentee/profile',
-        state: { editProfile: true },
-      });
+    if (userData) {
+      const { city, country, phoneNumber } = userData;
+      if (!city || !country || !phoneNumber) {
+        // return
+        history.push({
+          pathname: '/dashboard/mentee/profile',
+          state: { editProfile: true },
+        });
+      }
     }
   }, [userData]);
 
   useEffect(() => {
-    getAllTasksAction();
-  }, [getAllTasksAction]);
+    if (userData) {
+      const { tracks } = userData;
+      if (tracks.length >= 1) {
+        getAllTasksAction(tracks[0].id);
+      }
+    }
+  }, [getAllTasksAction, userData]);
 
   const handleShowTracksEnrollModal = () => {
     setshowTracksEnrollModal(true);
