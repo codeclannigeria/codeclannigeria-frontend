@@ -60,14 +60,16 @@ const EditProfileForm = ({
   const [country, setCountry] = useState();
   const [customInitialData, setCustomInitialData] = useState();
   useEffect(() => {
-    setCountry(initialData.country);
+    if (initialData.country) {
+      setCountry(initialData.country);
+    } else {
+      setCountry('');
+    }
     const dateObj = new Date(initialData.dob);
-    // var year = dateObj.getFullYear() + '';
-    // var month = dateObj.getMonth() + 1 + '';
-    // var day = dateObj.getDate() + '';
-    // var dateFormat = year + '-' + month + '-' + day;
+    if (!initialData.phoneNumber) {
+      initialData.phoneNumber = '';
+    }
     initialData.dob = moment(dateObj);
-    console.log(initialData);
     setCustomInitialData(initialData);
   }, []);
   return (

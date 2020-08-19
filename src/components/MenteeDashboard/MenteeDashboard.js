@@ -14,6 +14,7 @@ import TrackEnroll from './tracks/TrackEnroll';
 import { connect } from 'react-redux';
 import { getAllTasksAction } from '../../state/tasks/tasksActionCreator';
 import CustomLoader from '../common/Spinner/CustomLoader';
+import { Redirect } from 'react-router-dom';
 
 function Dashboard({
   userLoading,
@@ -22,6 +23,7 @@ function Dashboard({
   errResponse,
   getAllTasksAction,
   tasksData,
+  history,
 }) {
   const [showTracksEnrollModal, setshowTracksEnrollModal] = useState(true);
 
@@ -29,10 +31,20 @@ function Dashboard({
     if (userData && userData.tracks.length >= 1) {
       setshowTracksEnrollModal(true);
     }
-    // if (userData) {
-    //   // console.log(userData);
-    // }
   }, []);
+
+  useEffect(() => {
+    const { city, country, phoneNumber } = userData;
+
+    console.log(userData, 'profile');
+    if (!city || !country || !phoneNumber) {
+      // return
+      history.push({
+        pathname: '/dashboard/mentee/profile',
+        state: { editProfile: true },
+      });
+    }
+  }, [userData]);
 
   useEffect(() => {
     getAllTasksAction();

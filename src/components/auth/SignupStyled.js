@@ -193,6 +193,10 @@ const SignupStyled = styled.div`
 
   /* NEW */
 
+  .border {
+    border: 1px solid transparent !important;
+  }
+
   a {
     color: #555555;
     text-decoration: none;
