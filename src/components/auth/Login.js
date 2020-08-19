@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { authLogin } from '../../state/auth/authActionCreator';
 import { connect, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -13,23 +13,18 @@ import loginAmico from '../assets/image/auth/login.jpg';
 
 function LoginForm({ authLogin, loading, error, errResponse, token, history }) {
   const dispatch = useDispatch();
-
-  // const resetAuthState = useCallback(() => {
-  //   dispatch({ type: 'AUTH_RESET' });
-  // }, [dispatch]);
-
+  const passwordRef = useRef();
   useEffect(() => {
     dispatch({ type: 'AUTH_RESET' });
   }, [dispatch]);
-  // useEffect(() => {
-  //   if (errResponse) {
-  //     resetAuthState();
-  //   }
-  // }, [errResponse, resetAuthState]);
+
+  const togglePasswordToText = ref => {
+    ref.current.firstChild.type === 'password'
+      ? (ref.current.firstChild.type = 'text')
+      : (ref.current.firstChild.type = 'password');
+  };
 
   useEffect(() => {
-    console.log(token);
-
     if (token) {
       history.push('/dashboard');
     }
@@ -55,8 +50,7 @@ function LoginForm({ authLogin, loading, error, errResponse, token, history }) {
     >
       {({ errors, touched, isSubmitting }) => (
         <LoginStyled>
-        
-        <div>
+          <div>
             <div class="main">
               <div class="left">
                 <div class="logo">
@@ -65,14 +59,12 @@ function LoginForm({ authLogin, loading, error, errResponse, token, history }) {
                   </div>
                 </div>
                 <div class="titles"> Login to your account </div>
-                <form>
+                <Form>
                   <AlertComponent variant="danger" text={errResponse} />
-                  <label htmlFor="email">
-                    E-mail
-                  </label>
+                  <label htmlFor="email">E-mail</label>
 
                   <div className="block">
-                    <input
+                    <Field
                       id="email"
                       type="email"
                       name="email"
@@ -85,16 +77,14 @@ function LoginForm({ authLogin, loading, error, errResponse, token, history }) {
                     <span>
                       <i class="fa fa-at" aria-hidden="true"></i>
                     </span>
-                    <div className="d-block text-monospace text-danger small-text">
-                      <ErrorMessage name="email" className="d-block" />
-                    </div>
                   </div>
-                  <label htmlFor="password">
-                    Password
-                  </label>
+                  <div className="d-block text-monospace text-danger small-text">
+                    <ErrorMessage name="email" className="d-block" />
+                  </div>
+                  <label htmlFor="password">Password</label>
 
-                  <div class="block">
-                    <input
+                  <div class="block" ref={passwordRef}>
+                    <Field
                       id="password"
                       name="password"
                       className={
@@ -105,14 +95,18 @@ function LoginForm({ authLogin, loading, error, errResponse, token, history }) {
                       type="password"
                     />
                     <span>
-                      <i class="fa fa-eye" aria-hidden="true"></i>
+                      <i
+                        class="fa fa-eye"
+                        aria-hidden="true"
+                        onClick={() => togglePasswordToText(passwordRef)}
+                      ></i>
                     </span>
-                    <div className="d-block text-monospace text-danger small-text">
-                      <ErrorMessage name="password" className="d-block" />
-                    </div>
+                  </div>
+                  <div className="d-block text-monospace text-danger small-text">
+                    <ErrorMessage name="password" className="d-block" />
                   </div>
 
-                  <div className="form-con">
+                  {/* <div className="form-con">
                     <div className="checkbox-container">
                       <input
                         type="checkbox"
@@ -123,8 +117,7 @@ function LoginForm({ authLogin, loading, error, errResponse, token, history }) {
                     </div>
                     <Link to="/forgotpass">forgot password ?</Link>
                     <br />
-                  </div>
-
+                  </div> */}
                   <button
                     disabled={loading}
                     className={loading ? 'btn btn-light w-100' : 'submit'}
@@ -144,7 +137,7 @@ function LoginForm({ authLogin, loading, error, errResponse, token, history }) {
                       Don't have an account? <Link to="/register">Sign up</Link>
                     </p>
                   </div>
-                </form>
+                </Form>
               </div>
               <div class="right">
                 <img

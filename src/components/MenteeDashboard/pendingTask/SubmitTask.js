@@ -9,13 +9,15 @@ import {
   getSingleTaskAction,
 } from '../../../state/tasks/tasksActionCreator';
 import { useDispatch, useSelector } from 'react-redux';
-import { Spin } from 'antd';
+import { Spin, message } from 'antd';
+import AlertComponent from '../../common/AuthAlert';
 
 function SubmitTask(props) {
   const [submitted, setSubmitted] = useState(false);
   const { id } = props.match.params;
   const dispatch = useDispatch();
   const tasks = useSelector(state => state.tasks);
+  const { error, errResponse, taskSubmit, loading } = tasks;
 
   const fetchData = useCallback(async () => {
     await dispatch(getSingleTaskAction(id));
@@ -25,7 +27,13 @@ function SubmitTask(props) {
     fetchData();
   }, []);
 
-  if (submitted) {
+  useEffect(() => {
+    if (error) {
+      message.error(errResponse);
+    }
+  }, [error, errResponse]);
+
+  if (submitted && taskSubmit === 'submit') {
     const data = {
       header: `Successfully sumitted Task #${id}`,
       description:
@@ -65,10 +73,7 @@ function SubmitTask(props) {
                   })}
                   onSubmit={(values, { setSubmitting }) => {
                     const { url, comments } = values;
-                    alert(url, comments);
-                    dispatch(submitTaskAction({ taskId: id }));
-                    console.log(values);
-
+                    dispatch(submitTaskAction(id, url, comments));
                     setSubmitted(true);
                   }}
                 >
@@ -116,11 +121,17 @@ function SubmitTask(props) {
                         </div>
                       </div>
                       <p className="text-center">
-                        <input
-                          value="SUBMIT TASK"
-                          type="submit"
-                          className="btn btn-lg btn-primary w-75 text-center mt-5 mb-5"
-                        />
+                        {!loading ? (
+                          <input
+                            value="SUBMIT TASK"
+                            type="submit"
+                            className="btn btn-lg btn-primary w-75 text-center mt-5 mb-5"
+                          />
+                        ) : (
+                          <span>
+                            <Spin /> Submitting ....
+                          </span>
+                        )}
                       </p>
                     </Form>
                   )}

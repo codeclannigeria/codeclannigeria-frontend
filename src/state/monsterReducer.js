@@ -13,4 +13,12 @@ const MonsterReducer = combineReducers({
   tasks: TaskReducer,
 });
 
-export default MonsterReducer;
+const rootReducer = (state, action) => {
+  if (action.type === 'AUTH_LOGOUT') {
+    state = undefined;
+  }
+
+  return MonsterReducer(state, action);
+};
+
+export default rootReducer;

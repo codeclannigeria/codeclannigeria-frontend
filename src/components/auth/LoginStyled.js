@@ -2,45 +2,55 @@ import styled from 'styled-components';
 
 const LoginStyled = styled.div`
   @font-face {
-    font-family: "Gilroy";
-    src: url("assets/fonts/Gilroy-Light.otf")
-}
+    font-family: 'Gilroy';
+    src: url('assets/fonts/Gilroy-Light.otf');
+  }
 
-a {
+  .fa,
+  .far {
+    font-family: 'FontAwesome';
+    font-weight: lighter;
+  }
+
+  .border {
+    border: 1px solid transparent !important;
+  }
+
+  a {
     color: #555555;
     text-decoration: none;
     border: 2px solid transparent;
     line-height: 1.5em;
-    transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    padding: .25em;
-}
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    padding: 0.25em;
+  }
 
-a:hover {
+  a:hover {
     color: rgb(233, 62, 128);
     border: 2px solid #333333;
     font-weight: 900;
     outline: none;
     border-radius: 4px;
-}
+  }
 
-.logo img {
+  .logo img {
     width: 108px;
     height: 80.6px;
-}
-.logo div{
+  }
+  .logo div {
     padding: 5px;
     overflow: hidden;
     display: inline-block;
-}
+  }
 
-* {
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Gilroy";
-}
+    font-family: 'Gilroy';
+  }
 
-.main {
+  .main {
     display: flex;
     width: 100vw;
     height: 100vh;
@@ -48,79 +58,83 @@ a:hover {
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
-}
-.left {
+  }
+  .left {
     width: 38%;
     padding: 3em 6em;
     display: block;
-}
+  }
 
-.right {
+  .right {
     text-align: center;
     background: #f7f7f7;
     width: 62%;
     border-radius: 4px;
     padding: 5em;
-}
+  }
 
-.left, .right {
+  .left,
+  .right {
     height: 100%;
-}
+  }
 
-.small, .normal {
+  .small,
+  .normal {
     text-align: start;
     padding-left: 8em;
     margin-top: 5em;
-    font-size: .9em;
+    font-size: 0.9em;
     font-weight: bold;
     color: #555555;
-}
-.normal{
+  }
+  .normal {
     margin-top: 0;
     padding-left: 3em;
     line-height: 1.4em;
-    padding-top: .5em;
+    padding-top: 0.5em;
     font-weight: 800;
     font-size: 2.4em;
-}
-.titles {
+  }
+  .titles {
     padding-left: 0;
     font-size: 1.75em;
     font-weight: 600;
-}
+  }
 
-.logo {
+  .logo {
     padding: 2em;
-    text-align: center
-}
+    text-align: center;
+  }
 
-input, button {
+  input,
+  button {
     border: none;
     border: 1px solid transparent;
-    padding: .8em;
+    padding: 0.5em;
     border-radius: 4px;
     outline: none;
-}
+  }
 
-form {
+  form {
     margin-top: 2em;
-}
+  }
 
-form .block{
+  form .block {
     margin-bottom: 1em;
     border: 1px solid gainsboro;
     border-radius: 4px;
-}
+  }
 
-form .block i {
+  form .block i {
     color: #aaa;
-}
+  }
 
-form input, form button {
-    width: 100%;
-}
+  form input,
+  form button {
+    width: 90%;
+  }
 
-.form-con {
+  .form-con {
     padding: 10px 0 20px 0;
     margin-top: -1.5%;
     display: flex;
@@ -140,11 +154,13 @@ form input, form button {
     font-size: 14px;
   }
 
-input[type=email], input[type=password] {
+  input[type='email'],
+  input[type='password'] {
     width: 90%;
-}
+  }
 
-input[type="submit"], button {
+  input[type='submit'],
+  button {
     color: white;
     background-color: ${props => props.theme.primaryColor};
     font-weight: bold;
@@ -152,28 +168,28 @@ input[type="submit"], button {
     cursor: pointer;
     font-size: 1em;
     margin-top: 1em;
-}
-input[type="submit"]:hover {
+  }
+  input[type='submit']:hover {
     background: #1f58ff;
     color: white;
-}
-button {
+  }
+  button {
     background: ${props => props.theme.primaryColor};
     color: white;
     border: 1px solid gainsboro;
     align-content: center;
-}
+  }
 
-button i {
+  button i {
     color: rgba(255, 0, 0, 0.753);
-}
+  }
 
-button span {
+  button span {
     font-size: 1.4em;
-    margin-right: .4em;
-}
+    margin-right: 0.4em;
+  }
 
-.submit {
+  .submit {
     text-transform: capitalize;
     text-align: center;
     color: #fff;
@@ -184,37 +200,38 @@ button span {
     border-radius: 5px;
   }
 
-.centralize {
+  .centralize {
     text-align: start;
     margin-top: 1em;
-}
+  }
 
-.footer {
+  .footer {
     font-weight: bold;
     line-height: 3rem;
     text-align: center;
-}
+  }
 
-@media only screen and (max-width: 968px) {
-  .center {
+  @media only screen and (max-width: 968px) {
+    .center {
       width: 100%;
       border-radius: 0;
       height: 100%;
-  }
-  .main {
+    }
+    .main {
       display: block;
       height: unset;
       width: unset;
       padding: 1em;
-  }
-  .left, .right {
+    }
+    .left,
+    .right {
       padding: 0;
       width: unset;
-  }
-  .right {
+    }
+    .right {
       display: none;
+    }
   }
-}
-`
+`;
 
 export default LoginStyled;

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { DashboardStyled } from './MenteeDashboardStyled';
-import { Skeleton } from 'antd';
 
 // Images
 import newspaper from '../assets/image/dashboard/newspaper.png';
@@ -22,21 +21,37 @@ function Dashboard({
   errResponse,
   getAllTasksAction,
   tasksData,
+  history,
 }) {
-  const [showTracksEnrollModal, setshowTracksEnrollModal] = useState(true);
+  const [showTracksEnrollModal, setshowTracksEnrollModal] = useState();
 
   useEffect(() => {
     if (userData && userData.tracks.length >= 1) {
       setshowTracksEnrollModal(true);
     }
-    // if (userData) {
-    //   // console.log(userData);
-    // }
   }, []);
 
   useEffect(() => {
-    getAllTasksAction();
-  }, [getAllTasksAction]);
+    if (userData) {
+      const { city, country, phoneNumber } = userData;
+      if (!city || !country || !phoneNumber) {
+        // return
+        history.push({
+          pathname: '/dashboard/mentee/profile',
+          state: { editProfile: true },
+        });
+      }
+    }
+  }, [userData]);
+
+  useEffect(() => {
+    if (userData) {
+      const { tracks } = userData;
+      if (tracks.length >= 1) {
+        getAllTasksAction(tracks[0].id);
+      }
+    }
+  }, [getAllTasksAction, userData]);
 
   const handleShowTracksEnrollModal = () => {
     setshowTracksEnrollModal(true);

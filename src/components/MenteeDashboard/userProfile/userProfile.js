@@ -5,8 +5,15 @@ import InfoCardBig from './InfoCardBig';
 import { connect } from 'react-redux';
 
 import UserCard from '../../common/UserCard/UserCard';
+import { message } from 'antd';
 
-function UserProfile({ loading, data }) {
+function UserProfile({ loading, data, location }) {
+  const { state } = location;
+  let editProfile = false;
+  if (state) {
+    editProfile = state.editProfile;
+    message.warning('Update your profile to continue');
+  }
   const Tracks = [
     {
       icon: <i class="far fa-check-circle"></i>,
@@ -55,7 +62,7 @@ function UserProfile({ loading, data }) {
 
   return (
     <UserProfileStyled>
-      <UserCard data={data} mode="mentee" />
+      <UserCard data={data} mode="mentee" editProfile={editProfile} />
       <div className="public__info__grid">
         <InfoCardBig header="Tracks Completed" data={Tracks} />
         <InfoCardBig header="Social Media" data={SocialMedia} />

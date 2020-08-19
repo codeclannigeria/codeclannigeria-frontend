@@ -6,6 +6,7 @@ const initialState = {
   error: false,
   errResponse: '',
   singleTask: null,
+  taskSubmit: '',
 };
 
 export function TaskReducer(state = initialState, action) {
@@ -14,6 +15,8 @@ export function TaskReducer(state = initialState, action) {
       return {
         ...state,
         loading: true,
+        error: false,
+        errResponse: '',
       };
 
     case types.TASKS_SUCCESS:
@@ -29,6 +32,7 @@ export function TaskReducer(state = initialState, action) {
         loading: false,
         error: false,
         errResponse: '',
+        taskSubmit: 'success',
       };
 
     case types.GET_TASK:
