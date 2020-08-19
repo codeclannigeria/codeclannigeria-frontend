@@ -6,9 +6,10 @@ import LoginStyled from './LoginStyled';
 import AlertComponent from '../common/AuthAlert';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import codeClanLogoWhite from '../assets/image/codeClanLogoWhite.png';
+import codeClanLogo from '../assets/image/codeClanLogo.png';
 import Spinner from 'react-bootstrap/Spinner';
-import loginAmico from '../assets/image/Login-amico.png';
+/*import loginAmico from '../assets/image/Login-amico.png';*/
+import loginAmico from '../assets/image/auth/login.jpg';
 
 function LoginForm({ authLogin, loading, error, errResponse, token, history }) {
   const dispatch = useDispatch();
@@ -54,86 +55,106 @@ function LoginForm({ authLogin, loading, error, errResponse, token, history }) {
     >
       {({ errors, touched, isSubmitting }) => (
         <LoginStyled>
-          <div className="login-container">
-            <div class="info-wrap">
-              <img src={codeClanLogoWhite} alt="" class="logo" />
-              <h1>
-                Welcome to CodeClan <br />
-                Nigeria
-              </h1>
-              <h5>Login to access your account</h5>
-              <div class="info-img">
-                <img src={loginAmico} alt="Login Animation" />
-              </div>
-            </div>
-            <div class="signin-wrap">
-              <div className="form-header">
-                <h1>Welcome back,</h1>
-                <p>Please login in to continue</p>
-              </div>
-              <Form>
-                <AlertComponent variant="danger" text={errResponse} />
-
-                <label htmlFor="email">Email address</label>
-                <br />
-                <Field
-                  name="email"
-                  className={
-                    touched.email && errors.email
-                      ? errorClassNames
-                      : validClassNames
-                  }
-                  type="email"
-                />
-                <div className="d-block text-monospace text-danger small-text">
-                  <ErrorMessage name="email" className="d-block" />
-                </div>
-
-                <br />
-                <label htmlFor="password">Password</label>
-                <br />
-                <Field
-                  name="password"
-                  className={
-                    touched.password && errors.password
-                      ? errorClassNames
-                      : validClassNames
-                  }
-                  type="password"
-                />
-                <div className="d-block text-monospace text-danger small-text">
-                  <ErrorMessage name="password" className="d-block" />
-                </div>
-                <br />
-                <div className="form-con">
-                  <div className="checkbox-container">
-                    <input
-                      type="checkbox"
-                      className="regular-checkbox"
-                      name="checked"
-                    />
-                    <span> Remember me </span>
+        
+        <div>
+            <div class="main">
+              <div class="left">
+                <div class="logo">
+                  <div>
+                    <img src={codeClanLogo} alt="Code claan" />
                   </div>
-                  <a href="forgetPassword.html">forgot password ?</a>
-                  <br />
                 </div>
-                <button
-                  disabled={loading}
-                  className={loading ? 'btn btn-light w-100' : 'btn w-100'}
-                >
-                  {!loading ? (
-                    'Sign In'
-                  ) : (
+                <div class="titles"> Login to your account </div>
+                <form>
+                  <AlertComponent variant="danger" text={errResponse} />
+                  <label htmlFor="email">
+                    E-mail
+                  </label>
+
+                  <div className="block">
+                    <input
+                      id="email"
+                      type="email"
+                      name="email"
+                      className={
+                        touched.email && errors.email
+                          ? errorClassNames
+                          : validClassNames
+                      }
+                    />
                     <span>
-                      <Spinner animation="border" variant="primary" /> Signing
-                      in....
+                      <i class="fa fa-at" aria-hidden="true"></i>
                     </span>
-                  )}
-                </button>
-              </Form>
-              <div className="form-text">
-                <p>
-                  Don't have an account? <Link to="/register">Sign up</Link>
+                    <div className="d-block text-monospace text-danger small-text">
+                      <ErrorMessage name="email" className="d-block" />
+                    </div>
+                  </div>
+                  <label htmlFor="password">
+                    Password
+                  </label>
+
+                  <div class="block">
+                    <input
+                      id="password"
+                      name="password"
+                      className={
+                        touched.password && errors.password
+                          ? errorClassNames
+                          : validClassNames
+                      }
+                      type="password"
+                    />
+                    <span>
+                      <i class="fa fa-eye" aria-hidden="true"></i>
+                    </span>
+                    <div className="d-block text-monospace text-danger small-text">
+                      <ErrorMessage name="password" className="d-block" />
+                    </div>
+                  </div>
+
+                  <div className="form-con">
+                    <div className="checkbox-container">
+                      <input
+                        type="checkbox"
+                        className="regular-checkbox"
+                        name="checked"
+                      />
+                      <span> Remember me </span>
+                    </div>
+                    <Link to="/forgotpass">forgot password ?</Link>
+                    <br />
+                  </div>
+
+                  <button
+                    disabled={loading}
+                    className={loading ? 'btn btn-light w-100' : 'submit'}
+                    type="submit"
+                  >
+                    {!loading ? (
+                      'login'
+                    ) : (
+                      <span>
+                        <Spinner animation="border" variant="primary" /> Signing
+                        in....
+                      </span>
+                    )}
+                  </button>
+                  <div class="centralize" style={{ lineHeight: '2em' }}>
+                    <p>
+                      Don't have an account? <Link to="/register">Sign up</Link>
+                    </p>
+                  </div>
+                </form>
+              </div>
+              <div class="right">
+                <img
+                  alt="Login animation"
+                  src={loginAmico}
+                  style={{ height: '50%' }}
+                />
+                <p class="small">CODECLAN NIGERIA</p>
+                <p class="normal">
+                  Join us and take your programming career to the next level
                 </p>
               </div>
             </div>
