@@ -35,6 +35,12 @@ function Signup({ register, loading, errResponse, token, history }) {
   };
 
   useEffect(() => {
+    if (localStorage.getItem('codeclan_token')) {
+      history.push('/dashboard');
+    }
+  }, []);
+
+  useEffect(() => {
     if (token) {
       openNotification();
       history.push('/email-verification-sent/');
@@ -187,8 +193,7 @@ function Signup({ register, loading, errResponse, token, history }) {
                       'get started'
                     ) : (
                       <span>
-                        <Spinner animation="border" variant="primary" /> Signing
-                        up....
+                        <Spinner animation="border" variant="primary" />
                       </span>
                     )}
                   </button>

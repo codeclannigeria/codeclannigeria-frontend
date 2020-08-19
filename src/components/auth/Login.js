@@ -10,6 +10,7 @@ import codeClanLogo from '../assets/image/codeClanLogo.png';
 import Spinner from 'react-bootstrap/Spinner';
 /*import loginAmico from '../assets/image/Login-amico.png';*/
 import loginAmico from '../assets/image/auth/login.jpg';
+import { message } from 'antd';
 
 function LoginForm({ authLogin, loading, error, errResponse, token, history }) {
   const dispatch = useDispatch();
@@ -25,10 +26,22 @@ function LoginForm({ authLogin, loading, error, errResponse, token, history }) {
   };
 
   useEffect(() => {
+    if (localStorage.getItem('codeclan_token')) {
+      history.push('/dashboard');
+    }
+  }, []);
+
+  useEffect(() => {
     if (token) {
       history.push('/dashboard');
     }
   }, [token, history, dispatch]);
+
+  useEffect(() => {
+    if (error) {
+      message.error(errResponse);
+    }
+  }, [error, errResponse]);
 
   const errorClassNames = 'border input border-danger';
   const validClassNames = 'border input border-green';
@@ -60,9 +73,7 @@ function LoginForm({ authLogin, loading, error, errResponse, token, history }) {
                 </div>
                 <div class="titles"> Login to your account </div>
                 <Form>
-                  <AlertComponent variant="danger" text={errResponse} />
-                  <label htmlFor="email">E-mail</label>
-
+                  <label htmlFor="email">E-mail</label>{' '}
                   <div className="block">
                     <Field
                       id="email"
@@ -82,7 +93,6 @@ function LoginForm({ authLogin, loading, error, errResponse, token, history }) {
                     <ErrorMessage name="email" className="d-block" />
                   </div>
                   <label htmlFor="password">Password</label>
-
                   <div class="block" ref={passwordRef}>
                     <Field
                       id="password"
@@ -105,7 +115,6 @@ function LoginForm({ authLogin, loading, error, errResponse, token, history }) {
                   <div className="d-block text-monospace text-danger small-text">
                     <ErrorMessage name="password" className="d-block" />
                   </div>
-
                   {/* <div className="form-con">
                     <div className="checkbox-container">
                       <input
@@ -126,9 +135,8 @@ function LoginForm({ authLogin, loading, error, errResponse, token, history }) {
                     {!loading ? (
                       'login'
                     ) : (
-                      <span>
-                        <Spinner animation="border" variant="primary" /> Signing
-                        in....
+                      <span className="text-small">
+                        <Spinner animation="border" variant="primary" />
                       </span>
                     )}
                   </button>
