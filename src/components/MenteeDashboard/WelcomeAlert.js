@@ -4,6 +4,7 @@ import Ellipse from '../assets/image/dashboard/Ellipse.png';
 
 import './WelcomeAlert.css';
 import { DashboardStyled } from '../MenteeDashboard/MenteeDashboardStyled';
+import { Spin } from 'antd';
 // import { Skeleton } from 'antd';
 
 function WelcomeAlert({ user, enroll, visible, loading }) {
@@ -31,14 +32,11 @@ function WelcomeAlert({ user, enroll, visible, loading }) {
             <div className="user__welcome col-lg-8 col-md-8 col-sm-8">
               <p className="user__name">
                 Hi,
-                {!loading
-                  ? ` ${firstName} ${lastName}`
-                  : // <Skeleton.Button
-                    //   active
-                    //   size="small"
-                    //   // style={{ display: 'inline' }}
-                    // />
-                    null}
+                {!loading && (lastName || firstName) ? (
+                  ` ${firstName} ${lastName}`
+                ) : (
+                  <Spin />
+                )}
               </p>
               <p>
                 Welcome to CodeClan Nigeria, Our goal is to turn 500+ people
