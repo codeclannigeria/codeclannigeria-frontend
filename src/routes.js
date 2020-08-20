@@ -2,7 +2,6 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Signup from './components/auth/Signup';
 import Dashboard from './components/MenteeDashboard/MenteeDashboard';
-import Landing from './components/landing';
 import LoginForm from './components/auth/Login';
 import Homepage from './components/Homepage';
 import SignupForm from './components/auth/Form';
@@ -15,10 +14,8 @@ import TrackList from './components/MenteeDashboard/tracks/TrackList';
 import MentorDetails from './components/MenteeDashboard/mentorInfo/mentorDetails';
 import SubmitTask from './components/MenteeDashboard/pendingTask/SubmitTask';
 import PendingTasksPage from './components/MenteeDashboard/pendingTask/PendingTasksPage';
-import { AnimatePresence } from 'framer-motion';
 import TaskBrief from './components/MenteeDashboard/pendingTask/TaskBrief/TaskBrief';
 import SingleCoursePage from './components/MenteeDashboard/courses/SingleCoursePage';
-import UserProfile from './components/MenteeDashboard/userProfile/MenteeUserProfile';
 
 import MenteeList from './components/MentorDashbord/Mentees/MenteeList';
 import MenteeProfile from './components/MentorDashbord/Mentees/MenteeProfile';
