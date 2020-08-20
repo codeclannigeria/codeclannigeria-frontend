@@ -59,7 +59,9 @@ function Homepage() {
               Start your journey to becoming a world class developer or designer
             </div>
             <div>
-              <button className="get-started">Get Started</button>
+              <Link to="/register/">
+                <button className="get-started">Get Started</button>
+              </Link>
             </div>
           </div>
           <div className="pic-hold">
@@ -198,29 +200,32 @@ function Homepage() {
               margin: '24px',
             }}
           >
-            <svg
-              version="1.1"
-              id="Layer_1"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlnsXlink="http://www.w3.org/1999/xlink"
-              x="0px"
-              y="0px"
-              viewBox="0 0 64 64"
-              style={{ enableBackground: 'new 0 0 64 64' }}
-              xmlSpace="preserve"
-            >
-              <g>
-                <path
-                  style={{ fill: '#fff' }}
-                  d="M37.2,64H28c-2.5,0-4.5-2-4.5-4.5V37H17c-2.5,0-4.5-2-4.5-4.5v-6.9c0-2.5,2-4.6,4.5-4.6h6.5v-5.5c0-9.1,6.2-15.5,15-15.5
-                        H47c1.4,0,2.5,1.1,2.5,2.5v13c0,1.4-1.1,2.5-2.5,2.5h-5.5v3h5.4c0,0,0.1,0,0.1,0c1.4,0.1,2.7,0.7,3.5,1.8c0.8,1.1,1.2,2.4,0.9,3.8
+            <a href="https://www.facebook.com/groups/codeclannigeria/" target="_blank">
+              <svg
+                version="1.1"
+                id="Layer_1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlnsXlink="http://www.w3.org/1999/xlink"
+                x="0px"
+                y="0px"
+                viewBox="0 0 64 64"
+                style={{ enableBackground: 'new 0 0 64 64' }}
+                xmlSpace="preserve"
+              >
+                <g>
+                  <path
+                    style={{ fill: '#fff' }}
+                    d="M37.2,64H28c-2.5,0-4.5-2-4.5-4.5V37H17c-2.5,0-4.5-2-4.5-4.5v-6.9c0-2.5,2-4.6,4.5-4.6h6.5v-5.5c0-9.1,6.2-15.5,15-15.5
+                    H47c1.4,0,2.5,1.1,2.5,2.5v13c0,1.4-1.1,2.5-2.5,2.5h-5.5v3h5.4c0,0,0.1,0,0.1,0c1.4,0.1,2.7,0.7,3.5,1.8c0.8,1.1,1.2,2.4,0.9,3.8
                         l-1.3,6.7C49.8,35.4,48,37,45.7,37h-4.3v22.5C41.5,62,39.5,64,37.2,64z M28.5,59h8V34.5c0-1.4,1.1-2.5,2.5-2.5h6.3l1.2-6H39
                         c-1.4,0-2.5-1.1-2.5-2.5v-8c0-1.4,1.1-2.5,2.5-2.5h5.5V5h-6c-6.1,0-10,4.1-10,10.5v8c0,1.4-1.1,2.5-2.5,2.5h-8.5v6H26
                         c1.4,0,2.5,1.1,2.5,2.5V59z"
                 />
               </g>
-            </svg>
+              </svg>
+            </a>
           </div>
+ 
           <div
             style={{
               height: '40px',
@@ -229,65 +234,50 @@ function Homepage() {
               margin: '24px',
             }}
           >
-            <svg
-              version="1.1"
-              id="Layer_1"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlnsXlink="http://www.w3.org/1999/xlink"
-              x="0px"
-              y="0px"
-              viewBox="0 0 64 64"
-              style={{ enableBackground: 'new 0 0 64 64' }}
-              xmlSpace="preserve"
+            <a href="https://github.com/codeclannigeria" target="_blank">
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              viewBox="0 0 24 24"
             >
-              <g>
-                <path
-                  style={{ fill: '#fff' }}
-                  d="M32,16.9c-8.3,0-15,6.8-15,15.1c0,8.3,6.7,15.1,15,15.1c8.3,0,15-6.8,15-15.1C47,23.7,40.3,16.9,32,16.9z M32,42.1
-                    c-5.5,0-10-4.5-10-10.1s4.5-10.1,10-10.1c5.5,0,10,4.5,10,10.1S37.5,42.1,32,42.1z"
-                />
-                <path
-                  style={{ fill: '#fff' }}
-                  d="M47,10c-2.8,0-5,2.3-5,5s2.2,5,5,5c2.8,0,5-2.3,5-5S49.8,10,47,10z"
-                />
-                <path
-                  style={{ fill: '#fff' }}
-                  d="M48,0H16C7.2,0,0,7.2,0,16v31.7C0,56.7,7.3,64,16.3,64h31.5C56.7,64,64,56.7,64,47.7V16C64,7.2,56.8,0,48,0z M59,47.7
-                    C59,53.9,54,59,47.8,59H16.3C10.1,59,5,54,5,47.8V16C5,9.9,9.9,5,16,5H48c6.1,0,11,4.9,11,11V47.7z"
-                />
-              </g>
-            </svg>
-          </div>
-          <div
-            style={{
-              height: '40px',
-              width: '40px',
-              display: 'inline-block',
-              margin: '24px',
-            }}
-          >
-            <svg
-              version="1.1"
-              id="Layer_1"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlnsXlink="http://www.w3.org/1999/xlink"
-              x="0px"
-              y="0px"
-              viewBox="0 0 64 64"
-              style={{ enableBackground: 'new 0 0 64 64' }}
-              xmlSpace="preserve"
-            >
-              <style
-                type="text/css"
-                dangerouslySetInnerHTML={{
-                  __html:
-                    '\n                    .st0{fill:none;stroke:#000000;stroke-miterlimit:10;}\n                ',
-                }}
+              <path 
+                style={{ fill: "fff" }} 
+                d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 6c-3.313 0-6 2.686-6 6 0 2.651 1.719 4.9 4.104 5.693.3.056.396-.13.396-.289v-1.117c-1.669.363-2.017-.707-2.017-.707-.272-.693-.666-.878-.666-.878-.544-.373.041-.365.041-.365.603.042.92.619.92.619.535.917 1.403.652 1.746.499.054-.388.209-.652.381-.802-1.333-.152-2.733-.667-2.733-2.965 0-.655.234-1.19.618-1.61-.062-.153-.268-.764.058-1.59 0 0 .504-.161 1.65.615.479-.133.992-.199 1.502-.202.51.002 1.023.069 1.503.202 1.146-.776 1.648-.615 1.648-.615.327.826.121 1.437.06 1.588.385.42.617.955.617 1.61 0 2.305-1.404 2.812-2.74 2.96.216.186.412.551.412 1.111v1.646c0 .16.096.347.4.288 2.383-.793 4.1-3.041 4.1-5.691 0-3.314-2.687-6-6-6z" 
               />
-              <g>
-                <path
-                  style={{ fill: '#fff' }}
-                  d="M22.2,58c-5.4,0-13.3-1-20-5.8c-2-1.4-2.8-4.1-1.8-6.4c0.9-2.3,3.4-3.6,5.9-3.1l0,0c0,0,1,0.2,2.5,0.1
+            </svg>
+            </a>
+          </div>
+
+          <div
+            style={{
+              height: '40px',
+              width: '40px',
+              display: 'inline-block',
+              margin: '24px',
+            }}
+          >
+            <a href="https://twitter.com/codeclannigeria" target="_blank">
+              <svg
+                version="1.1"
+                id="Layer_1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlnsXlink="http://www.w3.org/1999/xlink"
+                x="0px"
+                y="0px"
+                viewBox="0 0 64 64"
+                style={{ enableBackground: 'new 0 0 64 64' }}
+                xmlSpace="preserve"
+              >
+                <style
+                  type="text/css"
+                  dangerouslySetInnerHTML={{
+                    __html:
+                      '\n                    .st0{fill:none;stroke:#000000;stroke-miterlimit:10;}\n                ',
+                  }}
+                />
+                <g>
+                  <path
+                    style={{ fill: '#fff' }}
+                    d="M22.2,58c-5.4,0-13.3-1-20-5.8c-2-1.4-2.8-4.1-1.8-6.4c0.9-2.3,3.4-3.6,5.9-3.1l0,0c0,0,1,0.2,2.5,0.1
                     c-1-1.4-1.9-3-2.5-4.7c-0.2-0.6-0.3-1.1-0.3-1.7c-2.5-2.9-3.8-6.5-3.8-10.5c0-0.9,0.2-1.8,0.7-2.5C2,20,1.7,15.5,4.6,10.7
                     C5.5,9.3,7,8.3,8.7,8.1c0.1,0,0.1,0,0.2,0c1.8-0.1,3.4,0.6,4.5,1.8l0,0c0.7,0.7,6.1,6.4,13,8.3C28,11.2,34.4,6,42.1,6
                     c3.4,0,6.7,1,9.3,2.9c0.7-0.2,1.6-0.5,2.4-1.1c1.6-1.1,3.7-1.3,5.4-0.4c1.7,0.8,2.9,2.4,3.1,4.3c0,0.1,0,0.2,0,0.3
@@ -302,17 +292,18 @@ function Homepage() {
                     C5.5,47.6,5.4,47.6,5.4,47.6z M58.5,15.7C58.5,15.7,58.5,15.7,58.5,15.7C58.5,15.7,58.5,15.7,58.5,15.7z"
                 />
               </g>
-              <path
-                style={{ fill: '#fff' }}
-                className="st0"
-                d="M-5.7,0.9L-5.7,0.9L-5.7,0.9z"
-              />
-              <path
-                style={{ fill: '#fff' }}
-                className="st0"
-                d="M32,32L32,32L32,32z"
-              />
-            </svg>
+                <path
+                  style={{ fill: '#fff' }}
+                  className="st0"
+                  d="M-5.7,0.9L-5.7,0.9L-5.7,0.9z"
+                />
+                <path
+                  style={{ fill: '#fff' }}
+                  className="st0"
+                  d="M32,32L32,32L32,32z"
+                />
+              </svg>
+            </a>
           </div>
         </div>
         <div
