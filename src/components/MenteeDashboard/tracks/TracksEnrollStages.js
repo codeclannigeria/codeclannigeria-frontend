@@ -16,7 +16,7 @@ function TracksEnrollStages({ id }) {
         let resData = store.data.items.filter(data => data.id === id);
         settrackData(resData[0]);
       } catch (e) {
-        console.log(e);
+        // console.log(e);
       }
     },
     [store.data.items]

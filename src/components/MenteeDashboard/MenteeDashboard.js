@@ -31,18 +31,18 @@ function Dashboard({
     }
   }, []);
 
-  useEffect(() => {
-    if (userData) {
-      const { city, country, phoneNumber } = userData;
-      if (!city || !country || !phoneNumber) {
-        // return
-        history.push({
-          pathname: '/dashboard/mentee/profile',
-          state: { editProfile: true },
-        });
-      }
-    }
-  }, [userData]);
+  // useEffect(() => {
+  //   if (userData) {
+  //     const { city, country, phoneNumber } = userData;
+  //     if (!city || !country || !phoneNumber) {
+  //       // return
+  //       history.push({
+  //         pathname: '/dashboard/mentee/profile',
+  //         state: { editProfile: true },
+  //       });
+  //     }
+  //   }
+  // }, [userData]);
 
   useEffect(() => {
     if (userData) {
@@ -136,9 +136,7 @@ function Dashboard({
             tasksData={tasksData}
             track={userData.tracks[0].title}
           />
-        ) : (
-          <CustomLoader />
-        )}{' '}
+        ) : null}{' '}
       </div>
     </DashboardStyled>
   );

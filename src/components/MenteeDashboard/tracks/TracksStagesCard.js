@@ -5,7 +5,7 @@ import { Descriptions } from 'antd';
 const TracksStagesCard = ({ trackData, stageData }) => {
   const avgTasksPerStage = stageData
     ? Math.round(
-        stageData
+        stageData.items
           .map(stage => stage.taskCount)
           .reduce(function (accumulator, currentValue) {
             return accumulator + currentValue;
