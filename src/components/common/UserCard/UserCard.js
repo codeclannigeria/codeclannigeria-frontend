@@ -119,7 +119,7 @@ function UserCard({ data, mode, editProfile }) {
         <div className="user__contact__info">
           <div>
             <i class="fas fa-map-marker-alt"></i>
-            <span>{city || country ? ({ city }, { country }) : null}</span>
+            <span>{city || country ? `${city}, ${country}` : null}</span>
           </div>
           <div>
             <i class="far fa-envelope"></i>
