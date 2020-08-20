@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import Team from './Team';
 import Signup from './components/auth/Signup';
 import Dashboard from './components/MenteeDashboard/MenteeDashboard';
 import Landing from './components/landing';
@@ -79,6 +80,7 @@ export const BaseRouter = () => (
     <Route path="/email-verification-sent/" component={EmailConfirmationSent} />
     <Route path="/confirm-email/" component={ConfirmEmail} />
     <Route path="/forgotpass" component={ForgotPassword} />
+    <Route path="/Team" component={Team} />
   </Switch>
 );
 

@@ -6,7 +6,7 @@ const StyledNav = styled.div`
     justify-content: space-between;
     padding: 0rem 4rem;
     align-items: center;
-    background: #fff;
+    background: blue;
     max-height: 5rem;
   }
   header {

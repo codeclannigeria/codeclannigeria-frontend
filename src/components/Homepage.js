@@ -55,9 +55,12 @@ function Homepage() {
           </div>
           <div className="menu">
             <ul>
-              <a href="teams.html">
+              <li>
+                <Link to="/Team/">Team</Link>
+              </li>
+              {/* <a href="teams.html">
                 <li>Team</li>
-              </a>
+              </a> */}
               <a href="events.html">
                 <li>Events</li>
               </a>
@@ -134,7 +137,7 @@ function Homepage() {
             </div>
           </div>
           <div className="pic-hold">
-            <img src={HeaderImage} />
+            <img src={HeaderImage} alt="Header" />
           </div>
         </div>
       </div>
