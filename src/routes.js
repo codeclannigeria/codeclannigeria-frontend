@@ -29,22 +29,37 @@ const checkAuth = () => {
   if (!token) return false;
 
   try {
-    const { exp } = decode(token);
+    const { exp, role } = decode(token);
+    console.log(role);
 
     if (exp < new Date().getTime() / 1000) {
       return false;
     }
+    return role;
   } catch (e) {
     return false;
   }
-  return true;
 };
 
-export const PrivateRoute = ({ component: Component, ...rest }) => (
+export const MenteeRoute = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
     render={props =>
-      checkAuth() ? (
+      checkAuth() === 'MENTEE' || checkAuth() === 'ADMIN' ? (
+        <Component {...props} />
+      ) : (
+        // <Redirect to={{ pathname: '/login' }} />
+        window.location.replace('/login')
+      )
+    }
+  />
+);
+
+export const MentorRoute = ({ component: Component, ...rest }) => (
+  <Route
+    {...rest}
+    render={props =>
+      checkAuth() === 'MENTOR' || checkAuth() === 'ADMIN' ? (
         <Component {...props} />
       ) : (
         // <Redirect to={{ pathname: '/login' }} />
@@ -69,39 +84,39 @@ export const BaseRouter = () => (
 
 export const DashboardRouter = ({ location }) => (
   <Switch location={location} key={location.pathname}>
-    <PrivateRoute exact path="/dashboard" component={Dashboard} />
+    <MenteeRoute exact path="/dashboard" component={Dashboard} />
 
-    <PrivateRoute
+    <MenteeRoute
       exact
       path="/dashboard/pending-task"
       component={PendingTasksPage}
     />
 
-    <PrivateRoute
+    <MenteeRoute
       exact
       path="/dashboard/pending-task/:id"
       component={TaskBrief}
     />
-    <PrivateRoute
+    <MenteeRoute
       exact
       path="/dashboard/pending-task/submit/:id"
       component={SubmitTask}
     />
-    <PrivateRoute exact path="/dashboard/track" component={TrackList} />
-    <PrivateRoute
+    <MenteeRoute exact path="/dashboard/track" component={TrackList} />
+    <MenteeRoute
       path="/dashboard/track/:trackName/:trackId"
       component={CoursesList}
     />
-    <PrivateRoute
+    <MenteeRoute
       path="/dashboard/course/:courseTitle/:courseId"
       component={SingleCoursePage}
     />
-    <PrivateRoute
+    <MenteeRoute
       exact
       path="/dashboard/mentee/mentor/"
       component={MentorDetails}
     />
-    <PrivateRoute
+    <MenteeRoute
       exact
       path="/dashboard/mentee/profile"
       component={UserProfile}
@@ -111,12 +126,12 @@ export const DashboardRouter = ({ location }) => (
 
 export const MentorRouter = () => (
   <Switch>
-    <PrivateRoute
+    <MentorRoute
       exact
       path="/dashboard/mentor/mentees"
       component={MenteeList}
     />
-    <PrivateRoute
+    <MentorRoute
       exact
       path="/dashboard/mentor/mentee/:userID"
       component={MenteeProfile}

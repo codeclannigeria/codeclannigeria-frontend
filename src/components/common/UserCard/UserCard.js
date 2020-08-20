@@ -16,6 +16,7 @@ function UserCard({ data, mode, editProfile }) {
     city,
     country,
     id,
+    track,
   } = data;
   const [showImageEdit, setshowImageEdit] = useState(null);
   const [visible, setVisible] = useState(false);
@@ -111,16 +112,14 @@ function UserCard({ data, mode, editProfile }) {
             </p>
           </div>
 
-          <p className="user__track">Frontend Track</p>
+          <p className="user__track">{track ? track[0].name : null}</p>
         </div>
 
         <hr />
         <div className="user__contact__info">
           <div>
             <i class="fas fa-map-marker-alt"></i>
-            <span>
-              {city}, {country}
-            </span>
+            <span>{city || country ? ({ city }, { country }) : null}</span>
           </div>
           <div>
             <i class="far fa-envelope"></i>
