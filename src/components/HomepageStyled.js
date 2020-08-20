@@ -22,11 +22,6 @@ const HomepageStyled = styled.div`
     font-family: 'Gilroy', 'Nunito', sans-serif;
   }
 
-  .logo {
-    width: 45.5px;
-    height: 35px;
-  }
-
   .back {
     background-image: url(${Mask});
     background-repeat: no-repeat;
@@ -41,30 +36,6 @@ const HomepageStyled = styled.div`
     left: 0;
     right: 0;
     z-index: 1000;
-  }
-
-  .inner-header {
-    background-color: #004495;
-    padding: 1em 2em;
-    color: white;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  .menu {
-    display: flex;
-    flex-wrap: wrap;
-    align-content: center;
-  }
-
-  header ul li {
-    display: inline-block;
-    font-family: 'Gilroy';
-    font-size: 18px;
-    line-height: 27px;
-    width: 100px;
-    text-align: center;
   }
 
   .button {
@@ -403,94 +374,7 @@ const HomepageStyled = styled.div`
     line-height: 30px;
   }
 
-  .mobile-menu {
-    display: none;
-  }
-
-  .mobile-sign {
-    display: none;
-  }
-
-  .toggle-btn {
-    display: none;
-  }
-
   @media only screen and (max-width: 968px) {
-    header {
-      position: unset;
-    }
-
-    .toggle-btn {
-      display: block;
-      position: absolute;
-      top: 0.5rem;
-      right: 2rem;
-      cursor: pointer;
-    }
-
-    .inner-header {
-      display: flex;
-      width: 100%;
-      justify-content: space-around;
-    }
-
-    .menu {
-      display: none;
-    }
-
-    .desktop-sign {
-      display: none;
-    }
-
-    /* .menu {
-      display: unset;
-    } */
-
-    .mobile-menu {
-      /* 
-     
-    };
-       */
-      background: #fff;
-      padding: 1rem;
-      flex-direction: column;
-      margin-top: 1em;
-      display: ${({ openNav }) => (openNav ? 'flex' : 'none')};
-      transition: transform 0.3s ease-in-out;
-      transform: ${({ openNav }) =>
-        openNav ? 'translateX(0)' : 'translateX(-100%)'};
-      ul {
-        display: flex;
-        flex-direction: column;
-        li {
-          color: #004296;
-          font-size: 1.1em;
-        }
-      }
-      /* background: #fff; */
-    }
-
-    .mobile-sign {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      ul {
-        display: flex;
-        flex-direction: column;
-        li {
-          color: #004296;
-        }
-        .mobile-button {
-          background: #004296;
-          color: #fff;
-        }
-      }
-    }
-    .inner-header {
-      padding: 1em;
-      display: block;
-      text-align: center;
-    }
     .logo {
       width: auto;
       height: auto;
@@ -499,14 +383,7 @@ const HomepageStyled = styled.div`
     .pic img {
       width: 100%;
     }
-    .menu li {
-      font-size: 1.1em;
-      line-height: 5em;
-    }
 
-    .sign li {
-      line-height: 2em;
-    }
     .sorround {
       width: 100%;
     }
