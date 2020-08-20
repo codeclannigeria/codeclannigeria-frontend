@@ -8,7 +8,6 @@ import { connect } from 'react-redux';
 import { authLogoutApi } from '../../state/auth/authActionCreator';
 import { useHistory } from 'react-router-dom';
 import MentorDashboardSidebarStyled from '../MentorDashbord/common/MentorDashboardSidebarStyled';
-import { ReactComponent as DashboardStackLogo } from '../assets/svgs/dashboard/DashboardStack.svg';
 import { ReactComponent as DashboardBulletLogo } from '../assets/svgs/dashboard/DashboardBullet.svg';
 
 function DashboardSidebar({ showSidebar, tabs, path, authLogoutApi }) {
