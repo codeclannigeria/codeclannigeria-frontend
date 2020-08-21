@@ -11,8 +11,6 @@ function WelcomeAlert({ user, enroll, visible, loading }) {
   const [showMessage, setShowMessage] = useState(true);
   const { firstName, lastName, tracks } = user;
 
-  console.log({ user });
-
   return (
     <DashboardStyled>
       <CSSTransition

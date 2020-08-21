@@ -81,6 +81,7 @@ function TrackEnroll({
     try {
       await userEnrollTrackAction(id);
       await getTrackName(trackId);
+      // Select a mentor as well sha
     } catch (error) {
       console.log({ error });
     }
@@ -140,7 +141,7 @@ function TrackEnroll({
         {current === 1 ? <TracksEnrollStages id={trackId} /> : null}
         {current === 2 ? (
           <>
-            <SelectMentorStep />
+            <SelectMentorStep trackId={trackId} />
           </>
         ) : null}
 
@@ -158,7 +159,26 @@ function TrackEnroll({
               Next
             </Button>
           )}
-          {(current === 1 || current === 2) && (
+
+          {current === 1 && (
+            <>
+              <Button type="default" onClick={() => prev()}>
+                Back
+              </Button>
+
+              <Popconfirm
+                title="Are you sure？"
+                onConfirm={() => next()}
+                icon={<QuestionCircleOutlined style={{ color: 'green' }} />}
+              >
+                <Button type="primary" className="ml-2">
+                  Enroll
+                </Button>
+              </Popconfirm>
+            </>
+          )}
+
+          {current === 2 && (
             <>
               <Button type="default" onClick={() => prev()}>
                 Back

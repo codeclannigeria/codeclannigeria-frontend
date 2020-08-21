@@ -6,25 +6,25 @@ import {
   TwitterOutlined,
 } from '@ant-design/icons';
 
-function SingleMentorCard() {
+function SingleMentorCard({ mentor }) {
+  const { firstName, lastName, city, country, photoUrl } = mentor;
   return (
     <>
       <Card
         style={{ width: 'auto' }}
-        cover={
-          <img
-            alt="example"
-            src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
-          />
-        }
+        cover={<img alt={firstName} src={photoUrl} />}
         actions={[
           <GithubOutlined key="github" />,
           <TwitterOutlined key="twitter" />,
           <EllipsisOutlined key="ellipsis" />,
         ]}
       >
-        <h3>Onasanya Babatunde</h3>
-        <p>Developer at Google</p>
+        <h3>
+          {firstName} {lastName}
+        </h3>
+        <p>
+          From {city}, {country}
+        </p>
       </Card>
     </>
   );
