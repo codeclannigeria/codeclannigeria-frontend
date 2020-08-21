@@ -11,6 +11,7 @@ import codeClanLogo from '../assets/image/codeClanLogo.png';
 import Spinner from 'react-bootstrap/Spinner';
 import loginAmico from '../assets/image/auth/login.jpg';
 import { notification } from 'antd';
+import checkAuth from '../../helpers/CheckAuth';
 
 function Signup({ register, loading, errResponse, token, history }) {
   const dispatch = useDispatch();
@@ -33,9 +34,8 @@ function Signup({ register, loading, errResponse, token, history }) {
       description: 'Kindly check your email for further instructions',
     });
   };
-
   useEffect(() => {
-    if (localStorage.getItem('codeclan_token')) {
+    if (checkAuth()) {
       history.push('/dashboard');
     }
   }, []);

@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Table } from 'antd';
 import MentorDashboardLayout from '../MentorDashboardHOC';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-function MenteeList() {
+function MenteeList({
+  userLoading,
+  userData,
+  error,
+  errResponse,
+  getAllTasksAction,
+  tasksData,
+  history,
+}) {
   const columns = [
     {
       title: 'Name',
@@ -40,6 +49,20 @@ function MenteeList() {
       stage: '1 ',
     },
   ];
+
+  useEffect(() => {
+    if (userData) {
+      const { city, country, phoneNumber } = userData;
+      if (!city || !country || !phoneNumber) {
+        // return
+        history.push({
+          pathname: '/dashboard/mentor/profile',
+          state: { editProfile: true },
+        });
+      }
+    }
+  }, [userData]);
+
   return (
     <div>
       <Table
@@ -52,4 +75,24 @@ function MenteeList() {
   );
 }
 
-export default MentorDashboardLayout(MenteeList);
+const mapStateToProps = store => {
+  const {
+    loading: userLoading,
+    data: userData,
+    error,
+    errResponse,
+  } = store.user;
+
+  return {
+    userLoading,
+    userData,
+    error,
+    errResponse,
+  };
+};
+
+const mapDispatchToProps = {};
+
+export default MentorDashboardLayout(
+  connect(mapStateToProps, mapDispatchToProps)(MenteeList)
+);

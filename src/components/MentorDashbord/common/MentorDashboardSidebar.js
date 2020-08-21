@@ -9,13 +9,46 @@ import { QuestionCircleOutlined } from '@ant-design/icons';
 import { connect } from 'react-redux';
 import { authLogoutApi } from '../../../state/auth/authActionCreator';
 
-function MentorDashboardSidebar({ showSidebar, authLogoutApi }) {
+function MentorDashboardSidebar({ showSidebar, authLogoutApi, path }) {
   const history = useHistory();
 
   const logoutUser = () => {
     authLogoutApi();
     history.push('/login/');
   };
+  const tabs = [
+    {
+      id: 1,
+      icon: <i class="fas fa-user-friends"></i>,
+      link: '/dashboard/mentor/mentees',
+      name: 'Mentee',
+    },
+    // {
+    //   id: 2,
+    //   icon: <i class="fas fa-code"></i>,
+    //   link: '/dashboard/track',
+    //   name: 'Tracks',
+    // },
+    // {
+    //   id: 3,
+    //   icon: <i class="fas fa-tasks"></i>,
+    //   link: '/dashboard/pending-task',
+    //   name: 'Tasks',
+    // },
+    {
+      id: 4,
+      icon: <i class="fas fa-user-ninja"></i>,
+      link: '/dashboard/mentor/profile',
+      name: 'Profile',
+    },
+
+    {
+      id: 5,
+      icon: <i class="fas fa-sliders-h"></i>,
+      link: '#',
+      name: 'Settings',
+    },
+  ];
   return (
     <MentorDashboardSidebarStyled showSidebar={showSidebar}>
       <img src={codeClanLogo} alt="code clan" className="img-fluid" />
@@ -25,16 +58,28 @@ function MentorDashboardSidebar({ showSidebar, authLogoutApi }) {
           <Link to="/dashboard/mentor/mentees/"> Dashboard</Link>
         </li>
 
-        <li className="sub-menu">
+        {tabs.map(tab => (
+          <li
+            key={tab.id}
+            className={` sub-menu ${path === tab.link ? 'active-icon ' : ''} `}
+          >
+            {/* <DashboardStackLogo /> */}
+            {tab.icon}
+
+            <Link to={`${tab.link}`}> {tab.name}</Link>
+          </li>
+        ))}
+
+        {/* <li className="sub-menu">
           <DashboardStackLogo />
           <Link to="/dashboard/mentor/mentees/"> Mentees</Link>
-        </li>
-        <li className="sub-menu">
+        </li> */}
+        {/* <li className="sub-menu">
           <DashboardStackLogo /> Courses
         </li>
         <li className="sub-menu">
           <DashboardStackLogo /> Tasks
-        </li>
+        </li> */}
 
         <li className="logout__link">
           <Popconfirm

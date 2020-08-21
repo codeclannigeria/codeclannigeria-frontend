@@ -29,12 +29,10 @@ export const userEnrollTrackAction = id => {
     return codeClanApi
       .post(`/tracks/${id}/enroll`)
       .then(res => {
-        console.log(res);
         dispatch({ type: types.TRACKS_SUCCESS, payload: res.data });
         // history.push(`/dashboard`)
       })
       .catch(err => {
-        console.log({ err });
         const error_msg = err.response.data.message || 'An error occured';
 
         dispatch({

@@ -2,7 +2,6 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Signup from './components/auth/Signup';
 import Dashboard from './components/MenteeDashboard/MenteeDashboard';
-import Landing from './components/landing';
 import LoginForm from './components/auth/Login';
 import Homepage from './components/Homepage';
 import SignupForm from './components/auth/Form';
@@ -15,13 +14,13 @@ import TrackList from './components/MenteeDashboard/tracks/TrackList';
 import MentorDetails from './components/MenteeDashboard/mentorInfo/mentorDetails';
 import SubmitTask from './components/MenteeDashboard/pendingTask/SubmitTask';
 import PendingTasksPage from './components/MenteeDashboard/pendingTask/PendingTasksPage';
-import { AnimatePresence } from 'framer-motion';
 import TaskBrief from './components/MenteeDashboard/pendingTask/TaskBrief/TaskBrief';
 import SingleCoursePage from './components/MenteeDashboard/courses/SingleCoursePage';
-import UserProfile from './components/MenteeDashboard/userProfile/userProfile';
 
 import MenteeList from './components/MentorDashbord/Mentees/MenteeList';
 import MenteeProfile from './components/MentorDashbord/Mentees/MenteeProfile';
+import MentorUserProfile from './components/MentorDashbord/Profile/MentorUserProfile';
+import MenteeUserProfile from './components/MenteeDashboard/userProfile/MenteeUserProfile';
 
 const checkAuth = () => {
   const token = localStorage.getItem('codeclan_token');
@@ -46,6 +45,22 @@ export const MenteeRoute = ({ component: Component, ...rest }) => (
     {...rest}
     render={props =>
       checkAuth() === 'MENTEE' || checkAuth() === 'ADMIN' ? (
+        <Component {...props} />
+      ) : (
+        // <Redirect to={{ pathname: '/login' }} />
+        window.location.replace('/login')
+      )
+    }
+  />
+);
+
+export const PrivateRoute = ({ component: Component, ...rest }) => (
+  <Route
+    {...rest}
+    render={props =>
+      checkAuth() === 'MENTEE' ||
+      checkAuth() === 'ADMIN' ||
+      checkAuth() === 'MENTOR' ? (
         <Component {...props} />
       ) : (
         // <Redirect to={{ pathname: '/login' }} />
@@ -119,7 +134,7 @@ export const DashboardRouter = ({ location }) => (
     <MenteeRoute
       exact
       path="/dashboard/mentee/profile"
-      component={UserProfile}
+      component={MenteeUserProfile}
     />
   </Switch>
 );
@@ -135,6 +150,11 @@ export const MentorRouter = () => (
       exact
       path="/dashboard/mentor/mentee/:userID"
       component={MenteeProfile}
+    />
+    <MentorRoute
+      exact
+      path="/dashboard/mentor/profile"
+      component={MentorUserProfile}
     />
   </Switch>
 );

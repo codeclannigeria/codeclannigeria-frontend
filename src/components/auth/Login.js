@@ -11,6 +11,7 @@ import Spinner from 'react-bootstrap/Spinner';
 /*import loginAmico from '../assets/image/Login-amico.png';*/
 import loginAmico from '../assets/image/auth/login.jpg';
 import { message } from 'antd';
+import checkAuth from '../../helpers/CheckAuth';
 
 function LoginForm({ authLogin, loading, error, errResponse, token, history }) {
   const dispatch = useDispatch();
@@ -26,7 +27,7 @@ function LoginForm({ authLogin, loading, error, errResponse, token, history }) {
   };
 
   useEffect(() => {
-    if (localStorage.getItem('codeclan_token')) {
+    if (checkAuth()) {
       history.push('/dashboard');
     }
   }, []);

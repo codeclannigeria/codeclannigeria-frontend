@@ -18,17 +18,18 @@ function MentorDashboardLayout(Component) {
     const dispatch = useDispatch();
 
     useEffect(() => {
-      console.log('mounted');
       if (!userState) {
         setUserLoading(true);
         dispatch(getUserProfileApi());
       }
       setUserLoading(false);
     }, [userState, dispatch, userLoading]);
+    const { url } = props.match;
+
     return (
       <div>
         <MentorDashboardStyled>
-          <MentorDashboardSidebar showSidebar={showSidebar} />
+          <MentorDashboardSidebar path={url} showSidebar={showSidebar} />
           <DashboardHeader
             toggleSidebar={toggleSidebar}
             showSidebar={showSidebar}
