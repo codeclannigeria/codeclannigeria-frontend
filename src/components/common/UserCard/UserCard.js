@@ -27,6 +27,7 @@ function UserCard({ data, mode, editProfile }) {
 
     try {
       const { userId } = decode(token);
+      Ment;
       return userId;
     } catch (e) {
       return false;
@@ -50,7 +51,7 @@ function UserCard({ data, mode, editProfile }) {
   return (
     <UserCardStyled>
       <div className="personal--details--card">
-        {data && mode === 'mentee' ? (
+        {data && mode === 'mentee' && checkAuth() === id ? (
           <>
             <div className="edit-button">
               <i

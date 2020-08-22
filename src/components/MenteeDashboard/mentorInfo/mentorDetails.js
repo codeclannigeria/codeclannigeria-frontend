@@ -1,14 +1,27 @@
-import React from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { MentorDetailsStyled } from './mentorDetailsStyled';
 import DashboardLayout from '../../common/DashboardLayout';
-import dummy_image from '../../assets/image/dummy_mentor.png';
-import Tab from 'react-bootstrap/Tab';
-import Nav from 'react-bootstrap/Nav';
-import ContactMentor from './ContactMentor';
 import UserProfileStyled from '../userProfile/userProfileStyled';
 import UserCard from '../../common/UserCard/UserCard';
 import InfoCardBig from '../userProfile/InfoCardBig';
+import { getUserMentorProfileApi } from '../../../state/user/userActionCreator';
+import { useDispatch, useSelector } from 'react-redux';
+import UserProfile from '../userProfile/UserProfile';
 function MentorDetails() {
+  const dispatch = useDispatch();
+  const user = useSelector(state => state.user);
+
+  const fetchMentor = useCallback(() => {
+    if (user) {
+      if (!user.mentor) {
+        dispatch(getUserMentorProfileApi());
+      }
+    }
+  }, []);
+  useEffect(() => {
+    fetchMentor();
+  }, [fetchMentor]);
+
   const Tracks = [
     {
       icon: <i class="far fa-check-circle"></i>,
@@ -72,17 +85,15 @@ function MentorDetails() {
   };
 
   return (
-    <UserProfileStyled>
-      <UserCard data={data} mode="mentor" />
-      <div className="public__info__grid">
-        <InfoCardBig header="Skills" editable={false} data={Tracks} />
-        <InfoCardBig
-          header="Social Media"
-          editable={false}
-          data={SocialMedia}
-        />
-      </div>
-    </UserProfileStyled>
+    <>
+      {user ? (
+        <>
+          {user.mentor ? (
+            <UserProfile data={data} loading={user.loading} />
+          ) : null}
+        </>
+      ) : null}
+    </>
   );
 }
 

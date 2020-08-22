@@ -8,11 +8,13 @@ import UserCard from '../../common/UserCard/UserCard';
 import { message } from 'antd';
 
 function UserProfile({ loading, data, location }) {
-  const { state } = location;
   let editProfile = false;
-  if (state) {
-    editProfile = state.editProfile;
-    message.warning('Update your profile to continue');
+  if (location) {
+    const { state } = location;
+    if (state) {
+      editProfile = state.editProfile;
+      message.warning('Update your profile to continue');
+    }
   }
   const Tracks = [
     {
