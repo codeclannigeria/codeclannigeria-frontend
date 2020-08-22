@@ -45,6 +45,8 @@ function TrackEnroll({
 }) {
   const [current, setCurrent] = useState(0);
   const [trackId, setTrackId] = useState(null);
+  const [mentorId, setMentorId] = useState(null);
+
   const [trackTitle, setTrackTitle] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   // eslint-disable-next-line
@@ -77,11 +79,14 @@ function TrackEnroll({
     setTrackId(e.target.value);
   };
 
-  const handleEnrollTrack = async id => {
+  const handleSetMentorId = e => {
+    setMentorId(e.target.value);
+  };
+
+  const handleEnrollTrack = async (trackId, mentorId) => {
     try {
-      await userEnrollTrackAction(id);
+      await userEnrollTrackAction(trackId, mentorId);
       await getTrackName(trackId);
-      // Select a mentor as well sha
     } catch (error) {
       console.log({ error });
     }
@@ -141,7 +146,10 @@ function TrackEnroll({
         {current === 1 ? <TracksEnrollStages id={trackId} /> : null}
         {current === 2 ? (
           <>
-            <SelectMentorStep trackId={trackId} />
+            <SelectMentorStep
+              trackId={trackId}
+              handleSetMentorId={handleSetMentorId}
+            />
           </>
         ) : null}
 
@@ -186,7 +194,7 @@ function TrackEnroll({
 
               <Popconfirm
                 title="Are you sure？"
-                onConfirm={() => handleEnrollTrack(trackId)}
+                onConfirm={() => handleEnrollTrack(trackId, mentorId)}
                 icon={<QuestionCircleOutlined style={{ color: 'green' }} />}
               >
                 <Button type="primary" className="ml-2">

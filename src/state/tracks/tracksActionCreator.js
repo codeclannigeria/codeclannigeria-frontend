@@ -1,5 +1,9 @@
 import * as types from './tracksActionTypes';
 import codeClanApi from '../../api/apiUtils';
+import {
+  getUserProfileApi,
+  getUserMentorProfileApi,
+} from '../user/userActionCreator';
 
 export const getTracksAction = () => {
   return dispatch => {
@@ -11,7 +15,6 @@ export const getTracksAction = () => {
         // history.push(`/dashboard`)
       })
       .catch(err => {
-        console.log({ err });
         const error_msg = err.response.data.message || 'An error occured';
 
         dispatch({
@@ -23,13 +26,16 @@ export const getTracksAction = () => {
 };
 // tracks/22/enroll
 
-export const userEnrollTrackAction = id => {
+export const userEnrollTrackAction = (trackId, mentorId) => {
   return dispatch => {
     dispatch({ type: types.TRACKS_START });
+
     return codeClanApi
-      .post(`/tracks/${id}/enroll`)
+      .post(`/tracks/${trackId}/enroll`, { mentorId })
       .then(res => {
         dispatch({ type: types.TRACKS_SUCCESS, payload: res.data });
+        dispatch(getUserProfileApi());
+        dispatch(getUserMentorProfileApi());
         // history.push(`/dashboard`)
       })
       .catch(err => {

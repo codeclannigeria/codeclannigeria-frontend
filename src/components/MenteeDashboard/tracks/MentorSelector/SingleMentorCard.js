@@ -12,7 +12,15 @@ function SingleMentorCard({ mentor }) {
     <>
       <Card
         style={{ width: 'auto' }}
-        cover={<img alt={firstName} src={photoUrl} />}
+        cover={
+          <img
+            alt={firstName}
+            src={
+              photoUrl ||
+              'https://cdn.imgbin.com/3/1/2/imgbin-united-states-computer-icons-desktop-free-high-quality-person-icon-default-profile-2aZui7ZnCtjpD6FkTi5Cz55r4.jpg'
+            }
+          />
+        }
         actions={[
           <GithubOutlined key="github" />,
           <TwitterOutlined key="twitter" />,
@@ -23,7 +31,7 @@ function SingleMentorCard({ mentor }) {
           {firstName} {lastName}
         </h3>
         <p>
-          From {city}, {country}
+          <span>{city || country ? ` From ${city}, ${country}` : null}</span>
         </p>
       </Card>
     </>

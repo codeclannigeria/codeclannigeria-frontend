@@ -23,6 +23,9 @@ export function TaskReducer(state = initialState, action) {
       return {
         ...state,
         loading: false,
+        loading: false,
+        error: false,
+        errResponse: '',
         data: action.payload,
       };
 
