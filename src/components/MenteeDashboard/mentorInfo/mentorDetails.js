@@ -68,28 +68,28 @@ function MentorDetails() {
     },
   ];
 
-  const data = {
-    role: 'ADMIN',
-    id: '5ed8391c6ee42f00178d4518',
-    updatedAt: '2020-07-10T16:58:51.865Z',
-    createdAt: '2020-06-03T23:05:57.055Z',
-    firstName: 'Onasanya',
-    lastName: 'Tunde',
-    email: 'onasanyatunde67@gmail.com',
-    description: null,
-    phoneNumber: null,
-    technologies: [],
-    photoUrl:
-      'https://res.cloudinary.com/codeclannigeria/image/upload/v1594255930/ccn/avatars/5ed8391c6ee42f00178d4518.jpg',
-    tasks: [],
-  };
+  // const data = {
+  //   role: 'ADMIN',
+  //   id: '5ed8391c6ee42f00178d4518',
+  //   updatedAt: '2020-07-10T16:58:51.865Z',
+  //   createdAt: '2020-06-03T23:05:57.055Z',
+  //   firstName: 'Onasanya',
+  //   lastName: 'Tunde',
+  //   email: 'onasanyatunde67@gmail.com',
+  //   description: null,
+  //   phoneNumber: null,
+  //   technologies: [],
+  //   photoUrl:
+  //     'https://res.cloudinary.com/codeclannigeria/image/upload/v1594255930/ccn/avatars/5ed8391c6ee42f00178d4518.jpg',
+  //   tasks: [],
+  // };
 
   return (
     <>
       {user ? (
         <>
           {user.mentor ? (
-            <UserProfile data={data} loading={user.loading} />
+            <UserProfile data={user.mentor.items[0]} loading={user.loading} />
           ) : null}
         </>
       ) : null}

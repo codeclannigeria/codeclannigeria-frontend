@@ -5,3 +5,6 @@ export const TASKS_RESET = 'TASKS_RESET';
 
 export const GET_TASK = 'GET_TASK';
 export const SUBMIT_TASK = 'SUBMIT_TASK';
+
+export const GRADE_TASK = 'GRADE_TASK';
+export const MENTOR_SUBMISSIONS = 'MENTOR_SUBMISSIONS';

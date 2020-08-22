@@ -27,7 +27,6 @@ function UserCard({ data, mode, editProfile }) {
 
     try {
       const { userId } = decode(token);
-      Ment;
       return userId;
     } catch (e) {
       return false;

@@ -21,6 +21,7 @@ import MenteeList from './components/MentorDashbord/Mentees/MenteeList';
 import MenteeProfile from './components/MentorDashbord/Mentees/MenteeProfile';
 import MentorUserProfile from './components/MentorDashbord/Profile/MentorUserProfile';
 import MenteeUserProfile from './components/MenteeDashboard/userProfile/MenteeUserProfile';
+import SubmissionList from './components/MentorDashbord/Mentees/SubmissionList';
 
 const checkAuth = () => {
   const token = localStorage.getItem('codeclan_token');
@@ -155,6 +156,11 @@ export const MentorRouter = () => (
       exact
       path="/dashboard/mentor/profile"
       component={MentorUserProfile}
+    />
+    <MentorRoute
+      exact
+      path="/dashboard/mentor/tasks-submissions/"
+      component={SubmissionList}
     />
   </Switch>
 );

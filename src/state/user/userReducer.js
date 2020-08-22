@@ -8,6 +8,7 @@ const initialState = {
   editUser: false,
   mentor: null,
   mentees: null,
+  singleMentee: null,
 };
 
 export function UserReducer(state = initialState, action) {
@@ -52,6 +53,15 @@ export function UserReducer(state = initialState, action) {
         error: false,
         errResponse: '',
         mentees: action.payload,
+      };
+
+    case types.GET_MENTEE:
+      return {
+        ...state,
+        loading: false,
+        error: false,
+        errResponse: '',
+        singleMentee: action.payload,
       };
 
     case types.USER_FAILURE:
