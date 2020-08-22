@@ -7,12 +7,21 @@ import {
 } from '@ant-design/icons';
 
 function SingleMentorCard({ mentor }) {
+  console.log(mentor);
   const { firstName, lastName, city, country, photoUrl } = mentor;
   return (
     <>
       <Card
         style={{ width: 'auto' }}
-        cover={<img alt={firstName} src={photoUrl} />}
+        cover={
+          <img
+            alt={firstName}
+            src={
+              photoUrl ||
+              'https://cdn.imgbin.com/3/1/2/imgbin-united-states-computer-icons-desktop-free-high-quality-person-icon-default-profile-2aZui7ZnCtjpD6FkTi5Cz55r4.jpg'
+            }
+          />
+        }
         actions={[
           <GithubOutlined key="github" />,
           <TwitterOutlined key="twitter" />,

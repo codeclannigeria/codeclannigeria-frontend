@@ -5,7 +5,6 @@ import SingleMentorCardStyled from './SingleMentorCardStyled';
 import { Radio, Pagination } from 'antd';
 
 export const TrackMentors = ({ mentors }) => {
-  const number = [1, 3, 4, 5, 6, 6];
   const [currentPage, setCurrentPage] = useState(1);
   // eslint-disable-next-line
   const [cardPerPage, setCardperPage] = useState(3);
@@ -38,7 +37,7 @@ export const TrackMentors = ({ mentors }) => {
       >
         <Pagination
           // postPerPage={postPerPage}
-          total={number.length}
+          total={mentors.items.length}
           defaultCurrent={currentPage}
           // paginate={paginate}
           onChange={paginate}

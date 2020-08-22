@@ -1,6 +1,9 @@
 import * as types from './tracksActionTypes';
 import codeClanApi from '../../api/apiUtils';
-import { getUserProfileApi } from '../user/userActionCreator';
+import {
+  getUserProfileApi,
+  getUserMentorProfileApi,
+} from '../user/userActionCreator';
 
 export const getTracksAction = () => {
   return dispatch => {
@@ -32,6 +35,7 @@ export const userEnrollTrackAction = (trackId, mentorId) => {
       .then(res => {
         dispatch({ type: types.TRACKS_SUCCESS, payload: res.data });
         dispatch(getUserProfileApi());
+        dispatch(getUserMentorProfileApi());
         // history.push(`/dashboard`)
       })
       .catch(err => {

@@ -31,7 +31,17 @@ export function UserReducer(state = initialState, action) {
       return {
         ...state,
         loading: false,
+        error: false,
+        errResponse: '',
         data: action.payload,
+      };
+    case types.GET_MENTOR:
+      return {
+        ...state,
+        loading: false,
+        error: false,
+        errResponse: '',
+        mentor: action.payload,
       };
 
     case types.USER_FAILURE:

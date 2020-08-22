@@ -10,7 +10,25 @@ export const getUserProfileApi = () => {
         dispatch({ type: types.USER_SUCCESS, payload: res.data });
       })
       .catch(err => {
-        console.log(err, err.response);
+        const error_msg = err.response.data.message || 'An error occured';
+
+        dispatch({
+          type: types.USER_FAILURE,
+          payload: error_msg,
+        });
+      });
+  };
+};
+
+export const getUserMentorProfileApi = () => {
+  return dispatch => {
+    dispatch({ type: types.USER_START });
+    return codeClanApi
+      .get('profile/mentors')
+      .then(res => {
+        dispatch({ type: types.GET_MENTOR, payload: res.data });
+      })
+      .catch(err => {
         const error_msg = err.response.data.message || 'An error occured';
 
         dispatch({
@@ -27,11 +45,9 @@ export const editUserProfileApi = userData => {
     return codeClanApi
       .put('profile', userData)
       .then(res => {
-        console.log(userData);
         dispatch({ type: types.EDIT_USER, payload: res.data });
       })
       .catch(err => {
-        console.log(err, err.response);
         const error_msg = err.response.data.message || 'An error occured';
 
         dispatch({
@@ -41,9 +57,3 @@ export const editUserProfileApi = userData => {
       });
   };
 };
-// {
-//   "email": "onasanyatunde67@gmail.com",
-//   "clientBaseUrl": "https://google.com",
-//   "tokenParamName": "string",
-//   "emailParamName": "string"
-// }
