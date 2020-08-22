@@ -65,7 +65,7 @@ function Homepage() {
             </div>
           </div>
           <div className="pic-hold">
-            <img src={HeaderImage} />
+            <img src={HeaderImage} alt="Header" />
           </div>
         </div>
       </div>

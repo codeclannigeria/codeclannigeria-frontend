@@ -32,6 +32,13 @@ const StyledNav = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+<<<<<<< HEAD
+    padding: 0rem 4rem;
+    align-items: center;
+    background: blue;
+    max-height: 5rem;
+=======
+>>>>>>> 7cea36aa0066d65444e782074ccb4b4b2e89421e
   }
 
   .menu {
