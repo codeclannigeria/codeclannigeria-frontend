@@ -4,8 +4,7 @@ import SingleMentorCard from './SingleMentorCard';
 import SingleMentorCardStyled from './SingleMentorCardStyled';
 import { Radio, Pagination } from 'antd';
 
-export const TrackMentors = () => {
-  const number = [1, 3, 4, 5, 6, 6];
+export const TrackMentors = ({ mentors }) => {
   const [currentPage, setCurrentPage] = useState(1);
   // eslint-disable-next-line
   const [cardPerPage, setCardperPage] = useState(3);
@@ -14,8 +13,8 @@ export const TrackMentors = () => {
   const indexOfFirstCard = indexOfLastCard - cardPerPage;
 
   const paginate = pageNumber => setCurrentPage(pageNumber);
-  const currentCards = number
-    ? number.slice(indexOfFirstCard, indexOfLastCard)
+  const currentCards = mentors
+    ? mentors.items.slice(indexOfFirstCard, indexOfLastCard)
     : null;
 
   return (
@@ -23,8 +22,8 @@ export const TrackMentors = () => {
       <SingleMentorCardStyled>
         {currentCards.map(item => (
           <div className="radio-options">
-            <Radio.Button value={item}>
-              <SingleMentorCard key={item} />
+            <Radio.Button value={item.id}>
+              <SingleMentorCard mentor={item} key={item} />
             </Radio.Button>
           </div>
         ))}
@@ -38,7 +37,7 @@ export const TrackMentors = () => {
       >
         <Pagination
           // postPerPage={postPerPage}
-          total={number.length}
+          total={mentors.items.length}
           defaultCurrent={currentPage}
           // paginate={paginate}
           onChange={paginate}

@@ -6,15 +6,19 @@ import {
   TwitterOutlined,
 } from '@ant-design/icons';
 
-function SingleMentorCard() {
+function SingleMentorCard({ mentor }) {
+  const { firstName, lastName, city, country, photoUrl } = mentor;
   return (
     <>
       <Card
         style={{ width: 'auto' }}
         cover={
           <img
-            alt="example"
-            src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+            alt={firstName}
+            src={
+              photoUrl ||
+              'https://cdn.imgbin.com/3/1/2/imgbin-united-states-computer-icons-desktop-free-high-quality-person-icon-default-profile-2aZui7ZnCtjpD6FkTi5Cz55r4.jpg'
+            }
           />
         }
         actions={[
@@ -23,8 +27,12 @@ function SingleMentorCard() {
           <EllipsisOutlined key="ellipsis" />,
         ]}
       >
-        <h3>Onasanya Babatunde</h3>
-        <p>Developer at Google</p>
+        <h3>
+          {firstName} {lastName}
+        </h3>
+        <p>
+          <span>{city || country ? ` From ${city}, ${country}` : null}</span>
+        </p>
       </Card>
     </>
   );

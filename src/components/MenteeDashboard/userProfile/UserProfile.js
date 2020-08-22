@@ -71,18 +71,4 @@ function UserProfile({ loading, data, location }) {
   );
 }
 
-const mapStateToProps = store => {
-  const { loading, data, error, errResponse } = store.user;
-  return {
-    loading,
-    data,
-    error,
-    errResponse,
-  };
-};
-
-const mapDispatchToProps = {};
-
-export default DashboardLayout(
-  connect(mapStateToProps, mapDispatchToProps)(UserProfile)
-);
+export default UserProfile;

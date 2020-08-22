@@ -12,6 +12,8 @@ export function TracksReducer(state = initialState, action) {
     case types.TRACKS_START:
       return {
         ...state,
+        error: false,
+        errResponse: '',
         loading: true,
       };
 
@@ -19,6 +21,9 @@ export function TracksReducer(state = initialState, action) {
       return {
         ...state,
         loading: false,
+        loading: false,
+        error: false,
+        errResponse: '',
         data: action.payload,
       };
 

@@ -6,6 +6,8 @@ const initialState = {
   error: false,
   errResponse: '',
   editUser: false,
+  mentor: null,
+  mentees: null,
 };
 
 export function UserReducer(state = initialState, action) {
@@ -30,7 +32,26 @@ export function UserReducer(state = initialState, action) {
       return {
         ...state,
         loading: false,
+        error: false,
+        errResponse: '',
         data: action.payload,
+      };
+    case types.GET_MENTOR:
+      return {
+        ...state,
+        loading: false,
+        error: false,
+        errResponse: '',
+        mentor: action.payload,
+      };
+
+    case types.GET_MENTEES:
+      return {
+        ...state,
+        loading: false,
+        error: false,
+        errResponse: '',
+        mentees: action.payload,
       };
 
     case types.USER_FAILURE:

@@ -2,15 +2,12 @@ import React, { useState, useEffect } from 'react';
 import DashboardSidebar from './DashboardSidebar';
 import DashboardHeader from './DashboardHeader';
 import DashboardLayoutStyled from './DashboardLayoutStyled';
-import { ReactComponent as HomeIcon } from '../assets/svgs/dashboard/cli_home.svg';
-import { ReactComponent as UserGroup } from '../assets/svgs/dashboard/cli_group.svg';
-import { ReactComponent as Settings } from '../assets/svgs/dashboard/cli_settings.svg';
-import { ReactComponent as Bookmark } from '../assets/svgs/dashboard/cli_bookmark.svg';
-import { ReactComponent as Message } from '../assets/svgs/dashboard/cli_message.svg';
-import { ReactComponent as Avatar } from '../assets/svgs/dashboard/cli_avatar.svg';
-import { motion } from 'framer-motion';
+
 import { useStore, useDispatch } from 'react-redux';
-import { getUserProfileApi } from '../../state/user/userActionCreator';
+import {
+  getUserProfileApi,
+  getUserMentorProfileApi,
+} from '../../state/user/userActionCreator';
 import CustomLoader from './Spinner/CustomLoader';
 import MentorDashboardStyled from '../MentorDashbord/MentorDashboardStyled';
 
@@ -71,10 +68,10 @@ const DashboardLayout = Component => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-      console.log('mounted');
       if (!userState) {
         setUserLoading(true);
         dispatch(getUserProfileApi());
+        dispatch(getUserMentorProfileApi());
       }
       setUserLoading(false);
     }, [userState, dispatch, userLoading]);

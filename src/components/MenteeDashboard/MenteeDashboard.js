@@ -13,6 +13,7 @@ import TrackEnroll from './tracks/TrackEnroll';
 import { connect } from 'react-redux';
 import { getAllTasksAction } from '../../state/tasks/tasksActionCreator';
 import CustomLoader from '../common/Spinner/CustomLoader';
+import { getUserMentorProfileApi } from '../../state/user/userActionCreator';
 
 function Dashboard({
   userLoading,
@@ -22,14 +23,16 @@ function Dashboard({
   getAllTasksAction,
   tasksData,
   history,
+  mentor,
+  getUserMentorProfileApi,
 }) {
-  const [showTracksEnrollModal, setshowTracksEnrollModal] = useState();
+  const [showTracksEnrollModal, setshowTracksEnrollModal] = useState(true);
 
   useEffect(() => {
-    if (userData && userData.tracks.length >= 1) {
+    if (userData && userData.tracks.length < 1) {
       setshowTracksEnrollModal(true);
     }
-  }, []);
+  }, [userData]);
 
   useEffect(() => {
     if (userData) {
@@ -81,7 +84,7 @@ function Dashboard({
               <i class="text-blue fas fa-user-check"></i>
             </div>
             <h6 className="card-subtitle">
-              <span>1</span>
+              <span>{mentor ? mentor.length : 0}</span>
               <p>Approved Mentor</p>
             </h6>
           </div>
@@ -136,9 +139,7 @@ function Dashboard({
             tasksData={tasksData}
             track={userData.tracks[0].title}
           />
-        ) : (
-          <CustomLoader />
-        )}{' '}
+        ) : null}{' '}
       </div>
     </DashboardStyled>
   );
@@ -150,6 +151,7 @@ const mapStateToProps = store => {
     data: userData,
     error,
     errResponse,
+    mentor,
   } = store.user;
 
   const { data: tasksData } = store.tasks;
@@ -158,11 +160,12 @@ const mapStateToProps = store => {
     userData,
     error,
     errResponse,
+    mentor,
     tasksData,
   };
 };
 
-const mapDispatchToProps = { getAllTasksAction };
+const mapDispatchToProps = { getAllTasksAction, getUserMentorProfileApi };
 
 export default DashboardLayout(
   connect(mapStateToProps, mapDispatchToProps)(Dashboard)
