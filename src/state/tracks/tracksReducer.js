@@ -5,6 +5,7 @@ const initialState = {
   data: '',
   error: false,
   errResponse: '',
+  singleTrack: null,
 };
 
 export function TracksReducer(state = initialState, action) {
@@ -21,10 +22,18 @@ export function TracksReducer(state = initialState, action) {
       return {
         ...state,
         loading: false,
-        loading: false,
         error: false,
         errResponse: '',
         data: action.payload,
+      };
+
+    case types.GET_TRACK:
+      return {
+        ...state,
+        loading: false,
+        error: false,
+        errResponse: '',
+        singleTrack: action.payload,
       };
 
     case types.TRACKS_FAILURE:
