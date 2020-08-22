@@ -23,7 +23,7 @@ export const TrackMentors = ({ mentors }) => {
       <SingleMentorCardStyled>
         {currentCards.map(item => (
           <div className="radio-options">
-            <Radio.Button value={item}>
+            <Radio.Button value={item.id}>
               <SingleMentorCard mentor={item} key={item} />
             </Radio.Button>
           </div>

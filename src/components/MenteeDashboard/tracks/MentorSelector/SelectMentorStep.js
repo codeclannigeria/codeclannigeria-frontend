@@ -5,13 +5,12 @@ import { Radio } from 'antd';
 import codeClanApi from '../../../../api/apiUtils';
 import CustomLoader from '../../../common/Spinner/CustomLoader';
 
-function SelectMentorStep({ trackId }) {
+function SelectMentorStep({ trackId, handleSetMentorId }) {
   const [trackMentors, setTrackMentors] = useState(null);
   const [loading, setLoading] = useState(false);
   const getTrackMentors = async () => {
     setLoading(true);
     try {
-      console.log(trackId);
       const res = await codeClanApi.get(`/tracks/${trackId}/mentors`);
 
       setTrackMentors(res.data);
@@ -24,10 +23,10 @@ function SelectMentorStep({ trackId }) {
   useEffect(() => {
     getTrackMentors();
   }, []);
-  const handleSetMentor = () => {};
+  // const handleSetMentor = () => {};
   return (
     <>
-      <Radio.Group onChange={handleSetMentor} defaultValue={null}>
+      <Radio.Group onChange={handleSetMentorId} defaultValue={null}>
         <div className="">
           {trackMentors && !loading ? (
             <TrackMentors mentors={trackMentors} />

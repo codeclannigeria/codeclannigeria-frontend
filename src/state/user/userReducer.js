@@ -6,6 +6,7 @@ const initialState = {
   error: false,
   errResponse: '',
   editUser: false,
+  mentor: null,
 };
 
 export function UserReducer(state = initialState, action) {

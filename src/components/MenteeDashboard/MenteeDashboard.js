@@ -23,26 +23,26 @@ function Dashboard({
   tasksData,
   history,
 }) {
-  const [showTracksEnrollModal, setshowTracksEnrollModal] = useState();
+  const [showTracksEnrollModal, setshowTracksEnrollModal] = useState(true);
 
   useEffect(() => {
-    if (userData && userData.tracks.length >= 1) {
+    if (userData && userData.tracks.length < 1) {
       setshowTracksEnrollModal(true);
     }
-  }, []);
+  }, [userData]);
 
-  // useEffect(() => {
-  //   if (userData) {
-  //     const { city, country, phoneNumber } = userData;
-  //     if (!city || !country || !phoneNumber) {
-  //       // return
-  //       history.push({
-  //         pathname: '/dashboard/mentee/profile',
-  //         state: { editProfile: true },
-  //       });
-  //     }
-  //   }
-  // }, [userData]);
+  useEffect(() => {
+    if (userData) {
+      const { city, country, phoneNumber } = userData;
+      if (!city || !country || !phoneNumber) {
+        // return
+        history.push({
+          pathname: '/dashboard/mentee/profile',
+          state: { editProfile: true },
+        });
+      }
+    }
+  }, [userData]);
 
   useEffect(() => {
     if (userData) {

@@ -35,7 +35,13 @@ function DashboardHeader({ toggleSidebar, showSidebar, data }) {
 
             <div className="display-profile">
               <div className="display-picture">
-                <img src={photoUrl} alt="user" />
+                <img
+                  src={
+                    photoUrl ||
+                    'https://cdn.imgbin.com/3/1/2/imgbin-united-states-computer-icons-desktop-free-high-quality-person-icon-default-profile-2aZui7ZnCtjpD6FkTi5Cz55r4.jpg'
+                  }
+                  alt="user"
+                />
               </div>
               {/* <p className="mt-2 ml-4">{firstName}</p> */}
             </div>
