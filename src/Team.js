@@ -1,102 +1,138 @@
-import React, { Component } from 'react';
-import teamMember from './components/assets/image/teamMember.jpg';
-import karen from './components/assets/image/karen.jfif';
-import Navbar from './components/Navbar';
+import React from 'react';
 import StyledTeam from './TeamStyled';
+import groupSession from './components/assets/image/homepage/groupSession.jpg';
+import teamMember from './components/assets/image/team/teamMember.jpg';
+import tayo from './components/assets/image/team/tayo.jfif';
+import femi from './components/assets/image/team/femi.jfif';
+import fortune from './components/assets/image/team/fortune.jfif';
+import karen from './components/assets/image/team/karen.jfif';
+import rammy from './components/assets/image/team/rammy.jfif';
+import Navbar from './components/Navbar';
 
-class Team extends Component {
-  render() {
-    return (
-      <StyledTeam>
-        {/* <Navbar /> */}
-        <div className="team-div">
-          <div className="team-intro">
-            <h1 className="team-intro-heading">Meet the Team.</h1>
-            <p className="team-intro-subheading">
+function Team() {
+  return (
+    <StyledTeam>
+      <div className="team-container">
+        <Navbar />
+        <div className="main-team-section row container-fluid">
+          <div className="col-md-6 col-sm-12">
+            <h1 className="main-team-intro white">Meet the Team.</h1>
+            <p className="main-team-details white">
               We are a clan of coders. The tight knit relationship that we have
-              makes us family. Meet some of our core stakeholders below:
+              makes us family. Choose any of the teams you'd like to be a part
+              of. There are different categories and different spheres just for
+              you. Meet some of our core stakeholders below:
             </p>
           </div>
-          <div className="container">
-            {/* Row 1 */}
-            <div className="row mt-5">
-              {/*Team Member 1 */}
-              <div className="col-md-3">
-                <img src={teamMember} alt="team member" className="img-fluid" />
-                <h3 className="colored-link pt-3">Ajiboye Olutayormi</h3>
-                <h4 className="colored-link">Director of Human Engineering</h4>
-                <h5 className="muted-link">Lagos, Nigeria</h5>
-              </div>
+          <div className="col-md-6 col-sm-12">
+            <img
+              src={groupSession}
+              alt="main-team-image"
+              className="img-fluid main-img"
+            />
+          </div>
+        </div>
+        {/* Team Section 1*/}
+        <div className="team container mt-5">
+          {/* Row 1 */}
+          <div className="row">
+            <div className="col-md-3 col-sm-12">
+              <img src={tayo} alt="temi Ajiboye" className="img-fluid" />
+              <h5 className="colored-link">CEO & CTO, Code Clan Nigeria</h5>
+              <h6 className="muted-link">Lagos, Nigeria</h6>
+            </div>
 
-              {/*Team Member 2 */}
-              <div className="col-md-3">
-                <img src={teamMember} alt="team member" className="img-fluid" />
-                <h3 className="colored-link pt3">Anjorin Oluwafemi</h3>
-                <h4 className="colored-link">Director, Human Engineering</h4>
-                <h5 className="muted-link">Lagos, Nigeria</h5>
-              </div>
+            <div className="col-md-3 col-sm-12">
+              <img src={femi} alt="Femi Anjorin" className="img-fluid" />
+              <h5 className="colored-link">
+                Software Developer, Lambda School
+              </h5>
+              <h6 className="muted-link">United States</h6>
+            </div>
 
-              {/*Team Member 3 */}
-              <div className="col-md-3">
-                <img src={teamMember} alt="team member" className="img-fluid" />
-                <h3 className="colored-link pt-3">Ochi Fortune</h3>
-                <h4 className="colored-link">CTO, Code Clan Nigeria</h4>
-                <h5 className="muted-link">Lagos, Nigeria</h5>
-              </div>
+            <div className="col-md-3 col-sm-12">
+              <img src={fortune} alt="Fortune Ochi" className="img-fluid" />
+              <h5 className="colored-link">
+                Full Stack Developer, Access Bank
+              </h5>
+              <h6 className="muted-link">Lagos, Nigeria</h6>
+            </div>
 
-              {/*Team Member 4 */}
-              <div className="col-md-3">
-                <img className="img-fluid" src={teamMember} alt="team member" />
-                <h3 className="colored-link pt-3">Ngozi Uche</h3>
-                <h4 className="colored-link">Director of Backend Logistics</h4>
-                <h5 className="muted-link">Lagos, Nigeria</h5>
-              </div>
+            <div className="col-md-3 col-sm-12">
+              <img src={rammy} alt="Onasanya Tunde" className="img-fluid" />
+              <h5 className="colored-link">
+                Software Developer, Code Clan Nigeria
+              </h5>
+              <h6 className="muted-link">Lagos, Nigeria</h6>
             </div>
           </div>
 
           {/* Row 2 */}
-          <div className="container">
-            <div className="row mt-5">
-              {/*Team Member 1 */}
-              <div className="col-md-3">
-                <img src={teamMember} alt="team member" className="img-fluid" />
-                <h3 className="colored-link pt-3">Onasanya Tunde</h3>
-                <h4 className="colored-link">Director, Fronten Design</h4>
-                <h5 className="muted-link">Lagos, Nigeria</h5>
-              </div>
+          <div className="row container mt-5">
+            <div className="col-md-3 col-sm-12">
+              <img src={karen} alt="Karen Efereyan" className="img-fluid" />
+              <h5 className="colored-link">
+                Frontend Developer, Code Clan Nigeria
+              </h5>
+              <h6 className="muted-link">Kwara, Nigeria</h6>
+            </div>
 
-              {/*Team Member 2 */}
-              <div className="col-md-3">
-                <img src={teamMember} alt="team member" className="img-fluid" />
-                <h3 className="colored-link pt3">Ofordile Jennifer</h3>
-                <h4 className="colored-link">Social Media Director</h4>
-                <h5 className="muted-link">Enugu, Nigeria</h5>
-              </div>
+            <div className="col-md-3 col-sm-12">
+              <img src={teamMember} alt="Femi Anjorin" className="img-fluid" />
+              <h5 className="colored-link">
+                Software Developer, Lambda School
+              </h5>
+              <h6 className="muted-link">United States</h6>
+            </div>
 
-              {/*Team Member 3 */}
-              <div className="col-md-3">
-                <img src={teamMember} alt="team member" className="img-fluid" />
-                <h3 className="colored-link pt-3">Debbs Debbs</h3>
-                <h4 className="colored-link">Lead, UI/UX Design</h4>
-                <h5 className="muted-link">Lagos, Nigeria</h5>
-              </div>
+            <div className="col-md-3 col-sm-12">
+              <img src={teamMember} alt="Fortune Ochi" className="img-fluid" />
+              <h5 className="colored-link">
+                Full Stack Developer, Access Bank
+              </h5>
+              <h6 className="muted-link">Lagos, Nigeria</h6>
+            </div>
 
-              {/*Team Member 4 */}
-              <div className="col-md-3">
-                <img className="img-fluid" src={karen} alt="team member" />
-                <h3 className="colored-link pt-3">Efereyan Karen</h3>
-                <h4 className="colored-link">Program Manager, CodeClan</h4>
-                <h5 className="muted-link">Kwara, Nigeria</h5>
-              </div>
+            <div className="col-md-3 col-sm-12">
+              <img
+                src={teamMember}
+                alt="Onasanya Tunde"
+                className="img-fluid"
+              />
+              <h5 className="colored-link">
+                Software Developer, Code Clan Nigeria
+              </h5>
+              <h6 className="muted-link">Lagos, Nigeria</h6>
             </div>
           </div>
         </div>
 
-        {/* End of Row 2 */}
-        <div></div>
-      </StyledTeam>
-    );
-  }
+        {/* Footer */}
+        <div className="footer">
+          <ul className="socials">
+            <li>
+              <a>
+                <i class="fa fa-facebook"></i>
+              </a>
+            </li>
+            <li>
+              <a>
+                <i class="fa fa-instagram"></i>
+              </a>
+            </li>
+            <li>
+              <a>
+                <i class="fa fa-twitter"></i>
+              </a>
+            </li>
+          </ul>
+          <p className="copyright">
+            All rights reserved &copy;CodeClanNigeria2020
+          </p>
+        </div>
+      </div>
+    </StyledTeam>
+  );
 }
 
 export default Team;

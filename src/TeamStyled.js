@@ -1,55 +1,71 @@
 import styled from 'styled-components';
 
 const StyledTeam = styled.div`
-  .team-div {
+  .col-md-3 .img-fluid {
+    height: 300px !important;
+    // width: 300px !important;
+  }
+  .team-container {
     background-color: #112542;
-    color: #397ea3;
   }
-  .team-intro {
-    width: 50%;
-    padding: 30px 0px 30px 65px;
-    font-family: sans-serif;
+  .white {
+    color: #fff !important;
   }
-  .team-intro-heading {
-    font-size: 55px;
-    color: #397ea3;
-    border-bottom: 2px solid #397ea3;
+  .main-img {
+    border-radius: 2%;
   }
-  .team-intro-subheading {
-    font-size: 17px;
-    color: #397ea3;
+  .main-team-section {
+    padding: 50px 20px 0 20px;
   }
   .colored-link {
     color: #36b8f2;
+    padding-top: 15px;
   }
   .muted-link {
     color: #225070;
   }
+  .footer {
+    background-color: #000;
+    padding: 40px 25px;
+  }
+  .socials {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .socials li {
+    font-size: 30px;
+    padding-left: 50px;
+  }
+  .socials li a .fa {
+    color: #fff;
+  }
+  .copyright {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    color: #fff;
+  }
 
   @media only screen and (max-width: 768px) {
-    .team-intro {
-      width: 100%;
-      padding-left: 0;
-      padding: 35px 20px 0 20px;
+    .col-md-3 img {
+      border-radius: 2%;
+      margin: 0 auto;
+    }
+    .main-team-intro {
+      font-size: 32px;
+      border-bottom: 2px solid #36b8f2;
+    }
+    .main-team-details {
+      font-size: 15px;
     }
     .col-md-3 {
-      margin: 20px 30px 0px 30px;
-    }
-    img {
-      border-radius: 2%;
-    }
-    .col-md-3:nth-child(1) {
-      margin-top: 0;
-    }
-    .team-intro-heading {
-      font-size: 50px;
-      color: #397ea3;
-      border-bottom: 2px solid #397ea3;
-    }
-    .team-intro-subheading {
-      font-size: 16px;
-      margin-top: 30px;
-      color: #397ea3;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      margin: 15px auto;
     }
   }
 `;
