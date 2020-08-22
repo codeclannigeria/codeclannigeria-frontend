@@ -4,6 +4,8 @@ import MentorDashboardLayout from '../MentorDashboardHOC';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+import { getUserMenteesProfileApi } from '../../../state/user/userActionCreator';
+
 function MenteeList({
   userLoading,
   userData,
@@ -12,6 +14,7 @@ function MenteeList({
   getAllTasksAction,
   tasksData,
   history,
+  getUserMenteesProfileApi,
 }) {
   const columns = [
     {
@@ -81,17 +84,19 @@ const mapStateToProps = store => {
     data: userData,
     error,
     errResponse,
+    mentees,
   } = store.user;
 
   return {
     userLoading,
     userData,
     error,
+    mentees,
     errResponse,
   };
 };
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = { getUserMenteesProfileApi };
 
 export default MentorDashboardLayout(
   connect(mapStateToProps, mapDispatchToProps)(MenteeList)

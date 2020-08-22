@@ -39,6 +39,25 @@ export const getUserMentorProfileApi = () => {
   };
 };
 
+export const getUserMenteesProfileApi = () => {
+  return dispatch => {
+    dispatch({ type: types.USER_START });
+    return codeClanApi
+      .get('profile/mentees')
+      .then(res => {
+        dispatch({ type: types.GET_MENTEES, payload: res.data });
+      })
+      .catch(err => {
+        const error_msg = err.response.data.message || 'An error occured';
+
+        dispatch({
+          type: types.USER_FAILURE,
+          payload: error_msg,
+        });
+      });
+  };
+};
+
 export const editUserProfileApi = userData => {
   return dispatch => {
     dispatch({ type: types.USER_START });

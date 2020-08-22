@@ -7,7 +7,6 @@ import {
 } from '@ant-design/icons';
 
 function SingleMentorCard({ mentor }) {
-  console.log(mentor);
   const { firstName, lastName, city, country, photoUrl } = mentor;
   return (
     <>
@@ -32,7 +31,7 @@ function SingleMentorCard({ mentor }) {
           {firstName} {lastName}
         </h3>
         <p>
-          From {city}, {country}
+          <span>{city || country ? ` From ${city}, ${country}` : null}</span>
         </p>
       </Card>
     </>
