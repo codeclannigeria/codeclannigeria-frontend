@@ -1,11 +1,1 @@
-[0819/121643.990:ERROR:crash_report_database_win.cc(469)] failed to stat report
-[0819/121644.049:ERROR:crash_report_database_win.cc(469)] failed to stat report
-[0819/121644.049:ERROR:crash_report_database_win.cc(469)] failed to stat report
-[0819/121644.049:ERROR:crash_report_database_win.cc(469)] failed to stat report
-[0819/121644.049:ERROR:crash_report_database_win.cc(469)] failed to stat report
-[0819/121644.049:ERROR:crash_report_database_win.cc(469)] failed to stat report
-[0819/121644.049:ERROR:crash_report_database_win.cc(469)] failed to stat report
-[0819/121644.049:ERROR:crash_report_database_win.cc(469)] failed to stat report
-[0819/121644.049:ERROR:crash_report_database_win.cc(469)] failed to stat report
-[0819/121644.049:ERROR:crash_report_database_win.cc(469)] failed to stat report
-[0819/121644.336:ERROR:file_io_win.cc(243)] SetEndOfFile: Access is denied. (0x5)
+[0822/170942.828:ERROR:settings.cc(320)] Settings magic is not 1129342067
