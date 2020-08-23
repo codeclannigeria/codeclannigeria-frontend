@@ -10,7 +10,7 @@ import {
 } from '../../../state/tasks/tasksActionCreator';
 import { useDispatch, useSelector } from 'react-redux';
 import { Spin, message } from 'antd';
-import AlertComponent from '../../common/AuthAlert';
+import { Link } from 'react-router-dom';
 
 function SubmitTask(props) {
   const [submitted, setSubmitted] = useState(false);
@@ -48,6 +48,12 @@ function SubmitTask(props) {
   return (
     <SubmitTaskStyled>
       <div className="container-fluid mt-5 py-3">
+        <Link
+          to={`/dashboard/pending-task/${id}`}
+          className="btn btn-outline-primary btn-sm mb-3 "
+        >
+          <i className="fas fa-arrow-left"></i> Back to Task Brief
+        </Link>
         <div className="row">
           <div className="col-md-5 col-sm-12">
             <div className="card mb-3 tasks" style={{ maxWidth: '23rem' }}>
