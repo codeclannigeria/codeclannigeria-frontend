@@ -27,7 +27,7 @@ export const getUserMentorProfileApi = () => {
     return codeClanApi
       .get('profile/mentors')
       .then(res => {
-        dispatch({ type: types.GET_MENTOR, payload: res.data });
+        dispatch({ type: types.GET_MENTOR, payload: res.data.items });
       })
       .catch(err => {
         const error_msg = err.response

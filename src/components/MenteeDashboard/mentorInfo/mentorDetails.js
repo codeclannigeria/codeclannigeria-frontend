@@ -89,7 +89,7 @@ function MentorDetails() {
       {user ? (
         <>
           {user.mentor ? (
-            <UserProfile data={user.mentor.items[0]} loading={user.loading} />
+            <UserProfile data={user.mentor[0]} loading={user.loading} />
           ) : null}
         </>
       ) : null}
