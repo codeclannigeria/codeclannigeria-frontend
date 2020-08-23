@@ -20,6 +20,7 @@ const TracksStagesCard = ({ trackData, stageData }) => {
         title="Track Descripton"
         bordered
         size="small"
+
         // column={{ xxl: 4, xl: 2, lg: 3, md: 3, sm: 1, xs: 1 }}
       >
         <Descriptions.Item label="Track Name">{title}</Descriptions.Item>

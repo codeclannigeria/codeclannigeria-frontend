@@ -96,7 +96,7 @@ export const BaseRouter = () => (
     <Route path="/email-verification-sent/" component={EmailConfirmationSent} />
     <Route path="/confirm-email/" component={ConfirmEmail} />
     <Route path="/forgotpass" component={ForgotPassword} />
-    <Route path="/Team" component={Team} />
+    <Route path="/team" component={Team} />
   </Switch>
 );
 

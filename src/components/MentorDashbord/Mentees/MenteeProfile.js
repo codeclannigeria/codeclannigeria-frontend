@@ -67,25 +67,25 @@ function MenteeProfile(props) {
     tasks: [],
   };
   return (
-    // <>
-    //   {user ? (
-    //     <>
-    //       {user.singleMentee ? (
-    //         <UserProfile data={user.singleMentee} loading={user.loading} />
-    //       ) : (
-    //         <UserProfile data={data} loading={user.loading} />
-    //       )}
-    //     </>
-    //   ) : null}
-    // </>
+    <>
+      {user ? (
+        <>
+          {user.singleMentee ? (
+            <UserProfile data={user.singleMentee} loading={user.loading} />
+          ) : (
+            <UserProfile data={data} loading={user.loading} />
+          )}
+        </>
+      ) : null}
+    </>
 
-    <UserProfileStyled>
-      <UserCard data={data} mode="mentor" />
-      <div>
-        <PendingTasksCard header="Tasks Assigned" data={Tracks} />
-        <PendingTasksCard header="Tasks Completed" data={Tracks} />
-      </div>
-    </UserProfileStyled>
+    // <UserProfileStyled>
+    //   <UserCard data={data} mode="mentor" />
+    //   <div>
+    //     <PendingTasksCard header="Tasks Assigned" data={Tracks} />
+    //     <PendingTasksCard header="Tasks Completed" data={Tracks} />
+    //   </div>
+    // </UserProfileStyled>
   );
 }
 

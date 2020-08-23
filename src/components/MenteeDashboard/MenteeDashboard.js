@@ -118,7 +118,7 @@ function Dashboard({
           </div>
         </div>
 
-        <div className="card">
+        {/* <div className="card">
           <div className="card-body progress-card">
             <Progress
               type="circle"
@@ -130,7 +130,7 @@ function Dashboard({
               Stage I
             </p>
           </div>
-        </div>
+        </div> */}
       </div>
 
       <div className="pending-tasks-wrap mt-5">

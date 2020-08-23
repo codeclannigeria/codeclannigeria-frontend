@@ -2,18 +2,17 @@ import styled from 'styled-components';
 
 const SinglePendingTaskStyled = styled.div`
   .pending-task {
-    height: 80px;
+    /* height: 80px; */
     border-bottom: 1px solid rgba(31, 89, 187, 0.25);
   }
 
   .task-box {
     padding: 1rem;
-    height: 80px;
+    /* height: 80px; */
     width: 100%;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-    position: relative;
     justify-content: space-between;
   }
 
@@ -62,7 +61,7 @@ const SinglePendingTaskStyled = styled.div`
     .task-deadline p {
       align-self: center;
       /* margin-top: 20px; */
-      line-height: 0;
+      line-height: 24px;
       margin: 0;
     }
   }

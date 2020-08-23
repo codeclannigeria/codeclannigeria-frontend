@@ -110,3 +110,27 @@ export const gradeTaskAction = data => {
       });
   };
 };
+
+export const getTaskSubmissionAction = taskId => {
+  return dispatch => {
+    dispatch({ type: types.GET_MENTEE_TASK_SUBMISSION });
+    return codeClanApi
+      .get(`tasks/${taskId}/submissions`)
+      .then(res => {
+        dispatch({
+          type: types.GET_MENTEE_TASK_SUBMISSION_SUCCESS,
+          payload: res.data,
+        });
+      })
+      .catch(err => {
+        const error_msg = err.response
+          ? err.response.data.message
+          : 'An error occured';
+
+        dispatch({
+          type: types.GET_MENTEE_TASK_SUBMISSION_FAILURE,
+          payload: error_msg,
+        });
+      });
+  };
+};

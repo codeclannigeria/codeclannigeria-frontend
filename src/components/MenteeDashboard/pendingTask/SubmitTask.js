@@ -33,7 +33,7 @@ function SubmitTask(props) {
     }
   }, [error, errResponse]);
 
-  if (submitted && taskSubmit === 'submit') {
+  if (submitted && taskSubmit === 'success') {
     const data = {
       header: `Successfully sumitted Task #${id}`,
       description:
