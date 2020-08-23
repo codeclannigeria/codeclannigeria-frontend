@@ -5,6 +5,7 @@ import {
   getUserProfileApi,
   getUserMentorProfileApi,
 } from '../user/userActionCreator';
+import { getAllTasksAction } from '../tasks/tasksActionCreator';
 
 export const getSingleTrack = trackId => {
   return dispatch => {
@@ -63,6 +64,7 @@ export const userEnrollTrackAction = (trackId, mentorId) => {
         dispatch({ type: types.TRACKS_SUCCESS, payload: res.data });
         dispatch(getUserProfileApi());
         dispatch(getUserMentorProfileApi());
+        dispatch(getAllTasksAction());
         // history.push(`/dashboard`)
       })
       .catch(err => {
