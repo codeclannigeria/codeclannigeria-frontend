@@ -1,11 +1,33 @@
-import React from 'react';
+import React, { useCallback, useEffect } from 'react';
 import UserProfileStyled from './MenteeProfileStyled';
 import UserCard from '../../common/UserCard/UserCard';
 import MentorDashboardLayout from '../MentorDashboardHOC';
 
 import PendingTasksCard from '../common/PendingTasksCard';
+import {
+  getSingleMenteeProfile,
+  getUserMenteesProfileApi,
+} from '../../../state/user/userActionCreator';
+import { useDispatch, useSelector } from 'react-redux';
+import UserProfile from '../../MenteeDashboard/userProfile/UserProfile';
+import CustomLoader from '../../common/Spinner/CustomLoader';
 
-function MenteeProfile() {
+function MenteeProfile(props) {
+  const dispatch = useDispatch();
+  const userId = props.match.userID;
+  const user = useSelector(state => state.user);
+
+  const fetchMentee = useCallback(() => {
+    if (!user.mentees) {
+      dispatch(getUserMenteesProfileApi());
+    }
+    dispatch(getSingleMenteeProfile(userId));
+  }, []);
+
+  useEffect(() => {
+    fetchMentee();
+  }, []);
+
   const Tracks = [
     {
       icon: <i class="far fa-check-circle"></i>,
@@ -45,13 +67,25 @@ function MenteeProfile() {
     tasks: [],
   };
   return (
-    <UserProfileStyled>
-      <UserCard data={data} mode="mentor" />
-      <div>
-        <PendingTasksCard header="Tasks Assigned" data={Tracks} />
-        <PendingTasksCard header="Tasks Completed" data={Tracks} />
-      </div>
-    </UserProfileStyled>
+    <>
+      {user ? (
+        <>
+          {user.singleMentee ? (
+            <UserProfile data={user.singleMentee} loading={user.loading} />
+          ) : (
+            <UserProfile data={data} loading={user.loading} />
+          )}
+        </>
+      ) : null}
+    </>
+
+    // <UserProfileStyled>
+    //   <UserCard data={data} mode="mentor" />
+    //   <div>
+    //     <PendingTasksCard header="Tasks Assigned" data={Tracks} />
+    //     <PendingTasksCard header="Tasks Completed" data={Tracks} />
+    //   </div>
+    // </UserProfileStyled>
   );
 }
 

@@ -50,7 +50,7 @@ function UserCard({ data, mode, editProfile }) {
   return (
     <UserCardStyled>
       <div className="personal--details--card">
-        {data && mode === 'mentee' ? (
+        {data && mode === 'mentee' && checkAuth() === id ? (
           <>
             <div className="edit-button">
               <i

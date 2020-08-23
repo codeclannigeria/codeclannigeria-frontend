@@ -2,3 +2,4 @@ export const COURSES_START = 'COURSES_START';
 export const COURSES_SUCCESS = 'COURSES_SUCCESS';
 export const COURSES_FAILURE = 'COURSES_FAILURE';
 export const COURSES_RESET = 'COURSES_RESET';
+export const GET_COURSE = 'GET_COURSE';

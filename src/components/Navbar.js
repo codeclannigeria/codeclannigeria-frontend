@@ -17,9 +17,10 @@ function Navbar() {
           </div>
           <div className="menu">
             <ul>
-              <a href="teams.html">
-                <li>Team</li>
-              </a>
+              <li>
+                <Link to="/team">Team</Link>
+              </li>
+
               <a href="events.html">
                 <li>Events</li>
               </a>

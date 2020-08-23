@@ -2,54 +2,39 @@ import React, { useEffect, useState, useCallback } from 'react';
 import DashboardLayout from '../../../common/DashboardLayout';
 import TaskBriefStyled from './TaskBriefStyled';
 import { Link } from 'react-router-dom';
-import { Tag } from 'antd';
+import { Tag, Spin } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { getSingleTaskAction } from '../../../../state/tasks/tasksActionCreator';
+import { getSingleTrack } from '../../../../state/tracks/tracksActionCreator';
+import CustomLoader from '../../../common/Spinner/CustomLoader';
+import { getSingleCourse } from '../../../../state/courses/coursesActionCreator';
 
 function TaskBrief(props) {
   const { id } = props.match.params;
   let { query } = props.location;
   const dispatch = useDispatch();
-  // const [singleTask, setSingleTask] = useState(null);
   const task = useSelector(state => state.tasks);
-  // console.log(props);
+  const track = useSelector(state => state.tracks);
+  const course = useSelector(state => state.courses);
 
   const fetchData = useCallback(async () => {
     await dispatch(getSingleTaskAction(id));
-    // setSingleTask(task);
-    // console.log(singleTask);
+    // await dispatch()
   }, []);
 
   useEffect(() => {
     fetchData();
   }, []);
 
-  // useEffect(() => {
-  //   if (task) {
-  //     setSingleTask(task);
-  //     console.log(singleTask);
-  //   }
-  // }, [task]);
+  useEffect(() => {
+    if (task.singleTask) {
+      dispatch(getSingleTrack(task.singleTask.track));
 
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     if (!query) {
-  //       console.log('make some calls here');
-  //       await dispatch(getSingleTaskAction(id));
-  //       // setSingleTask(task);
-  //       // console.log('jfjfjf', await dispatch(getSingleTaskAction(id)));
-  //     }
-  //     // if (task) {
-  //     //   setSingleTask(task);
-  //     // }
-  //     // setSingleTask(query);
-  //   }
-  //   fetchData();
-  //   // if () {
-
-  //   // }
-  //   query = task;
-  // }, [query, dispatch]);
+      if (task.singleTask.course) {
+        dispatch(getSingleCourse(task.singleTask.course));
+      }
+    }
+  }, [task]);
 
   return (
     <TaskBriefStyled>
@@ -59,14 +44,39 @@ function TaskBrief(props) {
       >
         <i className="fas fa-arrow-left"></i> Back to Tasks
       </Link>
+      {task.singleTask ? (
+        <>
+          <h2>{task.singleTask.title} </h2>
+          <Tag color="#1f59bb">
+            {track.singleTrack ? track.singleTrack.title : null}
+          </Tag>
 
-      <h2>{task.singleTask ? <p>{task.singleTask.title}</p> : 'nulssssl'}</h2>
-      <Tag color="#1f59bb">Frontend</Tag>
-      <Tag color="#1f59bb">Stage 1</Tag>
-      <div classNameName="task-details mt-3">
-        <h4>Task Brief</h4>
-        <p>{task.singleTask ? task.singleTask.description : null}</p>
-        {/* 
+          <div classNameName="task-details mt-3">
+            <h4>Task Brief</h4>
+            <p>{task.singleTask ? task.singleTask.description : <Spin />}</p>
+          </div>
+          {task.singleTask.course ? (
+            <p>
+              For this Task, ensure you check out
+              {course.singleCourse ? (
+                <a
+                  href={course.singleCourse.playlistUrl}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  {course.singleCourse.title}
+                </a>
+              ) : null}
+              <Link to="/dashboard/course/frontend/1">
+                Html Fundamental course
+              </Link>{' '}
+            </p>
+          ) : null}
+        </>
+      ) : (
+        <CustomLoader />
+      )}
+      {/* 
         <p>
           You can use any tools you like to help you complete the challenge. So
           if you've got something you'd like to practice, feel free to give it a
@@ -101,11 +111,7 @@ function TaskBrief(props) {
           questions in the help channel.
         </p>
 
-        <p>
-          For this Task, ensure you check out{' '}
-          <Link to="/dashboard/course/frontend/1">Html Fundamental course</Link>{' '}
-        </p> */}
-      </div>
+      */}
       <div className="cta_container">
         {/* <button classNameName="btn btn-outline-secondary">
           Download starter files

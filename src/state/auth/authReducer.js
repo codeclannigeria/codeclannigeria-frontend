@@ -8,7 +8,6 @@ const initialSIgnupState = {
 };
 
 export function AuthReducer(state = initialSIgnupState, action) {
-  console.log(state);
   switch (action.type) {
     case types.AUTH_START:
       return {

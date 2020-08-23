@@ -5,3 +5,4 @@ export const USER_FAILURE = 'USER_FAILURE';
 export const USER_RESET = 'USER_RESET';
 export const GET_MENTOR = 'GET_MENTOR';
 export const GET_MENTEES = 'GET_MENTEES';
+export const GET_MENTEE = 'GET_MENTEE';

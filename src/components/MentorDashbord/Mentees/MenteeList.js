@@ -21,7 +21,11 @@ function MenteeList({
       title: 'Name',
       dataIndex: 'name',
       key: 'name',
-      render: text => <Link to="/dashboard/mentor/mentee/1">{text}</Link>,
+      render: text => (
+        <Link to="/dashboard/mentor/mentee/5ed10723bb856000173a31e5">
+          {text}
+        </Link>
+      ),
     },
     {
       title: 'Track',

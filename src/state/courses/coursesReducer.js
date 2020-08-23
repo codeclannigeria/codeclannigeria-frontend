@@ -4,6 +4,7 @@ const initialState = {
   loading: false,
   data: '',
   error: false,
+  singleCourse: null,
   errResponse: '',
 };
 
@@ -13,13 +14,25 @@ export function CoursesReducer(state = initialState, action) {
       return {
         ...state,
         loading: true,
+        error: false,
+        errResponse: '',
       };
 
     case types.COURSES_SUCCESS:
       return {
         ...state,
+        error: false,
+        errResponse: '',
         loading: false,
-        token: action.payload,
+        data: action.payload,
+      };
+    case types.GET_COURSE:
+      return {
+        ...state,
+        error: false,
+        errResponse: '',
+        loading: false,
+        singleCourse: action.payload,
       };
 
     case types.COURSES_FAILURE:

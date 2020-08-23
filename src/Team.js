@@ -27,7 +27,7 @@ function Team() {
           <div className="col-md-6 col-sm-12">
             <img
               src={groupSession}
-              alt="main-team-image"
+              alt="main-team"
               className="img-fluid main-img"
             />
           </div>

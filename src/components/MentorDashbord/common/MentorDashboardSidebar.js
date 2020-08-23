@@ -29,21 +29,21 @@ function MentorDashboardSidebar({ showSidebar, authLogoutApi, path }) {
     //   link: '/dashboard/track',
     //   name: 'Tracks',
     // },
-    // {
-    //   id: 3,
-    //   icon: <i class="fas fa-tasks"></i>,
-    //   link: '/dashboard/pending-task',
-    //   name: 'Tasks',
-    // },
     {
-      id: 4,
+      id: 2,
+      icon: <i class="fas fa-tasks"></i>,
+      link: '/dashboard/mentor/tasks-submissions/',
+      name: 'Tasks',
+    },
+    {
+      id: 3,
       icon: <i class="fas fa-user-ninja"></i>,
       link: '/dashboard/mentor/profile',
       name: 'Profile',
     },
 
     {
-      id: 5,
+      id: 4,
       icon: <i class="fas fa-sliders-h"></i>,
       link: '#',
       name: 'Settings',
