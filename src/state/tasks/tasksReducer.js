@@ -38,7 +38,6 @@ export function TaskReducer(state = initialState, action) {
         error: false,
         loading: false,
         menteeSubmittedTask: { loading: false },
-
         errResponse: '',
         mentorTasks: action.payload,
       };
@@ -73,7 +72,6 @@ export function TaskReducer(state = initialState, action) {
         ...state,
         loading: false,
         menteeSubmittedTask: { loading: false },
-
         error: false,
         errResponse: '',
         taskSubmit: 'success',
@@ -85,7 +83,6 @@ export function TaskReducer(state = initialState, action) {
         loading: false,
         error: false,
         menteeSubmittedTask: { loading: false },
-
         errResponse: '',
         gradeTask: 'success',
       };
@@ -96,7 +93,6 @@ export function TaskReducer(state = initialState, action) {
         loading: false,
         error: false,
         menteeSubmittedTask: { loading: false },
-
         errResponse: '',
         singleTask: action.payload,
       };

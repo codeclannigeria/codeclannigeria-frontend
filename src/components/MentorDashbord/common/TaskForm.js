@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
-import { Modal, Form, Input, message } from 'antd';
+import { Modal, Form, Input, message, Typography } from 'antd';
 import { connect } from 'react-redux';
 import { gradeTaskAction } from '../../../state/tasks/tasksActionCreator';
+const { TextArea } = Input;
 function TaskForm({
   visible,
   onCreate,
@@ -33,18 +34,19 @@ function TaskForm({
 
   useEffect(() => {
     if (!loading && !error && gradeTask === 'success') {
-      message.success('Profile succesfully updated');
-      onCreate();
+      message.success('Grading success');
+      onCancel();
     }
-  }, [error, loading]);
+  }, [error, loading, gradeTask, onCancel]);
 
   return (
     <>
       <Modal
-        okText="Create"
+        okText="Grade"
         visible={visible}
         cancelText="Cancel"
         onCancel={onCancel}
+        confirmLoading={loading}
         onOk={() => {
           form
             .validateFields()
@@ -67,13 +69,13 @@ function TaskForm({
             <Input readOnly />
           </Form.Item>
           <Form.Item name="menteeComment" label="Mentee Comment">
-            <Input readOnly type="textarea" />
+            <TextArea rows={4} readOnly />
           </Form.Item>
           <Form.Item name="mentorComment" label="Your Comment">
-            <Input type="textarea" />
+            <TextArea rows={4} readOnly />
           </Form.Item>
           <Form.Item name="gradePercentage" label="Grade percentage">
-            <Input type="number" />
+            <Input type="number" prefix="%" />
           </Form.Item>
         </Form>
       </Modal>
