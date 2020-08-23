@@ -87,9 +87,7 @@ function TrackEnroll({
     try {
       await userEnrollTrackAction(trackId, mentorId);
       await getTrackName(trackId);
-    } catch (error) {
-      console.log({ error });
-    }
+    } catch (error) {}
     next();
   };
 

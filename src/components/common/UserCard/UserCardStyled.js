@@ -7,11 +7,11 @@ const UserCardStyled = styled.div`
     border-radius: 5px;
     /* max-width: 325px; */
 
-    height: 60%;
+    /* height: 60%; */
   }
 
   .edit-button{
-    color: #4c5059;
+    color: #0050af;
     padding: 1rem;
     cursor: pointer;
     /* width: 1.5rem; */

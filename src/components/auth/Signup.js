@@ -49,17 +49,26 @@ function Signup({ register, loading, errResponse, token, history }) {
 
   const errorClassNames = 'border input border-danger';
   const validClassNames = 'border input border-green';
-  const regex = /^[a-z]([-']?[a-z]+)*( [a-z]([-']?[a-z]+)*)+$/i;
+  // const regex = /^[a-z]([-']?[a-z]+)*( [a-z]([-']?[a-z]+)*)+$/i;
 
   return (
     <Formik
-      initialValues={{ fullName: '', email: '', password1: '', password2: '' }}
+      initialValues={{
+        firstName: '',
+        lastName: '',
+        email: '',
+        password1: '',
+        password2: '',
+      }}
       validationSchema={Yup.object({
-        fullName: Yup.string()
+        firstName: Yup.string()
           .min(3, 'Too short')
           .max(64, 'Must be 64 characters or less')
-          .matches(regex, 'Enter your full name i.e John Doe')
-          .required('Enter your full name i.e John Doe'),
+          .required('Enter your first name i.e John '),
+        lastName: Yup.string()
+          .min(3, 'Too short')
+          .max(64, 'Must be 64 characters or less')
+          .required('Enter your Last name i.e Doe '),
         email: Yup.string()
           .email('Invalid email address')
           .required('Enter your email address'),
@@ -71,11 +80,11 @@ function Signup({ register, loading, errResponse, token, history }) {
       onSubmit={(values, { setSubmitting }) => {
         setSubmitting(true);
         const tempValues = { ...values };
-        const nameArray = tempValues.fullName.split(' ');
-        tempValues.firstName = nameArray[0];
-        tempValues.lastName = nameArray[1];
+        // const nameArray = tempValues.fullName.split(' ');
+        // tempValues.firstName = nameArray[0];
+        // tempValues.lastName = nameArray[1];
         tempValues.password = tempValues.password1;
-        delete tempValues.fullName;
+        // delete tempValues.fullName;
         delete tempValues.password1;
         delete tempValues.password2;
         register(tempValues);
@@ -94,15 +103,15 @@ function Signup({ register, loading, errResponse, token, history }) {
                 <div class="titles"> Create your account </div>
                 <Form>
                   <AlertComponent variant="danger" text={errResponse} />
-                  <label htmlFor="fullName">
-                    Full Name <span class="text-danger">*</span>
+                  <label htmlFor="firstName">
+                    First Name <span class="text-danger">*</span>
                   </label>
                   <div class="block">
                     <Field
-                      name="fullName"
-                      id="fullName"
+                      name="firstName"
+                      id="firstName"
                       className={
-                        touched.fullName && errors.fullName
+                        touched.firstName && errors.firstName
                           ? errorClassNames
                           : validClassNames
                       }
@@ -113,7 +122,29 @@ function Signup({ register, loading, errResponse, token, history }) {
                     </span>
                   </div>
                   <div className="d-block text-monospace text-danger small-text">
-                    <ErrorMessage name="fullName" className="d-block" />
+                    <ErrorMessage name="firstName" className="d-block" />
+                  </div>
+
+                  <label htmlFor="lastName">
+                    Last Name <span class="text-danger">*</span>
+                  </label>
+                  <div class="block">
+                    <Field
+                      name="lastName"
+                      id="lastName"
+                      className={
+                        touched.lastName && errors.lastName
+                          ? errorClassNames
+                          : validClassNames
+                      }
+                      type="text"
+                    />
+                    <span>
+                      <i class="far fa-user"></i>
+                    </span>
+                  </div>
+                  <div className="d-block text-monospace text-danger small-text">
+                    <ErrorMessage name="lastName" className="d-block" />
                   </div>
                   <label htmlFor="email">
                     E-mail <span class="text-danger">*</span>

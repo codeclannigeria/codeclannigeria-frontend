@@ -50,27 +50,6 @@ function UserCard({ data, mode, editProfile }) {
   return (
     <UserCardStyled>
       <div className="personal--details--card">
-        {data && mode === 'mentee' && checkAuth() === id ? (
-          <>
-            <div className="edit-button">
-              <i
-                onClick={() => {
-                  setVisible(true);
-                }}
-                class="fas fa-user-edit float-right "
-              ></i>
-            </div>
-
-            <EditProfileForm
-              visible={visible}
-              onCreate={onCreate}
-              initialData={data}
-              onCancel={() => {
-                setVisible(false);
-              }}
-            />
-          </>
-        ) : null}
         <div className="user__personal__details">
           <div className="img__wrap">
             <img
@@ -107,9 +86,33 @@ function UserCard({ data, mode, editProfile }) {
             </div>
           </div>
           <div className="user__details">
-            <p className="user__name">
-              {firstName} {lastName}
-            </p>
+            <div className="d-flex align-items-center">
+              <p className="user__name mr-2">
+                {firstName} {lastName}
+              </p>
+
+              {data && mode === 'mentee' && checkAuth() === id ? (
+                <>
+                  <div className="edit-button">
+                    <i
+                      onClick={() => {
+                        setVisible(true);
+                      }}
+                      class="fas fa-pencil-alt"
+                    ></i>
+                  </div>
+
+                  <EditProfileForm
+                    visible={visible}
+                    onCreate={onCreate}
+                    initialData={data}
+                    onCancel={() => {
+                      setVisible(false);
+                    }}
+                  />
+                </>
+              ) : null}
+            </div>
           </div>
 
           <p className="user__track">{track ? track[0].name : null}</p>

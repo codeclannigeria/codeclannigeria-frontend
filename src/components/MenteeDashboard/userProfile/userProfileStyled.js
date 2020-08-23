@@ -10,7 +10,7 @@ const UserProfileStyled = styled.div`
     border-radius: 5px;
     /* max-width: 325px; */
 
-    height: 60%;
+    /* height: 60%; */
   }
 
   .user__personal__details {

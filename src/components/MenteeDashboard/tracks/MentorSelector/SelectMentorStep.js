@@ -28,6 +28,11 @@ function SelectMentorStep({ trackId, handleSetMentorId }) {
     <>
       <Radio.Group onChange={handleSetMentorId} defaultValue={null}>
         <div className="">
+          <p>
+            Select the mentor that you want as your guide throughout the
+            program.{' '}
+            <span className="text-danger">*This process is not reversible</span>
+          </p>
           {trackMentors && !loading ? (
             <TrackMentors mentors={trackMentors} />
           ) : (

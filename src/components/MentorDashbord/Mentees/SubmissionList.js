@@ -3,41 +3,45 @@ import { Table, Space, Button } from 'antd';
 import MentorDashboardLayout from '../MentorDashboardHOC';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-
+import {
+  getAllMentorSubmissions,
+  gradeTaskAction,
+} from '../../../state/tasks/tasksActionCreator';
 import { getUserMenteesProfileApi } from '../../../state/user/userActionCreator';
 import TaskForm from '../common/TaskForm';
 
 function SubmissionList({
-  userLoading,
-  userData,
-  error,
-  errResponse,
-  getAllTasksAction,
-  tasksData,
-  history,
+  mentorTasks,
+
+  loading,
   getUserMenteesProfileApi,
+  getAllMentorSubmissions,
+  gradeTaskAction,
 }) {
   const [visible, setVisible] = useState();
   const [currentRecord, setCurrentRecord] = useState();
 
-  const onCreate = () => {
-    setVisible(false);
+  const onCreate = values => {
+    gradeTaskAction(values);
   };
 
   const onCancel = () => {
     setVisible(false);
   };
   const handleModalVisiblity = record => {
-    console.log(record);
     setCurrentRecord(record);
     setVisible(true);
   };
+
+  useEffect(() => {
+    getAllMentorSubmissions();
+  }, [getAllMentorSubmissions]);
+
   const columns = [
     {
       title: 'Id',
       dataIndex: 'id',
       key: 'id',
-      //   render: text => <Link to="/dashboard/mentor/mentee/">{text}</Link>,
     },
     {
       title: 'Grade %',
@@ -48,7 +52,9 @@ function SubmissionList({
       key: 'action',
       render: (text, record) => (
         <Space size="middle">
-          <Button onClick={() => handleModalVisiblity(record)}>Grade</Button>
+          <Button type="primary" onClick={() => handleModalVisiblity(record)}>
+            Grade
+          </Button>
         </Space>
       ),
     },
@@ -88,50 +94,44 @@ function SubmissionList({
     },
   ];
 
-  //   useEffect(() => {
-  //     if (userData) {
-  //       const { city, country, phoneNumber } = userData;
-  //       if (!city || !country || !phoneNumber) {
-  //         // return
-  //         history.push({
-  //           pathname: '/dashboard/mentor/profile',
-  //           state: { editProfile: true },
-  //         });
-  //       }
-  //     }
-  //   }, [userData]);
-
   return (
     <div>
+      <h2 className="ml-4">Mentees Task Submissions</h2>
       <Table
         className="mentee-table ml-4"
         columns={columns}
-        dataSource={data[0].items}
+        dataSource={mentorTasks}
         size="small"
+        pagination={{ pageSize: 50 }}
+        scroll={{ y: 240 }}
       />
       <TaskForm
         initialData={currentRecord}
         visible={visible}
         onCreate={onCreate}
         onCancel={onCancel}
+        loadiing={loading}
       />
     </div>
   );
 }
 
 const mapStateToProps = store => {
-  const { loading: userLoading, error, errResponse, submissions } = store.tasks;
+  const { loading, error, errResponse, mentorTasks } = store.tasks;
 
   return {
-    userLoading,
-
+    loading,
     error,
-    submissions,
+    mentorTasks,
     errResponse,
   };
 };
 
-const mapDispatchToProps = { getUserMenteesProfileApi };
+const mapDispatchToProps = {
+  getUserMenteesProfileApi,
+  getAllMentorSubmissions,
+  gradeTaskAction,
+};
 
 export default MentorDashboardLayout(
   connect(mapStateToProps, mapDispatchToProps)(SubmissionList)

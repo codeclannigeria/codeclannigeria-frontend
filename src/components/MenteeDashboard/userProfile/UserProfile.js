@@ -66,7 +66,7 @@ function UserProfile({ loading, data, location }) {
     <UserProfileStyled>
       <UserCard data={data} mode="mentee" editProfile={editProfile} />
       <div className="public__info__grid">
-        <InfoCardBig header="Tracks Completed" data={Tracks} />
+        {/* <InfoCardBig header="Tracks Completed" data={Tracks} /> */}
         <InfoCardBig header="Social Media" data={SocialMedia} />
       </div>
     </UserProfileStyled>
