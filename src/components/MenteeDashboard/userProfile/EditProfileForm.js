@@ -89,7 +89,7 @@ const EditProfileForm = ({
             Edit your profile
           </p>
         }
-        okText="Edit"
+        okText="Update Profile"
         confirmLoading={loading}
         cancelText="Cancel"
         onCancel={onCancel}

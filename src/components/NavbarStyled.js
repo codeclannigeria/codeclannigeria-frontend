@@ -75,6 +75,10 @@ const StyledNav = styled.div`
     display: none;
   }
   @media only screen and (max-width: 968px) {
+    a {
+      color: #004296;
+      text-decoration: none;
+    }
     .menu li {
       font-size: 1.1em;
       line-height: 5em;
