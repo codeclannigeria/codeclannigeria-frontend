@@ -134,8 +134,8 @@ function UserCard({ data, mode, editProfile }) {
           </div>
         </div>
         <hr />
-        <div className="text-center edit__profile__btn__container">
-          {description}
+        <div className=" edit__profile__btn__container">
+          <i class="fas fa-info-circle"></i> {description}
         </div>
       </div>
     </UserCardStyled>

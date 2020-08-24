@@ -129,8 +129,8 @@ function MenteeList({ mentees, userData, history, getUserMenteesProfileApi }) {
 
   useEffect(() => {
     if (userData) {
-      const { city, country, phoneNumber } = userData;
-      if (!city || !country || !phoneNumber) {
+      const { city, country, phoneNumber, description } = userData;
+      if (!city || !country || !phoneNumber || !description) {
         // return
         history.push({
           pathname: '/dashboard/mentor/profile',
@@ -154,7 +154,7 @@ function MenteeList({ mentees, userData, history, getUserMenteesProfileApi }) {
       <Table
         className="mentee-table ml-4"
         columns={columns}
-        dataSource={mentees}
+        dataSource={data}
         size="small"
         pagination={{ pageSize: 50 }}
         scroll={{ y: 240 }}

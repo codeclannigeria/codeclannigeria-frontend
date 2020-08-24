@@ -16,6 +16,7 @@ import { editUserProfileApi } from '../../../state/user/userActionCreator';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
+import TextArea from 'antd/lib/input/TextArea';
 const { Option } = Select;
 const EditProfileForm = ({
   visible,
@@ -34,7 +35,7 @@ const EditProfileForm = ({
     console.log(values);
 
     values.technologies = [];
-    values.description = '';
+    // values.description = '';
     values.dob = values.dob._d.toISOString();
     if (!values.phoneNumber.startsWith('+')) {
       values.phoneNumber = `+${values.phoneNumber}`;
@@ -45,11 +46,11 @@ const EditProfileForm = ({
     // }
   };
 
-  useEffect(() => {
-    if (error) {
-      message.error(errResponse);
-    }
-  }, [error]);
+  // useEffect(() => {
+  //   if (error) {
+  //     message.error(errResponse);
+  //   }
+  // }, [error]);
 
   useEffect(() => {
     if (!loading && !error && editUser === 'success') {
@@ -250,6 +251,18 @@ const EditProfileForm = ({
               </Form.Item>
             </Col>
           </Row>
+          <Form.Item
+            name="description"
+            label="About you"
+            rules={[
+              {
+                required: true,
+                message: 'Please write a brief description about yourself',
+              },
+            ]}
+          >
+            <TextArea maxLength={'128'} />
+          </Form.Item>
         </Form>
       </Modal>
     </EditProfileStyled>

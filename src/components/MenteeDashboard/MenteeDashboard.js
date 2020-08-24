@@ -36,8 +36,8 @@ function Dashboard({
 
   useEffect(() => {
     if (userData) {
-      const { city, country, phoneNumber } = userData;
-      if (!city || !country || !phoneNumber) {
+      const { city, country, phoneNumber, description } = userData;
+      if (!city || !country || !phoneNumber || !description) {
         // return
         history.push({
           pathname: '/dashboard/mentee/profile',
