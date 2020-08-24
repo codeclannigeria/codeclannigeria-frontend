@@ -33,8 +33,6 @@ function ConfirmEmail(props) {
         email,
       })
       .then(result => {
-        console.log({ result });
-        console.log("well let's hope Fortune fixes it");
         setLoading(false);
       })
       .catch(error => {

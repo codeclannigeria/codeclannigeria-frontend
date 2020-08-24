@@ -12,6 +12,7 @@ import Spinner from 'react-bootstrap/Spinner';
 import loginAmico from '../assets/image/auth/login.jpg';
 import { message } from 'antd';
 import checkAuth from '../../helpers/CheckAuth';
+import decode from 'jwt-decode';
 
 function LoginForm({ authLogin, loading, error, errResponse, token, history }) {
   const dispatch = useDispatch();
@@ -27,13 +28,22 @@ function LoginForm({ authLogin, loading, error, errResponse, token, history }) {
   };
 
   useEffect(() => {
-    if (checkAuth()) {
+    const role = checkAuth();
+    if (role === 'MENTEE' || role === 'ADMIN') {
       history.push('/dashboard');
+    } else if (role === 'MENTOR') {
+      history.push('/dashboard/mentor/mentees');
     }
   }, []);
 
   useEffect(() => {
     if (token) {
+      const role = checkAuth();
+      if (role === 'MENTEE' || role === 'ADMIN') {
+        history.push('/dashboard');
+      } else if (role === 'MENTOR') {
+        history.push('/dashboard/mentor/mentees');
+      }
       history.push('/dashboard');
     }
   }, [token, history, dispatch]);
@@ -69,7 +79,9 @@ function LoginForm({ authLogin, loading, error, errResponse, token, history }) {
               <div class="left">
                 <div class="logo">
                   <div>
-                    <img src={codeClanLogo} alt="Code claan" />
+                    <Link to="/">
+                      <img src={codeClanLogo} alt="Code claan" />
+                    </Link>
                   </div>
                 </div>
                 <div class="titles"> Login to your account </div>

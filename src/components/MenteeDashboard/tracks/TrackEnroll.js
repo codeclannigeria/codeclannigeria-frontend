@@ -178,7 +178,7 @@ function TrackEnroll({
                 icon={<QuestionCircleOutlined style={{ color: 'green' }} />}
               >
                 <Button type="primary" className="ml-2">
-                  Enroll
+                  Next
                 </Button>
               </Popconfirm>
             </>
@@ -194,8 +194,9 @@ function TrackEnroll({
                 title="Are you sure？"
                 onConfirm={() => handleEnrollTrack(trackId, mentorId)}
                 icon={<QuestionCircleOutlined style={{ color: 'green' }} />}
+                disabled={!mentorId}
               >
-                <Button type="primary" className="ml-2">
+                <Button type="primary" disabled={!mentorId} className="ml-2">
                   Enroll
                 </Button>
               </Popconfirm>

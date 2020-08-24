@@ -17,7 +17,9 @@ export const getSingleCourse = courseId => {
           dispatch({ type: types.GET_COURSE, payload: res.data });
         })
         .catch(err => {
-          const error_msg = err.response.data.message || 'An error occured';
+          const error_msg = err.response
+            ? err.response.data.message
+            : 'An error occured';
 
           dispatch({
             type: types.COURSES_FAILURE,

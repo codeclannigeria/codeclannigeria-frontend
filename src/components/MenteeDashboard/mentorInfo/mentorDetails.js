@@ -88,7 +88,7 @@ function MentorDetails() {
     <>
       {user ? (
         <>
-          {user.mentor ? (
+          {user.mentor && user.mentor.length > 1 ? (
             <UserProfile data={user.mentor[0]} loading={user.loading} />
           ) : null}
         </>

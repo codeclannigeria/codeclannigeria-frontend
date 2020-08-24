@@ -12,23 +12,25 @@ function PendingTasksPage() {
   const dispatch = useDispatch();
   useEffect(() => {
     if (!tasksState.data) {
-      if (user.data.tracks) {
+      if (user.data.tracks && user.data.tracks.length > 1) {
         dispatch(getAllTasksAction(user.data.tracks[0].id));
       }
     }
     // dispatch(getAllTasksAction());
   }, [user]);
 
-  if (tasksState.error) {
-    return 'Error';
-  }
+  // if (tasksState.error) {
+  //   return 'Error';
+  // }
   return (
     <>
-      {!tasksState.loading && tasksState.data ? (
+      {tasksState.data ? (
         <PendingTasks tasksData={tasksState.data} />
       ) : (
-        <CustomLoader />
+        <p>No tasks yet!!</p>
       )}
+
+      {tasksState.loading ? <CustomLoader /> : null}
     </>
   );
 }
