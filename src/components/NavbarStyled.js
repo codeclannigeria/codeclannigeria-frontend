@@ -155,7 +155,7 @@ const StyledNav = styled.div`
         }
         .mobile-button {
           background: #004296;
-          a {
+          k a {
             color: #fff !important;
             font-weight: bolder;
           }
