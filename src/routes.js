@@ -10,13 +10,13 @@ import EmailConfirmationSent from './components/auth/EmailConfirmationSent';
 import ForgotPassword from './components/auth/ForgotPassword';
 import ConfirmEmail from './components/auth/ConfirmEmail';
 import decode from 'jwt-decode';
-import CoursesList from './components/MenteeDashboard/courses/CoursesList';
+import CoursesList from './components/MenteeDashboard/stages/StagesList';
 import TrackList from './components/MenteeDashboard/tracks/TrackList';
 import MentorDetails from './components/MenteeDashboard/mentorInfo/mentorDetails';
 import SubmitTask from './components/MenteeDashboard/pendingTask/SubmitTask';
 import PendingTasksPage from './components/MenteeDashboard/pendingTask/PendingTasksPage';
 import TaskBrief from './components/MenteeDashboard/pendingTask/TaskBrief/TaskBrief';
-import SingleCoursePage from './components/MenteeDashboard/courses/SingleCoursePage';
+import SingleCoursePage from './components/MenteeDashboard/stages/SingleCoursePage';
 
 import MenteeList from './components/MentorDashbord/Mentees/MenteeList';
 import MenteeProfile from './components/MentorDashbord/Mentees/MenteeProfile';

@@ -34,18 +34,18 @@ function Dashboard({
     }
   }, [userData]);
 
-  useEffect(() => {
-    if (userData) {
-      const { city, country, phoneNumber } = userData;
-      if (!city || !country || !phoneNumber) {
-        // return
-        history.push({
-          pathname: '/dashboard/mentee/profile',
-          state: { editProfile: true },
-        });
-      }
-    }
-  }, [userData]);
+  // useEffect(() => {
+  //   if (userData) {
+  //     const { city, country, phoneNumber } = userData;
+  //     if (!city || !country || !phoneNumber) {
+  //       // return
+  //       history.push({
+  //         pathname: '/dashboard/mentee/profile',
+  //         state: { editProfile: true },
+  //       });
+  //     }
+  //   }
+  // }, [userData]);
 
   useEffect(() => {
     if (userData) {
@@ -165,7 +165,10 @@ const mapStateToProps = store => {
   };
 };
 
-const mapDispatchToProps = { getAllTasksAction, getUserMentorProfileApi };
+const mapDispatchToProps = {
+  getAllTasksAction,
+  getUserMentorProfileApi,
+};
 
 export default DashboardLayout(
   connect(mapStateToProps, mapDispatchToProps)(Dashboard)

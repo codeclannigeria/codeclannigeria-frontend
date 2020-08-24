@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import tempCourseLogo from '../../assets/image/dashboard/science_image.png';
 import TrackCard from '../../common/TrackCard/TrackCard';
 import DashboardLayout from '../../common/DashboardLayout';
-import CoursesListStyled from '../courses/CourseListStyled';
+import StagesListStyled from '../stages/StagesListStyled';
 import { connect } from 'react-redux';
 import { getTracksAction } from '../../../state/tracks/tracksActionCreator';
 import CustomLoader from '../../common/Spinner/CustomLoader';
@@ -44,8 +44,8 @@ function TracksList({ getTracksAction, loading, error, errResponse, data }) {
     getTracksAction();
   }, [getTracksAction]);
   return (
-    <CoursesListStyled>
-      <div class="courses mt-5 pb-5">
+    <StagesListStyled>
+      <div class="stages mt-5 pb-5">
         {!loading && items ? (
           items.map((item, idx) => (
             <TrackCard data={item} key={idx} logo={tempCourseLogo} />
@@ -54,7 +54,7 @@ function TracksList({ getTracksAction, loading, error, errResponse, data }) {
           <CustomLoader />
         )}
       </div>
-    </CoursesListStyled>
+    </StagesListStyled>
   );
 }
 

@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import tempCourseLogo from '../../assets/image/dashboard/science_image.png';
 import TrackCard from '../../common/TrackCard/TrackCard';
 import DashboardLayout from '../../common/DashboardLayout';
-import CoursesListStyled from './CourseListStyled';
+import StagesListStyled from './StagesListStyled';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllTrackStagesAction } from '../../../state/stages/stagesActionCreator';
+import CustomLoader from '../../common/Spinner/CustomLoader';
 
-function CoursesList(props, rest) {
+function StagesList(props, rest) {
   const courses = [
     {
       title: 'JavaScript Fundamentals',
@@ -44,24 +47,31 @@ function CoursesList(props, rest) {
       image: tempCourseLogo,
     },
   ];
+  const dispatch = useDispatch();
+  const stages = useSelector(state => state.stages);
 
-  console.log(rest);
+  const track = props.match.params.trackId;
 
-  const { track } = props.match.params;
-  console.log(track);
+  useEffect(() => {
+    dispatch(getAllTrackStagesAction(track));
+  }, [track]);
 
   return (
-    <CoursesListStyled>
+    <StagesListStyled>
       <Link to="/dashboard/track" className="btn btn-primary">
         <i class="fas fa-arrow-left"></i> Back to tracks
       </Link>
-      <div class="courses mt-5 pb-5">
-        {courses.map((data, idx) => (
-          <TrackCard data={data} key={idx} />
-        ))}
+      <div class="stages mt-5 pb-5">
+        {stages.trackStages && stages.trackStages.length > 0
+          ? stages.trackStages.map((data, idx) => (
+              <TrackCard data={data} key={idx} link={true} />
+            ))
+          : null}
+
+        {stages.loading ? <CustomLoader /> : null}
       </div>
-    </CoursesListStyled>
+    </StagesListStyled>
   );
 }
 
-export default DashboardLayout(CoursesList);
+export default DashboardLayout(StagesList);

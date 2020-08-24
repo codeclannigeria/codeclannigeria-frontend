@@ -3,7 +3,6 @@ import { authLogin } from '../../state/auth/authActionCreator';
 import { connect, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import LoginStyled from './LoginStyled';
-import AlertComponent from '../common/AuthAlert';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import codeClanLogo from '../assets/image/codeClanLogo.png';
@@ -12,7 +11,6 @@ import Spinner from 'react-bootstrap/Spinner';
 import loginAmico from '../assets/image/auth/login.jpg';
 import { message } from 'antd';
 import checkAuth from '../../helpers/CheckAuth';
-import decode from 'jwt-decode';
 
 function LoginForm({ authLogin, loading, error, errResponse, token, history }) {
   const dispatch = useDispatch();

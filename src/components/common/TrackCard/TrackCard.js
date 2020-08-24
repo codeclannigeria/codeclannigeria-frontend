@@ -1,17 +1,22 @@
 import React from 'react';
 import TrackCardStyled from './TrackCardStyled';
 import { Link } from 'react-router-dom';
+import tempCourseLogo from '../../assets/image/dashboard/science_image.png';
 
-function TrackCard({ data, logo }) {
+function TrackCard({ data, logo, link }) {
   const { title, description, image, id } = data;
   return (
     <TrackCardStyled>
       <div class="card">
-        <img src={image || logo} class="card-img-top" alt="..." />
+        <img src={image || tempCourseLogo} class="card-img-top" alt={title} />
         <div class="card-body">
-          <Link to={`track/${title}/${id}`}>
+          {!link ? (
+            <Link to={`track/${title}/${id}`}>
+              <h5 class="card-title">{title}</h5>
+            </Link>
+          ) : (
             <h5 class="card-title">{title}</h5>
-          </Link>
+          )}
           <p class="card-text">{description}</p>
         </div>
       </div>
