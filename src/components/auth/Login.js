@@ -79,7 +79,9 @@ function LoginForm({ authLogin, loading, error, errResponse, token, history }) {
               <div class="left">
                 <div class="logo">
                   <div>
-                    <img src={codeClanLogo} alt="Code claan" />
+                    <Link to="/">
+                      <img src={codeClanLogo} alt="Code claan" />
+                    </Link>
                   </div>
                 </div>
                 <div class="titles"> Login to your account </div>

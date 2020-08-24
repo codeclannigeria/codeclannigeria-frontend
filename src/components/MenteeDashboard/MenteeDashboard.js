@@ -26,7 +26,7 @@ function Dashboard({
   mentor,
   getUserMentorProfileApi,
 }) {
-  const [showTracksEnrollModal, setshowTracksEnrollModal] = useState(true);
+  const [showTracksEnrollModal, setshowTracksEnrollModal] = useState(e);
 
   useEffect(() => {
     if (userData && userData.tracks.length < 1) {
