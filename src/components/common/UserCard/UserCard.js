@@ -4,6 +4,7 @@ import ProfileImageUpload from '../../MenteeDashboard/userProfile/image';
 import { useState } from 'react';
 import EditProfileForm from '../../MenteeDashboard/userProfile/EditProfileForm';
 import decode from 'jwt-decode';
+import { Tag } from 'antd';
 
 function UserCard({ data, mode, editProfile }) {
   const {
@@ -13,6 +14,7 @@ function UserCard({ data, mode, editProfile }) {
     email,
     phoneNumber,
     description,
+    technologies,
     city,
     country,
     id,
@@ -135,7 +137,16 @@ function UserCard({ data, mode, editProfile }) {
         </div>
         <hr />
         <div className=" edit__profile__btn__container">
-          <i class="fas fa-info-circle"></i> {description}
+          <p>
+            <i class="fas fa-info-circle"></i> {description}
+          </p>
+          {technologies
+            ? technologies.map((tech, key) => (
+                <Tag color={'blue'} style={{ marginRight: 3 }}>
+                  {tech}
+                </Tag>
+              ))
+            : null}
         </div>
       </div>
     </UserCardStyled>

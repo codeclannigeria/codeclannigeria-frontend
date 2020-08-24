@@ -28,11 +28,12 @@ const EditProfileForm = ({
   error,
   errResponse,
   editUser,
+  mentor,
 }) => {
   const [form] = Form.useForm();
 
   const handleFormSubmit = async values => {
-    values.technologies = [];
+    // values.technologies = [];
     // values.description = '';
     values.dob = values.dob._d.toISOString();
     if (!values.phoneNumber.startsWith('+')) {
@@ -50,16 +51,7 @@ const EditProfileForm = ({
   //   }
   // }, [error]);
 
-  // const technologies = [];
-  // for (let i = 10; i < 36; i++) {
-  //   technologies.push(
-  //     <Option key={i.toString(36) + i}>{i.toString(36) + i}</Option>
-  //   );
-  // }
-
-  function handleChange(value) {
-    console.log(`selected ${value}`);
-  }
+  // const technologies = ['React'];
 
   useEffect(() => {
     if (!loading && !error && editUser === 'success') {
@@ -69,6 +61,12 @@ const EditProfileForm = ({
   }, [error, loading]);
 
   const [country, setCountry] = useState();
+  const [technologies, setTechnologies] = useState([
+    'Javascript',
+    'React',
+    'Node',
+    'Django',
+  ]);
   const [customInitialData, setCustomInitialData] = useState();
   useEffect(() => {
     if (initialData.country) {
@@ -82,6 +80,9 @@ const EditProfileForm = ({
     }
     initialData.dob = moment(dateObj);
     setCustomInitialData(initialData);
+    // for (let i = 10; i < 36; i++) {
+    //   technologies.push(<Option key={i}>{'Angular'}</Option>);
+    // }
   }, []);
   return (
     <EditProfileStyled>
@@ -239,7 +240,7 @@ const EditProfileForm = ({
             </Col>
           </Row>
 
-          <Row>
+          <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
             <Col span={12}>
               <Form.Item
                 name="gender"
@@ -259,24 +260,27 @@ const EditProfileForm = ({
                 </Select>
               </Form.Item>
             </Col>
-            {/* <Col span={12}>
-              <Form.item label="Technologies">
+            <Col span={12}>
+              <Form.Item name="technologies" label="Technologies">
                 <Select
                   allowClear
-                  mode="tags"
-                  style={{ width: '100%' }}
                   placeholder="Technologies"
-                    rules={[
-                  {
-                    required: true,
-                    message: 'Please select your Date of Birth',
-                  },
-                ]}
+                  mode="tags"
+                  rules={[
+                    {
+                      required: true,
+                      message: 'Please select your Date of Birth',
+                    },
+                  ]}
                 >
-                  {technologies}
+                  {technologies.map((tech, index) => (
+                    <Option value={tech} key={tech}>
+                      {tech}
+                    </Option>
+                  ))}
                 </Select>
-              </Form.item>
-            </Col> */}
+              </Form.Item>
+            </Col>
           </Row>
           <Form.Item
             name="description"

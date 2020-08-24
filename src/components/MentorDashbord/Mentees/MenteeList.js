@@ -129,8 +129,20 @@ function MenteeList({ mentees, userData, history, getUserMenteesProfileApi }) {
 
   useEffect(() => {
     if (userData) {
-      const { city, country, phoneNumber, description } = userData;
-      if (!city || !country || !phoneNumber || !description) {
+      const {
+        city,
+        country,
+        phoneNumber,
+        description,
+        technologies,
+      } = userData;
+      if (
+        !city ||
+        !country ||
+        !phoneNumber ||
+        !description ||
+        technologies.length <= 0
+      ) {
         // return
         history.push({
           pathname: '/dashboard/mentor/profile',

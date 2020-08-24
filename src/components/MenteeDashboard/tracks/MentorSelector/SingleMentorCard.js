@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from 'antd';
+import { Card, Tag } from 'antd';
 import {
   GithubOutlined,
   EllipsisOutlined,
@@ -7,7 +7,7 @@ import {
 } from '@ant-design/icons';
 
 function SingleMentorCard({ mentor }) {
-  const { firstName, lastName, city, country, photoUrl } = mentor;
+  const { firstName, lastName, city, country, photoUrl, technologies } = mentor;
   return (
     <>
       <Card
@@ -21,11 +21,11 @@ function SingleMentorCard({ mentor }) {
             }
           />
         }
-        actions={[
-          <GithubOutlined key="github" />,
-          <TwitterOutlined key="twitter" />,
-          <EllipsisOutlined key="ellipsis" />,
-        ]}
+        // actions={[
+        //   <GithubOutlined key="github" />,
+        //   <TwitterOutlined key="twitter" />,
+        //   <EllipsisOutlined key="ellipsis" />,
+        // ]}
       >
         <h3>
           {firstName} {lastName}
@@ -33,6 +33,14 @@ function SingleMentorCard({ mentor }) {
         <p>
           <span>{city || country ? ` From ${city}, ${country}` : null}</span>
         </p>
+        <p>Technologies:</p>
+        {technologies
+          ? technologies.map((tech, key) => (
+              <Tag color={'blue'} style={{ marginRight: 3 }}>
+                {tech}
+              </Tag>
+            ))
+          : null}
       </Card>
     </>
   );
