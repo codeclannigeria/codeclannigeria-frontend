@@ -32,8 +32,6 @@ const EditProfileForm = ({
   const [form] = Form.useForm();
 
   const handleFormSubmit = async values => {
-    console.log(values);
-
     values.technologies = [];
     // values.description = '';
     values.dob = values.dob._d.toISOString();
@@ -51,6 +49,17 @@ const EditProfileForm = ({
   //     message.error(errResponse);
   //   }
   // }, [error]);
+
+  // const technologies = [];
+  // for (let i = 10; i < 36; i++) {
+  //   technologies.push(
+  //     <Option key={i.toString(36) + i}>{i.toString(36) + i}</Option>
+  //   );
+  // }
+
+  function handleChange(value) {
+    console.log(`selected ${value}`);
+  }
 
   useEffect(() => {
     if (!loading && !error && editUser === 'success') {
@@ -250,6 +259,24 @@ const EditProfileForm = ({
                 </Select>
               </Form.Item>
             </Col>
+            {/* <Col span={12}>
+              <Form.item label="Technologies">
+                <Select
+                  allowClear
+                  mode="tags"
+                  style={{ width: '100%' }}
+                  placeholder="Technologies"
+                    rules={[
+                  {
+                    required: true,
+                    message: 'Please select your Date of Birth',
+                  },
+                ]}
+                >
+                  {technologies}
+                </Select>
+              </Form.item>
+            </Col> */}
           </Row>
           <Form.Item
             name="description"
