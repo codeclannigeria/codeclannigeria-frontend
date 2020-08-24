@@ -23,6 +23,7 @@ import MenteeProfile from './components/MentorDashbord/Mentees/MenteeProfile';
 import MentorUserProfile from './components/MentorDashbord/Profile/MentorUserProfile';
 import MenteeUserProfile from './components/MenteeDashboard/userProfile/MenteeUserProfile';
 import SubmissionList from './components/MentorDashbord/Mentees/SubmissionList';
+import MissingPage from './components/error/404';
 
 const checkAuth = () => {
   const token = localStorage.getItem('codeclan_token');
@@ -87,6 +88,32 @@ export const MentorRoute = ({ component: Component, ...rest }) => (
 );
 
 // const location = useLocation();
+// export const BaseRouter = () => (
+//   <Switch>
+//     <Route exact path="/" component={Homepage} />
+//     <Route path="/register/" component={Signup} />
+//     <Route path="/login/" component={LoginForm} />
+//     <Route path="/form/" component={SignupForm} />
+//     <Route path="/email-verification-sent/" component={EmailConfirmationSent} />
+//     <Route path="/confirm-email/" component={ConfirmEmail} />
+//     <Route path="/forgotpass" component={ForgotPassword} />
+//     <Route path="/team" component={Team} />
+//     <Route exact component={MissingPage} />
+//   </Switch>
+// );
+
+// export const DashboardRouter = ({ location }) => (
+//   <Switch location={location} key={location.pathname}>
+
+// );
+
+// export const MentorRouter = () => (
+//   <Switch>
+
+//   </Switch>
+// );
+
+// const location = useLocation();
 export const BaseRouter = () => (
   <Switch>
     <Route exact path="/" component={Homepage} />
@@ -97,13 +124,7 @@ export const BaseRouter = () => (
     <Route path="/confirm-email/" component={ConfirmEmail} />
     <Route path="/forgotpass" component={ForgotPassword} />
     <Route path="/team" component={Team} />
-  </Switch>
-);
-
-export const DashboardRouter = ({ location }) => (
-  <Switch location={location} key={location.pathname}>
     <MenteeRoute exact path="/dashboard" component={Dashboard} />
-
     <MenteeRoute
       exact
       path="/dashboard/pending-task"
@@ -139,11 +160,6 @@ export const DashboardRouter = ({ location }) => (
       path="/dashboard/mentee/profile"
       component={MenteeUserProfile}
     />
-  </Switch>
-);
-
-export const MentorRouter = () => (
-  <Switch>
     <MentorRoute
       exact
       path="/dashboard/mentor/mentees"
@@ -164,6 +180,7 @@ export const MentorRouter = () => (
       path="/dashboard/mentor/tasks-submissions/"
       component={SubmissionList}
     />
+    <Route exact component={MissingPage} />
   </Switch>
 );
 
