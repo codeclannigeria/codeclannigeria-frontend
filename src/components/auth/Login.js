@@ -77,8 +77,12 @@ function LoginForm({ authLogin, loading, error, errResponse, token, history }) {
               <div class="left">
                 <div class="logo">
                   <div>
-                    <Link to="/">
-                      <img src={codeClanLogo} alt="Code claan" />
+                    <Link to="/" className="image-link">
+                      <img
+                        src={codeClanLogo}
+                        className="img-fluid"
+                        alt="Code clan"
+                      />
                     </Link>
                   </div>
                 </div>
