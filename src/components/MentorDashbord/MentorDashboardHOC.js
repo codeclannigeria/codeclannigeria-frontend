@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import MentorDashboardSidebar from './common/MentorDashboardSidebar';
 import DashboardHeader from '../common/DashboardHeader';
 import MentorDashboardStyled from './MentorDashboardStyled';
-import { useDispatch, useStore } from 'react-redux';
+import { useDispatch, useStore, useSelector } from 'react-redux';
 import { getUserProfileApi } from '../../state/user/userActionCreator';
+import { message } from 'antd';
 
 function MentorDashboardLayout(Component) {
   return function DashboardPage(props) {
@@ -16,6 +17,13 @@ function MentorDashboardLayout(Component) {
     const store = useStore();
     const userState = store.getState().user.data;
     const dispatch = useDispatch();
+    const APIerror = useSelector(state => state.API.error);
+
+    useEffect(() => {
+      if (APIerror) {
+        message.error(APIerror);
+      }
+    }, [APIerror]);
 
     useEffect(() => {
       if (!userState) {

@@ -6,6 +6,7 @@ import {
   getUserMentorProfileApi,
 } from '../user/userActionCreator';
 import { getAllTasksAction } from '../tasks/tasksActionCreator';
+import { getAllStagesAction } from '../stages/stagesActionCreator';
 
 export const getSingleTrack = trackId => {
   return dispatch => {
@@ -40,6 +41,7 @@ export const getTracksAction = () => {
       .get('/tracks')
       .then(res => {
         dispatch({ type: types.TRACKS_SUCCESS, payload: res.data });
+        dispatch(getAllStagesAction());
         // history.push(`/dashboard`)
       })
       .catch(err => {

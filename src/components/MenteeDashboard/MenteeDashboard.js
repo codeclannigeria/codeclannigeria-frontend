@@ -165,7 +165,10 @@ const mapStateToProps = store => {
   };
 };
 
-const mapDispatchToProps = { getAllTasksAction, getUserMentorProfileApi };
+const mapDispatchToProps = {
+  getAllTasksAction,
+  getUserMentorProfileApi,
+};
 
 export default DashboardLayout(
   connect(mapStateToProps, mapDispatchToProps)(Dashboard)

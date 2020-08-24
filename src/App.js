@@ -10,8 +10,8 @@ function App() {
     <div>
       <ThemeProvider theme={globalStyles}>
         <BaseRouter location={location} />
-        <DashboardRouter location={location} />
-        <MentorRouter location={location} />
+        {/* <DashboardRouter location={location} />
+        <MentorRouter location={location} /> */}
       </ThemeProvider>
     </div>
   );

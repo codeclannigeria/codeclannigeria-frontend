@@ -3,13 +3,14 @@ import DashboardSidebar from './DashboardSidebar';
 import DashboardHeader from './DashboardHeader';
 import DashboardLayoutStyled from './DashboardLayoutStyled';
 
-import { useStore, useDispatch } from 'react-redux';
+import { useStore, useDispatch, useSelector } from 'react-redux';
 import {
   getUserProfileApi,
   getUserMentorProfileApi,
 } from '../../state/user/userActionCreator';
 import CustomLoader from './Spinner/CustomLoader';
 import MentorDashboardStyled from '../MentorDashbord/MentorDashboardStyled';
+import { message } from 'antd';
 
 // const pageStyle = {
 //   position: 'absolute',
@@ -66,6 +67,7 @@ const DashboardLayout = Component => {
     const store = useStore();
     const userState = store.getState().user.data;
     const dispatch = useDispatch();
+    const APIerror = useSelector(state => state.API.error);
 
     useEffect(() => {
       if (!userState) {
@@ -76,6 +78,11 @@ const DashboardLayout = Component => {
       setUserLoading(false);
     }, [userState, dispatch, userLoading]);
 
+    useEffect(() => {
+      if (APIerror) {
+        message.error(APIerror);
+      }
+    }, [APIerror]);
     return (
       <MentorDashboardStyled>
         <DashboardSidebar tabs={tabs} path={url} showSidebar={showSidebar} />
