@@ -76,7 +76,7 @@ const StyledNav = styled.div`
   }
   @media only screen and (max-width: 968px) {
     a {
-      color: #004296;
+      color: #004296 !important;
       text-decoration: none;
     }
     .menu li {
@@ -94,7 +94,7 @@ const StyledNav = styled.div`
     }
 
     header {
-      position: unset;
+      position: unset !important;
     }
 
     .toggle-btn {
@@ -155,7 +155,10 @@ const StyledNav = styled.div`
         }
         .mobile-button {
           background: #004296;
-          color: #fff;
+          a {
+            color: #fff !important;
+            font-weight: bolder;
+          }
         }
       }
     }
