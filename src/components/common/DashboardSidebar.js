@@ -91,7 +91,7 @@ function DashboardSidebar({ showSidebar, tabs, path, authLogoutApi }) {
             icon={<QuestionCircleOutlined style={{ color: 'red' }} />}
           >
             <button className="btn btn-lg btn-primary">
-              <i class="fas fa-power-off"></i> Logout
+              <i className="fas fa-power-off"></i> Logout
             </button>
           </Popconfirm>
         </li>
