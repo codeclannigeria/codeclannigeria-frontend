@@ -9,7 +9,7 @@ export const signup = userData => {
     dispatch({ type: types.AUTH_START });
     const token_data = {
       email: userData.email,
-      clientBaseUrl: 'https://codeclannigeria-frontend.now.sh/confirm-email',
+      clientBaseUrl: 'https://www.codeclannigeria.dev/confirm-email',
       tokenParamName: 'token',
       emailParamName: 'email',
     };
