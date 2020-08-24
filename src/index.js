@@ -14,7 +14,7 @@ import { Router } from 'react-router-dom';
 
 import App from './App';
 
-const middleWare = [thunk, logger];
+const middleWare = [thunk];
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

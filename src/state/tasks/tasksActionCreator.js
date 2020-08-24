@@ -36,9 +36,9 @@ export const getSingleTaskAction = id => {
         // history.push(`/dashboard`)
       })
       .catch(err => {
-        console.log({ err });
-        const error_msg = err.response.data.message || 'An error occured';
-
+        const error_msg = err.response
+          ? err.response.data.message
+          : 'An error occured';
         dispatch({
           type: types.TASKS_FAILURE,
           payload: error_msg,
@@ -59,7 +59,9 @@ export const submitTaskAction = (taskId, url, comments) => {
         dispatch({ type: types.SUBMIT_TASK });
       })
       .catch(err => {
-        const error_msg = err.response.data.message || 'An error occured';
+        const error_msg = err.response
+          ? err.response.data.message
+          : 'An error occured';
 
         dispatch({
           type: types.TASKS_FAILURE,

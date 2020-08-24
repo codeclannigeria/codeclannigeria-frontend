@@ -26,7 +26,9 @@ export const signup = userData => {
         // history.push(`/dashboard`)
       })
       .catch(err => {
-        const error_msg = err.response.data.message || 'An error occured';
+        const error_msg = err.response
+          ? err.response.data.message
+          : 'An error occured';
 
         dispatch({
           type: types.AUTH_FAILURE,
@@ -43,7 +45,6 @@ export const authLogin = userData => {
     return axios
       .post(`${apiURL}/login`, userData)
       .then(res => {
-        console.log(res.data);
         const token = res.data.accessToken;
         const expirationDate = new Date(new Date().getTime() + 3600 * 1000);
         localStorage.setItem('codeclan_token', token);
@@ -51,9 +52,13 @@ export const authLogin = userData => {
         dispatch({ type: types.AUTH_SUCCESS, payload: token });
       })
       .catch(err => {
+        const error_msg = err.response
+          ? err.response.data.message
+          : 'An error occured';
+
         dispatch({
           type: types.AUTH_FAILURE,
-          payload: err.response.data.message,
+          payload: error_msg,
         });
       });
   };
@@ -72,11 +77,10 @@ export const authSendEmailConfirmationToken = data => {
     .post(`${apiURL}/send-email-confirmation-token`, data)
     .then(res => {
       // Do nothing for now
-      console.log(res);
+
       return res;
     })
     .catch(err => {
-      console.log(err);
       history.push('/');
       throw err;
     });

@@ -11,7 +11,9 @@ export const getUserProfileApi = () => {
         dispatch({ type: types.USER_SUCCESS, payload: res.data });
       })
       .catch(err => {
-        const error_msg = err.response.data.message || 'An error occured';
+        const error_msg = err.response
+          ? err.response.data.message
+          : 'An error occured';
 
         dispatch({
           type: types.USER_FAILURE,
@@ -104,7 +106,9 @@ export const editUserProfileApi = userData => {
         dispatch({ type: types.EDIT_USER, payload: res.data });
       })
       .catch(err => {
-        const error_msg = err.response.data.message || 'An error occured';
+        const error_msg = err.response
+          ? err.response.data.message
+          : 'An error occured';
 
         dispatch({
           type: types.USER_FAILURE,
