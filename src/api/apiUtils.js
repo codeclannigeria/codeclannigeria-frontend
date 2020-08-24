@@ -28,7 +28,10 @@ codeClanApi.interceptors.response.use(
   error => {
     if (error.response && error.response.data) {
       // console.log(error.massgae, 'Interceptors');
-      store.dispatch({ type: 'API_ERROR', payload: error.message });
+      store.dispatch({
+        type: 'API_ERROR',
+        payload: error.response.data.message,
+      });
 
       return Promise.reject(error.response.data);
     }

@@ -33,9 +33,22 @@ const LoginStyled = styled.div`
     border-radius: 4px;
   }
 
+  .image-link {
+    color: transparent;
+    border: none;
+    padding: none;
+    :hover {
+      color: transparent;
+      border: none;
+      font-weight: 900;
+      outline: none;
+      border-radius: 4px;
+    }
+  }
+
   .logo img {
-    width: 108px;
-    height: 80.6px;
+    /* width: 100%; */
+    height: auto;
   }
   .logo div {
     padding: 5px;

@@ -50,7 +50,7 @@ export const getUserMenteesProfileApi = () => {
     return codeClanApi
       .get('profile/mentees')
       .then(res => {
-        dispatch({ type: types.GET_MENTEES, payload: res.data });
+        dispatch({ type: types.GET_MENTEES, payload: res.data.items });
       })
       .catch(err => {
         const error_msg = err.response
