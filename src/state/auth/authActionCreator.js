@@ -17,7 +17,6 @@ export const signup = userData => {
       .post(`${apiURL}/register`, userData)
       .then(res => {
         dispatch({ type: types.AUTH_SUCCESS, payload: { token: 'true' } });
-        console.log({ res });
         authSendEmailConfirmationToken(token_data);
 
         // const expirationDate = new Date(new Date().getTime() + 3600 * 1000);
@@ -27,7 +26,6 @@ export const signup = userData => {
         // history.push(`/dashboard`)
       })
       .catch(err => {
-        console.log(err, err.response);
         const error_msg = err.response.data.message || 'An error occured';
 
         dispatch({
