@@ -14,7 +14,7 @@ import CustomLoader from '../../common/Spinner/CustomLoader';
 
 function MenteeProfile(props) {
   const dispatch = useDispatch();
-  const userId = props.match.userID;
+  const userId = props.match.params.userID;
   const user = useSelector(state => state.user);
 
   const fetchMentee = useCallback(() => {
@@ -70,11 +70,12 @@ function MenteeProfile(props) {
     <>
       {user ? (
         <>
-          {user.singleMentee ? (
-            <UserProfile data={user.singleMentee} loading={user.loading} />
-          ) : (
-            <UserProfile data={data} loading={user.loading} />
-          )}
+          {
+            user.singleMentee ? (
+              <UserProfile data={user.singleMentee[0]} loading={user.loading} />
+            ) : null
+            // <UserProfile data={data} loading={user.loading} />
+          }
         </>
       ) : null}
     </>

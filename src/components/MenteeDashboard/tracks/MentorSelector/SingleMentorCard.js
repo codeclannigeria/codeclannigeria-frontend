@@ -7,7 +7,15 @@ import {
 } from '@ant-design/icons';
 
 function SingleMentorCard({ mentor }) {
-  const { firstName, lastName, city, country, photoUrl, technologies } = mentor;
+  const {
+    firstName,
+    lastName,
+    city,
+    country,
+    photoUrl,
+    technologies,
+    description,
+  } = mentor;
   return (
     <>
       <Card
@@ -33,6 +41,7 @@ function SingleMentorCard({ mentor }) {
         <p>
           <span>{city || country ? ` From ${city}, ${country}` : null}</span>
         </p>
+        <p>{description}</p>
         <p>Technologies:</p>
         {technologies
           ? technologies.map((tech, key) => (
