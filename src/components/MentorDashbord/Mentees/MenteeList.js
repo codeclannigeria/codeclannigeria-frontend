@@ -166,7 +166,7 @@ function MenteeList({ mentees, userData, history, getUserMenteesProfileApi }) {
       <Table
         className="mentee-table ml-4"
         columns={columns}
-        dataSource={data}
+        dataSource={mentees}
         size="small"
         pagination={{ pageSize: 50 }}
         scroll={{ y: 240 }}
