@@ -23,6 +23,9 @@ codeClanApi.interceptors.request.use(
 
 codeClanApi.interceptors.response.use(
   response => {
+    store.dispatch({
+      type: 'API_SUCCESS',
+    });
     return response;
   },
   error => {
