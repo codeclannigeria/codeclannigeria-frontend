@@ -76,7 +76,7 @@ function Navbar() {
               <div className="menu sign mobile-sign">
                 <ul>
                   <li>
-                    <Link to="/login/">Login</Link>
+                    <Link className='login-link' to="/login/">Login</Link>
                   </li>
                   <li className="mobile-button">
                     <Link to="/register/">Sign Up</Link>
