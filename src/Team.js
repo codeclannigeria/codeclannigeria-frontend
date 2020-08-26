@@ -15,7 +15,10 @@ import ejiro from './components/assets/image/team/ejiro.jpg';
 import seunbayo from './components/assets/image/team/seunbayo.jpg';
 import daegee from './components/assets/image/team/daegee.jpeg';
 import john from './components/assets/image/team/john.jpg';
-import kisha from './components/assets/image/team/kisha.jpg'
+import kisha from './components/assets/image/team/kisha.jpeg';
+import bayonle from './components/assets/image/team/bayonle.jpg';
+import semiu from './components/assets/image/team/semiu.jpg';
+import johnOdey from './components/assets/image/team/johnOdey.jpg';
 import Navbar from './components/Navbar';
 import Footer from'./components/Footer';
 import TeamRep from './TeamRep';
@@ -62,8 +65,9 @@ function Team() {
             <TeamRep 
               repName="Ajiboye Temitope Tayomi" 
               srcPhoto={tayormi} profession="Founder, Code Clan" 
-              story=' "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis quo molestiae quas maxime cupiditate iusto esse odit consectetur! Repellat, ipsum." '
-              motto=' "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis quo molestiae quas maxime cupiditate iusto" ' jobDescription=" Web design, Adobe Photoshop, HTML5, CSS3, Corel and many others..."
+              story=' "Tayomi is the founder of Code Clan Nigeria, a community dedicated to turning beginners into pro developers. He is also a Developer with experience building enterprise mobile and web apps." '
+              motto=' "Do not be afraid to fail" ' 
+              jobDescription=" Dot Net, Node, Angular, Flutter"
               twitterProfile="https://twitter.com/olu_tayormi"
               facebookProfile="https://facebook.com/topboyz009"
               githubProfile="https://github.com/tayormi"
@@ -72,9 +76,10 @@ function Team() {
             <TeamRep 
               repName="Efereyan Karen" 
               srcPhoto={LifeWithKaren} 
-              profession="Front end Developer" 
-              story=' "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis quo molestiae quas maxime cupiditate iusto esse odit consectetur! Repellat, ipsum." '
-              motto=' "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis quo molestiae quas maxime cupiditate iusto" ' jobDescription=" Web design, Adobe Photoshop, HTML5, CSS3, Corel and many others..."
+              profession="Frontend Developer" 
+              story=''
+              motto='' 
+              jobDescription=""
               twitterProfile="https://twitter.com/EfereyanK"
             
             />
@@ -82,9 +87,10 @@ function Team() {
             <TeamRep 
               repName="Obamrevwo Ejiro Edwin" 
               srcPhoto={ejiro} 
-              profession="Software Developer" 
-              story=' "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis quo molestiae quas maxime cupiditate iusto esse odit consectetur! Repellat, ipsum." '
-              motto=' "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis quo molestiae quas maxime cupiditate iusto" ' jobDescription=" Web design, Adobe Photoshop, HTML5, CSS3, Corel and many others..." 
+              profession="Software Engineer" 
+              story='"Engineer with years of experience building scalable and performant applications. I have a strong experience in designing and building distributed systems using Service Oriented Architecture approach."'
+              motto='"Engineering  | Faith | Influence"' 
+              jobDescription="Golang, grpc, Docker, Google Cloud, Kubernetes, NATS, CircleCI, Terraform and go-micro, Nodejs" 
               twitterProfile="https://twitter.com/edwin_ejiro"
               githubProfile="https://github.com/Ejiro-Edwin"
             />
@@ -93,8 +99,9 @@ function Team() {
               repName="Ayodeji Olagbaiye" 
               srcPhoto={deji} 
               profession="Product Designer" 
-              story=' "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis quo molestiae quas maxime cupiditate iusto esse odit consectetur! Repellat, ipsum." '
-              motto=' "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis quo molestiae quas maxime cupiditate iusto" ' jobDescription=" Web design, Adobe Photoshop, HTML5, CSS3, Corel and many others..." 
+              story='"Stumbled on Design and fell in love. We die here"'
+              motto='"Keep pushing"' 
+              jobDescription="Figma" 
               twitterProfile="https://twitter.com/DejiNotDope"
             />
 
@@ -102,17 +109,19 @@ function Team() {
               repName="Onalo Deborah" 
               srcPhoto={deborah} 
               profession="User Interface and Experience Designer" 
-              story=' "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis quo molestiae quas maxime cupiditate iusto." '
-              motto=' "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis quo molestiae quas maxime cupiditate iusto" ' jobDescription=" Web design, Adobe Photoshop, HTML5, CSS3, Corel and many others..." 
+              story={' "I love designing simple elegant and engaging interfaces and experiences for everyone. Sometimes, I wear the white coat and play Pharmacist." '}
+              motto=' "Design is intelligence made visible." -- Alina Wheeler, author.  ' 
+              jobDescription={' UX-UI Designers are generally responsible for collecting, researching, investigating and evaluating user requirements. Their responsibility is to deliver an outstanding user experience providing an exceptional and intuitive application design. Majority of the work was done with Figma. '}
               twitterProfile="https://twitter.com/deborah_oa"
             />
 
             <TeamRep 
               repName="Onasanya Babatunde" 
               srcPhoto={rammytunde} 
-              profession="Software Developer" 
-              story=' "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis quo molestiae quas maxime cupiditate iusto esse odit consectetur! Repellat, ipsum." '
-              motto=' "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis quo molestiae quas maxime cupiditate iusto" ' jobDescription=" Web design, Adobe Photoshop, HTML5, CSS3, Corel and many others..." 
+              profession="Fullstack Developer" 
+              story={' "I\'m a full stack Developer and Computer Engineering undergraduate with passion for building excellent softwares. With 2 years of experience, and a track record of meeting aggressive goals." '}
+              motto={' "Don\'t let negativity affect your vision. A lot of people have said harsh things, but I don\'t let it affect me." '} 
+              jobDescription="Python, Django, JavaScript, Node, Express, React, PostgreSQL, MongoDB" 
               twitterProfile="https://twitter.com/simply_rammy"
               facebookProfile="https://facebook.com/onasanyatunde"
               githubProfile="https://github.com/rammyblog"
@@ -122,17 +131,19 @@ function Team() {
               repName="Ngozi Kalu" 
               srcPhoto={ngozi} 
               profession="Backend Developer" 
-              story=' "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis quo molestiae quas maxime cupiditate iusto esse odit consectetur! Repellat, ipsum." '
-              motto=' "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis quo molestiae quas maxime cupiditate iusto" ' jobDescription=" Web design, Adobe Photoshop, HTML5, CSS3, Corel and many others..."
+              story=''
+              motto='' 
+              jobDescription=""
               twitterProfile="https://twitter.com/nollykalz"
             />
 
             <TeamRep 
-              repName="ADEBAYO  Oluwaseun" 
+              repName="Adebayo Oluwaseun" 
               srcPhoto={seunbayo} 
-              profession="Full-Stack Javascript Developer " 
-              story=' "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis quo molestiae quas maxime cupiditate iusto esse odit consectetur! Repellat, ipsum." '
-              motto=' "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis quo molestiae quas maxime cupiditate iusto" ' jobDescription=" Web design, Adobe Photoshop, HTML5, CSS3, Corel and many others..."
+              profession="Fullstack Developer " 
+              story=' "I am passionate about solving problems, developing innovative products geared toward simplifying &amp; Improving life. " '
+              motto=' "If you can imagine it,we can bring it to Life" ' 
+              jobDescription="Html, Css, javascript, Vue, NodeJs, mongoDb, git"
               twitterProfile="https://twitter.com/seunbayoNg"
               facebookProfile="https://facebook.com/seunbayong"
               githubProfile="https://github.com/seunbayo"
@@ -141,9 +152,10 @@ function Team() {
             <TeamRep 
               repName="Ajolore Emmanuel Babatunde" 
               srcPhoto={emmriz} 
-              profession="Software Developer" 
-              story=' "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis quo molestiae quas maxime cupiditate iusto esse." '
-              motto=' "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis quo molestiae quas maxime cupiditate iusto" ' jobDescription=" Web design, Adobe Photoshop, HTML5, CSS3, Corel and many others..."
+              profession="Frontend Developer" 
+              story=' "A result-driven, and analytical front-end developer who can think “out of the box”, Strong in design and integrated problem-solving skills." '
+              motto=' "The beauty of life does not depend on how happy you are alone but also how happy others can be because of you." ' 
+              jobDescription=" HTML, CSS, JavaScript, Angular Framework, Bootstrap framework"
               twitterProfile="https://twitter.com/emmanuelajolore"
               facebookProfile="https://facebook.com/emmanuelajolore"
               githubProfile="https://github.com/emmriz"
@@ -153,8 +165,9 @@ function Team() {
               repName="Daniel Owoyomi" 
               srcPhoto={daegee} 
               profession="Frontend Developer" 
-              story=' "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis quo molestiae quas maxime cupiditate iusto esse odit consectetur! Repellat, ipsum." '
-              motto=' "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis quo molestiae quas maxime cupiditate iusto" ' jobDescription=" Web design, Adobe Photoshop, HTML5, CSS3, Corel and many others..." 
+              story=' "Life is less difficult with simple and user-friendly solutions" '
+              motto=' "Simplicity is the biggest sophistication" ' 
+              jobDescription="HTML, CSS, JavaScript, React" 
               twitterProfile="https://twitter.com/daegee_o"
               githubProfile="https://github.com/daegee"
             />
@@ -162,20 +175,22 @@ function Team() {
             <TeamRep 
               repName="Fortune Ochi" 
               srcPhoto={fortune} 
-              profession="Software Developer" 
-              story=' "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis quo molestiae quas maxime cupiditate iusto esse odit consectetur! Repellat, ipsum." '
-              motto=' "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis quo molestiae quas maxime cupiditate iusto" ' jobDescription=" Web design, Adobe Photoshop, HTML5, CSS3, Corel and many others..." 
+              profession="Software Engineer" 
+              story=' "5+ years experience working as a software engineer" '
+              motto={'"I\'m obsessed with quality🏆"'} 
+              jobDescription="Nodejs, Asp.Net, Angular, ReactJs, Java" 
               twitterProfile="https://twitter.com"
               facebookProfile="https://facebook.com"
               githubProfile="https://github.com"
             />
 
             <TeamRep 
-              repName="Femi Anjorin" 
+              repName="Oluwafemi Anjorin" 
               srcPhoto={femi} 
-              profession="Software Developer" 
-              story=' "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis quo molestiae quas maxime cupiditate iusto esse odit consectetur! Repellat, ipsum." '
-              motto=' "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis quo molestiae quas maxime cupiditate iusto" ' jobDescription=" Web design, Adobe Photoshop, HTML5, CSS3, Corel and many others..." 
+              profession="Fullstack Developer" 
+              story='"Full Stack Developer with experience building web applications using JavaScript, including extensive experience managing cross-functional teams. Committed to making impact to the community."'
+              motto='"Ad astra per aspera"' 
+              jobDescription="React, Redux, Node, GraphQL, Express, PosgreSQL, MongoDB, knex, sqlite" 
               twitterProfile="https://twitter.com"
               facebookProfile="https://facebook.com"
               githubProfile="https://github.com"
@@ -185,8 +200,9 @@ function Team() {
               repName="John Ademola" 
               srcPhoto={john} 
               profession="Software Developer" 
-              story=' "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis quo molestiae quas maxime cupiditate iusto esse odit consectetur! Repellat, ipsum." '
-              motto=' "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis quo molestiae quas maxime cupiditate iusto" ' jobDescription=" Web design, Adobe Photoshop, HTML5, CSS3, Corel and many others..." 
+              story=''
+              motto='' 
+              jobDescription="" 
               twitterProfile="https://twitter.com/crownedprinz"
               facebookProfile="https://facebook.com/dmola kunle"
             />
@@ -195,10 +211,43 @@ function Team() {
             <TeamRep 
               repName="Ofordile Oluchi Jennifer Kisha" 
               srcPhoto={kisha} 
-              profession="Frontend Developer" 
-              story=' "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis quo." '
-              motto=' "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis quo molestiae quas maxime cupiditate iusto" ' jobDescription=" Web design, Adobe Photoshop, HTML5, CSS3, Corel and many others..." 
+              profession="Nurse and Frontend Developer" 
+              story=' "I love programming because it helps me give life to designs..It helps me connect with amazing people and contribute my quota to tech." '
+              motto=' "Success is your duty, your responsibility, and your obligation...Own it!" ' 
+              jobDescription=" Web design, Adobe Photoshop, HTML5, CSS3, Corel and many others..." 
               twitterProfile="https://twitter.com/codewithkisha"
+            />
+
+            <TeamRep 
+              repName="Olanrewaju Bayonle Kayode" 
+              srcPhoto={bayonle} 
+              profession="Software Developer" 
+              story=''
+              motto='' 
+              jobDescription="" 
+              twitterProfile="https://twitter.com/infinityjoy28"
+            />
+
+            <TeamRep 
+              repName="Mukaila Semiu" 
+              srcPhoto={semiu} 
+              profession="Frontend Developer" 
+              story=' "I am Mukaila Semiu, I started my programming  journey with Code Clan Nigeria with a team trained By the founder himself Temi Ajiboye Jan2020Mentorship. I now a frontend developer." '
+              motto=' "Learn everyday to developer the brain" ' 
+              jobDescription="HTML, CSS, Bootstrap, Vanilla JavaScript and Reactjs" 
+              twitterProfile="https://twitter.com/semiteagain"
+              facebookProfile="https://web.facebook.com/Semiteagain"
+            />
+
+            <TeamRep 
+              repName="John Odey" 
+              srcPhoto={johnOdey} 
+              profession="Fullstack Developer @Creative Intelligence Group" 
+              story=' "I’m a passionate and believe that impossible is nothing. I strive daily to be world-class developer. Working on projects that helps solve real problems excites me." '
+              motto=' “First, solve the problem. Then, write the code.” – John Johnson ' 
+              jobDescription="Javascript, Vue, Nuxt, Laravel" 
+              twitterProfile="https://twitter.com/jon_odey0"
+              facebookProfile="https://www.facebook.com/john.odey1/"
             />
                 
                 

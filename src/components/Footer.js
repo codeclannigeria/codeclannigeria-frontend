@@ -3,7 +3,7 @@ import React from 'react';
 function Footer() {
     return (
         <React.Fragment>
-            <div className="footer">
+            <div className="footer-m">
                 <div className style={{ textAlign: 'center' }}>
                     <div
                         style={{

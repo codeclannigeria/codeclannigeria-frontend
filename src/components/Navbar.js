@@ -21,16 +21,15 @@ function Navbar() {
               <li>
                 <Link to="/team">Team</Link>
               </li>
-
-              <a href="#">
-                <li>Events</li>
-              </a>
-              <a href="#">
-                <li>About</li>
-              </a>
-              <a href="#">
-                <li>Contact Us</li>
-              </a>
+              <li>
+                <Link to="/events">Events</Link>
+              </li>
+              <li>
+                <Link to="/about">About</Link>
+              </li>
+              <li>
+                <Link to="/contactus">Contact Us</Link>
+              </li>
             </ul>
           </div>
           <div className="menu sign desktop-sign">
