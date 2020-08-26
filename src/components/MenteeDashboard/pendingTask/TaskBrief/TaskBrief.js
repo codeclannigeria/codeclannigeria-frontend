@@ -9,7 +9,7 @@ import { getSingleTrack } from '../../../../state/tracks/tracksActionCreator';
 import CustomLoader from '../../../common/Spinner/CustomLoader';
 import { getSingleCourse } from '../../../../state/courses/coursesActionCreator';
 import Interweave from 'interweave';
-
+import he from 'he';
 function TaskBrief(props) {
   const { id } = props.match.params;
   let { query } = props.location;
@@ -22,9 +22,6 @@ function TaskBrief(props) {
     await dispatch(getSingleTaskAction(id));
     // await dispatch()
   }, []);
-
-  const a =
-    'Topic: The Internet<br> <br> Video Resources<br> <br> <a href=https://www.youtube.com/watch?v=Dxcc6ycZ73M&list=PLkZYeFmDuaN21nQjzE4RLLNccK_YP0P0_&index=2&t=0s>https://www.youtube.com/watch?v=Dxcc6ycZ73M&list=PLkZYeFmDuaN21nQjzE4RLLNccK_YP0P0_&index=2&t=0s </a><br> <br> https://www.youtube.com/watch?v=ZhEf7e4kopM&list=PLkZYeFmDuaN21nQjzE4RLLNccK_YP0P0_&index=3&t=0s<br> <br> https://www.youtube.com/watch?v=5o8CwafCxnU&list=PLkZYeFmDuaN21nQjzE4RLLNccK_YP0P0_&index=4&t=0s<br> <br> https://www.youtube.com/watch?v=AYdF7b3nMto&list=PLkZYeFmDuaN21nQjzE4RLLNccK_YP0P0_&index=5&t=0s<br> <br> https://www.youtube.com/watch?v=kBXQZMmiA4s&list=PLkZYeFmDuaN21nQjzE4RLLNccK_YP0P0_&index=6&t=0s<br> <br> https://www.youtube.com/watch?v=ZghMPWGXexs&list=PLkZYeFmDuaN21nQjzE4RLLNccK_YP0P0_&index=7&t=0s<br> <br> https://www.youtube.com/watch?v=AuYNXgO_f3Y&list=PLkZYeFmDuaN21nQjzE4RLLNccK_YP0P0_&index=8&t=0s<br> <br> <br> <br> Task:<br> <br> Write an Article on What you have learnt so far. Does the Internet fascinate or intrigue you. One of the best ways to learn about a thing is to write about it.<br> <br> Submission Guideline<br> <br> Create a blog on hashnode.com then post your article on it. Submit with a link to the article.';
 
   useEffect(() => {
     fetchData();
@@ -58,19 +55,24 @@ function TaskBrief(props) {
           <div classNameName="task-details mt-3">
             <h4>Task Brief</h4>
             {task.singleTask ? (
-              <Interweave content={task.singleTask.description} />
+              <>
+                <Interweave content={he.decode(task.singleTask.description)} />
+              </>
             ) : (
               <Spin />
             )}
+            {/* {task.singleTask ? {}: <Spin />} */}
           </div>
           {task.singleTask.course ? (
             <div>
-              <p>For this Task, ensure you check out</p>
+              <p>For this Task, ensure you the check out course below</p>
+              👇👇👇
               {course.singleCourse ? (
                 <a
                   href={course.singleCourse.playlistUrl}
                   rel="noopener noreferrer"
                   target="_blank"
+                  className="block"
                 >
                   {course.singleCourse.title}
                 </a>
@@ -117,7 +119,7 @@ function TaskBrief(props) {
       </p>
 
     */}
-      <div className="cta_container">
+      <div className="cta_container mt-4">
         {/* <button classNameName="btn btn-outline-secondary">
         Download starter files
       </button> */}
