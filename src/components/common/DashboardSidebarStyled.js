@@ -36,6 +36,7 @@ const DashboardSidebarStyled = styled.div`
     position: absolute;
     z-index: 1;
     top: 0;
+    min-height: 200vh;
   }
 
   .active-icon {

@@ -52,7 +52,7 @@ function TaskBrief(props) {
             {track.singleTrack ? track.singleTrack.title : null}
           </Tag>
 
-          <div classNameName="task-details mt-3">
+          <div className="task-details mt-3">
             <h4>Task Brief</h4>
             {task.singleTask ? (
               <>
@@ -65,18 +65,24 @@ function TaskBrief(props) {
           </div>
           {task.singleTask.course ? (
             <div>
-              <p>For this Task, ensure you the check out course below</p>
+              <h2>
+                <i className="fas fa-book-reader"></i> Course(s) Needed for this
+                task
+              </h2>
+              <p>For this Task, ensure you the check out course(s) below</p>
               👇👇👇
-              {course.singleCourse ? (
-                <a
-                  href={course.singleCourse.playlistUrl}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  className="block"
-                >
-                  {course.singleCourse.title}
-                </a>
-              ) : null}
+              <div>
+                {course.singleCourse ? (
+                  <a
+                    href={course.singleCourse.playlistUrl}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    className="block"
+                  >
+                    {course.singleCourse.title}
+                  </a>
+                ) : null}
+              </div>
             </div>
           ) : null}
         </>

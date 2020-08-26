@@ -7,6 +7,7 @@ const MentorDashboardSidebarStyled = styled.div`
   top: 0;
   background: #0050af;
   display: flex;
+  min-height: 200%;
   color: #fff;
   flex-direction: column;
   /* padding: 1rem; */
