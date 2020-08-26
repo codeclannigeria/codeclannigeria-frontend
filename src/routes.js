@@ -1,6 +1,9 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Team from './Team';
+import Events from './Events';
+import About from './About';
+import ContactUs from './ContactUs';
 import Signup from './components/auth/Signup';
 import Dashboard from './components/MenteeDashboard/MenteeDashboard';
 import LoginForm from './components/auth/Login';
@@ -17,6 +20,7 @@ import SubmitTask from './components/MenteeDashboard/pendingTask/SubmitTask';
 import PendingTasksPage from './components/MenteeDashboard/pendingTask/PendingTasksPage';
 import TaskBrief from './components/MenteeDashboard/pendingTask/TaskBrief/TaskBrief';
 import SingleCoursePage from './components/MenteeDashboard/stages/SingleCoursePage';
+
 
 import MenteeList from './components/MentorDashbord/Mentees/MenteeList';
 import MenteeProfile from './components/MentorDashbord/Mentees/MenteeProfile';
@@ -124,6 +128,9 @@ export const BaseRouter = () => (
     <Route path="/confirm-email/" component={ConfirmEmail} />
     <Route path="/forgotpass" component={ForgotPassword} />
     <Route path="/team" component={Team} />
+    <Route path="/events" component={Events} />
+    <Route path="/about" component={About} />
+    <Route path="/contactus" component={ContactUs} />
     <MenteeRoute exact path="/dashboard" component={Dashboard} />
     <MenteeRoute
       exact
