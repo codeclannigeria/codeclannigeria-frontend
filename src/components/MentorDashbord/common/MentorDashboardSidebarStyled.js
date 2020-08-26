@@ -3,10 +3,11 @@ import styled from 'styled-components';
 const active = 'background: #004699;';
 const MentorDashboardSidebarStyled = styled.div`
   width: 10rem;
-  position: absolute;
+  position: fixed;
   top: 0;
   background: #0050af;
   display: flex;
+  min-height: 200%;
   color: #fff;
   flex-direction: column;
   /* padding: 1rem; */
@@ -71,9 +72,9 @@ const MentorDashboardSidebarStyled = styled.div`
   }
 
   .logout__link {
-    position: absolute;
-    bottom: 26rem;
-    left: 1rem;
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
   }
 
   .btn-primary {
