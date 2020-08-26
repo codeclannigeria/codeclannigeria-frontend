@@ -58,16 +58,17 @@ function Navbar() {
               </div>
               <div>
                 <ul>
-                  <a href="teams.html">
+                  <Link to="/team">
                     <li>Team</li>
-                  </a>
-                  <a href="events.html">
+                  </Link>
+
+                  <a href="#">
                     <li>Events</li>
                   </a>
-                  <a href="about.html">
+                  <a href="#">
                     <li>About</li>
                   </a>
-                  <a href="contact-us.html">
+                  <a href="#">
                     <li>Contact Us</li>
                   </a>
                 </ul>
