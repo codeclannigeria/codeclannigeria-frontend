@@ -23,7 +23,9 @@ export const getSingleTrack = trackId => {
           dispatch({ type: types.GET_TRACK, payload: res.data });
         })
         .catch(err => {
-          const error_msg = err.response.data.message || 'An error occured';
+          const error_msg = err.response
+            ? err.response.data.message
+            : 'An error occured';
 
           dispatch({
             type: types.TRACKS_FAILURE,
@@ -45,7 +47,9 @@ export const getTracksAction = () => {
         // history.push(`/dashboard`)
       })
       .catch(err => {
-        const error_msg = err.response.data.message || 'An error occured';
+        const error_msg = err.response
+          ? err.response.data.message
+          : 'An error occured';
 
         dispatch({
           type: types.TRACKS_FAILURE,
@@ -70,7 +74,9 @@ export const userEnrollTrackAction = (trackId, mentorId) => {
         // history.push(`/dashboard`)
       })
       .catch(err => {
-        const error_msg = err.response.data.message || 'An error occured';
+        const error_msg = err.response
+          ? err.response.data.message
+          : 'An error occured';
 
         dispatch({
           type: types.TRACKS_FAILURE,

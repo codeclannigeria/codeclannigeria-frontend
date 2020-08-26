@@ -97,8 +97,12 @@ function Signup({ register, loading, errResponse, token, history }) {
               <div class="left">
                 <div class="logo">
                   <div>
-                    <Link to="/">
-                      <img src={codeClanLogo} alt="Code claan" />
+                    <Link to="/" className="image-link">
+                      <img
+                        className="img-fluid"
+                        src={codeClanLogo}
+                        alt="Code clan"
+                      />
                     </Link>
                   </div>
                 </div>

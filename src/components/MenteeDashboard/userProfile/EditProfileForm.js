@@ -16,6 +16,7 @@ import { editUserProfileApi } from '../../../state/user/userActionCreator';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
+import TextArea from 'antd/lib/input/TextArea';
 const { Option } = Select;
 const EditProfileForm = ({
   visible,
@@ -27,14 +28,13 @@ const EditProfileForm = ({
   error,
   errResponse,
   editUser,
+  mentor,
 }) => {
   const [form] = Form.useForm();
 
   const handleFormSubmit = async values => {
-    console.log(values);
-
-    values.technologies = [];
-    values.description = '';
+    // values.technologies = [];
+    // values.description = '';
     values.dob = values.dob._d.toISOString();
     if (!values.phoneNumber.startsWith('+')) {
       values.phoneNumber = `+${values.phoneNumber}`;
@@ -45,11 +45,13 @@ const EditProfileForm = ({
     // }
   };
 
-  useEffect(() => {
-    if (error) {
-      message.error(errResponse);
-    }
-  }, [error]);
+  // useEffect(() => {
+  //   if (error) {
+  //     message.error(errResponse);
+  //   }
+  // }, [error]);
+
+  // const technologies = ['React'];
 
   useEffect(() => {
     if (!loading && !error && editUser === 'success') {
@@ -59,6 +61,12 @@ const EditProfileForm = ({
   }, [error, loading]);
 
   const [country, setCountry] = useState();
+  const [technologies, setTechnologies] = useState([
+    'Javascript',
+    'React',
+    'Node',
+    'Django',
+  ]);
   const [customInitialData, setCustomInitialData] = useState();
   useEffect(() => {
     if (initialData.country) {
@@ -72,6 +80,9 @@ const EditProfileForm = ({
     }
     initialData.dob = moment(dateObj);
     setCustomInitialData(initialData);
+    // for (let i = 10; i < 36; i++) {
+    //   technologies.push(<Option key={i}>{'Angular'}</Option>);
+    // }
   }, []);
   return (
     <EditProfileStyled>
@@ -229,7 +240,7 @@ const EditProfileForm = ({
             </Col>
           </Row>
 
-          <Row>
+          <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
             <Col span={12}>
               <Form.Item
                 name="gender"
@@ -249,7 +260,40 @@ const EditProfileForm = ({
                 </Select>
               </Form.Item>
             </Col>
+            <Col span={12}>
+              <Form.Item name="technologies" label="Technologies">
+                <Select
+                  allowClear
+                  placeholder="Technologies"
+                  mode="tags"
+                  rules={[
+                    {
+                      required: true,
+                      message: 'Please select your Date of Birth',
+                    },
+                  ]}
+                >
+                  {technologies.map((tech, index) => (
+                    <Option value={tech} key={tech}>
+                      {tech}
+                    </Option>
+                  ))}
+                </Select>
+              </Form.Item>
+            </Col>
           </Row>
+          <Form.Item
+            name="description"
+            label="About you"
+            rules={[
+              {
+                required: true,
+                message: 'Please write a brief description about yourself',
+              },
+            ]}
+          >
+            <TextArea maxLength={'128'} />
+          </Form.Item>
         </Form>
       </Modal>
     </EditProfileStyled>

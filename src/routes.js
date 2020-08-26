@@ -36,7 +36,6 @@ const checkAuth = () => {
 
   try {
     const { exp, role } = decode(token);
-    console.log(role);
 
     if (exp < new Date().getTime() / 1000) {
       return false;

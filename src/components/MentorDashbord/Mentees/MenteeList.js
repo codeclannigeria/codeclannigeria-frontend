@@ -2,21 +2,11 @@ import React, { useEffect, useCallback } from 'react';
 import { Table } from 'antd';
 import MentorDashboardLayout from '../MentorDashboardHOC';
 import { Link } from 'react-router-dom';
-import { connect, useDispatch } from 'react-redux';
+import { connect } from 'react-redux';
 
 import { getUserMenteesProfileApi } from '../../../state/user/userActionCreator';
 
-function MenteeList({
-  userLoading,
-  userData,
-  error,
-  errResponse,
-  getAllTasksAction,
-  tasksData,
-  history,
-  getUserMenteesProfileApi,
-}) {
-  const dispatch = useDispatch();
+function MenteeList({ mentees, userData, history, getUserMenteesProfileApi }) {
   const columns = [
     {
       title: 'id',
@@ -139,8 +129,20 @@ function MenteeList({
 
   useEffect(() => {
     if (userData) {
-      const { city, country, phoneNumber } = userData;
-      if (!city || !country || !phoneNumber) {
+      const {
+        city,
+        country,
+        phoneNumber,
+        description,
+        technologies,
+      } = userData;
+      if (
+        !city ||
+        !country ||
+        !phoneNumber ||
+        !description ||
+        technologies.length <= 0
+      ) {
         // return
         history.push({
           pathname: '/dashboard/mentor/profile',
@@ -164,7 +166,7 @@ function MenteeList({
       <Table
         className="mentee-table ml-4"
         columns={columns}
-        dataSource={data}
+        dataSource={mentees}
         size="small"
         pagination={{ pageSize: 50 }}
         scroll={{ y: 240 }}

@@ -116,7 +116,7 @@ padding:2rem;
   }
 
   .edit__profile__btn__container {
-    padding: 2rem 0;
+    padding: 1.5rem 2rem;
   }
   .edit__profile__btn {
     background: #00aeff;
