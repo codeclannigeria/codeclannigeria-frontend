@@ -21,6 +21,21 @@ codeClanApi.interceptors.request.use(
   }
 );
 
+const dispatchFailure = message => {
+  store.dispatch({
+    type: 'API_ERROR',
+    payload: message,
+  });
+
+  // Clear the error message after 3 secs
+
+  setTimeout(function () {
+    store.dispatch({
+      type: 'API_SUCCESS',
+    });
+  }, 3000);
+};
+
 codeClanApi.interceptors.response.use(
   response => {
     store.dispatch({
@@ -30,15 +45,17 @@ codeClanApi.interceptors.response.use(
   },
   error => {
     if (error.response && error.response.data) {
-      // console.log(error.massgae, 'Interceptors');
-      store.dispatch({
-        type: 'API_ERROR',
-        payload: error.response.data.message,
-      });
+      dispatchFailure(error.response.data.message);
+      // store.dispatch({
+      //   type: 'API_ERROR',
+      //   payload: error.response.data.message,
+      // });
 
       return Promise.reject(error.response.data);
     }
-    store.dispatch({ type: 'API_ERROR', payload: error.message });
+    dispatchFailure(error.message);
+
+    // store.dispatch({ type: 'API_ERROR', payload: error.message });
 
     return Promise.reject(error.message);
   }
