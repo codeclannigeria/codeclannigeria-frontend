@@ -8,6 +8,7 @@ import { getSingleTaskAction } from '../../../../state/tasks/tasksActionCreator'
 import { getSingleTrack } from '../../../../state/tracks/tracksActionCreator';
 import CustomLoader from '../../../common/Spinner/CustomLoader';
 import { getSingleCourse } from '../../../../state/courses/coursesActionCreator';
+import Interweave from 'interweave';
 
 function TaskBrief(props) {
   const { id } = props.match.params;
@@ -21,6 +22,9 @@ function TaskBrief(props) {
     await dispatch(getSingleTaskAction(id));
     // await dispatch()
   }, []);
+
+  const a =
+    'Topic: The Internet<br> <br> Video Resources<br> <br> <a href=https://www.youtube.com/watch?v=Dxcc6ycZ73M&list=PLkZYeFmDuaN21nQjzE4RLLNccK_YP0P0_&index=2&t=0s>https://www.youtube.com/watch?v=Dxcc6ycZ73M&list=PLkZYeFmDuaN21nQjzE4RLLNccK_YP0P0_&index=2&t=0s </a><br> <br> https://www.youtube.com/watch?v=ZhEf7e4kopM&list=PLkZYeFmDuaN21nQjzE4RLLNccK_YP0P0_&index=3&t=0s<br> <br> https://www.youtube.com/watch?v=5o8CwafCxnU&list=PLkZYeFmDuaN21nQjzE4RLLNccK_YP0P0_&index=4&t=0s<br> <br> https://www.youtube.com/watch?v=AYdF7b3nMto&list=PLkZYeFmDuaN21nQjzE4RLLNccK_YP0P0_&index=5&t=0s<br> <br> https://www.youtube.com/watch?v=kBXQZMmiA4s&list=PLkZYeFmDuaN21nQjzE4RLLNccK_YP0P0_&index=6&t=0s<br> <br> https://www.youtube.com/watch?v=ZghMPWGXexs&list=PLkZYeFmDuaN21nQjzE4RLLNccK_YP0P0_&index=7&t=0s<br> <br> https://www.youtube.com/watch?v=AuYNXgO_f3Y&list=PLkZYeFmDuaN21nQjzE4RLLNccK_YP0P0_&index=8&t=0s<br> <br> <br> <br> Task:<br> <br> Write an Article on What you have learnt so far. Does the Internet fascinate or intrigue you. One of the best ways to learn about a thing is to write about it.<br> <br> Submission Guideline<br> <br> Create a blog on hashnode.com then post your article on it. Submit with a link to the article.';
 
   useEffect(() => {
     fetchData();
@@ -53,11 +57,15 @@ function TaskBrief(props) {
 
           <div classNameName="task-details mt-3">
             <h4>Task Brief</h4>
-            <p>{task.singleTask ? task.singleTask.description : <Spin />}</p>
+            {task.singleTask ? (
+              <Interweave content={task.singleTask.description} />
+            ) : (
+              <Spin />
+            )}
           </div>
           {task.singleTask.course ? (
-            <p>
-              For this Task, ensure you check out
+            <div>
+              <p>For this Task, ensure you check out</p>
               {course.singleCourse ? (
                 <a
                   href={course.singleCourse.playlistUrl}
@@ -67,55 +75,52 @@ function TaskBrief(props) {
                   {course.singleCourse.title}
                 </a>
               ) : null}
-              <Link to="/dashboard/course/frontend/1">
-                Html Fundamental course
-              </Link>{' '}
-            </p>
+            </div>
           ) : null}
         </>
       ) : (
         <CustomLoader />
       )}
-      {/* 
-        <p>
-          You can use any tools you like to help you complete the challenge. So
-          if you've got something you'd like to practice, feel free to give it a
-          go.
-        </p>
-        <p>
-          The only JavaScript you'll need for this challenge is to initiate the
-          share options when someone clicks the share icon.
-        </p>
+      {/*
+      <p>
+        You can use any tools you like to help you complete the challenge. So
+        if you've got something you'd like to practice, feel free to give it a
+        go.
+      </p>
+      <p>
+        The only JavaScript you'll need for this challenge is to initiate the
+        share options when someone clicks the share icon.
+      </p>
 
-        <p>Your users should be able to:</p>
+      <p>Your users should be able to:</p>
 
-        <ul>
-          <li>
-            View the optimal layout for the component depending on their
-            device's screen size
-          </li>
+      <ul>
+        <li>
+          View the optimal layout for the component depending on their
+          device's screen size
+        </li>
 
-          <li>
-            See the social media share links when they click the share icon
-          </li>
-        </ul>
+        <li>
+          See the social media share links when they click the share icon
+        </li>
+      </ul>
 
-        <p>
-          Download the starter code and go through the README.md file. This will
-          provide further details about the project. The style-guide.md file is
-          where you'll find colors, fonts, etc.
-        </p>
+      <p>
+        Download the starter code and go through the README.md file. This will
+        provide further details about the project. The style-guide.md file is
+        where you'll find colors, fonts, etc.
+      </p>
 
-        <p>
-          Want some support on the challenge? Join our Slack community and ask
-          questions in the help channel.
-        </p>
+      <p>
+        Want some support on the challenge? Join our Slack community and ask
+        questions in the help channel.
+      </p>
 
-      */}
+    */}
       <div className="cta_container">
         {/* <button classNameName="btn btn-outline-secondary">
-          Download starter files
-        </button> */}
+        Download starter files
+      </button> */}
         <Link
           to={`/dashboard/pending-task/submit/${id}`}
           className="btn btn-outline-primary mr-0"

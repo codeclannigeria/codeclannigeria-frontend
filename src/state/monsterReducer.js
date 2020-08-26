@@ -7,7 +7,7 @@ import { TaskReducer } from './tasks/tasksReducer';
 import { StagesReducer } from './stages/stagesReducer';
 
 const APIinitialState = {
-  error: '',
+  error: null,
 };
 
 function APIReducer(state = APIinitialState, action) {
@@ -34,6 +34,10 @@ const rootReducer = (state, action) => {
   if (action.type === 'API_ERROR') {
     // alert(action);
     state.API.error = action.payload;
+  }
+  if (action.type === 'API_SUCCESS') {
+    // alert(action);
+    state.API.error = null;
   }
 
   return MonsterReducer(state, action);
