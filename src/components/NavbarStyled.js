@@ -188,7 +188,8 @@ const StyledNav = styled.div`
       ul {
         display: flex;
         flex-direction: column;
-        li {
+        li,
+        .login-link {
           color: #fff;
           :hover {
             color: #dcd8d8;
