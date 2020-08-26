@@ -15,6 +15,10 @@ const HomepageStyled = styled.div`
     font-family: 'Font Awesome 5 Free';
   }
 
+  .fab {
+    font-family: 'Font Awesome 5 Brands';
+  }
+
   * {
     margin: 0;
     padding: 0;
@@ -60,8 +64,8 @@ const HomepageStyled = styled.div`
 
   .title {
     font-weight: bolder;
-    font-size: 64px;
-    padding: 0 0 0.8em 0;
+    font-size: 4rem;
+    padding: 0 0 0.8rem 0;
     line-height: 80px;
   }
 
@@ -72,8 +76,8 @@ const HomepageStyled = styled.div`
 
   .pic-hold div {
     display: inline-block;
-    width: 40em;
-    height: 25em;
+    width: 40rem;
+    height: 25rem;
     background-size: contain;
     background-image: url('./assets/images/5.jpg');
     background-blend-mode: hard-light;
@@ -82,11 +86,11 @@ const HomepageStyled = styled.div`
   }
 
   .body {
-    padding: 2em 0;
-    padding-top: 10em;
+    padding: 2rem 0;
+    padding-top: 10rem;
     display: flex;
     flex-wrap: wrap;
-    padding-bottom: 10em;
+    padding-bottom: 10rem;
   }
 
   .get-started {
@@ -99,31 +103,33 @@ const HomepageStyled = styled.div`
     outline: none;
     border: none;
     font-size: 18px;
-    margin-top: 1em;
+    margin-top: 1rem;
   }
 
   .section-2 {
-    padding-bottom: 5em;
+    padding-bottom: 5rem;
   }
 
   .section-2-title {
-    font-size: 64px;
+    font-size: 3rem;
     line-height: 79px;
     color: #1f59bb;
     font-weight: bold;
     text-align: center;
-    padding: 0.5em 5em;
+    padding: 0.5rem 5rem;
   }
 
   .collaboration {
     display: flex;
     flex-wrap: wrap;
+    padding: 0 2rem;
+    justify-content: space-between;
   }
 
   .text-title {
     color: #1f59bb;
     font-weight: 600;
-    width: 50%;
+    /* width: 50%; */
     font-size: 24px;
   }
 
@@ -131,21 +137,26 @@ const HomepageStyled = styled.div`
     text-align: right;
   }
 
+  .collab-text {
+    margin-top: 6rem;
+    margin-left: 6rem;
+  }
+
   /* third section */
 
   .section-3 {
-    padding: 5em 4em;
+    padding: 5rem 4rem;
     background-color: rgba(0, 68, 149, 0.2);
   }
   .section-3-title {
-    font-size: 64px;
+    font-size: 3rem;
     line-height: 79px;
     color: #1f59bb;
     font-weight: bolder;
   }
   .small-text {
     font-size: 36px;
-    margin-top: 1em;
+    margin-top: 1rem;
     color: #1f59bb;
   }
 
@@ -161,24 +172,24 @@ const HomepageStyled = styled.div`
     font-size: 18px;
     font-weight: 300;
     color: #747474;
-    margin-top: 0.5em;
+    margin-top: 0.5rem;
     line-height: 21px;
   }
 
   .absolute-pic {
     position: absolute;
-    top: -9em;
+    top: -9rem;
     right: 0;
-    padding: 0.5em;
+    padding: 0.5rem;
     background: white;
   }
 
   .section-4 {
-    padding: 5em 0;
+    padding: 5rem 0;
   }
 
   .section-4-title {
-    font-size: 64px;
+    font-size: 3rem;
     line-height: 79px;
     color: #1f59bb;
     font-weight: bolder;
@@ -203,14 +214,14 @@ const HomepageStyled = styled.div`
   }
 
   .full-padding {
-    padding: 2em 4em;
+    padding: 2rem 4rem;
   }
 
   .inner {
     display: inline-block;
     width: 30%;
-    margin-right: 2em;
-    margin-left: 2em;
+    margin-right: 2rem;
+    margin-left: 2rem;
     white-space: normal;
   }
 
@@ -241,7 +252,7 @@ const HomepageStyled = styled.div`
   .footer {
     background-color: #242424;
     color: white;
-    padding: 4em 2em;
+    padding: 4rem 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -261,7 +272,7 @@ const HomepageStyled = styled.div`
   }
 
   .norm {
-    padding: 4em;
+    padding: 4rem;
   }
 
   .teams {
@@ -274,9 +285,9 @@ const HomepageStyled = styled.div`
   }
   .teams .team {
     display: inline-block;
-    padding: 1em 1em;
+    padding: 1rem 1rem;
     margin-top: 5px;
-    width: 20em;
+    width: 20rem;
     background-color: #333333;
   }
 
@@ -288,12 +299,12 @@ const HomepageStyled = styled.div`
 
   .teams .head {
     display: block;
-    padding: 1em 2em;
-    margin: 1em 1em;
-    font-size: 2em;
+    padding: 1rem 2rem;
+    margin: 1rem 1rem;
+    font-size: 2rem;
   }
   .team .pic-space {
-    height: 15em;
+    height: 15rem;
     background: gray;
     border-radius: 4px;
   }
@@ -310,11 +321,11 @@ const HomepageStyled = styled.div`
   }
 
   .team .action {
-    padding: 1em;
+    padding: 1rem;
     font-weight: bold;
     color: #1f59bb;
     border-radius: 4px;
-    margin-top: 1em;
+    margin-top: 1rem;
     width: 100%;
     cursor: pointer;
     display: flex;
@@ -342,7 +353,7 @@ const HomepageStyled = styled.div`
   }
 
   .grey .details {
-    font-size: 1.5em;
+    font-size: 1.5rem;
   }
 
   .grey .date {
@@ -354,8 +365,8 @@ const HomepageStyled = styled.div`
   }
 
   .location {
-    font-size: 1em;
-    line-height: 1.5em;
+    font-size: 1rem;
+    line-height: 1.5rem;
   }
 
   .section-3-inner {
@@ -369,7 +380,7 @@ const HomepageStyled = styled.div`
 
   .major {
     font-size: 20px;
-    margin: 5em 10em;
+    margin: 5rem 10rem;
     text-align: center;
     line-height: 30px;
   }
@@ -379,7 +390,22 @@ const HomepageStyled = styled.div`
       width: auto;
       height: auto;
     }
+    .collab-image {
+      text-align: center;
+    }
 
+    .text-title {
+      width: 100%;
+    }
+
+    .collab-text {
+      margin: 0;
+      padding-left: 2rem;
+      width: auto;
+      font-size: 1.5rem;
+      padding-right: 1rem;
+      margin-top: 2rem;
+    }
     .pic img {
       width: 100%;
     }
@@ -391,25 +417,29 @@ const HomepageStyled = styled.div`
       padding: 20px;
     }
     .body {
-      padding: 1em;
+      padding: 1rem;
     }
     .pic-hold {
       display: none;
     }
     .title {
-      font-size: 2em;
-      text-align: center;
+      font-size: 2rem;
+      line-height: 38px;
+      text-align: left;
+    }
+    .subtitle {
+      font-size: 1.5rem;
     }
     .section-3,
     .section-4 {
-      padding: 2em 1em;
+      padding: 2rem 1rem;
     }
     .section-2-title,
     .section-3-title,
     .section-4-title {
-      font-size: 2em;
-      line-height: 1.5em;
-      padding: 0.5em;
+      font-size: 2rem;
+      line-height: unset;
+      padding: 0.5rem;
     }
     .collaboration: {
       display: block;
@@ -441,14 +471,14 @@ const HomepageStyled = styled.div`
       width: 100%;
     }
     .small-text {
-      font-size: 0.8em;
+      font-size: 1.5rem;
     }
     .common {
       width: 100%;
     }
     .major {
       font-size: 20px;
-      margin: 1em 2em;
+      margin: 1rem 2rem;
       text-align: center;
       line-height: 30px;
     }
