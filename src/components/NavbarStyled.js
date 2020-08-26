@@ -172,6 +172,10 @@ const StyledNav = styled.div`
           font-size: 1.5rem;
           margin: 18px 0;
           font-weight: bolder;
+          :hover {
+            color: #dcd8d8;
+            opacity: 0.5;
+          }
         }
       }
       /* background: #fff; */
@@ -186,11 +190,19 @@ const StyledNav = styled.div`
         flex-direction: column;
         li {
           color: #fff;
+          :hover {
+            color: #dcd8d8;
+            opacity: 0.5;
+          }
         }
         .mobile-button {
           border: 3px solid #fff;
           padding: 0.5rem;
           border-radius: 10px;
+          :hover {
+            border-color: #dcd8d8;
+            opacity: 0.5;
+          }
           a {
             color: #fff !important;
             font-weight: bolder;

@@ -58,7 +58,9 @@ function Navbar() {
               </div>
               <div>
                 <ul>
-                  <Link to="/team">Team</Link>
+                  <Link to="/team">
+                    <li>Team</li>
+                  </Link>
 
                   <a href="#">
                     <li>Events</li>
