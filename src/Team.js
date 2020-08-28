@@ -51,45 +51,15 @@ function Team() {
             />
 
             <TeamRep 
-              repName="Efereyan Karen" 
-              srcPhoto="https://res.cloudinary.com/codeclannigeria/image/upload/q_auto/v1598648131/CCN/Teams%20Page%20Photos/LifeWithKaren_doooxy.jpg"
-              profession="Frontend Developer" 
-              story=''
-              motto='' 
-              jobDescription=""
-              twitterProfile="https://twitter.com/EfereyanK"
-            
-            />
-
-            <TeamRep 
-              repName="Obamrevwo Ejiro Edwin" 
-              srcPhoto="https://res.cloudinary.com/codeclannigeria/image/upload/q_auto/v1598648043/CCN/Teams%20Page%20Photos/ejiro_wsrv6w.jpg"
+              repName="Fortune Ochi" 
+              srcPhoto="https://res.cloudinary.com/codeclannigeria/image/upload/q_auto/v1598648044/CCN/Teams%20Page%20Photos/fortune_xcb5jb.jpg"
               profession="Software Engineer" 
-              story='"Engineer with years of experience building scalable and performant applications. I have a strong experience in designing and building distributed systems using Service Oriented Architecture approach."'
-              motto='"Engineering  | Faith | Influence"' 
-              jobDescription="Golang, grpc, Docker, Google Cloud, Kubernetes, NATS, CircleCI, Terraform and go-micro, Nodejs" 
-              twitterProfile="https://twitter.com/edwin_ejiro"
-              githubProfile="https://github.com/Ejiro-Edwin"
-            />
-
-            <TeamRep 
-              repName="Ayodeji Olagbaiye" 
-              srcPhoto="https://res.cloudinary.com/codeclannigeria/image/upload/q_auto/v1598644858/CCN/deji_egmldb.jpg" 
-              profession="Product Designer" 
-              story='"Stumbled on Design and fell in love. We die here"'
-              motto='"Keep pushing"' 
-              jobDescription="Figma" 
-              twitterProfile="https://twitter.com/DejiNotDope"
-            />
-
-            <TeamRep 
-              repName="Onalo Deborah" 
-              srcPhoto="https://res.cloudinary.com/codeclannigeria/image/upload/q_auto/v1598648044/CCN/Teams%20Page%20Photos/deborah_ivljlf.jpg"
-              profession="User Interface and Experience Designer" 
-              story={' "I love designing simple elegant and engaging interfaces and experiences for everyone. Sometimes, I wear the white coat and play Pharmacist." '}
-              motto=' "Design is intelligence made visible." -- Alina Wheeler, author.  ' 
-              jobDescription={' UX-UI Designers are generally responsible for collecting, researching, investigating and evaluating user requirements. Their responsibility is to deliver an outstanding user experience providing an exceptional and intuitive application design. Majority of the work was done with Figma. '}
-              twitterProfile="https://twitter.com/deborah_oa"
+              story=' "5+ years experience working as a software engineer" '
+              motto={'"I\'m obsessed with quality🏆"'} 
+              jobDescription="Nodejs, Asp.Net, Angular, ReactJs, Java" 
+              twitterProfile="https://twitter.com"
+              facebookProfile="https://facebook.com"
+              githubProfile="https://github.com"
             />
 
             <TeamRep 
@@ -105,6 +75,16 @@ function Team() {
             />
 
             <TeamRep 
+              repName="Onalo Deborah" 
+              srcPhoto="https://res.cloudinary.com/codeclannigeria/image/upload/q_auto/v1598648044/CCN/Teams%20Page%20Photos/deborah_ivljlf.jpg"
+              profession="User Interface and Experience Designer" 
+              story={' "I love designing simple elegant and engaging interfaces and experiences for everyone. Sometimes, I wear the white coat and play Pharmacist." '}
+              motto=' "Design is intelligence made visible." -- Alina Wheeler, author.  ' 
+              jobDescription={' UX-UI Designers are generally responsible for collecting, researching, investigating and evaluating user requirements. Their responsibility is to deliver an outstanding user experience providing an exceptional and intuitive application design. Majority of the work was done with Figma. '}
+              twitterProfile="https://twitter.com/deborah_oa"
+            />
+
+            <TeamRep 
               repName="Ngozi Kalu" 
               srcPhoto="https://res.cloudinary.com/codeclannigeria/image/upload/q_auto/v1598648053/CCN/Teams%20Page%20Photos/ngozi_oztovc.jpg"
               profession="Backend Developer" 
@@ -115,15 +95,56 @@ function Team() {
             />
 
             <TeamRep 
-              repName="Adebayo Oluwaseun" 
-              srcPhoto="https://res.cloudinary.com/codeclannigeria/image/upload/q_auto/v1598648097/CCN/Teams%20Page%20Photos/seunbayo_zfzfuy.jpg" 
-              profession="Fullstack Developer " 
-              story=' "I am passionate about solving problems, developing innovative products geared toward simplifying &amp; Improving life. " '
-              motto=' "If you can imagine it,we can bring it to Life" ' 
-              jobDescription="Html, Css, javascript, Vue, NodeJs, mongoDb, git"
-              twitterProfile="https://twitter.com/seunbayoNg"
-              facebookProfile="https://facebook.com/seunbayong"
-              githubProfile="https://github.com/seunbayo"
+              repName="John Ademola" 
+              srcPhoto="https://res.cloudinary.com/codeclannigeria/image/upload/q_auto/v1598648051/CCN/Teams%20Page%20Photos/john_uuuslr.jpg"
+              profession="Software Developer" 
+              story=''
+              motto='' 
+              jobDescription="" 
+              twitterProfile="https://twitter.com/crownedprinz"
+              facebookProfile="https://facebook.com/dmola kunle"
+            />
+
+            <TeamRep 
+              repName="Ayodeji Olagbaiye" 
+              srcPhoto="https://res.cloudinary.com/codeclannigeria/image/upload/q_auto/v1598644858/CCN/deji_egmldb.jpg" 
+              profession="Product Designer" 
+              story='"Stumbled on Design and fell in love. We die here"'
+              motto='"Keep pushing"' 
+              jobDescription="Figma" 
+              twitterProfile="https://twitter.com/DejiNotDope"
+            />
+
+            <TeamRep 
+              repName="Mukaila Semiu" 
+              srcPhoto="https://res.cloudinary.com/codeclannigeria/image/upload/q_auto/v1598648053/CCN/Teams%20Page%20Photos/semiu_w7edkh.jpg"
+              profession="Frontend Developer" 
+              story=' "I am Mukaila Semiu, I started my programming  journey with Code Clan Nigeria with a team trained By the founder himself Temi Ajiboye Jan2020Mentorship. I now a frontend developer." '
+              motto=' "Learn everyday to developer the brain" ' 
+              jobDescription="HTML, CSS, Bootstrap, Vanilla JavaScript and Reactjs" 
+              twitterProfile="https://twitter.com/semiteagain"
+              facebookProfile="https://web.facebook.com/Semiteagain"
+            />
+
+            <TeamRep 
+              repName="Daniel Owoyomi" 
+              srcPhoto="https://res.cloudinary.com/codeclannigeria/image/upload/q_auto/v1598648043/CCN/Teams%20Page%20Photos/daegee_mtozdt.jpg"
+              profession="Frontend Developer" 
+              story=' "Life is less difficult with simple and user-friendly solutions" '
+              motto=' "Simplicity is the biggest sophistication" ' 
+              jobDescription="HTML, CSS, JavaScript, React" 
+              twitterProfile="https://twitter.com/daegee_o"
+              githubProfile="https://github.com/daegee"
+            />
+
+            <TeamRep 
+              repName="Efereyan Karen" 
+              srcPhoto="https://res.cloudinary.com/codeclannigeria/image/upload/q_auto/v1598648131/CCN/Teams%20Page%20Photos/LifeWithKaren_doooxy.jpg"
+              profession="Frontend Developer" 
+              story=''
+              motto='' 
+              jobDescription=""
+              twitterProfile="https://twitter.com/EfereyanK"
             />
 
             <TeamRep 
@@ -139,26 +160,13 @@ function Team() {
             />
 
             <TeamRep 
-              repName="Daniel Owoyomi" 
-              srcPhoto="https://res.cloudinary.com/codeclannigeria/image/upload/q_auto/v1598648043/CCN/Teams%20Page%20Photos/daegee_mtozdt.jpg"
-              profession="Frontend Developer" 
-              story=' "Life is less difficult with simple and user-friendly solutions" '
-              motto=' "Simplicity is the biggest sophistication" ' 
-              jobDescription="HTML, CSS, JavaScript, React" 
-              twitterProfile="https://twitter.com/daegee_o"
-              githubProfile="https://github.com/daegee"
-            />
-
-            <TeamRep 
-              repName="Fortune Ochi" 
-              srcPhoto="https://res.cloudinary.com/codeclannigeria/image/upload/q_auto/v1598648044/CCN/Teams%20Page%20Photos/fortune_xcb5jb.jpg"
-              profession="Software Engineer" 
-              story=' "5+ years experience working as a software engineer" '
-              motto={'"I\'m obsessed with quality🏆"'} 
-              jobDescription="Nodejs, Asp.Net, Angular, ReactJs, Java" 
-              twitterProfile="https://twitter.com"
-              facebookProfile="https://facebook.com"
-              githubProfile="https://github.com"
+              repName="Ofordile Oluchi Jennifer Kisha" 
+              srcPhoto="https://res.cloudinary.com/codeclannigeria/image/upload/q_auto/v1598648046/CCN/Teams%20Page%20Photos/kisha_fzwect.jpg"
+              profession="Nurse and Frontend Developer" 
+              story=' "I love programming because it helps me give life to designs..It helps me connect with amazing people and contribute my quota to tech." '
+              motto=' "Success is your duty, your responsibility, and your obligation...Own it!" ' 
+              jobDescription=" Web design, Adobe Photoshop, HTML5, CSS3, Corel and many others..." 
+              twitterProfile="https://twitter.com/codewithkisha"
             />
 
             <TeamRep 
@@ -171,28 +179,29 @@ function Team() {
               twitterProfile="https://twitter.com"
               facebookProfile="https://facebook.com"
               githubProfile="https://github.com"
+            /> 
+
+            <TeamRep 
+              repName="Adebayo Oluwaseun" 
+              srcPhoto="https://res.cloudinary.com/codeclannigeria/image/upload/q_auto/v1598648097/CCN/Teams%20Page%20Photos/seunbayo_zfzfuy.jpg" 
+              profession="Fullstack Developer " 
+              story=' "I am passionate about solving problems, developing innovative products geared toward simplifying &amp; Improving life. " '
+              motto=' "If you can imagine it,we can bring it to Life" ' 
+              jobDescription="Html, Css, javascript, Vue, NodeJs, mongoDb, git"
+              twitterProfile="https://twitter.com/seunbayoNg"
+              facebookProfile="https://facebook.com/seunbayong"
+              githubProfile="https://github.com/seunbayo"
             />
 
             <TeamRep 
-              repName="John Ademola" 
-              srcPhoto="https://res.cloudinary.com/codeclannigeria/image/upload/q_auto/v1598648051/CCN/Teams%20Page%20Photos/john_uuuslr.jpg"
-              profession="Software Developer" 
-              story=''
-              motto='' 
-              jobDescription="" 
-              twitterProfile="https://twitter.com/crownedprinz"
-              facebookProfile="https://facebook.com/dmola kunle"
-            />
-
-            
-            <TeamRep 
-              repName="Ofordile Oluchi Jennifer Kisha" 
-              srcPhoto="https://res.cloudinary.com/codeclannigeria/image/upload/q_auto/v1598648046/CCN/Teams%20Page%20Photos/kisha_fzwect.jpg"
-              profession="Nurse and Frontend Developer" 
-              story=' "I love programming because it helps me give life to designs..It helps me connect with amazing people and contribute my quota to tech." '
-              motto=' "Success is your duty, your responsibility, and your obligation...Own it!" ' 
-              jobDescription=" Web design, Adobe Photoshop, HTML5, CSS3, Corel and many others..." 
-              twitterProfile="https://twitter.com/codewithkisha"
+              repName="John Odey" 
+              srcPhoto="https://res.cloudinary.com/codeclannigeria/image/upload/q_auto/v1598648048/CCN/Teams%20Page%20Photos/johnOdey_di0pxp.jpg"
+              profession="Fullstack Developer @Creative Intelligence Group" 
+              story=' "I’m a passionate and believe that impossible is nothing. I strive daily to be world-class developer. Working on projects that helps solve real problems excites me." '
+              motto=' “First, solve the problem. Then, write the code.” – John Johnson ' 
+              jobDescription="Javascript, Vue, Nuxt, Laravel" 
+              twitterProfile="https://twitter.com/jon_odey0"
+              facebookProfile="https://www.facebook.com/john.odey1/"
             />
 
             <TeamRep 
@@ -206,25 +215,14 @@ function Team() {
             />
 
             <TeamRep 
-              repName="Mukaila Semiu" 
-              srcPhoto="https://res.cloudinary.com/codeclannigeria/image/upload/q_auto/v1598648053/CCN/Teams%20Page%20Photos/semiu_w7edkh.jpg"
-              profession="Frontend Developer" 
-              story=' "I am Mukaila Semiu, I started my programming  journey with Code Clan Nigeria with a team trained By the founder himself Temi Ajiboye Jan2020Mentorship. I now a frontend developer." '
-              motto=' "Learn everyday to developer the brain" ' 
-              jobDescription="HTML, CSS, Bootstrap, Vanilla JavaScript and Reactjs" 
-              twitterProfile="https://twitter.com/semiteagain"
-              facebookProfile="https://web.facebook.com/Semiteagain"
-            />
-
-            <TeamRep 
-              repName="John Odey" 
-              srcPhoto="https://res.cloudinary.com/codeclannigeria/image/upload/q_auto/v1598648048/CCN/Teams%20Page%20Photos/johnOdey_di0pxp.jpg"
-              profession="Fullstack Developer @Creative Intelligence Group" 
-              story=' "I’m a passionate and believe that impossible is nothing. I strive daily to be world-class developer. Working on projects that helps solve real problems excites me." '
-              motto=' “First, solve the problem. Then, write the code.” – John Johnson ' 
-              jobDescription="Javascript, Vue, Nuxt, Laravel" 
-              twitterProfile="https://twitter.com/jon_odey0"
-              facebookProfile="https://www.facebook.com/john.odey1/"
+              repName="Obamrevwo Ejiro Edwin" 
+              srcPhoto="https://res.cloudinary.com/codeclannigeria/image/upload/q_auto/v1598648043/CCN/Teams%20Page%20Photos/ejiro_wsrv6w.jpg"
+              profession="Software Engineer" 
+              story='"Engineer with years of experience building scalable and performant applications. I have a strong experience in designing and building distributed systems using Service Oriented Architecture approach."'
+              motto='"Engineering  | Faith | Influence"' 
+              jobDescription="Golang, grpc, Docker, Google Cloud, Kubernetes, NATS, CircleCI, Terraform and go-micro, Nodejs" 
+              twitterProfile="https://twitter.com/edwin_ejiro"
+              githubProfile="https://github.com/Ejiro-Edwin"
             />
                 
                 
