@@ -84,7 +84,7 @@ function Team() {
             srcPhoto={rammytunde}
             profession="Fullstack Developer"
             story={
-              ' "I\'m a full stack Developer and Computer Engineering undergraduate with passion for building excellent softwares. With 2 years of experience, and a track record of meeting aggressive goals." '
+              "I'm a full-stack developer and Computer Engineering undergraduate with a passion for building excellent software. With two years of experience, and a track record of meeting aggressive goals."
             }
             motto={
               ' "Don\'t let negativity affect your vision. A lot of people have said harsh things, but I don\'t let it affect me." '
