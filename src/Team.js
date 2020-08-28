@@ -140,6 +140,17 @@ function Team() {
           />
 
           <TeamRep
+            repName="Mukaila Semiu"
+            srcPhoto={semiu}
+            profession="Frontend Developer"
+            story=' "I am Mukaila Semiu, I started my programming  journey with Code Clan Nigeria with a team trained By the founder himself Temi Ajiboye Jan2020Mentorship. I now a frontend developer." '
+            motto=' "Learn everyday to developer the brain" '
+            jobDescription="HTML, CSS, Bootstrap, Vanilla JavaScript and Reactjs"
+            twitterProfile="https://twitter.com/semiteagain"
+            facebookProfile="https://web.facebook.com/Semiteagain"
+          />
+
+          <TeamRep
             repName="Daniel Owoyomi"
             srcPhoto={daegee}
             profession="Frontend Developer"
@@ -160,39 +171,6 @@ function Team() {
           />
 
           <TeamRep
-            repName="Ofordile Oluchi Jennifer Kisha"
-            srcPhoto={kisha}
-            profession="Nurse and Frontend Developer"
-            story=' "I love programming because it helps me give life to designs..It helps me connect with amazing people and contribute my quota to tech." '
-            motto=' "Success is your duty, your responsibility, and your obligation...Own it!" '
-            jobDescription=" Web design, Adobe Photoshop, HTML5, CSS3, Corel and many others..."
-            twitterProfile="https://twitter.com/codewithkisha"
-          />
-
-          <TeamRep
-            repName="Adebayo Oluwaseun"
-            srcPhoto={seunbayo}
-            profession="Fullstack Developer "
-            story=' "I am passionate about solving problems, developing innovative products geared toward simplifying &amp; Improving life. " '
-            motto=' "If you can imagine it,we can bring it to Life" '
-            jobDescription="Html, Css, javascript, Vue, NodeJs, mongoDb, git"
-            twitterProfile="https://twitter.com/seunbayoNg"
-            facebookProfile="https://facebook.com/seunbayong"
-            githubProfile="https://github.com/seunbayo"
-          />
-
-          <TeamRep
-            repName="Mukaila Semiu"
-            srcPhoto={semiu}
-            profession="Frontend Developer"
-            story=' "I am Mukaila Semiu, I started my programming  journey with Code Clan Nigeria with a team trained By the founder himself Temi Ajiboye Jan2020Mentorship. I now a frontend developer." '
-            motto=' "Learn everyday to developer the brain" '
-            jobDescription="HTML, CSS, Bootstrap, Vanilla JavaScript and Reactjs"
-            twitterProfile="https://twitter.com/semiteagain"
-            facebookProfile="https://web.facebook.com/Semiteagain"
-          />
-
-          <TeamRep
             repName="Ajolore Emmanuel Babatunde"
             srcPhoto={emmriz}
             profession="Frontend Developer"
@@ -205,6 +183,16 @@ function Team() {
           />
 
           <TeamRep
+            repName="Ofordile Oluchi Jennifer Kisha"
+            srcPhoto={kisha}
+            profession="Nurse and Frontend Developer"
+            story=' "I love programming because it helps me give life to designs..It helps me connect with amazing people and contribute my quota to tech." '
+            motto=' "Success is your duty, your responsibility, and your obligation...Own it!" '
+            jobDescription=" Web design, Adobe Photoshop, HTML5, CSS3, Corel and many others..."
+            twitterProfile="https://twitter.com/codewithkisha"
+          />
+
+          <TeamRep
             repName="Oluwafemi Anjorin"
             srcPhoto={femi}
             profession="Fullstack Developer"
@@ -214,6 +202,18 @@ function Team() {
             twitterProfile="https://twitter.com"
             facebookProfile="https://facebook.com"
             githubProfile="https://github.com"
+          />
+
+          <TeamRep
+            repName="Adebayo Oluwaseun"
+            srcPhoto={seunbayo}
+            profession="Fullstack Developer "
+            story=' "I am passionate about solving problems, developing innovative products geared toward simplifying &amp; Improving life. " '
+            motto=' "If you can imagine it,we can bring it to Life" '
+            jobDescription="Html, Css, javascript, Vue, NodeJs, mongoDb, git"
+            twitterProfile="https://twitter.com/seunbayoNg"
+            facebookProfile="https://facebook.com/seunbayong"
+            githubProfile="https://github.com/seunbayo"
           />
           <TeamRep
             repName="John Odey"
