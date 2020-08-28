@@ -51,7 +51,10 @@ function MentorDashboardSidebar({ showSidebar, authLogoutApi, path }) {
   ];
   return (
     <MentorDashboardSidebarStyled showSidebar={showSidebar}>
-      <img src={codeClanLogo} alt="code clan" className="img-fluid" />
+      <Link to="/">
+        <img src={codeClanLogo} alt="code clan" className="img-fluid" />
+      </Link>
+
       <ul>
         <li className="main-menu-link">
           <DashboardBulletLogo />{' '}
