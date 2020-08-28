@@ -389,7 +389,7 @@ header ul li {
 }
 
 .head {
-  color: #A4031F;
+  color: #fff;
 }
 
 .teams .head {

@@ -2,27 +2,23 @@ import React from 'react';
 import StyledTeam from './TeamStyled';
 import groupSession from './components/assets/image/homepage/groupSession.jpg';
 import Navbar from './components/Navbar';
-import Footer from'./components/Footer';
+import Footer from './components/Footer';
 import TeamRep from './TeamRep';
-
 
 function Team() {
   return (
     <StyledTeam>
-
       <Navbar />
 
       <div className="norm">
-        <div className="body" style={{ paddingBottom: 1 + 'em'}}>
+        <div className="body" style={{ paddingBottom: 1 + 'em' }}>
           <div className="sorround">
-            <div className="title">
-              Meet our team
-            </div>
+            <div className="title">Meet our team</div>
 
             <div>
-              Choose any of the teams you'd like to be a part of. There are different categories and different spheres just for you.
+              Choose any of the teams you'd like to be a part of. There are
+              different categories and different spheres just for you.
             </div>
-
           </div>
 
           <div className="pic-hold">
@@ -38,9 +34,7 @@ function Team() {
       </div>
 
       <div className="teams">
-        <div className="head">
-          Teams
-        </div>
+        <div className="head">Teams</div>
 
         <div className="team-shell">
           
@@ -238,10 +232,8 @@ function Team() {
 
         <Footer />
       </div>
-
-
     </StyledTeam>
-  )
+  );
 }
 
 export default Team;

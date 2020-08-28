@@ -50,8 +50,9 @@ function DashboardSidebar({ showSidebar, tabs, path, authLogoutApi }) {
           ,
         </ul>
       </nav> */}
-
-      <img src={codeClanLogo} alt="code clan" className="img-fluid" />
+      <Link to="/">
+        <img src={codeClanLogo} alt="code clan" className="img-fluid" />
+      </Link>
       <ul>
         <li className="main-menu-link">
           <DashboardBulletLogo /> <Link to="/dashboard/"> Dashboard</Link>
