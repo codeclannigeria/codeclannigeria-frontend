@@ -61,15 +61,15 @@ function Navbar() {
                     <li>Team</li>
                   </Link>
 
-                  <a href="#">
+                  <Link to="/events">
                     <li>Events</li>
-                  </a>
-                  <a href="#">
+                  </Link>
+                  <Link to="/about">
                     <li>About</li>
-                  </a>
-                  <a href="#">
+                  </Link>
+                  <Link to="/contactus">
                     <li>Contact Us</li>
-                  </a>
+                  </Link>
                 </ul>
               </div>
               <div className="menu sign mobile-sign">

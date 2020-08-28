@@ -1,24 +1,6 @@
 import React from 'react';
 import StyledTeam from './TeamStyled';
 import groupSession from './components/assets/image/homepage/groupSession.jpg';
-import teamMember from './components/assets/image/team/teamMember.jpg';
-import tayormi from './components/assets/image/team/tayormi.jpg';
-import femi from './components/assets/image/team/femi.jfif';
-import fortune from './components/assets/image/team/fortune.jfif';
-import LifeWithKaren from './components/assets/image/team/LifeWithKaren.jpg';
-import rammytunde from './components/assets/image/team/rammytunde.jpg';
-import deborah from './components/assets/image/team/deborah.jpg';
-import deji from './components/assets/image/team/deji.jpg';
-import emmriz from './components/assets/image/team/emmriz.jpg';
-import ngozi from './components/assets/image/team/ngozi.jpeg';
-import ejiro from './components/assets/image/team/ejiro.jpg';
-import seunbayo from './components/assets/image/team/seunbayo.jpg';
-import daegee from './components/assets/image/team/daegee.jpeg';
-import john from './components/assets/image/team/john.jpg';
-import kisha from './components/assets/image/team/kisha.jpeg';
-import bayonle from './components/assets/image/team/bayonle.jpg';
-import semiu from './components/assets/image/team/semiu.jpg';
-import johnOdey from './components/assets/image/team/johnOdey.jpg';
 import Navbar from './components/Navbar';
 import Footer from'./components/Footer';
 import TeamRep from './TeamRep';
@@ -64,7 +46,8 @@ function Team() {
           
             <TeamRep 
               repName="Ajiboye Temitope Tayomi" 
-              srcPhoto={tayormi} profession="Founder, Code Clan" 
+              srcPhoto="https://res.cloudinary.com/codeclannigeria/image/upload/q_auto/v1598648073/CCN/Teams%20Page%20Photos/tayormi_eisz58.jpg" 
+              profession="Founder, Code Clan" 
               story=' "Tayomi is the founder of Code Clan Nigeria, a community dedicated to turning beginners into pro developers. He is also a Developer with experience building enterprise mobile and web apps." '
               motto=' "Do not be afraid to fail" ' 
               jobDescription=" Dot Net, Node, Angular, Flutter"
@@ -75,7 +58,7 @@ function Team() {
 
             <TeamRep 
               repName="Efereyan Karen" 
-              srcPhoto={LifeWithKaren} 
+              srcPhoto="https://res.cloudinary.com/codeclannigeria/image/upload/q_auto/v1598648131/CCN/Teams%20Page%20Photos/LifeWithKaren_doooxy.jpg"
               profession="Frontend Developer" 
               story=''
               motto='' 
@@ -86,7 +69,7 @@ function Team() {
 
             <TeamRep 
               repName="Obamrevwo Ejiro Edwin" 
-              srcPhoto={ejiro} 
+              srcPhoto="https://res.cloudinary.com/codeclannigeria/image/upload/q_auto/v1598648043/CCN/Teams%20Page%20Photos/ejiro_wsrv6w.jpg"
               profession="Software Engineer" 
               story='"Engineer with years of experience building scalable and performant applications. I have a strong experience in designing and building distributed systems using Service Oriented Architecture approach."'
               motto='"Engineering  | Faith | Influence"' 
@@ -97,7 +80,7 @@ function Team() {
 
             <TeamRep 
               repName="Ayodeji Olagbaiye" 
-              srcPhoto={deji} 
+              srcPhoto="https://res.cloudinary.com/codeclannigeria/image/upload/q_auto/v1598644858/CCN/deji_egmldb.jpg" 
               profession="Product Designer" 
               story='"Stumbled on Design and fell in love. We die here"'
               motto='"Keep pushing"' 
@@ -107,7 +90,7 @@ function Team() {
 
             <TeamRep 
               repName="Onalo Deborah" 
-              srcPhoto={deborah} 
+              srcPhoto="https://res.cloudinary.com/codeclannigeria/image/upload/q_auto/v1598648044/CCN/Teams%20Page%20Photos/deborah_ivljlf.jpg"
               profession="User Interface and Experience Designer" 
               story={' "I love designing simple elegant and engaging interfaces and experiences for everyone. Sometimes, I wear the white coat and play Pharmacist." '}
               motto=' "Design is intelligence made visible." -- Alina Wheeler, author.  ' 
@@ -117,7 +100,7 @@ function Team() {
 
             <TeamRep 
               repName="Onasanya Babatunde" 
-              srcPhoto={rammytunde} 
+              srcPhoto="https://res.cloudinary.com/codeclannigeria/image/upload/q_auto/v1598648075/CCN/Teams%20Page%20Photos/rammytunde_v9srev.jpg"
               profession="Fullstack Developer" 
               story={' "I\'m a full stack Developer and Computer Engineering undergraduate with passion for building excellent softwares. With 2 years of experience, and a track record of meeting aggressive goals." '}
               motto={' "Don\'t let negativity affect your vision. A lot of people have said harsh things, but I don\'t let it affect me." '} 
@@ -129,7 +112,7 @@ function Team() {
 
             <TeamRep 
               repName="Ngozi Kalu" 
-              srcPhoto={ngozi} 
+              srcPhoto="https://res.cloudinary.com/codeclannigeria/image/upload/q_auto/v1598648053/CCN/Teams%20Page%20Photos/ngozi_oztovc.jpg"
               profession="Backend Developer" 
               story=''
               motto='' 
@@ -139,7 +122,7 @@ function Team() {
 
             <TeamRep 
               repName="Adebayo Oluwaseun" 
-              srcPhoto={seunbayo} 
+              srcPhoto="https://res.cloudinary.com/codeclannigeria/image/upload/q_auto/v1598648097/CCN/Teams%20Page%20Photos/seunbayo_zfzfuy.jpg" 
               profession="Fullstack Developer " 
               story=' "I am passionate about solving problems, developing innovative products geared toward simplifying &amp; Improving life. " '
               motto=' "If you can imagine it,we can bring it to Life" ' 
@@ -151,7 +134,7 @@ function Team() {
 
             <TeamRep 
               repName="Ajolore Emmanuel Babatunde" 
-              srcPhoto={emmriz} 
+              srcPhoto="https://res.cloudinary.com/codeclannigeria/image/upload/q_auto/v1598648137/CCN/Teams%20Page%20Photos/emmriz_slp5pv.jpg" 
               profession="Frontend Developer" 
               story=' "A result-driven, and analytical front-end developer who can think “out of the box”, Strong in design and integrated problem-solving skills." '
               motto=' "The beauty of life does not depend on how happy you are alone but also how happy others can be because of you." ' 
@@ -163,7 +146,7 @@ function Team() {
 
             <TeamRep 
               repName="Daniel Owoyomi" 
-              srcPhoto={daegee} 
+              srcPhoto="https://res.cloudinary.com/codeclannigeria/image/upload/q_auto/v1598648043/CCN/Teams%20Page%20Photos/daegee_mtozdt.jpg"
               profession="Frontend Developer" 
               story=' "Life is less difficult with simple and user-friendly solutions" '
               motto=' "Simplicity is the biggest sophistication" ' 
@@ -174,7 +157,7 @@ function Team() {
 
             <TeamRep 
               repName="Fortune Ochi" 
-              srcPhoto={fortune} 
+              srcPhoto="https://res.cloudinary.com/codeclannigeria/image/upload/q_auto/v1598648044/CCN/Teams%20Page%20Photos/fortune_xcb5jb.jpg"
               profession="Software Engineer" 
               story=' "5+ years experience working as a software engineer" '
               motto={'"I\'m obsessed with quality🏆"'} 
@@ -186,7 +169,7 @@ function Team() {
 
             <TeamRep 
               repName="Oluwafemi Anjorin" 
-              srcPhoto={femi} 
+              srcPhoto="https://res.cloudinary.com/codeclannigeria/image/upload/q_auto/v1598648044/CCN/Teams%20Page%20Photos/femi_uqhnew.jpg"
               profession="Fullstack Developer" 
               story='"Full Stack Developer with experience building web applications using JavaScript, including extensive experience managing cross-functional teams. Committed to making impact to the community."'
               motto='"Ad astra per aspera"' 
@@ -198,7 +181,7 @@ function Team() {
 
             <TeamRep 
               repName="John Ademola" 
-              srcPhoto={john} 
+              srcPhoto="https://res.cloudinary.com/codeclannigeria/image/upload/q_auto/v1598648051/CCN/Teams%20Page%20Photos/john_uuuslr.jpg"
               profession="Software Developer" 
               story=''
               motto='' 
@@ -210,7 +193,7 @@ function Team() {
             
             <TeamRep 
               repName="Ofordile Oluchi Jennifer Kisha" 
-              srcPhoto={kisha} 
+              srcPhoto="https://res.cloudinary.com/codeclannigeria/image/upload/q_auto/v1598648046/CCN/Teams%20Page%20Photos/kisha_fzwect.jpg"
               profession="Nurse and Frontend Developer" 
               story=' "I love programming because it helps me give life to designs..It helps me connect with amazing people and contribute my quota to tech." '
               motto=' "Success is your duty, your responsibility, and your obligation...Own it!" ' 
@@ -220,7 +203,7 @@ function Team() {
 
             <TeamRep 
               repName="Olanrewaju Bayonle Kayode" 
-              srcPhoto={bayonle} 
+              srcPhoto="https://res.cloudinary.com/codeclannigeria/image/upload/q_auto/v1598648045/CCN/Teams%20Page%20Photos/bayonle_okydvj.jpg"
               profession="Software Developer" 
               story=''
               motto='' 
@@ -230,7 +213,7 @@ function Team() {
 
             <TeamRep 
               repName="Mukaila Semiu" 
-              srcPhoto={semiu} 
+              srcPhoto="https://res.cloudinary.com/codeclannigeria/image/upload/q_auto/v1598648053/CCN/Teams%20Page%20Photos/semiu_w7edkh.jpg"
               profession="Frontend Developer" 
               story=' "I am Mukaila Semiu, I started my programming  journey with Code Clan Nigeria with a team trained By the founder himself Temi Ajiboye Jan2020Mentorship. I now a frontend developer." '
               motto=' "Learn everyday to developer the brain" ' 
@@ -241,7 +224,7 @@ function Team() {
 
             <TeamRep 
               repName="John Odey" 
-              srcPhoto={johnOdey} 
+              srcPhoto="https://res.cloudinary.com/codeclannigeria/image/upload/q_auto/v1598648048/CCN/Teams%20Page%20Photos/johnOdey_di0pxp.jpg"
               profession="Fullstack Developer @Creative Intelligence Group" 
               story=' "I’m a passionate and believe that impossible is nothing. I strive daily to be world-class developer. Working on projects that helps solve real problems excites me." '
               motto=' “First, solve the problem. Then, write the code.” – John Johnson ' 
