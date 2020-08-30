@@ -15,9 +15,8 @@ function EmailConfirmationSent({ forgotPass }) {
             <h2>You have gotten a mail!</h2>
             <p>
               We have just sent you verification link to the email you provided.
-              Go to your mail to access the link and complete your{' '}
-              {forgotPass ? 'request' : ' signup'}. Ensure you check your spam
-              folder as well.
+              Go to your mail to access the link and complete your request.
+              Ensure you check your spam folder as well.
             </p>
             {/* <EmailSent className="img-fluid mx-auto" /> */}
             <span>
