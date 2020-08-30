@@ -1,26 +1,58 @@
 import styled from 'styled-components';
 
 const ForgotPasswordStyled = styled.div`
-    .display {
-    height:200px;
-    background: #1F59BB;;
-  }
-  
   .form-container {
-    position:absolute;
-    padding:30px;
-    background:#ffffff;
-    color:#1F59BB;
-    box-shadow:0px 1px 3px rgba(53,151,245,0.2);
+    padding: 30px;
+    background: #ffffff;
+    color: #1f59bb;
+    align-self: center;
+    box-shadow: 0px 1px 3px rgba(53, 151, 245, 0.2);
   }
-  .form-control  {
-    background:rgba(53,151,245,0.05);
+  .form-control {
+    background: rgba(53, 151, 245, 0.05);
   }
-  
+
+  .image-container {
+    align-self: center;
+    justify-self: center;
+    align-self: center;
+    justify-self: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .submit {
+    text-transform: capitalize;
+    text-align: center;
+    color: #fff;
+    width: 100%;
+    background-color: ${props => props.theme.primaryColor};
+    border: transparent;
+    padding: 0.5rem 0;
+    border-radius: 5px;
+  }
   .btn {
-    background:#1f59bb;
+    background: #1f59bb;
   }
-  
-`
+
+  .title {
+    font-size: 2.4em;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .normal {
+    margin-top: 0;
+    padding-left: 3em;
+    line-height: 1.4em;
+    padding-top: 0.5em;
+    font-weight: bold;
+    color: #555555;
+    text-align: center;
+
+    /* font-size: 2em; */
+  }
+`;
 
 export default ForgotPasswordStyled;

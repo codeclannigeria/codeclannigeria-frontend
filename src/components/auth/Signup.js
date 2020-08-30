@@ -10,10 +10,10 @@ import * as Yup from 'yup';
 import codeClanLogo from '../assets/image/codeClanLogo.png';
 import Spinner from 'react-bootstrap/Spinner';
 import loginAmico from '../assets/image/auth/login.jpg';
-import { notification } from 'antd';
+import { notification, message } from 'antd';
 import checkAuth from '../../helpers/CheckAuth';
 
-function Signup({ register, loading, errResponse, token, history }) {
+function Signup({ register, loading, error, errResponse, token, history }) {
   const dispatch = useDispatch();
   const passwordRef = useRef();
   const confirmPasswordRef = useRef();
@@ -34,6 +34,7 @@ function Signup({ register, loading, errResponse, token, history }) {
       description: 'Kindly check your email for further instructions',
     });
   };
+
   useEffect(() => {
     if (checkAuth()) {
       history.push('/dashboard');
@@ -46,6 +47,12 @@ function Signup({ register, loading, errResponse, token, history }) {
       history.push('/email-verification-sent/');
     }
   }, [token, history, dispatch]);
+
+  useEffect(() => {
+    if (error) {
+      message.error(errResponse);
+    }
+  }, [error, errResponse]);
 
   const errorClassNames = 'border input border-danger';
   const validClassNames = 'border input border-green';
@@ -108,7 +115,7 @@ function Signup({ register, loading, errResponse, token, history }) {
                 </div>
                 <div class="titles"> Create your account </div>
                 <Form>
-                  <AlertComponent variant="danger" text={errResponse} />
+                  {/* <AlertComponent variant="danger" text={errResponse} /> */}
                   <label htmlFor="firstName">
                     First Name <span class="text-danger">*</span>
                   </label>
