@@ -72,6 +72,34 @@ export const authLogoutApi = () => {
   };
 };
 
+export const fogetPasswordRequestAction = emailObj => {
+  const { email } = emailObj;
+  return dispatch => {
+    dispatch({ type: types.AUTH_START });
+    const token_data = {
+      email,
+      clientBaseUrl: 'https://www.codeclannigeria.dev/reset-password',
+      tokenParamName: 'token',
+      emailParamName: 'email',
+    };
+    return axios
+      .post(`${apiURL}/send-password-reset-token`, token_data)
+      .then(res => {
+        dispatch({ type: types.AUTH_SUCCESS, payload: { token: true } });
+      })
+      .catch(err => {
+        const error_msg = err.response
+          ? err.response.data.message
+          : 'An error occured';
+
+        dispatch({
+          type: types.AUTH_FAILURE,
+          payload: error_msg,
+        });
+      });
+  };
+};
+
 export const authSendEmailConfirmationToken = data => {
   return axios
     .post(`${apiURL}/send-email-confirmation-token`, data)

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import ForgotPasswordStyled from './ForgotPasswordStyled';
 // import { authPass } from "../../state/auth/authActionCreator"
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 // import { validateEmail } from "./utils"
 // import { Link } from "react-router-dom"
 import { Formik, Field, Form, ErrorMessage } from 'formik';
@@ -10,16 +10,13 @@ import * as Yup from 'yup';
 import ForgotPasswordImage from '../assets/image/auth/forgot_password.png';
 import Navbar from '../Navbar';
 import { Link } from 'react-router-dom';
+import { fogetPasswordRequestAction } from '../../state/auth/authActionCreator';
+import Spinner from 'react-bootstrap/Spinner';
 
-function ForgotPassword({
-  authPass,
-  loading,
-  error,
-  errResponse,
-  token,
-  history,
-}) {
+function ForgotPassword({}) {
   const dispatch = useDispatch();
+  const authState = useSelector(state => state.auth);
+  const { loading, error, errResponse, token } = authState;
 
   const errorClassNames = 'border input border-danger';
   const validClassNames = 'border input border-green';
@@ -44,7 +41,7 @@ function ForgotPassword({
             .required('Enter your email address'),
         })}
         onSubmit={(values, { setSubmitting }) => {
-          alert(values);
+          dispatch(fogetPasswordRequestAction(values));
         }}
       >
         {({ errors, touched, isSubmitting }) => (
@@ -86,9 +83,18 @@ function ForgotPassword({
                       </div>
                       <button
                         type="submit"
-                        className="btn btn-primary w-100 border-3"
+                        disabled={loading}
+                        className={
+                          loading ? 'btn btn-primary w-100 border-3' : 'submit'
+                        }
                       >
-                        Submit
+                        {!loading ? (
+                          'Submit'
+                        ) : (
+                          <span className="text-small">
+                            <Spinner animation="border" variant="primary" />
+                          </span>
+                        )}
                       </button>
                       <Link className="text-decoration-none" to="/login">
                         <p className="text-center mt-5">

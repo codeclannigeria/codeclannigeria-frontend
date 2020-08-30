@@ -22,7 +22,16 @@ const ForgotPasswordStyled = styled.div`
     align-items: center;
     flex-direction: column;
   }
-
+  .submit {
+    text-transform: capitalize;
+    text-align: center;
+    color: #fff;
+    width: 100%;
+    background-color: ${props => props.theme.primaryColor};
+    border: transparent;
+    padding: 0.5rem 0;
+    border-radius: 5px;
+  }
   .btn {
     background: #1f59bb;
   }
