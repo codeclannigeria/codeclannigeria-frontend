@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 // import { validateEmail } from "./utils"
 // import { Link } from "react-router-dom"
 import { Formik, Field, Form, ErrorMessage } from 'formik';
-import { message } from 'antd';
+import { message, notification } from 'antd';
 import * as Yup from 'yup';
 import ForgotPasswordImage from '../assets/image/auth/forgot_password.png';
 import Navbar from '../Navbar';
@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom';
 import { fogetPasswordRequestAction } from '../../state/auth/authActionCreator';
 import Spinner from 'react-bootstrap/Spinner';
 
-function ForgotPassword({}) {
+function ForgotPassword({ history }) {
   const dispatch = useDispatch();
   const authState = useSelector(state => state.auth);
   const { loading, error, errResponse, token } = authState;
@@ -24,6 +24,19 @@ function ForgotPassword({}) {
     dispatch({ type: 'AUTH_RESET' });
   }, [dispatch]);
 
+  const openNotification = () => {
+    notification.success({
+      message: 'Request Successful',
+      description: 'Kindly check your email for further instructions',
+    });
+  };
+
+  useEffect(() => {
+    if (token) {
+      openNotification();
+      history.push('/email-verification-sent/');
+    }
+  }, [token, history, dispatch]);
   useEffect(() => {
     if (error) {
       message.error(errResponse);
