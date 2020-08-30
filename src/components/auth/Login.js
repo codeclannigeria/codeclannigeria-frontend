@@ -130,18 +130,17 @@ function LoginForm({ authLogin, loading, error, errResponse, token, history }) {
                   <div className="d-block text-monospace text-danger small-text">
                     <ErrorMessage name="password" className="d-block" />
                   </div>
-                  {/* <div className="form-con">
-                    <div className="checkbox-container">
+                  <div className="form-con">
+                    {/* <div className="checkbox-container">
                       <input
                         type="checkbox"
                         className="regular-checkbox"
                         name="checked"
                       />
                       <span> Remember me </span>
-                    </div>
-                    <Link to="/forgotpass">forgot password ?</Link>
-                    <br />
-                  </div> */}
+                    </div> */}
+                    <Link to="/forgot-password">Forgot password ?</Link>
+                  </div>
                   <button
                     disabled={loading}
                     className={loading ? 'btn btn-light w-100' : 'submit'}

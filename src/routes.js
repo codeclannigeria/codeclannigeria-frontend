@@ -27,6 +27,7 @@ import MentorUserProfile from './components/MentorDashbord/Profile/MentorUserPro
 import MenteeUserProfile from './components/MenteeDashboard/userProfile/MenteeUserProfile';
 import SubmissionList from './components/MentorDashbord/Mentees/SubmissionList';
 import MissingPage from './components/error/404';
+import ResetPassword from './components/auth/ResetPassword';
 
 const checkAuth = () => {
   const token = localStorage.getItem('codeclan_token');
@@ -125,6 +126,7 @@ export const BaseRouter = () => (
     <Route path="/email-verification-sent/" component={EmailConfirmationSent} />
     <Route path="/confirm-email/" component={ConfirmEmail} />
     <Route path="/forgot-password" component={ForgotPassword} />
+    <Route path="/reset-password" component={ResetPassword} />
     <Route path="/team" component={Team} />
     <Route path="/events" component={Events} />
     <Route path="/about" component={About} />

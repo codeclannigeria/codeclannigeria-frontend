@@ -148,12 +148,12 @@ const LoginStyled = styled.div`
   }
 
   .form-con {
-    padding: 10px 0 20px 0;
-    margin-top: -1.5%;
+    /* padding: 10px 0 0 0; */
+    /* margin-top: -1.5%; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: end;
   }
 
   .form-con input {

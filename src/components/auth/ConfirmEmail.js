@@ -20,7 +20,6 @@ function ConfirmEmail(props) {
 
     const token = queryValues.token || undefined;
     const email = queryValues.email || undefined;
-    console.log(token, email);
 
     if (!token && !email) {
       setError(true);
@@ -42,7 +41,6 @@ function ConfirmEmail(props) {
         setError(true);
         setLoading(false);
       });
-    // eslint-disable-next-line
   }, []);
 
   if (loading) {

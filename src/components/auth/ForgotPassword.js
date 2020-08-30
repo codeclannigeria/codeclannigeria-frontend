@@ -1,13 +1,9 @@
 import React, { useEffect } from 'react';
 import ForgotPasswordStyled from './ForgotPasswordStyled';
-// import { authPass } from "../../state/auth/authActionCreator"
 import { useDispatch, useSelector } from 'react-redux';
-// import { validateEmail } from "./utils"
-// import { Link } from "react-router-dom"
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import { message, notification } from 'antd';
 import * as Yup from 'yup';
-import ForgotPasswordImage from '../assets/image/auth/forgot_password.png';
 import Navbar from '../Navbar';
 import { Link } from 'react-router-dom';
 import { fogetPasswordRequestAction } from '../../state/auth/authActionCreator';

@@ -100,6 +100,28 @@ export const fogetPasswordRequestAction = emailObj => {
   };
 };
 
+export const resetPasswordRequestAction = userData => {
+  return dispatch => {
+    dispatch({ type: types.AUTH_START });
+
+    return axios
+      .post(`${apiURL}/reset-password`, userData)
+      .then(res => {
+        dispatch({ type: types.AUTH_SUCCESS, payload: { token: true } });
+      })
+      .catch(err => {
+        const error_msg = err.response
+          ? err.response.data.message
+          : 'An error occured';
+
+        dispatch({
+          type: types.AUTH_FAILURE,
+          payload: error_msg,
+        });
+      });
+  };
+};
+
 export const authSendEmailConfirmationToken = data => {
   return axios
     .post(`${apiURL}/send-email-confirmation-token`, data)
