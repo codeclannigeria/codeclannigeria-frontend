@@ -21,7 +21,6 @@ import PendingTasksPage from './components/MenteeDashboard/pendingTask/PendingTa
 import TaskBrief from './components/MenteeDashboard/pendingTask/TaskBrief/TaskBrief';
 import SingleCoursePage from './components/MenteeDashboard/stages/SingleCoursePage';
 
-
 import MenteeList from './components/MentorDashbord/Mentees/MenteeList';
 import MenteeProfile from './components/MentorDashbord/Mentees/MenteeProfile';
 import MentorUserProfile from './components/MentorDashbord/Profile/MentorUserProfile';
@@ -125,7 +124,7 @@ export const BaseRouter = () => (
     <Route path="/form/" component={SignupForm} />
     <Route path="/email-verification-sent/" component={EmailConfirmationSent} />
     <Route path="/confirm-email/" component={ConfirmEmail} />
-    <Route path="/forgotpass" component={ForgotPassword} />
+    <Route path="/forgot-password" component={ForgotPassword} />
     <Route path="/team" component={Team} />
     <Route path="/events" component={Events} />
     <Route path="/about" component={About} />
