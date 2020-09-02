@@ -17,7 +17,7 @@ function SinglePendingTask({ data, track }) {
         <div className="task-box">
           <div className="task-details w-50">
             <Link
-              className="task-name"
+              className="task-name font-weight-bold"
               to={{
                 pathname: `/dashboard/pending-task/${id}`,
                 query: { data },
