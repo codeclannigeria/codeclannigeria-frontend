@@ -47,6 +47,9 @@ const MentorDashboardSidebarStyled = styled.div`
   img {
     margin: 0 auto;
     padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .main-menu-link {
