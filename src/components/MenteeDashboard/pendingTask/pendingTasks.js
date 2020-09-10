@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import SinglePendingTask from './singlePendingTask';
 import { Pagination } from 'antd';
 
-function PendingTasks({ tasksData, track }) {
+function PendingTasks({ tasksData, track, completed, taskTableHeader }) {
   // const dummyData = [
   //   {
   //     id: 1,
@@ -46,15 +46,16 @@ function PendingTasks({ tasksData, track }) {
   const indexOfFirstCard = indexOfLastCard - cardPerPage;
 
   const paginate = pageNumber => setCurrentPage(pageNumber);
-  const currentTasks = tasksData
-    ? tasksData.items.slice(indexOfFirstCard, indexOfLastCard)
-    : null;
+  const currentTasks =
+    tasksData && tasksData.items
+      ? tasksData.items.slice(indexOfFirstCard, indexOfLastCard)
+      : null;
 
   return (
     <PendingTaskStyled>
       <div className="pending-tasks-wrap">
         <div className="header">
-          <p className="">Tasks</p>
+          <p className="">{taskTableHeader}</p>
         </div>
 
         <div className="solid-bar"></div>
@@ -62,7 +63,12 @@ function PendingTasks({ tasksData, track }) {
         <div className="pending-tasks">
           {currentTasks ? (
             currentTasks.map((data, idx) => (
-              <SinglePendingTask key={idx} data={data} track={track} />
+              <SinglePendingTask
+                key={idx}
+                data={data}
+                track={track}
+                completed={completed}
+              />
             ))
           ) : (
             <p className="ml-2">No task yet</p>

@@ -24,7 +24,7 @@ export const GradingModal = ({ visible, onCancel, onCreate, taskId }) => {
     }
   }, [dispatch, taskId, visible]);
 
-  const task = useSelector(state => state.tasks.menteeSubmittedTask);
+  const task = useSelector(state => state.tasks.singleMenteeSubmittedTask);
 
   return (
     <>

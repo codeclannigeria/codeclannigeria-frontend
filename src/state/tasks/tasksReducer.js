@@ -7,8 +7,9 @@ const initialState = {
   errResponse: '',
   singleTask: null,
   taskSubmit: '',
+  menteeSubmittedTasks: null,
   mentorTasks: null,
-  menteeSubmittedTask: { loading: null, data: null },
+  singleMenteeSubmittedTask: { loading: null, data: null },
 };
 
 export function TaskReducer(state = initialState, action) {
@@ -19,7 +20,7 @@ export function TaskReducer(state = initialState, action) {
         loading: true,
         error: false,
         errResponse: '',
-        menteeSubmittedTask: { loading: false, data: null },
+        singleMenteeSubmittedTask: { loading: false, data: null },
       };
 
     case types.TASKS_SUCCESS:
@@ -32,12 +33,21 @@ export function TaskReducer(state = initialState, action) {
         menteeSubmittedTask: { loading: false },
         data: action.payload,
       };
+    case types.MENTEE_SUBMITTED_TASKS_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        error: false,
+        errResponse: '',
+        singleMenteeSubmittedTask: { loading: false },
+        menteeSubmittedTasks: action.payload,
+      };
     case types.MENTOR_SUBMISSIONS:
       return {
         ...state,
         error: false,
         loading: false,
-        menteeSubmittedTask: { loading: false },
+        singleMenteeSubmittedTask: { loading: false },
         errResponse: '',
         mentorTasks: action.payload,
       };
@@ -56,7 +66,7 @@ export function TaskReducer(state = initialState, action) {
         error: false,
         loading: false,
         errResponse: '',
-        menteeSubmittedTask: { loading: false, data: action.payload },
+        singleMenteeSubmittedTask: { loading: false, data: action.payload },
       };
     case types.GET_MENTEE_TASK_SUBMISSION_FAILURE:
       return {
@@ -64,17 +74,32 @@ export function TaskReducer(state = initialState, action) {
         error: false,
         loading: false,
         errResponse: '',
-        menteeSubmittedTask: { loading: false, data: null },
+        singleMenteeSubmittedTask: { loading: false, data: null },
       };
 
     case types.SUBMIT_TASK:
+      const newPendingTasks = state.data.items
+        .slice()
+        .filter(task => task.id !== action.payload);
+      const submittedTask = state.data.items
+        .slice()
+        .filter(task => task.id === action.payload);
+      const newCompletedTasks = [
+        ...state.menteeSubmittedTasks.items,
+        submittedTask[0],
+      ];
       return {
         ...state,
         loading: false,
-        menteeSubmittedTask: { loading: false },
+        singleMenteeSubmittedTask: { loading: false },
         error: false,
         errResponse: '',
         taskSubmit: 'success',
+        data: { items: newPendingTasks, totalCount: newPendingTasks.length },
+        menteeSubmittedTasks: {
+          items: newCompletedTasks,
+          totalCount: newCompletedTasks.length,
+        },
       };
 
     case types.GRADE_TASK:
@@ -82,7 +107,7 @@ export function TaskReducer(state = initialState, action) {
         ...state,
         loading: false,
         error: false,
-        menteeSubmittedTask: { loading: false },
+        singleMenteeSubmittedTask: { loading: false },
         errResponse: '',
         gradeTask: 'success',
       };
@@ -92,7 +117,7 @@ export function TaskReducer(state = initialState, action) {
         ...state,
         loading: false,
         error: false,
-        menteeSubmittedTask: { loading: false },
+        singleMenteeSubmittedTask: { loading: false },
         errResponse: '',
         singleTask: action.payload,
       };
@@ -102,7 +127,7 @@ export function TaskReducer(state = initialState, action) {
         ...state,
         loading: false,
         error: true,
-        menteeSubmittedTask: { loading: false },
+        singleMenteeSubmittedTask: { loading: false },
 
         errResponse: action.payload,
       };
@@ -111,7 +136,7 @@ export function TaskReducer(state = initialState, action) {
         ...state,
         loading: false,
         error: false,
-        menteeSubmittedTask: { loading: false },
+        singleMenteeSubmittedTask: { loading: false },
 
         errResponse: '',
       };

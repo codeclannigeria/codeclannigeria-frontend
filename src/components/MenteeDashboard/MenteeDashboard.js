@@ -7,7 +7,7 @@ import newspaper from '../assets/image/dashboard/newspaper.png';
 import DashboardLayout from '../common/DashboardLayout';
 import PendingTasks from './pendingTask/pendingTasks';
 import WelcomeAlert from './WelcomeAlert';
-import { Progress } from 'antd';
+import { Spin } from 'antd';
 import TrackEnroll from './tracks/TrackEnroll';
 
 import { connect } from 'react-redux';
@@ -24,6 +24,7 @@ function Dashboard({
   tasksData,
   history,
   mentor,
+  taskLoading,
   getUserMentorProfileApi,
 }) {
   const [showTracksEnrollModal, setshowTracksEnrollModal] = useState();
@@ -112,7 +113,10 @@ function Dashboard({
               <img className="img-fluid" alt="contents" src={newspaper} />
             </div>
             <h6 className="card-subtitle">
-              <span>{tasksData ? tasksData.totalCount : 0}</span>
+              <span>
+                {tasksData ? tasksData.totalCount : null}{' '}
+                {taskLoading ? <Spin /> : null}
+              </span>
               <p>Pending Task</p>
             </h6>
           </div>
@@ -138,6 +142,7 @@ function Dashboard({
           <PendingTasks
             tasksData={tasksData}
             track={userData.tracks[0].title}
+            taskTableHeader={'Pending Tasks'}
           />
         ) : null}{' '}
       </div>
@@ -154,7 +159,7 @@ const mapStateToProps = store => {
     mentor,
   } = store.user;
 
-  const { data: tasksData } = store.tasks;
+  const { data: tasksData, loading: taskLoading } = store.tasks;
   return {
     userLoading,
     userData,
@@ -162,6 +167,7 @@ const mapStateToProps = store => {
     errResponse,
     mentor,
     tasksData,
+    taskLoading,
   };
 };
 
