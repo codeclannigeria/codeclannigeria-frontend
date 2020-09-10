@@ -75,7 +75,7 @@ function SubmitTask(props) {
                     url: Yup.string()
                       .url('Enter a valid URL')
                       .required('Enter the URL you wish to submit'),
-                    comments: Yup.string(),
+                    comments: Yup.string().min(15),
                   })}
                   onSubmit={(values, { setSubmitting }) => {
                     const { url, comments } = values;
