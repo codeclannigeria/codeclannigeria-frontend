@@ -85,8 +85,8 @@ export function TaskReducer(state = initialState, action) {
         .slice()
         .filter(task => task.id === action.payload);
       const newCompletedTasks = [
-        ...state.menteeSubmittedTasks.items.slice(),
-        submittedTask,
+        ...state.menteeSubmittedTasks.items,
+        submittedTask[0],
       ];
       return {
         ...state,
@@ -98,7 +98,7 @@ export function TaskReducer(state = initialState, action) {
         data: { items: newPendingTasks, totalCount: newPendingTasks.length },
         menteeSubmittedTasks: {
           items: newCompletedTasks,
-          totalCount: newCompletedTasks,
+          totalCount: newCompletedTasks.length,
         },
       };
 

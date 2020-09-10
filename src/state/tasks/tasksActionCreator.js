@@ -80,6 +80,7 @@ export const getSingleTaskAction = id => {
 export const submitTaskAction = (taskId, url, comments) => {
   return dispatch => {
     dispatch({ type: types.TASKS_START });
+
     return codeClanApi
       .post(`/tasks/${taskId}/submissions`, {
         menteeComment: comments,
