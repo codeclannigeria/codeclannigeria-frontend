@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Button } from 'antd';
 import { GradingModal } from './GradingModal';
 
-function SinglePendingTask({ data, track }) {
+function SinglePendingTask({ data, track, completed }) {
   const { title, deadline, id } = data;
   const [visible, setVisible] = useState();
 
@@ -29,7 +29,9 @@ function SinglePendingTask({ data, track }) {
           </div>
           <div className="task-deadline ">
             <p>Deadline: {new Date(deadline).toUTCString()}</p>
-            <Button onClick={() => setVisible(true)}>Grading</Button>
+            {completed ? (
+              <Button onClick={() => setVisible(true)}>Grading</Button>
+            ) : null}
           </div>
           <GradingModal visible={visible} taskId={id} onCancel={onCancel} />
         </div>

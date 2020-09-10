@@ -12,7 +12,8 @@ function PendingTasksPage() {
   const dispatch = useDispatch();
   useEffect(() => {
     if (!tasksState.data) {
-      if (user.data.tracks && user.data.tracks.length > 1) {
+      console.log(user);
+      if (user.data.tracks && user.data.tracks.length > 0) {
         dispatch(getAllTasksAction(user.data.tracks[0].id));
       }
     }
@@ -24,11 +25,25 @@ function PendingTasksPage() {
   // }
   return (
     <>
-      {tasksState.data ? (
-        <PendingTasks tasksData={tasksState.data} />
+      {tasksState.data && !tasksState.loading ? (
+        <>
+          <PendingTasks
+            tasksData={tasksState.data}
+            taskTableHeader={'Pending Tasks'}
+          />
+        </>
       ) : (
         <p>No tasks yet!!</p>
       )}
+
+      {tasksState.menteeSubmittedTasks &&
+      tasksState.menteeSubmittedTasks.items ? (
+        <PendingTasks
+          tasksData={tasksState.menteeSubmittedTasks}
+          completed={true}
+          taskTableHeader={'Completed Tasks'}
+        />
+      ) : null}
 
       {tasksState.loading ? <CustomLoader /> : null}
     </>

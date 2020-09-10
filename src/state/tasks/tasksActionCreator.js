@@ -2,14 +2,44 @@ import * as types from './tasksActionTypes';
 import codeClanApi from '../../api/apiUtils';
 
 export const getAllTasksAction = trackId => {
-  return dispatch => {
+  return async dispatch => {
     dispatch({ type: types.TASKS_START });
     return codeClanApi
       .get('/tasks')
       .then(res => {
         const tasks = res.data.items.filter(task => task.track === trackId);
-        const tasksObj = { items: tasks, totalCount: tasks.length };
-        dispatch({ type: types.TASKS_SUCCESS, payload: tasksObj });
+        const submittedTasksUnfiltered = async () => {
+          return Promise.all(tasks.map(task => checkTaskSubmission(task)));
+        };
+        // const submittedTasks = submittedTasksUnfiltered().then(
+        //   res => res !== undefined
+        // );
+        const submittedTasks = submittedTasksUnfiltered()
+          .then(res => {
+            return res.filter(task => task !== undefined);
+          })
+          .then(submitted => {
+            const unsubmittedTasks = tasks.filter(
+              ({ id: id1 }) => !submitted.some(({ id: id2 }) => id2 === id1)
+            );
+            console.log(tasks);
+            console.log(submitted);
+            const tasksObj = {
+              items: unsubmittedTasks,
+              totalCount: unsubmittedTasks.length,
+            };
+            const submittedTasksObj = {
+              items: submitted,
+              totalCount: submitted.length,
+            };
+            dispatch({
+              type: types.MENTEE_SUBMITTED_TASKS_SUCCESS,
+              payload: submittedTasksObj,
+            });
+            dispatch({ type: types.TASKS_SUCCESS, payload: tasksObj });
+          });
+
+        // console.log(submittedTasks());
 
         // history.push(`/dashboard`)
       })
@@ -56,7 +86,8 @@ export const submitTaskAction = (taskId, url, comments) => {
         taskUrl: url,
       })
       .then(res => {
-        dispatch({ type: types.SUBMIT_TASK });
+        dispatch({ type: types.SUBMIT_TASK, payload: taskId });
+        // dispatch(getAllTasksAction())
       })
       .catch(err => {
         const error_msg = err.response
@@ -111,6 +142,17 @@ export const gradeTaskAction = data => {
         });
       });
   };
+};
+
+export const checkTaskSubmission = async task => {
+  try {
+    const res = await codeClanApi.get(`tasks/${task.id}/submissions`);
+    if (res.data.totalCount > 0) {
+      return task;
+    }
+  } catch (err) {
+    throw err;
+  }
 };
 
 export const getTaskSubmissionAction = taskId => {
