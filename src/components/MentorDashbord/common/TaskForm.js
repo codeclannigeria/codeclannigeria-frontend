@@ -72,7 +72,7 @@ function TaskForm({
             <TextArea rows={4} readOnly />
           </Form.Item>
           <Form.Item name="mentorComment" label="Your Comment">
-            <TextArea rows={4} readOnly />
+            <TextArea rows={4} />
           </Form.Item>
           <Form.Item name="gradePercentage" label="Grade percentage">
             <Input type="number" prefix="%" />
