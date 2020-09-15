@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { connect, useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Modal from 'antd/lib/modal/Modal';
 import { Descriptions } from 'antd';
 import { getTaskSubmissionAction } from '../../../state/tasks/tasksActionCreator';
@@ -37,20 +37,18 @@ export const GradingModal = ({ visible, onCancel, onCreate, taskId }) => {
             bordered={true}
             // column={{ xxl: 4, xl: 3, lg: 3, md: 3, sm: 2, xs: 1 }}
           >
-            <Descriptions.Item label="Task Id">
-              #{task.data.items[0].id}
-            </Descriptions.Item>
+            <Descriptions.Item label="Task Id">#{task.id}</Descriptions.Item>
             <Descriptions.Item label="Task Url">
-              <a href={task.items[0].taskUrl}>{task.data.items[0].taskUrl}</a>
+              <a href={task.data.taskUrl}>{task.data.taskUrl}</a>
             </Descriptions.Item>
             <Descriptions.Item label="Grade %">
-              {task.data.items[0].gradePercentage} %
+              {task.data.gradePercentage} %
             </Descriptions.Item>
             <Descriptions.Item label="Your Comment" span={3}>
-              {task.data.items[0].menteeComment}
+              {task.data.menteeComment}
             </Descriptions.Item>
             <Descriptions.Item label="Mentor Comment" span={3}>
-              {task.data.items[0].mentorComment}
+              {task.data.mentorComment}
             </Descriptions.Item>
           </Descriptions>
         ) : null}
