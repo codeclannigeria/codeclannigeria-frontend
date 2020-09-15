@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Modal, Form, Input, message, Typography } from 'antd';
+import { Modal, Form, Input, message, InputNumber } from 'antd';
 import { connect } from 'react-redux';
 import { gradeTaskAction } from '../../../state/tasks/tasksActionCreator';
 const { TextArea } = Input;
@@ -52,7 +52,8 @@ function TaskForm({
             .validateFields()
             .then(values => {
               form.resetFields();
-              onCreate(values);
+
+              onCreate(values, initialData);
             })
             .catch(info => {
               console.log('Validate Failed:', info);
@@ -71,11 +72,38 @@ function TaskForm({
           <Form.Item name="menteeComment" label="Mentee Comment">
             <TextArea rows={4} readOnly />
           </Form.Item>
-          <Form.Item name="mentorComment" label="Your Comment">
+          <Form.Item
+            name="mentorComment"
+            label="Your Comment"
+            rules={[
+              {
+                required: true,
+                message: 'Please input your comment',
+              },
+            ]}
+          >
             <TextArea rows={4} />
           </Form.Item>
-          <Form.Item name="gradePercentage" label="Grade percentage">
-            <Input type="number" prefix="%" />
+          <Form.Item
+            name="gradePercentage"
+            label="Grade percentage"
+            rules={[
+              {
+                required: true,
+                message: 'Please enter a grade',
+              },
+            ]}
+          >
+            <InputNumber
+              defaultValue={0}
+              min={0}
+              max={100}
+              formatter={value => `${value}%`}
+              parser={value => value.replace('%', '')}
+            />
+          </Form.Item>
+          <Form.Item name="id">
+            <Input type="hidden" />
           </Form.Item>
         </Form>
       </Modal>
