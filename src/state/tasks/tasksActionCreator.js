@@ -166,7 +166,7 @@ export const getTaskSubmissionAction = taskId => {
       .then(res => {
         dispatch({
           type: types.GET_MENTEE_TASK_SUBMISSION_SUCCESS,
-          payload: res.data,
+          payload: res.data.items[0],
         });
       })
       .catch(err => {
