@@ -24,14 +24,14 @@ function MenteeList({ mentees, userData, history, getUserMenteesProfileApi }) {
       title: 'Last Name',
       dataIndex: 'lastName',
     },
-    // {
-    //   title: 'Track',
-    //   dataIndex: 'tracks',
-    //   render: (text, record) =>
-    //     record.tracks && record.tracks.length > 1
-    //       ? record.tracks[0].title
-    //       : 'Not Enrolled Yet',
-    // },
+    {
+      title: 'Track',
+      dataIndex: 'tracks',
+      render: (text, record) =>
+        record.tracks && record.tracks.length > 0
+          ? record.tracks[0].title
+          : 'Not Enrolled Yet',
+    },
   ];
   const data = [
     {

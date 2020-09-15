@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Table, Space, Button } from 'antd';
 import MentorDashboardLayout from '../MentorDashboardHOC';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import {
   getAllMentorSubmissions,
@@ -21,7 +20,11 @@ function SubmissionList({
   const [visible, setVisible] = useState();
   const [currentRecord, setCurrentRecord] = useState();
 
-  const onCreate = values => {
+  const onCreate = (values, initialData) => {
+    delete values.taskUrl;
+    delete values.menteeComment;
+    values.id = initialData.id;
+    console.log(values);
     gradeTaskAction(values);
   };
 
@@ -29,6 +32,7 @@ function SubmissionList({
     setVisible(false);
   };
   const handleModalVisiblity = record => {
+    console.log({ record });
     setCurrentRecord(record);
     setVisible(true);
   };

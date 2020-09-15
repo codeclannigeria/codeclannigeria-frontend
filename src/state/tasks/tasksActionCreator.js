@@ -127,8 +127,10 @@ export const getAllMentorSubmissions = () => {
 export const gradeTaskAction = data => {
   return dispatch => {
     dispatch({ type: types.TASKS_START });
+    const id = data.id;
+    delete data.id;
     return codeClanApi
-      .post(`/mentors/grade/${data.taskId}/`, data)
+      .post(`/mentors/grade/${id}/`, data)
       .then(res => {
         dispatch({ type: types.GRADE_TASK });
       })
