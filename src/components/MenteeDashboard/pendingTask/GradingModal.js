@@ -38,19 +38,19 @@ export const GradingModal = ({ visible, onCancel, onCreate, taskId }) => {
             // column={{ xxl: 4, xl: 3, lg: 3, md: 3, sm: 2, xs: 1 }}
           >
             <Descriptions.Item label="Task Id">
-              #{task.data.id}
+              #{task.data.items[0].id}
             </Descriptions.Item>
             <Descriptions.Item label="Task Url">
-              <a href={task.taskUrl}>{task.data.taskUrl}</a>
+              <a href={task.items[0].taskUrl}>{task.data.items[0].taskUrl}</a>
             </Descriptions.Item>
             <Descriptions.Item label="Grade %">
-              {task.data.gradePercentage} %
+              {task.data.items[0].gradePercentage} %
             </Descriptions.Item>
             <Descriptions.Item label="Your Comment" span={3}>
-              {task.data.menteeComment}
+              {task.data.items[0].menteeComment}
             </Descriptions.Item>
             <Descriptions.Item label="Mentor Comment" span={3}>
-              {task.data.mentorComment}
+              {task.data.items[0].mentorComment}
             </Descriptions.Item>
           </Descriptions>
         ) : null}

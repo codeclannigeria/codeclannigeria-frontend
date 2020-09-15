@@ -23,10 +23,6 @@ function TaskForm({
   };
 
   useEffect(() => {
-    console.log(initialData);
-  }, []);
-
-  useEffect(() => {
     if (error) {
       message.error(errResponse);
     }
