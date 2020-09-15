@@ -24,7 +24,6 @@ function SubmissionList({
     delete values.taskUrl;
     delete values.menteeComment;
     values.id = initialData.id;
-    console.log(values);
     gradeTaskAction(values);
   };
 
@@ -32,7 +31,6 @@ function SubmissionList({
     setVisible(false);
   };
   const handleModalVisiblity = record => {
-    console.log({ record });
     setCurrentRecord(record);
     setVisible(true);
   };
