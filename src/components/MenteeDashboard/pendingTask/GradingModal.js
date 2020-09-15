@@ -37,7 +37,9 @@ export const GradingModal = ({ visible, onCancel, onCreate, taskId }) => {
             bordered={true}
             // column={{ xxl: 4, xl: 3, lg: 3, md: 3, sm: 2, xs: 1 }}
           >
-            <Descriptions.Item label="Task Id">#{task.id}</Descriptions.Item>
+            <Descriptions.Item label="Task Id">
+              #{task.data.id}
+            </Descriptions.Item>
             <Descriptions.Item label="Task Url">
               <a href={task.data.taskUrl}>{task.data.taskUrl}</a>
             </Descriptions.Item>
