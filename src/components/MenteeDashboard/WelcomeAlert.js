@@ -42,9 +42,17 @@ function WelcomeAlert({ user, enroll, visible, loading }) {
                 clans in each of Nigeria city.
               </p>
               <small>
-                *Start your journey with CodeClan by enrolling in a track
+                *Start your journey with CodeClan by enrolling in a track and
+                joining the{' '}
+                <a href="https://communityinviter.com/apps/codeclannigeria/codeclannigeria">
+                  Slack channel
+                </a>
               </small>
             </div>
+
+            {/* <div>
+              <button>Join our Slack Channel</button>
+            </div> */}
 
             {tracks && tracks.length >= 1 ? (
               <span
