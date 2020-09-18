@@ -42,27 +42,37 @@ function WelcomeAlert({ user, enroll, visible, loading }) {
                 clans in each of Nigeria city.
               </p>
               <small>
-                *Start your journey with CodeClan by enrolling in a track
+                *Start your journey with CodeClan by enrolling in a track and
+                joining the Slack channel
               </small>
             </div>
 
-            {tracks && tracks.length >= 1 ? (
-              <span
-                id="close__user__info"
-                onClick={() => setShowMessage(false)}
+            <div className="d-flex w-100 justify-content-end mr-3">
+              <a
+                className="btn slack__btn btn-primary mr-2"
+                href="https://communityinviter.com/apps/codeclannigeria/codeclannigeria"
               >
-                x
-              </span>
-            ) : (
-              <div className="get__started col-lg-4 col-md-4 col-sm-8 d-flex align-items-end">
-                <button
-                  className="btn btn-block btn-primary mr-5"
-                  onClick={() => enroll()}
+                Join our Slack Channel
+              </a>
+
+              {tracks && tracks.length >= 1 ? (
+                <span
+                  id="close__user__info"
+                  onClick={() => setShowMessage(false)}
                 >
-                  Enroll Now
-                </button>
-              </div>
-            )}
+                  x
+                </span>
+              ) : (
+                <div className="get__started">
+                  <button
+                    className="btn btn-small btn-warning"
+                    onClick={() => enroll()}
+                  >
+                    Enroll Now
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </CSSTransition>

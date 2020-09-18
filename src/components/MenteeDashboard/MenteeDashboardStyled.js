@@ -43,6 +43,13 @@ export const DashboardStyled = styled.div`
     padding-left: 2rem;
   }
   .get__started > button {
+    /* background: rgba(255, 255, 255, 0.25); */
+    border-radius: 8px;
+    border: none;
+    padding: 0.5rem 2rem;
+  }
+
+  .slack__btn {
     background: rgba(255, 255, 255, 0.25);
     border-radius: 8px;
     border: none;
