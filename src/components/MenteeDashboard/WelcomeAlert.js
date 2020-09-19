@@ -36,10 +36,17 @@ function WelcomeAlert({ user, enroll, visible, loading }) {
                   <Spin />
                 )}
               </p>
-              <p>
-                Welcome to CodeClan Nigeria, Our goal is to turn 500+ people
-                into developers every 3 months. To achieve this, we are creating
-                clans in each of Nigeria city.
+              <p style={{ fontSize: '0.9rem' }}>
+                You are adviced to send an email or a WhatsApp message to your
+                mentor requesting to be added to your respective track channel
+                on Slack. You can see your mentor information on the portal when
+                you click on the mentor Tab.{' '}
+              </p>
+              <p style={{ fontSize: '0.9rem' }}>
+                It's important you do this so we don't drop you from the
+                program. We have started to take measures on dropping inactive
+                accounts to free up some space on our server. We are trying as
+                much as possible to spend so little on server cost.
               </p>
               <small>
                 *Start your journey with CodeClan by enrolling in a track and
