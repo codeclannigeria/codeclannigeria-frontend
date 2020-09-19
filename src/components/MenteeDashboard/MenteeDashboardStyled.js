@@ -24,7 +24,7 @@ export const DashboardStyled = styled.div`
     background-image: url('../img/card_back.png');
     background-size: 100%;
     background-repeat: no-repeat;
-    max-height: 17rem;
+    max-height: auto;
     max-width: 1198px;
   }
 
