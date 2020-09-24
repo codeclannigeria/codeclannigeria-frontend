@@ -127,12 +127,16 @@ export const getAllMentorSubmissions = () => {
 export const gradeTaskAction = data => {
   return dispatch => {
     dispatch({ type: types.TASKS_START });
+    const payloadData = { ...data };
     const id = data.id;
-    delete data.id;
+    delete payloadData.id;
+    delete payloadData.taskUrl;
+    delete payloadData.menteeComment;
     return codeClanApi
-      .post(`/mentors/grade/${id}/`, data)
+      .post(`/mentors/grade/${id}/`, payloadData)
       .then(res => {
-        dispatch({ type: types.GRADE_TASK });
+        console.log(data);
+        dispatch({ type: types.GRADE_TASK, payload: data });
       })
       .catch(err => {
         const error_msg = err.response

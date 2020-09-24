@@ -22,8 +22,6 @@ function SubmissionList({
   const dispatch = useDispatch();
 
   const onCreate = (values, initialData) => {
-    delete values.taskUrl;
-    delete values.menteeComment;
     values.id = initialData.id;
     gradeTaskAction(values);
   };
@@ -63,6 +61,23 @@ function SubmissionList({
     {
       title: 'Grade %',
       dataIndex: 'gradePercentage',
+      filters: [
+        {
+          text: 'Not Graded',
+          value: 'notGraded',
+        },
+        {
+          text: 'Graded',
+          value: 'graded',
+        },
+      ],
+      // specify the condition of filtering result
+      // here is that finding the name started with `value`
+      onFilter: (value, record) =>
+        value === 'graded'
+          ? record.gradePercentage > 0
+          : record.gradePercentage <= 0,
+      // render: bool => <Switch checked={bool} />,
     },
     {
       title: 'Grade',
@@ -85,7 +100,7 @@ function SubmissionList({
         columns={columns}
         dataSource={mentorTasks}
         size="small"
-        pagination={{ pageSize: 50 }}
+        pagination={{ pageSize: 10 }}
         // scroll={{ y: 240 }}
       />
       <TaskForm

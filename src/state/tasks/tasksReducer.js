@@ -1,4 +1,5 @@
 import * as types from './tasksActionTypes';
+import { act } from 'react-dom/test-utils';
 
 const initialState = {
   loading: false,
@@ -104,6 +105,9 @@ export function TaskReducer(state = initialState, action) {
       };
 
     case types.GRADE_TASK:
+      const newMentorTasks = state.mentorTasks
+        .slice()
+        .filter(task => task.id !== action.payload.id);
       return {
         ...state,
         loading: false,
@@ -111,6 +115,7 @@ export function TaskReducer(state = initialState, action) {
         singleMenteeSubmittedTask: { loading: false },
         errResponse: '',
         gradeTask: 'success',
+        mentorTasks: [...newMentorTasks, action.payload],
       };
 
     case types.GET_TASK:

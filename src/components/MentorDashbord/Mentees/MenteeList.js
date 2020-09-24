@@ -19,6 +19,8 @@ function MenteeList({ mentees, userData, history, getUserMenteesProfileApi }) {
     {
       title: 'First Name',
       dataIndex: 'firstName',
+      sorter: (a, b) => a.firstName.length - b.firstName.length,
+      sortDirections: ['descend'],
     },
     {
       title: 'Last Name',
@@ -168,8 +170,8 @@ function MenteeList({ mentees, userData, history, getUserMenteesProfileApi }) {
         columns={columns}
         dataSource={mentees}
         size="small"
-        pagination={{ pageSize: 50 }}
-        scroll={{ y: 240 }}
+        pagination={{ pageSize: 10 }}
+        // scroll={{ y: 240 }}
       />
     </div>
   );
