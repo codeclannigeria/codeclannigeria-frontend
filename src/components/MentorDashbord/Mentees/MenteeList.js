@@ -19,6 +19,8 @@ function MenteeList({ mentees, userData, history, getUserMenteesProfileApi }) {
     {
       title: 'First Name',
       dataIndex: 'firstName',
+      sorter: (a, b) => a.firstName.length - b.firstName.length,
+      sortDirections: ['descend'],
     },
     {
       title: 'Last Name',
