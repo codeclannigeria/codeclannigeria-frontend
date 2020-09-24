@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Modal, Form, Input, message, InputNumber } from 'antd';
 import { connect } from 'react-redux';
 import { gradeTaskAction } from '../../../state/tasks/tasksActionCreator';
@@ -22,6 +22,12 @@ function TaskForm({
     // }
   };
 
+  const [commentLimit, setcommentLimit] = useState(0);
+
+  const handleCommentLimit = e => {
+    setcommentLimit(e.target.value.length);
+  };
+
   useEffect(() => {
     if (error) {
       message.error(errResponse);
@@ -34,6 +40,12 @@ function TaskForm({
       onCancel();
     }
   }, [error, loading, gradeTask, onCancel]);
+
+  useEffect(() => {
+    if (initialData && initialData.mentorComment) {
+      setcommentLimit(initialData.mentorComment.length);
+    }
+  }, [initialData]);
 
   return (
     <>
@@ -68,6 +80,10 @@ function TaskForm({
           <Form.Item name="menteeComment" label="Mentee Comment">
             <TextArea rows={4} readOnly />
           </Form.Item>
+          <p className="d-flex justify-content-end m-0">
+            Char count: {`${commentLimit}/1024`}
+          </p>
+
           <Form.Item
             name="mentorComment"
             label="Your Comment"
@@ -78,7 +94,7 @@ function TaskForm({
               },
             ]}
           >
-            <TextArea rows={4} />
+            <TextArea onChange={handleCommentLimit} rows={4} maxlength={1024} />
           </Form.Item>
           <Form.Item
             name="gradePercentage"
