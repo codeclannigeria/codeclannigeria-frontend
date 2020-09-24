@@ -168,8 +168,8 @@ function MenteeList({ mentees, userData, history, getUserMenteesProfileApi }) {
         columns={columns}
         dataSource={mentees}
         size="small"
-        pagination={{ pageSize: 50 }}
-        scroll={{ y: 240 }}
+        pagination={{ pageSize: 10 }}
+        // scroll={{ y: 240 }}
       />
     </div>
   );

@@ -85,7 +85,7 @@ function SubmissionList({
         columns={columns}
         dataSource={mentorTasks}
         size="small"
-        pagination={{ pageSize: 50 }}
+        pagination={{ pageSize: 10 }}
         // scroll={{ y: 240 }}
       />
       <TaskForm
