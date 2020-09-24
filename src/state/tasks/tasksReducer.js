@@ -21,6 +21,7 @@ export function TaskReducer(state = initialState, action) {
         error: false,
         errResponse: '',
         singleMenteeSubmittedTask: { loading: false, data: null },
+        gradeTask: '',
       };
 
     case types.TASKS_SUCCESS:
@@ -137,8 +138,8 @@ export function TaskReducer(state = initialState, action) {
         loading: false,
         error: false,
         singleMenteeSubmittedTask: { loading: false },
-
         errResponse: '',
+        gradeTask: '',
       };
 
     default:

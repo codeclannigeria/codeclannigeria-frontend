@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Modal, Form, Input, message, InputNumber } from 'antd';
 import { connect } from 'react-redux';
 import { gradeTaskAction } from '../../../state/tasks/tasksActionCreator';
@@ -11,15 +11,20 @@ function TaskForm({
   gradeTask,
   loading,
   error,
+  form,
   errResponse,
 }) {
-  const [form] = Form.useForm();
-
   const handleFormSubmit = async values => {
     console.log(values);
     // if (error) {
     //   message.error(errResponse);
     // }
+  };
+
+  const [commentLimit, setcommentLimit] = useState(0);
+
+  const handleCommentLimit = e => {
+    setcommentLimit(e.target.value.length);
   };
 
   useEffect(() => {
@@ -35,19 +40,34 @@ function TaskForm({
     }
   }, [error, loading, gradeTask, onCancel]);
 
+  useEffect(() => {
+    if (initialData && initialData.mentorComment) {
+      setcommentLimit(initialData.mentorComment.length);
+    }
+  }, [initialData]);
+
+  // useEffect(() => {
+  // }, []);
+
+  const onModalCancel = () => {
+    form.resetFields();
+    // form.setFieldsValue(null);
+    onCancel();
+  };
+
   return (
     <>
       <Modal
         okText="Grade"
         visible={visible}
         cancelText="Cancel"
-        onCancel={onCancel}
+        onCancel={onModalCancel}
         confirmLoading={loading}
         onOk={() => {
           form
             .validateFields()
             .then(values => {
-              form.resetFields();
+              // form.resetFields();
 
               onCreate(values, initialData);
             })
@@ -55,10 +75,11 @@ function TaskForm({
               console.log('Validate Failed:', info);
             });
         }}
+        destroyOnClose={true}
       >
         <Form
           form={form}
-          initialValues={initialData}
+          // initialValues={initialData}
           layout="vertical"
           name="taskForm_in_modal"
         >
@@ -68,6 +89,10 @@ function TaskForm({
           <Form.Item name="menteeComment" label="Mentee Comment">
             <TextArea rows={4} readOnly />
           </Form.Item>
+          <p className="d-flex justify-content-end m-0">
+            Char count: {`${commentLimit}/1024`}
+          </p>
+
           <Form.Item
             name="mentorComment"
             label="Your Comment"
@@ -78,7 +103,7 @@ function TaskForm({
               },
             ]}
           >
-            <TextArea rows={4} />
+            <TextArea onChange={handleCommentLimit} rows={4} maxLength={1024} />
           </Form.Item>
           <Form.Item
             name="gradePercentage"
