@@ -21,8 +21,6 @@ function TaskForm({
     // }
   };
 
-  console.log(initialData);
-
   const [commentLimit, setcommentLimit] = useState(0);
 
   const handleCommentLimit = e => {
@@ -43,7 +41,6 @@ function TaskForm({
   }, [error, loading, gradeTask, onCancel]);
 
   useEffect(() => {
-    // console.log(initi);
     if (initialData && initialData.mentorComment) {
       setcommentLimit(initialData.mentorComment.length);
     }
