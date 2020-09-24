@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Table, Space, Button } from 'antd';
+import { Table, Space, Button, Form } from 'antd';
 import MentorDashboardLayout from '../MentorDashboardHOC';
 import { connect } from 'react-redux';
 import {
@@ -26,13 +26,33 @@ function SubmissionList({
     values.id = initialData.id;
     gradeTaskAction(values);
   };
+  const [form] = Form.useForm();
 
   const onCancel = () => {
-    setVisible(false);
+    setCurrentRecord(null);
   };
+
+  // useEffect(() => {
+  //   if (!visible) {
+  //     setCurrentRecord(null);
+  //   }
+  // }, [visible]);
+
+  useEffect(() => {
+    console.log(currentRecord);
+    if (currentRecord) {
+      form.setFieldsValue({ ...currentRecord });
+      setVisible(true);
+
+      // setCurrentRecord(null);
+    } else {
+      setVisible(false);
+    }
+  }, [currentRecord]);
+
   const handleModalVisiblity = record => {
+    console.log(record);
     setCurrentRecord(record);
-    setVisible(true);
   };
 
   useEffect(() => {
@@ -61,40 +81,6 @@ function SubmissionList({
       ),
     },
   ];
-  const data = [
-    {
-      items: [
-        {
-          updatedAt: '2020-08-22T18:13:24.151Z',
-          createdAt: '2020-08-22T18:13:24.151Z',
-          menteeComment: 'string',
-          mentorComment: 'string',
-          taskUrl: 'string',
-          gradePercentage: 0,
-          id: '1',
-        },
-        {
-          updatedAt: '2020-08-22T18:13:24.151Z',
-          createdAt: '2020-08-22T18:13:24.151Z',
-          menteeComment: 'string',
-          mentorComment: 'string',
-          taskUrl: 'string',
-          gradePercentage: 0,
-          id: '2',
-        },
-        {
-          updatedAt: '2020-08-22T18:13:24.151Z',
-          createdAt: '2020-08-22T18:13:24.151Z',
-          menteeComment: 'string',
-          mentorComment: 'string',
-          taskUrl: 'string',
-          gradePercentage: 0,
-          id: '3',
-        },
-      ],
-      totalCount: 0,
-    },
-  ];
 
   return (
     <div>
@@ -105,7 +91,7 @@ function SubmissionList({
         dataSource={mentorTasks}
         size="small"
         pagination={{ pageSize: 50 }}
-        scroll={{ y: 240 }}
+        // scroll={{ y: 240 }}
       />
       <TaskForm
         initialData={currentRecord}
@@ -113,6 +99,7 @@ function SubmissionList({
         onCreate={onCreate}
         onCancel={onCancel}
         loadiing={loading}
+        form={form}
       />
     </div>
   );

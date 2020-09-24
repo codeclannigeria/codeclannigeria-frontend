@@ -11,16 +11,17 @@ function TaskForm({
   gradeTask,
   loading,
   error,
+  form,
   errResponse,
 }) {
-  const [form] = Form.useForm();
-
   const handleFormSubmit = async values => {
     console.log(values);
     // if (error) {
     //   message.error(errResponse);
     // }
   };
+
+  console.log(initialData);
 
   const [commentLimit, setcommentLimit] = useState(0);
 
@@ -42,10 +43,20 @@ function TaskForm({
   }, [error, loading, gradeTask, onCancel]);
 
   useEffect(() => {
+    // console.log(initi);
     if (initialData && initialData.mentorComment) {
       setcommentLimit(initialData.mentorComment.length);
     }
   }, [initialData]);
+
+  // useEffect(() => {
+  // }, []);
+
+  const onModalCancel = () => {
+    form.resetFields();
+    // form.setFieldsValue(null);
+    onCancel();
+  };
 
   return (
     <>
@@ -53,13 +64,13 @@ function TaskForm({
         okText="Grade"
         visible={visible}
         cancelText="Cancel"
-        onCancel={onCancel}
+        onCancel={onModalCancel}
         confirmLoading={loading}
         onOk={() => {
           form
             .validateFields()
             .then(values => {
-              form.resetFields();
+              // form.resetFields();
 
               onCreate(values, initialData);
             })
@@ -67,10 +78,11 @@ function TaskForm({
               console.log('Validate Failed:', info);
             });
         }}
+        destroyOnClose={true}
       >
         <Form
           form={form}
-          initialValues={initialData}
+          // initialValues={initialData}
           layout="vertical"
           name="taskForm_in_modal"
         >
@@ -94,7 +106,7 @@ function TaskForm({
               },
             ]}
           >
-            <TextArea onChange={handleCommentLimit} rows={4} maxlength={1024} />
+            <TextArea onChange={handleCommentLimit} rows={4} maxLength={1024} />
           </Form.Item>
           <Form.Item
             name="gradePercentage"
