@@ -63,14 +63,14 @@ function Dashboard({
 
   return (
     <DashboardStyled>
-      <TrackEnroll
+      {/* <TrackEnroll
         visible={showTracksEnrollModal}
         onCreate={() => setshowTracksEnrollModal(false)}
         // initialData={userData}
         onCancel={() => {
           setshowTracksEnrollModal(false);
         }}
-      />
+      /> */}
       <WelcomeAlert
         user={userData}
         enroll={handleShowTracksEnrollModal}
