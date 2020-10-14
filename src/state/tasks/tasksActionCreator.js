@@ -46,7 +46,7 @@ export const getAllTasksAction = trackId => {
       .catch(err => {
         const error_msg = err.response
           ? err.response.data.message
-          : 'An error occured';
+          : 'An error occurred';
 
         dispatch({
           type: types.TASKS_FAILURE,
@@ -68,7 +68,7 @@ export const getSingleTaskAction = id => {
       .catch(err => {
         const error_msg = err.response
           ? err.response.data.message
-          : 'An error occured';
+          : 'An error occurred';
         dispatch({
           type: types.TASKS_FAILURE,
           payload: error_msg,
@@ -93,7 +93,7 @@ export const submitTaskAction = (taskId, url, comments) => {
       .catch(err => {
         const error_msg = err.response
           ? err.response.data.message
-          : 'An error occured';
+          : 'An error occurred';
 
         dispatch({
           type: types.TASKS_FAILURE,
@@ -114,7 +114,7 @@ export const getAllMentorSubmissions = () => {
       .catch(err => {
         const error_msg = err.response
           ? err.response.data.message
-          : 'An error occured';
+          : 'An error occurred';
 
         dispatch({
           type: types.TASKS_FAILURE,
@@ -127,13 +127,15 @@ export const getAllMentorSubmissions = () => {
 export const gradeTaskAction = data => {
   return dispatch => {
     dispatch({ type: types.TASKS_START });
-    const payloadData = { ...data };
-    const id = data.id;
-    delete payloadData.id;
-    delete payloadData.taskUrl;
-    delete payloadData.menteeComment;
+    // const payloadData = { ...data };
+    // const id = data.id;
+    // delete payloadData.id;
+    // delete payloadData.taskUrl;
+    // delete payloadData.menteeComment;
+    const { gradePercentage, mentorComment } = data;
+    const req = { gradePercentage, mentorComment };
     return codeClanApi
-      .post(`/mentors/grade/${id}/`, payloadData)
+      .post(`/mentors/grade/${data.id}/`, req)
       .then(res => {
         console.log(data);
         dispatch({ type: types.GRADE_TASK, payload: data });
@@ -141,7 +143,7 @@ export const gradeTaskAction = data => {
       .catch(err => {
         const error_msg = err.response
           ? err.response.data.message
-          : 'An error occured';
+          : 'An error occurred';
 
         dispatch({
           type: types.TASKS_FAILURE,
@@ -176,7 +178,7 @@ export const getTaskSubmissionAction = taskId => {
       .catch(err => {
         const error_msg = err.response
           ? err.response.data.message
-          : 'An error occured';
+          : 'An error occurred';
 
         dispatch({
           type: types.GET_MENTEE_TASK_SUBMISSION_FAILURE,

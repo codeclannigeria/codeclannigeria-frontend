@@ -19,32 +19,32 @@ function MentorDashboardSidebar({ showSidebar, authLogoutApi, path }) {
   const tabs = [
     {
       id: 1,
-      icon: <i class="fas fa-user-friends"></i>,
+      icon: <i className="fas fa-user-friends"></i>,
       link: '/dashboard/mentor/mentees',
       name: 'Mentee',
     },
     // {
     //   id: 2,
-    //   icon: <i class="fas fa-code"></i>,
+    //   icon: <i className="fas fa-code"></i>,
     //   link: '/dashboard/track',
     //   name: 'Tracks',
     // },
     {
       id: 2,
-      icon: <i class="fas fa-tasks"></i>,
+      icon: <i className="fas fa-tasks"></i>,
       link: '/dashboard/mentor/tasks-submissions/',
       name: 'Tasks',
     },
     {
       id: 3,
-      icon: <i class="fas fa-user-ninja"></i>,
+      icon: <i className="fas fa-user-ninja"></i>,
       link: '/dashboard/mentor/profile',
       name: 'Profile',
     },
 
     {
       id: 4,
-      icon: <i class="fas fa-sliders-h"></i>,
+      icon: <i className="fas fa-sliders-h"></i>,
       link: '#',
       name: 'Settings',
     },
@@ -94,7 +94,7 @@ function MentorDashboardSidebar({ showSidebar, authLogoutApi, path }) {
             icon={<QuestionCircleOutlined style={{ color: 'red' }} />}
           >
             <button className="btn btn-lg btn-primary">
-              <i class="fas fa-power-off"></i> Logout
+              <i className="fas fa-power-off"></i> Logout
             </button>
           </Popconfirm>
         </li>

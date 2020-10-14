@@ -73,9 +73,9 @@ function LoginForm({ authLogin, loading, error, errResponse, token, history }) {
       {({ errors, touched, isSubmitting }) => (
         <LoginStyled>
           <div>
-            <div class="main">
-              <div class="left">
-                <div class="logo">
+            <div className="main">
+              <div className="left">
+                <div className="logo">
                   <div>
                     <Link to="/" className="image-link">
                       <img
@@ -86,7 +86,7 @@ function LoginForm({ authLogin, loading, error, errResponse, token, history }) {
                     </Link>
                   </div>
                 </div>
-                <div class="titles"> Login to your account </div>
+                <div className="titles"> Login to your account </div>
                 <Form>
                   <label htmlFor="email">E-mail</label>{' '}
                   <div className="block">
@@ -101,14 +101,14 @@ function LoginForm({ authLogin, loading, error, errResponse, token, history }) {
                       }
                     />
                     <span>
-                      <i class="fa fa-at" aria-hidden="true"></i>
+                      <i className="fa fa-at" aria-hidden="true"></i>
                     </span>
                   </div>
                   <div className="d-block text-monospace text-danger small-text">
                     <ErrorMessage name="email" className="d-block" />
                   </div>
                   <label htmlFor="password">Password</label>
-                  <div class="block" ref={passwordRef}>
+                  <div className="block" ref={passwordRef}>
                     <Field
                       id="password"
                       name="password"
@@ -121,7 +121,7 @@ function LoginForm({ authLogin, loading, error, errResponse, token, history }) {
                     />
                     <span>
                       <i
-                        class="fa fa-eye"
+                        className="fa fa-eye"
                         aria-hidden="true"
                         onClick={() => togglePasswordToText(passwordRef)}
                       ></i>
@@ -154,21 +154,21 @@ function LoginForm({ authLogin, loading, error, errResponse, token, history }) {
                       </span>
                     )}
                   </button>
-                  <div class="centralize" style={{ lineHeight: '2em' }}>
+                  <div className="centralize" style={{ lineHeight: '2em' }}>
                     <p>
                       Don't have an account? <Link to="/register">Sign up</Link>
                     </p>
                   </div>
                 </Form>
               </div>
-              <div class="right">
+              <div className="right">
                 <img
                   alt="Login animation"
                   src={loginAmico}
                   style={{ height: '50%' }}
                 />
-                <p class="small">CODECLAN NIGERIA</p>
-                <p class="normal">
+                <p className="small">CODECLAN NIGERIA</p>
+                <p className="normal">
                   Join us and take your programming career to the next level
                 </p>
               </div>

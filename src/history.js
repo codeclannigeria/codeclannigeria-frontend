@@ -1,7 +1,7 @@
 // history.js
-import createHistory from 'history/createBrowserHistory';
+import { createBrowserHistory } from 'history';
 import { store } from './index';
-const history = createHistory();
+const history = createBrowserHistory();
 
 // const dispatch = useDispatch();
 const location = history.location;

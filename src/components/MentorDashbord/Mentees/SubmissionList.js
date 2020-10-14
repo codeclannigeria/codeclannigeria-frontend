@@ -42,7 +42,7 @@ function SubmissionList({
     }
   }, [currentRecord]);
 
-  const handleModalVisiblity = record => {
+  const handleModalVisibility = record => {
     dispatch({ type: 'TASKS_RESET' });
 
     setCurrentRecord(record);
@@ -53,10 +53,27 @@ function SubmissionList({
   }, [getAllMentorSubmissions]);
 
   const columns = [
+    // {
+    //   title: 'Id',
+    //   dataIndex: 'id',
+    //   visible: false,
+    // },
     {
-      title: 'Id',
-      dataIndex: 'id',
-      key: 'id',
+      title: 'Name',
+      dataIndex: 'mentee',
+      sorter: (a, b) => a.mentee.firstName.length - b.mentee.firstName.length,
+      render: (_, { mentee }) => mentee.firstName,
+    },
+    {
+      title: 'Surname',
+      dataIndex: 'mentee',
+      sorter: (a, b) => a.mentee.lastName.length - b.mentee.lastName.length,
+      render: (_, { mentee }) => mentee.lastName,
+    },
+    {
+      title: 'Task',
+      dataIndex: 'task',
+      render: (_, { task }) => task.title,
     },
     {
       title: 'Grade %',
@@ -84,7 +101,11 @@ function SubmissionList({
       key: 'action',
       render: (text, record) => (
         <Space size="middle">
-          <Button type="primary" onClick={() => handleModalVisiblity(record)}>
+          <Button
+            type="primary"
+            //ref
+            onClick={() => handleModalVisibility(record)}
+          >
             Grade
           </Button>
         </Space>
@@ -100,6 +121,7 @@ function SubmissionList({
         columns={columns}
         dataSource={mentorTasks}
         size="small"
+        rowKey="id"
         pagination={{ pageSize: 10 }}
         // scroll={{ y: 240 }}
       />
