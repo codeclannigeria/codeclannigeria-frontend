@@ -73,6 +73,7 @@ function SubmissionList({
     {
       title: 'Task',
       dataIndex: 'task',
+      sorter: (a, b) => a.task.title.length - b.task.title.length,
       render: (_, { task }) => task.title,
     },
     {
