@@ -2,7 +2,7 @@ import axios from 'axios';
 import { store } from '../index';
 
 const codeClanApi = axios.create({
-  baseURL: 'https://codeclannigeria-api.herokuapp.com',
+  baseURL: 'https://codeclannigeria-api.herokuapp.com/api',
 });
 
 codeClanApi.interceptors.request.use(
