@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://codeclannigeria-api.herokuapp.com/';
+export const BASE_URL = 'https://codeclannigeria-api.herokuapp.com/api';
 
 var periods = {
   month: 30 * 24 * 60 * 60 * 1000,

@@ -124,7 +124,7 @@ const ProfileImageUpload = ({ visible, name, photoUrl, onCreate }) => {
                 onPreview={onPreview}
                 beforeUpload={beforeUpload}
                 action={
-                  'https://codeclannigeria-api.herokuapp.com/profile/upload_profile_photo'
+                  'https://codeclannigeria-api.herokuapp.com/api/profile/upload_profile_photo'
                 }
                 headers={{
                   Authorization: `Bearer ${localStorage.getItem(

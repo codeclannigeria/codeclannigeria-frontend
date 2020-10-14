@@ -2,7 +2,7 @@ import * as types from './authActionTypes';
 import axios from 'axios';
 import history from '../../history';
 
-export const apiURL = 'https://codeclannigeria-api.herokuapp.com/auth';
+export const apiURL = 'https://codeclannigeria-api.herokuapp.com/api/auth';
 
 export const signup = userData => {
   return dispatch => {
