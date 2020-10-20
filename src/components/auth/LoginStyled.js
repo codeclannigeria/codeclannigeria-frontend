@@ -7,7 +7,8 @@ const LoginStyled = styled.div`
   }
 
   .fa,
-  .far {
+  .far,
+  .fas {
     font-family: 'FontAwesome';
     font-weight: lighter;
   }
