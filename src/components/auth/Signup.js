@@ -11,7 +11,7 @@ import codeClanLogo from '../assets/image/codeClanLogo.png';
 import Spinner from 'react-bootstrap/Spinner';
 import loginAmico from '../assets/image/auth/login.jpg';
 import { notification, message } from 'antd';
-import checkAuth from '../../helpers/CheckAuth';
+import checkAuth from '../helpers/CheckAuth';
 
 function Signup({ register, loading, error, errResponse, token, history }) {
   const dispatch = useDispatch();

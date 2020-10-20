@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Team from './Team';
-import Events from './Events';
-import About from './About';
-import ContactUs from './ContactUs';
+import Team from './components/Team';
+import Events from './components/Events';
+import About from './components/About';
+import ContactUs from './components/ContactUs';
 import Signup from './components/auth/Signup';
 import Dashboard from './components/MenteeDashboard/MenteeDashboard';
 import LoginForm from './components/auth/Login';
