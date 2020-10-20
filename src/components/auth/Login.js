@@ -10,7 +10,7 @@ import Spinner from 'react-bootstrap/Spinner';
 /*import loginAmico from '../assets/image/Login-amico.png';*/
 import loginAmico from '../assets/image/auth/login.jpg';
 import { message } from 'antd';
-import checkAuth from '../../helpers/CheckAuth';
+import checkAuth from '../helpers/CheckAuth';
 
 function LoginForm({ authLogin, loading, error, errResponse, token, history }) {
   const dispatch = useDispatch();

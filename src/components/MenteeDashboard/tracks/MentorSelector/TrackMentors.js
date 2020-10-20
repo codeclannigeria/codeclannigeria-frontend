@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import SingleMentorCard from './SingleMentorCard';
 import SingleMentorCardStyled from './SingleMentorCardStyled';
 import { Radio, Pagination } from 'antd';
-import shuffleArray from '../../../../helpers/ShuffleArray';
+import shuffleArray from '../../../helpers/ShuffleArray';
 
 export const TrackMentors = ({ mentors }) => {
   const [currentPage, setCurrentPage] = useState(1);
