@@ -237,7 +237,8 @@ const SignupStyled = styled.div`
     display: inline-block;
   }
   .fa,
-  .far {
+  .far,
+  .fas {
     font-family: 'FontAwesome';
     font-weight: lighter;
   }

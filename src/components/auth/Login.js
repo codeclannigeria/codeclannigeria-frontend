@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { authLogin } from '../../state/auth/authActionCreator';
 import { connect, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -19,10 +19,18 @@ function LoginForm({ authLogin, loading, error, errResponse, token, history }) {
     dispatch({ type: 'AUTH_RESET' });
   }, [dispatch]);
 
+  const [passwordDisplay, setpasswordDisplay] = useState(null);
+
   const togglePasswordToText = ref => {
-    ref.current.firstChild.type === 'password'
-      ? (ref.current.firstChild.type = 'text')
-      : (ref.current.firstChild.type = 'password');
+    setpasswordDisplay(!passwordDisplay);
+
+    if (ref.current.firstChild.type === 'password') {
+      ref.current.firstChild.type = 'text';
+      // setpasswordDisplay(false);
+    } else {
+      ref.current.firstChild.type = 'password';
+      // setpasswordDisplay(true);
+    }
   };
 
   useEffect(() => {
@@ -119,12 +127,12 @@ function LoginForm({ authLogin, loading, error, errResponse, token, history }) {
                       }
                       type="password"
                     />
-                    <span>
-                      <i
-                        className="fa fa-eye"
-                        aria-hidden="true"
-                        onClick={() => togglePasswordToText(passwordRef)}
-                      ></i>
+                    <span onClick={() => togglePasswordToText(passwordRef)}>
+                      {passwordDisplay ? (
+                        <i class="fas fa-eye-slash"></i>
+                      ) : (
+                        <i class="far fa-eye"></i>
+                      )}
                     </span>
                   </div>
                   <div className="d-block text-monospace text-danger small-text">

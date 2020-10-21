@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { signup } from '../../state/auth/authActionCreator';
 import { connect, useDispatch } from 'react-redux';
 import SignupStyled from './SignupStyled';
@@ -17,11 +17,32 @@ function Signup({ register, loading, error, errResponse, token, history }) {
   const dispatch = useDispatch();
   const passwordRef = useRef();
   const confirmPasswordRef = useRef();
+  const [passwordDisplay, setpasswordDisplay] = useState({
+    password1: null,
+    password2: null,
+  });
+  // const togglePasswordToText = ref => {
+  //   setpasswordDisplay(!passwordDisplay);
+  //   ref.current.firstChild.type === 'password'
+  //     ? (ref.current.firstChild.type = 'text')
+  //     : (ref.current.firstChild.type = 'password');
+  // };
 
   const togglePasswordToText = ref => {
-    ref.current.firstChild.type === 'password'
-      ? (ref.current.firstChild.type = 'text')
-      : (ref.current.firstChild.type = 'password');
+    // console.log(passwordDisplay.confirmPassword);
+    const passwordNode = ref.current.childNodes[0];
+    const nodeName = passwordNode.name;
+    // console.log(nodeName);
+
+    if (passwordNode.type === 'password') {
+      passwordNode.type = 'text';
+      const tempState = { ...passwordDisplay, [nodeName]: true };
+      setpasswordDisplay(tempState);
+    } else {
+      passwordNode.type = 'password';
+      const tempState = { ...passwordDisplay, [nodeName]: false };
+      setpasswordDisplay(tempState);
+    }
   };
 
   useEffect(() => {
@@ -197,7 +218,12 @@ function Signup({ register, loading, error, errResponse, token, history }) {
                       type="password"
                     />
                     <span onClick={() => togglePasswordToText(passwordRef)}>
-                      <i class="fa fa-eye" aria-hidden="true"></i>
+                      {/* <i class="fa fa-eye" aria-hidden="true"></i> */}
+                      {passwordDisplay.password1 ? (
+                        <i class="fas fa-eye-slash"></i>
+                      ) : (
+                        <i class="far fa-eye"></i>
+                      )}
                     </span>
                   </div>
                   <div className="d-block text-monospace text-danger small-text">
@@ -221,7 +247,12 @@ function Signup({ register, loading, error, errResponse, token, history }) {
                     <span
                       onClick={() => togglePasswordToText(confirmPasswordRef)}
                     >
-                      <i class="fa fa-eye" aria-hidden="true"></i>
+                      {passwordDisplay.password2 ? (
+                        <i class="fas fa-eye-slash"></i>
+                      ) : (
+                        <i class="far fa-eye"></i>
+                      )}
+                      {/* <i class="fa fa-eye" aria-hidden="true"></i> */}
                     </span>
                   </div>
                   <div className="d-block text-monospace text-danger small-text">
