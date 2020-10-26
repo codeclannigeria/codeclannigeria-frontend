@@ -108,6 +108,12 @@ export function TaskReducer(state = initialState, action) {
       const newMentorTasks = state.mentorTasks
         .slice()
         .filter(task => task.id !== action.payload.id);
+      const currentTask = state.mentorTasks
+        .slice()
+        .find(task => task.id !== action.payload.id);
+      action.payload.mentor = currentTask.mentor;
+      action.payload.mentee = currentTask.mentee;
+      action.payload.task = currentTask.task;
       return {
         ...state,
         loading: false,
