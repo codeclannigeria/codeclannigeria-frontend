@@ -22,8 +22,8 @@ export const getAllTasksAction = trackId => {
             const unsubmittedTasks = tasks.filter(
               ({ id: id1 }) => !submitted.some(({ id: id2 }) => id2 === id1)
             );
-            console.log(tasks);
-            console.log(submitted);
+            // console.log(tasks);
+            // console.log(submitted);
             const tasksObj = {
               items: unsubmittedTasks,
               totalCount: unsubmittedTasks.length,
@@ -137,7 +137,7 @@ export const gradeTaskAction = data => {
     return codeClanApi
       .post(`/mentors/grade/${data.id}/`, req)
       .then(res => {
-        console.log(data);
+        // console.log(data);
         dispatch({ type: types.GRADE_TASK, payload: data });
       })
       .catch(err => {
