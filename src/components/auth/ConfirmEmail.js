@@ -25,7 +25,7 @@ function ConfirmEmail(props) {
       setError(true);
       setLoading(false);
     }
-    const url = BASE_URL + 'auth/confirm-email';
+    const url = BASE_URL + '/auth/confirm-email';
     axios
       .post(url, {
         token,
