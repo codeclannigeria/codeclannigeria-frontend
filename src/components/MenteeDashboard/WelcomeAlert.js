@@ -69,15 +69,16 @@ function WelcomeAlert({ user, enroll, visible, loading }) {
                 >
                   x
                 </span>
-              ) : // <div className="get__started">
-              //   <button
-              //     className="btn btn-small btn-warning"
-              //     // onClick={() => enroll()}
-              //   >
-              //     Enroll Now
-              //   </button>
-              // </div>
-              null}
+              ) : (
+                <div className="get__started">
+                  <button
+                    className="btn btn-small btn-warning"
+                    onClick={() => enroll()}
+                  >
+                    Enroll Now
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </div>
