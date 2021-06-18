@@ -6,8 +6,7 @@
   font-family: 'Gilroy';
   src: url('./components/assets/fonts/Gilroy-Light.otf');
 }
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Zilla+Slab:wght@400;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700&display=swap');
+
 
 /* body {
   margin: 0;
@@ -16,7 +15,7 @@
   -moz-osx-font-smoothing: grayscale;
 } */
 
- *{
+ * {
   box-sizing: border-box;
 }
 body {

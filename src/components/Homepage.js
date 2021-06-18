@@ -59,7 +59,7 @@ function Homepage() {
               img src={AmazonLogo} alt="Amazon company logo" />
             </div>
             <div className="client-logo">
-              <img src={FedExLogo} />
+              <img src={FedExLogo} alt="Fedex company logo"/>
             </div>
             <div className="client-logo">
               <img src={MicrosoftLogo} alt="Microsoft company logo" />

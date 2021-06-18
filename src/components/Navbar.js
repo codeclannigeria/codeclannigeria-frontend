@@ -22,19 +22,19 @@ function Navbar() {
             <nav className="navbar">
               <ul className="topnav-links">
                 <li className="nav-item">
-                  <a className="nav-link" href="#">About</a>
+                  <Link className="nav-link" to="/">About</Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">Services</a>
+                  <Link className="nav-link" to="/">Services</Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">Blog</a>
+                  <Link className="nav-link" to="/">Blog</Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">Jobs</a>
+                  <Link className="nav-link" to="/">Jobs</Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">Contact</a>
+                  <Link className="nav-link" to="/">Contact</Link>
                 </li>
               </ul>
             
