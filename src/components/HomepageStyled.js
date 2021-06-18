@@ -328,7 +328,6 @@ footer.pry-padd-form {
 
   .client-logo{
   width: 48%;
-  
 }
 
 }

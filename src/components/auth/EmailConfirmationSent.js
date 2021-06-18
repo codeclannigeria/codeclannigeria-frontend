@@ -8,6 +8,7 @@ import Navbar from '../Navbar';
 function EmailConfirmationSent({ forgotPass }) {
   return (
     <React.Fragment>
+
       <Navbar />
       <div className="container">
         <ConfirmedStyled>
@@ -29,6 +30,7 @@ function EmailConfirmationSent({ forgotPass }) {
         </ConfirmedStyled>
       </div>
     </React.Fragment>
+
   );
 }
 

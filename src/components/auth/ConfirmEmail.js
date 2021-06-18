@@ -45,7 +45,9 @@ function ConfirmEmail(props) {
 
   if (loading) {
     return (
+
       <React.Fragment>
+
         <Navbar />
         <div className="d-flex align-items-center justify-content-center flex-column vh-100">
           <p> Please hold on a second...</p>
