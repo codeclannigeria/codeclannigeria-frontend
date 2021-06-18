@@ -1,7 +1,5 @@
 @import-normalize; /* bring in normalize.css styles */
 
-/* The styles here are used to override  */
-
 @font-face {
   font-family: 'Gilroy';
   src: url('./components/assets/fonts/Gilroy-Light.otf');
