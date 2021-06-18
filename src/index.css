@@ -7,14 +7,6 @@
   src: url('./components/assets/fonts/Gilroy-Light.otf');
 }
 
-
-/* body {
-  margin: 0;
-  font-family: 'Gilroy', sans-serif !important;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-} */
-
  * {
   box-sizing: border-box;
 }
