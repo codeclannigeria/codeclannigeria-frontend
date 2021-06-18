@@ -1,0 +1,191 @@
+@import-normalize; /* bring in normalize.css styles */
+
+/* The styles here are used to override  */
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('./components/assets/fonts/Gilroy-Light.otf');
+}
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Zilla+Slab:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700&display=swap');
+
+/* body {
+  margin: 0;
+  font-family: 'Gilroy', sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+} */
+
+ * {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 400;
+  color: '#18191f';
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+h1,h2,h3,h4,h5,h6{
+  font-family: 'Zilla Slab', serif;
+}
+.box-error {
+  border: 1px solid red;
+}
+
+.error {
+  color: #fff;
+  padding: 1rem !important;
+  background-color: red;
+  width: 100%;
+  margin: 0.5rem 0 !important;
+}
+
+.small-text {
+  font-size: 10px;
+}
+
+.checkbox-container {
+  display: inline-flex;
+}
+
+.checkbox-container span {
+  padding-left: 0.5rem;
+}
+
+.regular-checkbox {
+  -webkit-appearance: none;
+  background: rgba(31, 89, 187, 0.05) !important;
+  border: 1px solid rgba(31, 89, 187, 0.5) !important;
+  box-sizing: border-box;
+  border-radius: 1px !important;
+  box-sizing: border-box;
+  display: inline-block;
+  margin: 0 !important;
+  /* padding: 0 !important; */
+  width: 13px !important;
+  height: 13px;
+
+  position: relative;
+}
+
+.regular-checkbox:active,
+.regular-checkbox:checked:active {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05),
+    inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.regular-checkbox:checked {
+  background-color: #e9ecee;
+  border: 1px solid #adb8c0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05),
+    inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05),
+    inset 15px 10px -12px rgba(255, 255, 255, 0.1);
+  color: #1f59bb;
+}
+
+.regular-checkbox:checked:after {
+  content: '\2714';
+  font-size: 14px;
+  position: absolute;
+  top: 0px;
+  left: 3px;
+  color: #1f59bb;
+}
+
+.spinner-border {
+  height: 1rem !important;
+  width: 1rem !important;
+}
+.page {
+  position: absolute;
+  left: 15px;
+  right: 15px;
+}
+
+.page-enter {
+  opacity: 0;
+  transform: scale(1.1);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.page-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* Enroll Tracks */
+
+.custom-ant-modal {
+  width: 100% !important;
+  padding: 0 2rem !important;
+}
+
+.tracks-card {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.ant-radio-group {
+  width: 100% !important;
+  padding: 1rem !important;
+}
+
+.ant-radio-button-wrapper {
+  height: 100% !important;
+  width: 100% !important;
+  padding: 0 !important;
+  border-radius: 6.5px !important;
+}
+
+.ant-radio-button-wrapper-checked {
+  -moz-transform: scale(1.05) !important;
+  -webkit-transform: scale(1.05) !important;
+  -o-transform: scale(1.05) !important;
+  -ms-transform: scale(1.05) !important;
+  transform: scale(1.05) !important;
+  transition: transform 0.4s ease-in-out !important;
+  box-shadow: 5px 18px 15px rgba(0, 0, 0, 0.5) !important;
+}
+
+.tracks-stages-card {
+  padding: 1rem;
+}
+
+.steps-action {
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem 5rem;
+}
+
+.react-tel-input .form-control {
+  width: 100% !important;
+}
+
+
+@media (max-width: 600px) {
+  html {
+    font-size: 12px;
+  }
+  .ant-radio-button-wrapper {
+    /* margin-bottom: 1rem !important; */
+  }
+}
