@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Mask from './assets/image/homepage/mask.png';
+
 
 const HomepageStyled = styled.div`
  

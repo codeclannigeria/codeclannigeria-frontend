@@ -16,10 +16,10 @@
   -moz-osx-font-smoothing: grayscale;
 } */
 
- * {
+ *{
   box-sizing: border-box;
 }
-body {
+body{
   margin: 0;
   padding: 0;
   font-family: 'Libre Franklin', sans-serif;
@@ -27,11 +27,12 @@ body {
   color: '#18191f';
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-h1,h2,h3,h4,h5,h6{
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {
   font-family: 'Zilla Slab', serif;
 }
 .box-error {
@@ -181,8 +182,7 @@ h1,h2,h3,h4,h5,h6{
 }
 
 @media (max-width: 600px) {
-  html {
+  html{
     font-size: 12px;
   }
-  
 }

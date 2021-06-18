@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import HomepageStyled from './HomepageStyled';
 import SmilingFemale from './assets/image/homepage/smiling-female-sitting-with-laptop.png';
 import TestedAndTrustedImage from './assets/image/homepage/testedandtrusted.png';
@@ -16,11 +16,6 @@ import MicrosoftLogo from './assets/image/homepage/Microsoft-Logo.png';
 
 
 import CheckIcon  from './assets/svgs/homepage/check-circle.svg';
-
-
-
-
-
 
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
