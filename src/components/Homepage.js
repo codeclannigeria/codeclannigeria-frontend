@@ -142,7 +142,7 @@ function Homepage() {
             <li className="cta-list">
               <img src={CheckIcon} alt="check mark" />&nbsp;I no know again</li>
         </ul>
-        <Link to="#" className="link-as-blue-btn dark-bg-btn join-now-btn">Join Now</Link>
+        <Link to="/register" className="link-as-blue-btn dark-bg-btn join-now-btn">Join Now</Link>
         </section>
         
       <Footer/>
