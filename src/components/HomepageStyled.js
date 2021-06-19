@@ -158,6 +158,11 @@ h4 {
   font-size: 1.125rem;
   width: 240px;
 }
+
+.clan-requirements{
+  justify-content: space-between;
+}
+
 .clan-requirements > :first-child {
   flex-basis: 68%;
 }
