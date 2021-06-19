@@ -88,7 +88,7 @@ const DashboardLayout = Component => {
         <DashboardSidebar tabs={tabs} path={url} showSidebar={showSidebar} />
 
         {!userLoading ? (
-          <>
+          <React.Fragment>
             <DashboardHeader
               toggleSidebar={toggleSidebar}
               showSidebar={showSidebar}
@@ -98,7 +98,7 @@ const DashboardLayout = Component => {
                 <Component {...props} />
               </div>
             </div>
-          </>
+          </React.Fragment>
         ) : (
           <CustomLoader />
         )}

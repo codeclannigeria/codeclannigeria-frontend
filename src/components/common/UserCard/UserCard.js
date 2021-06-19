@@ -66,7 +66,7 @@ function UserCard({ data, mode, editProfile }) {
             <div class="img__description">
               <i class="fas fa-camera"></i>
               {mode === 'mentee' && checkAuth() === id ? (
-                <>
+                <React.Fragment>
                   <button
                     class="btn btn-sm"
                     onClick={() => setshowImageEdit(true)}
@@ -83,7 +83,7 @@ function UserCard({ data, mode, editProfile }) {
                     name={lastName}
                     onCreate={onCreate}
                   />{' '}
-                </>
+                </React.Fragment>
               ) : null}
             </div>
           </div>
@@ -94,7 +94,7 @@ function UserCard({ data, mode, editProfile }) {
               </p>
 
               {data && mode === 'mentee' && checkAuth() === id ? (
-                <>
+                <React.Fragment>
                   <div className="edit-button">
                     <i
                       onClick={() => {
@@ -112,7 +112,7 @@ function UserCard({ data, mode, editProfile }) {
                       setVisible(false);
                     }}
                   />
-                </>
+                </React.Fragment>
               ) : null}
             </div>
           </div>

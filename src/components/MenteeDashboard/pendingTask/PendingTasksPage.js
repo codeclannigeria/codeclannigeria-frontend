@@ -24,14 +24,14 @@ function PendingTasksPage() {
   //   return 'Error';
   // }
   return (
-    <>
+    <React.Fragment>
       {tasksState.data && !tasksState.loading ? (
-        <>
+        <React.Fragment>
           <PendingTasks
             tasksData={tasksState.data}
             taskTableHeader={'Pending Tasks'}
           />
-        </>
+        </React.Fragment>
       ) : (
         <p>No tasks yet!!</p>
       )}
@@ -46,7 +46,7 @@ function PendingTasksPage() {
       ) : null}
 
       {tasksState.loading ? <CustomLoader /> : null}
-    </>
+    </React.Fragment>
   );
 }
 

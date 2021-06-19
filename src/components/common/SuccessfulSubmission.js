@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export default function SuccessfulSubmission({ data }) {
   const { header, description, backLink } = data;
   return (
-    <>
+    <React.Fragment>
       <Result
         status="success"
         title={header}
@@ -20,6 +20,6 @@ export default function SuccessfulSubmission({ data }) {
         ]}
       />
       ,
-    </>
+    </React.Fragment>
   );
 }

@@ -46,7 +46,7 @@ function TaskBrief(props) {
         <i className="fas fa-arrow-left"></i> Back to Tasks
       </Link>
       {task.singleTask ? (
-        <>
+        <React.Fragment>
           <h2>{task.singleTask.title} </h2>
           <Tag color="#1f59bb">
             {track.singleTrack ? track.singleTrack.title : null}
@@ -55,9 +55,9 @@ function TaskBrief(props) {
           <div className="task-details mt-3">
             <h4>Task Brief</h4>
             {task.singleTask ? (
-              <>
+              <React.Fragment>
                 <Interweave content={he.decode(task.singleTask.description)} />
-              </>
+              </React.Fragment>
             ) : (
               <Spin />
             )}
@@ -85,7 +85,7 @@ function TaskBrief(props) {
               </div>
             </div>
           ) : null}
-        </>
+        </React.Fragment>
       ) : (
         <CustomLoader />
       )}

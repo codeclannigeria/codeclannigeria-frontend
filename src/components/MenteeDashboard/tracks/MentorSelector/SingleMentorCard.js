@@ -17,7 +17,7 @@ function SingleMentorCard({ mentor }) {
     description,
   } = mentor;
   return (
-    <>
+    <React.Fragment>
       <Card
         style={{ width: 'auto' }}
         cover={
@@ -51,7 +51,7 @@ function SingleMentorCard({ mentor }) {
             ))
           : null}
       </Card>
-    </>
+    </React.Fragment>
   );
 }
 

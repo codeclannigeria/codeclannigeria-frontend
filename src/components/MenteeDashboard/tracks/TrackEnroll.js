@@ -111,7 +111,7 @@ function TrackEnroll({
         </Steps>
 
         {current === 0 && items ? (
-          <>
+          <React.Fragment>
             <Radio.Group onChange={handleSetTrackId} defaultValue={null}>
               <div className="tracks-card">
                 {currentTracks ? (
@@ -139,16 +139,16 @@ function TrackEnroll({
                 showSizeChanger={false}
               />
             </div>
-          </>
+          </React.Fragment>
         ) : null}
         {current === 1 ? <TracksEnrollStages id={trackId} /> : null}
         {current === 2 ? (
-          <>
+          <React.Fragment>
             <SelectMentorStep
               trackId={trackId}
               handleSetMentorId={handleSetMentorId}
             />
-          </>
+          </React.Fragment>
         ) : null}
 
         {current === 3 ? (
@@ -167,7 +167,7 @@ function TrackEnroll({
           )}
 
           {current === 1 && (
-            <>
+            <React.Fragment>
               <Button type="default" onClick={() => prev()}>
                 Back
               </Button>
@@ -181,11 +181,11 @@ function TrackEnroll({
                   Next
                 </Button>
               </Popconfirm>
-            </>
+            </React.Fragment>
           )}
 
           {current === 2 && (
-            <>
+            <React.Fragment>
               <Button type="default" onClick={() => prev()}>
                 Back
               </Button>
@@ -200,7 +200,7 @@ function TrackEnroll({
                   Enroll
                 </Button>
               </Popconfirm>
-            </>
+            </React.Fragment>
           )}
           {current === 3 && (
             <Button type="primary" onClick={() => onCancel()}>

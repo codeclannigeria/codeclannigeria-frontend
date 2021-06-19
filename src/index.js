@@ -26,11 +26,11 @@ export const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <React.StrictMode>
+    <React.Fragment>
       <Router history={history}>
         <App />
       </Router>
-    </React.StrictMode>
+    </React.Fragment>
   </Provider>,
   document.getElementById('root')
 );

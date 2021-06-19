@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const StyledNav = styled.div`
-  font-family: 'Gilroy', 'Nunito', sans-serif;
+  font-family: 'Libre Franklin', sans-serif;
   a {
     color: white;
     text-decoration: none;
@@ -18,24 +18,41 @@ const StyledNav = styled.div`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Gilroy', 'Nunito', sans-serif;
+    font-family: 'Libre Franklin', sans-serif;
   }
 
   .logo {
     width: auto;
-    height: 100%;
+    height: 34px;
   }
   header {
-    background-color: #004296;
+    background-color: transparent;
+    height: 72px;
   }
+  .nav-link{
+    font-family: 'Libre Franklin', serif;
+    font-weight: 600;
+  font-size: 0.875rem;
+  }
+  nav {
+  height: 72px;
+}
+.navbar-brand img {
+  height: 34px;
+}
+.navbar .topnav-links .nav-link {
+  color: #131b49;
+  font-family: 'Libre Franklin', serif;
+  font-size: 0.875rem;
+}
+
   .inner-header {
-    background-color: #004495;
-    padding: 1rem 2rem;
-    color: white;
+    background-color: transparent;
+    color: #131b49;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    /* padding: 0rrem 4rrem; */
+    /* padding: 0rem 4rem; */
     align-items: center;
   }
 
@@ -47,10 +64,10 @@ const StyledNav = styled.div`
 
   header ul li {
     display: inline-block;
-    font-family: 'Gilroy';
     font-size: 18px;
     line-height: 27px;
-    width: 100px;
+    padding-right: .5rem;
+    padding-left: .5rem;
     text-align: center;
   }
   .button {
@@ -63,7 +80,7 @@ const StyledNav = styled.div`
     border-radius: 4px;
     cursor: pointer;
     a {
-      color: #004296;
+      color: #12376d;
     }
   }
   .mobile-menu {
@@ -79,17 +96,10 @@ const StyledNav = styled.div`
     /* margin: auto; */
   }
   @media only screen and (max-width: 968px) {
-    a {
-      color: #004296;
-      text-decoration: none;
-    }
+    
     .menu li {
       font-size: 1.1rem;
       line-height: 5rem;
-    }
-
-    .sign li {
-      line-height: 2rem;
     }
 
     .logo {
@@ -115,6 +125,7 @@ const StyledNav = styled.div`
       margin-top: 5rem;
       margin-left: auto;
       opacity: 1;
+      
     }
 
     .inner-header {
@@ -132,17 +143,6 @@ const StyledNav = styled.div`
       display: none;
     }
 
-    /* .menu {
-      display: unset;
-    } */
-
-    .header-copyright {
-      font-size: 1.5rem;
-      text-align: center;
-      margin: 4rem 0;
-      font-weight: bolder;
-    }
-
     .mobile-menu {
       padding: 1rem;
       margin-top: 1rem;
@@ -155,7 +155,7 @@ const StyledNav = styled.div`
       right: 0;
       width: 100%;
       height: 100vh;
-      background-color: #004296;
+      background-color: #30507f;
       flex-direction: column;
       padding: 0 35px;
       /* justify-content: center; */

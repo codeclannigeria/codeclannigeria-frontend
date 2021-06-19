@@ -1,22 +1,29 @@
 @import-normalize; /* bring in normalize.css styles */
 
-/* The styles here are used to override  */
-
 @font-face {
   font-family: 'Gilroy';
   src: url('./components/assets/fonts/Gilroy-Light.otf');
 }
 
-body {
-  margin: 0;
-  font-family: 'Gilroy', sans-serif !important;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 400;
+  color: '#18191f';
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Zilla Slab', serif;
 }
 
 .box-error {
@@ -168,8 +175,5 @@ code {
 @media (max-width: 600px) {
   html {
     font-size: 12px;
-  }
-  .ant-radio-button-wrapper {
-    /* margin-bottom: 1rem !important; */
   }
 }

@@ -78,7 +78,7 @@ function ResetPassword({ history, location }) {
   }, []);
 
   return (
-    <>
+    <React.Fragment>
       <Navbar />
       <Formik
         initialValues={{ password: '', confirmPassword: '' }}
@@ -236,7 +236,7 @@ function ResetPassword({ history, location }) {
           </ForgotPasswordStyled>
         )}
       </Formik>
-    </>
+    </React.Fragment>
   );
 }
 

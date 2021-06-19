@@ -31,7 +31,7 @@ function AlertComponent({ variant, text, error }) {
   );
 
   return (
-    <>
+    <React.Fragment>
       {error ? (
         <Alert
           show={error}
@@ -44,7 +44,7 @@ function AlertComponent({ variant, text, error }) {
           {text}
         </Alert>
       ) : null}
-    </>
+    </React.Fragment>
   );
 }
 

@@ -85,15 +85,15 @@ function MentorDetails() {
   // };
 
   return (
-    <>
+    <React.Fragment>
       {user ? (
-        <>
+        <React.Fragment>
           {user.mentor && user.mentor.length > 0 ? (
             <UserProfile data={user.mentor[0]} loading={user.loading} />
           ) : null}
-        </>
+        </React.Fragment>
       ) : null}
-    </>
+    </React.Fragment>
   );
 }
 

@@ -45,34 +45,36 @@ function ConfirmEmail(props) {
 
   if (loading) {
     return (
-      <>
+
+      <React.Fragment>
+
         <Navbar />
         <div className="d-flex align-items-center justify-content-center flex-column vh-100">
           <p> Please hold on a second...</p>
         </div>
-      </>
+      </React.Fragment>
     );
   }
 
   //   I was too tired to make this a components to reduce the number of codes
   if (error) {
     return (
-      <>
+      <React.Fragment>
         <Navbar />
         <div className="d-flex align-items-center justify-content-center flex-column vh-100">
           {errorMessage ? (
-            <>
+            <React.Fragment>
               <h2>{errorMessage}</h2>
               <p className="text-monospace">
                 Kindly Click here to <Link to="/login"> Login</Link> to
                 youraccount
               </p>
-            </>
+            </React.Fragment>
           ) : (
-            <>
+            <React.Fragment>
               <h2>We couldn't verify your email</h2>
               <p>Are you sure this is the exact same link from your email?</p>
-            </>
+            </React.Fragment>
           )}
 
           <img
@@ -83,11 +85,11 @@ function ConfirmEmail(props) {
           />
           <br />
         </div>
-      </>
+      </React.Fragment>
     );
   }
   return (
-    <>
+    <React.Fragment>
       <Navbar />
       <div className="d-flex align-items-center justify-content-center flex-column vh-100">
         <h2>Email successfully Verified</h2>
@@ -102,7 +104,7 @@ function ConfirmEmail(props) {
         />
         <br />
       </div>
-    </>
+    </React.Fragment>
   );
 }
 

@@ -40,7 +40,7 @@ function ForgotPassword({ history }) {
   }, [error, errResponse]);
 
   return (
-    <>
+    <React.Fragment>
       <Navbar />
       <Formik
         initialValues={{ email: '' }}
@@ -135,7 +135,7 @@ function ForgotPassword({ history }) {
           </ForgotPasswordStyled>
         )}
       </Formik>
-    </>
+    </React.Fragment>
   );
 }
 

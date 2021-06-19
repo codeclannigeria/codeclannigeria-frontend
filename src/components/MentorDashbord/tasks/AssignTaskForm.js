@@ -27,7 +27,7 @@ function AssignTaskForm({ onCancel, onCreate, visible }) {
   }
 
   return (
-    <>
+    <React.Fragment>
       <Modal
         visible={visible}
         okText="Done"
@@ -81,7 +81,7 @@ function AssignTaskForm({ onCancel, onCreate, visible }) {
         </Typography>
         <Typography>Deadline: 10, fasanya alago</Typography>
       </Modal>
-    </>
+    </React.Fragment>
   );
 }
 

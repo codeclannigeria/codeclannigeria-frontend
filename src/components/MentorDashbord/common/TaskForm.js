@@ -56,7 +56,7 @@ function TaskForm({
   };
 
   return (
-    <>
+    <React.Fragment>
       <Modal
         okText="Grade"
         visible={visible}
@@ -128,7 +128,7 @@ function TaskForm({
           </Form.Item>
         </Form>
       </Modal>
-    </>
+    </React.Fragment>
   );
 }
 

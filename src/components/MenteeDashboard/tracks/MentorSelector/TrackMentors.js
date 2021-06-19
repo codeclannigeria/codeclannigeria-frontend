@@ -19,7 +19,7 @@ export const TrackMentors = ({ mentors }) => {
     : null;
 
   return (
-    <>
+    <React.Fragment>
       <SingleMentorCardStyled>
         {currentCards.map(item => (
           <div className="radio-options">
@@ -46,7 +46,7 @@ export const TrackMentors = ({ mentors }) => {
           showSizeChanger={false}
         />
       </div>
-    </>
+    </React.Fragment>
   );
 };
 

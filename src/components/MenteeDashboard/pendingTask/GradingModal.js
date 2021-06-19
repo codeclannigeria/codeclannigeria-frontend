@@ -27,7 +27,7 @@ export const GradingModal = ({ visible, onCancel, onCreate, taskId }) => {
   const task = useSelector(state => state.tasks.singleMenteeSubmittedTask);
 
   return (
-    <>
+    <React.Fragment>
       <Modal visible={visible} cancelText="Done" onCancel={onCancel}>
         {task.data ? (
           <Descriptions
@@ -57,7 +57,7 @@ export const GradingModal = ({ visible, onCancel, onCreate, taskId }) => {
 
         {task.loading ? <CustomLoader /> : null}
       </Modal>
-    </>
+    </React.Fragment>
   );
 };
 

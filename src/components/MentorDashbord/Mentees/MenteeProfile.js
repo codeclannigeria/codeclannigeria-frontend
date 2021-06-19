@@ -67,18 +67,18 @@ function MenteeProfile(props) {
     tasks: [],
   };
   return (
-    <>
+    <React.Fragment>
       {user ? (
-        <>
+        <React.Fragment>
           {
             user.singleMentee ? (
               <UserProfile data={user.singleMentee[0]} loading={user.loading} />
             ) : null
             // <UserProfile data={data} loading={user.loading} />
           }
-        </>
+        </React.Fragment>
       ) : null}
-    </>
+    </React.Fragment>
 
     // <UserProfileStyled>
     //   <UserCard data={data} mode="mentor" />

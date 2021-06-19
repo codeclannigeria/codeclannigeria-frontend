@@ -1,266 +1,155 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import HomepageStyled from './HomepageStyled';
-import HeaderImage from './assets/image/homepage/Header.png';
-import GroupCircle from './assets/image/homepage/group-circle.png';
-import GirlSmiling from './assets/image/homepage/girl.png';
-import BoySmiling from './assets/image/homepage/boy.png';
-import Code from './assets/image/homepage/code.jpg';
+import SmilingFemale from './assets/image/homepage/smiling-female-sitting-with-laptop.png';
+import TestedAndTrustedImage from './assets/image/homepage/testedandtrusted.png';
+import RequirementImage from './assets/image/homepage/requirement-image.png';
+import RequirementImage2 from './assets/image/homepage/requirement-image2.png';
 
-import hpLaptop from './assets/image/homepage/hpLaptop.jpg';
-import LaptopOnTable from './assets/image/homepage/laptopOnTable.jpg';
-import laptopWithBook from './assets/image/homepage/laptopWithBook.jpg';
-import { ReactComponent as ChevronLeft } from './assets/svgs/homepage/chevron-left.svg';
-import { ReactComponent as ChevronRight } from './assets/svgs/homepage/chevron-right.svg';
+import AirbnbLogo from './assets/image/homepage/Airbnb-Logo.png';
+import AmazonLogo from './assets/image/homepage/Amazon-Logo.png';
+import FedExLogo from './assets/image/homepage/FedEx-Logo.png';
+import GoogleLogo from './assets/image/homepage/Google-Logo.png';
+import OYOLogo from './assets/image/homepage/OYO-Logo.png';
+import WalmartLogo from './assets/image/homepage/Walmart-Logo.png';
+import OlaLogo from './assets/image/homepage/OLA-logo.png';
+import MicrosoftLogo from './assets/image/homepage/Microsoft-Logo.png';
+
+
+import CheckIcon  from './assets/svgs/homepage/check-circle.svg';
+
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
-import Flip from 'react-reveal/Flip';
-import Fade from 'react-reveal/Fade';
-import Slide from 'react-reveal/Slide';
-
-import Jump from 'react-reveal/Jump';
+import TrackList from './tracks/TrackList';
+import Footer from './Footer';
+import TestimonialList from './testimonial/TestimonialList';
 
 function Homepage() {
-  const row = useRef();
-  const animateScroll = (el, scrollLength, speed, where) => {
-    var start = 0;
-    const scrol = setInterval(function () {
-      start += 5;
-      where === 'right' ? (el.scrollLeft += 5) : (el.scrollLeft -= 5);
-
-      if (start >= 130) {
-        start += 5;
-        where === 'right' ? (el.scrollLeft += 5) : (el.scrollLeft -= 5);
-      }
-
-      if (start >= scrollLength) {
-        clearInterval(scrol);
-      }
-    }, speed);
-  };
-
-  function goRight() {
-    // console.log(row);
-    animateScroll(row.current, 800, 1, 'right');
-  }
-
-  function goLeft() {
-    animateScroll(row.current, 800, 1, 'left');
-  }
+  
 
   return (
     <HomepageStyled>
-      <Navbar />
-      <div className="back">
-        <div className="body">
-          <div className="sorround">
-            <div className="title">
-              <Slide top>Tap into the Power of Community Learning</Slide>
-            </div>
-            <p className="subtitle">
-              <Flip right cascade>
-                Start your journey to becoming a world class developer or
-                designer
-              </Flip>
-            </p>
-            <div>
-              <Link to="/register/">
-                <button className="get-started">Get Started</button>
-              </Link>
-            </div>
-          </div>
-          <div className="pic-hold">
-            <img src={HeaderImage} alt="Header" />
-          </div>
-        </div>
-      </div>
-      {/* second section */}
-      <div className="section-2">
-        <div className="section-2-title">Making Learning Easy &amp; Fun</div>
-        <div className="collaboration">
-          <div className="text-title">
-            <p className="text-title collab-text">
-              Leverage the power of collaboration
-            </p>
-          </div>
-          <div className="collab-image">
-            <Jump duration={5000}>
-              <img src={GroupCircle} alt="collaboration" />
-            </Jump>
-          </div>
-        </div>
-      </div>
-      {/* third section */}
-      <div className="section-3">
-        <div className="p-70-30">
-          <div className="section-3-title">
-            Why should you join the CodeClan Community?
-          </div>
-        </div>
-        <div className="section-3-inner">
-          <div className="common">
-            <Fade left>
-              <div className="small-text">Mentorship.</div>
-              <div className="tiny-text">
-                When you join Code Clan, you get assigned a mentor who will be
-                responsible for your learning and be there with you every step
-                of the way.
-              </div>
-            </Fade>
-            <Fade right>
-              <div className="small-text">Track Variety.</div>
-              <div className="tiny-text">
-                Choose from a wide variety of tracks to follow, whether frontend
-                or backend or mobile or even design, we’ve got you covered.
-              </div>
-            </Fade>
-            <Fade left>
-              <div className="small-text">Certificate.</div>
-              <div className="tiny-text">
-                By the end of the program, you would have worked on projects you
-                can showcase on your portfolio and even get a certificate of
-                completion.
-              </div>
-            </Fade>
-          </div>
-          <div
-            style={{ textAlign: 'center', width: '64%', position: 'relative' }}
-          >
-            <Slide left>
-              <div style={{ width: '70%' }}>
-                <img
-                  style={{ height: '80%' }}
-                  src={GirlSmiling}
-                  alt="lady smiling"
-                />
-              </div>
-              <div className="absolute-pic">
-                <img src={BoySmiling} />
-              </div>
-            </Slide>
-          </div>
-        </div>
-      </div>
-      {/* fourth section */}
-      <div className="section-4">
-        <div
-          className="section-4-title"
-          style={{ textAlign: 'center', marginBottom: '1em' }}
-        >
-          Tracks
-        </div>
-        <div style={{ position: 'relative' }}>
-          <div ref={row} id="row" className="row">
-            <div className="inner">
-              <div className="pic">
-                <img src={LaptopOnTable} />
-              </div>
-              <div className="full-padding">
-                <p className="straight">Mobile Development</p>
-                <p style={{ textAlign: 'center', marginTop: '.5em' }}>
-                  Learn how to build amazing apps using Flutter
+      
+      <div className="container-fluid page-container px-0">
+        
+        <div className="landing-welcome pry-padd-form">
+          <Navbar />
+          <section className="welcome-banner d-flex justify-content-between my-5 py-5">
+            <div className="banner-text-wrapper">
+              <h3>Tap into the Power of Community Learning</h3>
+                <p className="ft18to16">
+                  In eget quam vitae sed sagittis massa laoreet. Nascetur sem natoque imperdiet lacus, eget
+                  consectetur urna. Mattis bibendum ullamcorper turpis sagittis, non quam eu pellentesque.
                 </p>
-              </div>
             </div>
-            <div className="inner">
-              <div className="pic">
-                <img src={hpLaptop} />
-              </div>
-              <div className="full-padding">
-                <p className="straight">FrontEnd Development</p>
-                <p style={{ textAlign: 'center', marginTop: '.5em' }}>
-                  Learn how to build amazing apps using Flutter
-                </p>
-              </div>
+            <div className="desktop-img-wrapper text-right">
+              <img src={SmilingFemale} alt="Code Clan Female" className="align-self-end" />
             </div>
-            <div className="inner">
-              <div className="pic">
-                <img src={laptopWithBook} />
-              </div>
-              <div className="full-padding">
-                <p className="straight">Backend Development</p>
-                <p style={{ textAlign: 'center', marginTop: '.5em' }}>
-                  Learn how to build amazing apps using Flutter
-                </p>
-              </div>
-            </div>
-            <div className="inner">
-              <div className="pic">
-                <img src={Code} />
-              </div>
-              <div className="full-padding">
-                <p className="straight">Full Stack Development</p>
-                <p style={{ textAlign: 'center', marginTop: '.5em' }}>
-                  Learn how to build amazing apps using Flutter
-                </p>
-              </div>
-            </div>
-          </div>
-          <button className="go go-right" onClick={() => goRight()}>
-            <ChevronRight height="20px" width="20px" />
-          </button>
-          <button className="go go-left" onClick={() => goLeft()}>
-            <ChevronLeft height="20px" width="20px" />
-          </button>
+          </section>
         </div>
-      </div>
-      {/* footer */}
-      <div className="footer">
-        <div className style={{ textAlign: 'center' }}>
-          <div
-            style={{
-              display: 'inline-block',
-              margin: '0.8rem',
-            }}
-          >
-            <a
-              href="https://www.facebook.com/groups/codeclannigeria/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i class="fab fa-facebook fa-2x"></i>
-            </a>
-          </div>
+      <section className="clan-stats pry-padd-form d-flex flex-wrap justify-content-between py-4">
+        <div className="student-count mb-4 mr-5">
+          <p className="ft48 extrabold-libre mb-2">1,500,000+</p>
+          <p className="ft18to16 mb-0">People who have been trained and belong to our community now work with</p>
+        </div>
+        <div className="alumni-companies d-flex">
+            <div className="client-logo">
+              <img src={AirbnbLogo} alt="Aibnb company logo" />
+            </div>
+            <div className="client-logo"><
+              img src={AmazonLogo} alt="Amazon company logo" />
+            </div>
+            <div className="client-logo">
+              <img src={FedExLogo} alt="Fedex company logo"/>
+            </div>
+            <div className="client-logo">
+              <img src={MicrosoftLogo} alt="Microsoft company logo" />
+            </div>
+            <div className="client-logo">
+              <img src={GoogleLogo} alt="Google company logo" />
+            </div>
+            <div className="client-logo">
+              <img src={OlaLogo} alt="OLA company logo" />
+            </div>
+            <div className="client-logo">
+              <img src={WalmartLogo} alt="Walmart company logo" />
+            </div>
+            <div className="client-logo">
+              <img src={OYOLogo} alt="OYO company logo" />
+            </div>
+        </div>
+        </section>
+        
 
-          <div
-            style={{
-              display: 'inline-block',
-              margin: '0.8rem',
-            }}
-          >
-            <a
-              href="https://github.com/codeclannigeria"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <i class="fab fa-github fa-2x"></i>
-            </a>
-          </div>
-
-          <div
-            style={{
-              display: 'inline-block',
-              margin: '0.8rem',
-            }}
-          >
-            <a
-              href="https://twitter.com/codeclannigeria"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <i class="fab fa-twitter fa-2x"></i>
-            </a>
-          </div>
-        </div>
-        <div
-          className="footer-under"
-          style={{ textAlign: 'center', marginTop: '1rem' }}
-        >
-          <p style={{ fontWeight: 'bold', lineHeight: '40px' }}>
-            CODE CLAN NIGERIA
+      <section className="clan-reputation pry-padd-form d-flex">
+        <div className="desktop-img-wrapper mr-5"><img src={TestedAndTrustedImage} alt="two techies collaborating" /></div>
+        <div>
+          <h4 className="section-title mt-4 mb-3">Tested and Trusted all over the World</h4>
+          <p className="mb-4">
+            Cursus sem amet, quisque consequat sagittis. Tincidunt ut posuere nulla in. Scelerisque vivamus vestibulum
+            risus habitasse amet purus a turpis sed. Pellentesque urna pharetra lorem enim eu tellus rutrum fringilla.
+            Facilisis in
+            purus sit vel posuere fermentum.
           </p>
-          <p>Copyright © 2020</p>
+          <Link to="/" className="link-as-blue-btn light-bg-btn learn-more-link">Learn More</Link>
         </div>
-      </div>
+      </section>
+        
+
+      <section className="clan-requirements pry-padd-form d-flex mb-5">
+        <div className="mr-4">
+          <h4 className="section-title">Requirements gathering and analysis for references.</h4>
+          <p>
+            Convallis turpis erat tempus, viverra aliquet. Nullam viverra nam auctor sit ipsum malesuada a, duis volutpat.
+            Convallis turpis erat tempus, viverra aliquet. Nullam viverra nam auctor sit ipsum malesuada a, duis volutpat.
+          </p>
+          <div className="desktop-img-wrapper">
+            <img src={RequirementImage} alt="code clan requirement" />
+          </div>
+        </div>
+          
+        <div>
+            <div className="desktop-img-wrapper mb-2">
+              <img src={RequirementImage2} alt="fingers pointing at screen code clan" /></div>
+            <p>
+              Nullam viverra nam auctor sit ipsum malesuada a, duis volutpat. , viverra aliquet. Nullam viverra nam auctor
+              sit ipsum malesuada a, duis volutpat.
+            </p>
+
+            <Link to="#" className="link-as-blue-btn light-bg-btn learn-more-link">
+              Learn More
+            </Link>
+        </div>
+      </section>
+        
+
+      
+      <TrackList/>
+      
+
+      <TestimonialList />
+        
+      <section className="call-to-action pry-padd-form">
+        <h4 className="section-title text-center contained-778p">Join the Codeclan Nigeria Community Today</h4>
+        <ul className="list-unstyled d-flex flex-wrap text-nowrap my-5">
+            <li className="cta-list">
+              <img src={CheckIcon} alt="check mark" />
+              &nbsp;Fully organized training Sessions
+            </li>
+            <li className="cta-list">
+              <img src={CheckIcon} alt="check mark" />
+              &nbsp;Belong to an amazing Community
+              </li>
+            <li className="cta-list">
+              <img src={CheckIcon} alt="check mark" />&nbsp;I no know again</li>
+        </ul>
+        <Link to="#" className="link-as-blue-btn dark-bg-btn join-now-btn">Join Now</Link>
+        </section>
+        
+      <Footer/>
+      
+  </div>
+     
+
     </HomepageStyled>
   );
 }

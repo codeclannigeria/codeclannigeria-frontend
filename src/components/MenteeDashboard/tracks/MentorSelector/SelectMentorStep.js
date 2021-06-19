@@ -25,7 +25,7 @@ function SelectMentorStep({ trackId, handleSetMentorId }) {
   }, []);
   // const handleSetMentor = () => {};
   return (
-    <>
+    <React.Fragment>
       <Radio.Group onChange={handleSetMentorId} defaultValue={null}>
         <div className="">
           <p>
@@ -40,7 +40,7 @@ function SelectMentorStep({ trackId, handleSetMentorId }) {
           )}
         </div>
       </Radio.Group>
-    </>
+    </React.Fragment>
   );
 }
 
