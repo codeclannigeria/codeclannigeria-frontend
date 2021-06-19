@@ -35,9 +35,9 @@ export const TrackListStyled = styled.div`
   font-size: 24px;
 }
 .track-card a {
-  color: var(--ter-blue-clr);
+  color: #131b49;
   font-size: 12px;
-  font-family: 'Bold Libre', serif;
+  font-family: 'Libre Franklin', serif;
 }
 `
 
