@@ -17,6 +17,10 @@ body {
   color: '#18191f';
 }
 
+a {
+  text-decoration: none;
+}
+
 h1,
 h2,
 h3,
