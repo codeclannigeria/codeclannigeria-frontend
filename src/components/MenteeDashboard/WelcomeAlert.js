@@ -36,7 +36,7 @@ function WelcomeAlert({ user, enroll, visible, loading }) {
                   <Spin />
                 )}
               </p>
-              <p style={{ fontSize: '0.9rem' }}>
+              {/* <p style={{ fontSize: '0.9rem' }}>
                 You are adviced to send an email or a WhatsApp message to your
                 mentor requesting to be added to your respective track channel
                 on Slack. You can see your mentor information on the portal when
@@ -47,20 +47,19 @@ function WelcomeAlert({ user, enroll, visible, loading }) {
                 program. We have started to take measures on dropping inactive
                 accounts to free up some space on our server. We are trying as
                 much as possible to spend so little on server cost.
-              </p>
+              </p> */}
               <small>
-                *Start your journey with CodeClan by enrolling in a track and
-                joining the Slack channel
+                *Start your journey with CodeClan by enrolling in a track
               </small>
             </div>
 
             <div className="d-flex w-100 justify-content-end mr-3">
-              <a
+              {/* <a
                 className="btn slack__btn btn-primary mr-2"
                 href="https://communityinviter.com/apps/codeclannigeria/codeclannigeria"
               >
                 Join our Slack Channel
-              </a>
+              </a> */}
 
               {tracks && tracks.length >= 1 ? (
                 <span
