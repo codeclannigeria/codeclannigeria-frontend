@@ -158,8 +158,17 @@ h4 {
   font-size: 1.125rem;
   width: 240px;
 }
+.buttons{
+  display: flex;
+  justify-content: space-between;
+}
+.ml{
+      margin: 0 0 0 20px;
+}
+}
 
-.clan-requirements{
+.clan-requirements,
+clan-requirement{
   justify-content: space-between;
 }
 
