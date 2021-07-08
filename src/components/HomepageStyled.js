@@ -165,7 +165,6 @@ h4 {
 .ml{
       margin: 0 0 0 20px;
 }
-}
 
 .clan-requirements,
 clan-requirement{
