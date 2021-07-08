@@ -22,7 +22,6 @@ import Navbar from './Navbar';
 import TrackList from './tracks/TrackList';
 import Footer from './Footer';
 import TestimonialList from './testimonial/TestimonialList';
-import Iframe from 'react-iframe';
 
 function Homepage() {
   
@@ -145,7 +144,7 @@ function Homepage() {
           </ul>
           <div className="buttons">
             <Link to="/register" className="link-as-blue-btn dark-bg-btn join-now-btn">Join Now</Link>
-          <a className="link-as-blue-btn light-bg-btn learn-more-link ml" href="https://discord.gg/3EUBZRByAm" target="_blank"> Join Discord</a>
+          <a className="link-as-blue-btn light-bg-btn learn-more-link ml" href="https://discord.gg/3EUBZRByAm" target="_blank" rel = "noopener noreferrer"> Join Discord</a>
           </div>
           
         </section>
