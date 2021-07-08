@@ -158,6 +158,7 @@ h4 {
   font-size: 1.125rem;
   width: 240px;
 }
+<<<<<<< HEAD
 .buttons{
   display: flex;
   justify-content: space-between;
@@ -165,9 +166,10 @@ h4 {
 .ml{
       margin: 0 0 0 20px;
 }
+=======
+>>>>>>> parent of c7ed157... Added discord button
 
-.clan-requirements,
-clan-requirement{
+.clan-requirements{
   justify-content: space-between;
 }
 
