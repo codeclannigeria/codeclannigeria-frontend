@@ -11,7 +11,6 @@ import TaskForm from '../common/TaskForm';
 
 function SubmissionList({
   mentorTasks,
-
   loading,
   getUserMenteesProfileApi,
   getAllMentorSubmissions,
@@ -20,6 +19,7 @@ function SubmissionList({
   const [visible, setVisible] = useState();
   const [currentRecord, setCurrentRecord] = useState();
   const dispatch = useDispatch();
+  console.log(mentorTasks);
 
   const onCreate = (values, initialData) => {
     values.id = initialData.id;
@@ -61,20 +61,25 @@ function SubmissionList({
     {
       title: 'Name',
       dataIndex: 'mentee',
-      sorter: (a, b) => a.mentee.firstName.length - b.mentee.firstName.length,
+      sorter: (a, b) => a.mentee.firstName > b.mentee.firstName,
       render: (_, { mentee }) => mentee.firstName,
     },
     {
       title: 'Surname',
       dataIndex: 'mentee',
-      sorter: (a, b) => a.mentee.lastName.length - b.mentee.lastName.length,
+      sorter: (a, b) => a.mentee.lastName.length > b.mentee.lastName,
       render: (_, { mentee }) => mentee.lastName,
     },
     {
       title: 'Task',
       dataIndex: 'task',
-      sorter: (a, b) => a.task.title.length - b.task.title.length,
+      sorter: (a, b) => a.task.title > b.task.title,
       render: (_, { task }) => task.title,
+    },
+    {
+      title: 'Updated',
+      render: (_, { updatedAt }) => updatedAt,
+      sorter: (a, b) => a.updatedAt > b.updatedAt,
     },
     {
       title: 'Grade %',
@@ -95,7 +100,6 @@ function SubmissionList({
         value === 'graded'
           ? record.gradePercentage > 0
           : record.gradePercentage <= 0,
-      // render: bool => <Switch checked={bool} />,
     },
     {
       title: 'Grade',
