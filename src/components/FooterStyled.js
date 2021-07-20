@@ -1,6 +1,22 @@
 import styled from 'styled-components';
 
 export const FooterStyled = styled.div`
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:hover {
+  color: inherit;
+}
+.nanum-font {
+  font-family: 'Nanum Pen Script', cursive;
+}
+.turquoise-clr {
+  color: #2ec5ce;
+}
+.ft20 {
+  font-size: 20px;
+}
 
 footer.pry-padd-form {
   background: #0b0d17;

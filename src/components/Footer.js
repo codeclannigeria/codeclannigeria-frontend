@@ -1,9 +1,11 @@
 import React from 'react';
 import FooterLogo from './assets/image/codeClanLogoWhite.png';
 import { Link } from 'react-router-dom';
+import FooterStyled from './FooterStyled';
 
 function Footer() {
-    return (
+  return (
+      <FooterStyled>
        <footer className="pry-padd-form">
         <div className="footer-link-groups">
           <div className="footer-link-group">
@@ -55,6 +57,7 @@ function Footer() {
           <div className="text-center mb-5 mt-4"><small>© 2021 CodeClan Nigeria. All rights reserved.</small></div>
         </div>
       </footer>
+      </FooterStyled>
     )
 }
 
