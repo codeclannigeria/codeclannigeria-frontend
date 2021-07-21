@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-has-content */
 import React from 'react';
 const TeamMember = () => {
   return (
@@ -16,9 +17,9 @@ const TeamMember = () => {
                     </p>
                     <ul className="social">
                         <li>
-                          <a className="fab fa-twitter" href="https://twitter.com/olu_tayormi" target="_blank" rel="noreferrer"></a></li>
-                        <li><a className="fab fa-github" href="https://github.com/tayormi" target="_blank" rel="noreferrer" aria-hidden><span aria-hidden>facebook</span></a></li>
-                        <li><a className="fab fa-linkedin" href="https://www.linkedin.com/in/tayormi/" target="_blank" rel="noreferrer"></a></li>
+                          <a className="fab fa-twitter" href="https://twitter.com/olu_tayormi" target="_blank" rel="noopener noreferrer"></a></li>
+                        <li><a className="fab fa-github" href="https://github.com/tayormi" target="_blank" rel="noopener noreferrer"></a></li>
+                        <li><a className="fab fa-linkedin" href="https://www.linkedin.com/in/tayormi/" target="_blank" rel="noopener noreferrer"></a></li>
                         
                     </ul>
                 </div>
