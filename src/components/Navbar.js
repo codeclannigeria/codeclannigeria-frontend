@@ -22,9 +22,9 @@ function Navbar() {
             <nav className="navbar">
               <ul className="topnav-links">
                 <li className="nav-item">
-                  <Link className="nav-link" to="/">About</Link>
+                  <Link className="nav-link" to="/team">Our Team</Link>
                 </li>
-                <li className="nav-item">
+                {/* <li className="nav-item">
                   <Link className="nav-link" to="/">Services</Link>
                 </li>
                 <li className="nav-item">
@@ -32,9 +32,9 @@ function Navbar() {
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/">Jobs</Link>
-                </li>
+                </li> */}
                 <li className="nav-item">
-                  <Link className="nav-link" to="/">Contact</Link>
+                  <Link className="nav-link" to="/contactus">Contact Us</Link>
                 </li>
               </ul>
             
