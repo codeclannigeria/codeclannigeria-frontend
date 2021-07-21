@@ -24,18 +24,16 @@ function Navbar() {
                 <li className="nav-item">
                   <Link className="nav-link" to="/team">Our Team</Link>
                 </li>
-                {/* <li className="nav-item">
-                  <Link className="nav-link" to="/">Services</Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/">Blog</Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/">Jobs</Link>
-                </li> */}
                 <li className="nav-item">
                   <Link className="nav-link" to="/contactus">Contact Us</Link>
                 </li>
+                <li className="nav-item btn btn-success mx-2">
+                  <Link className="nav-link text-light" to="/login">Login</Link>
+                </li>
+                <li className="nav-item btn btn-warning">
+                  <Link className="nav-link text-dark" to="/register">Register</Link>
+                </li>
+                
               </ul>
             
           </nav>

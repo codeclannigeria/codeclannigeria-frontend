@@ -248,6 +248,19 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 
 const Team = () => {
+
+  // const TeamMembers = [
+  //   {
+  //     name: 'Ajiboye Temitope Tayomi',
+  //     role: 'Founder, Code Clan',
+  //     description: '',
+  //     linkedinUrl: '',
+  //     githubUrl: '',
+  //     twitterUrl: '',
+  //     imageUrl:'https://res.cloudinary.com/codeclannigeria/image/upload/q_auto/v1598648044/CCN/Teams%20Page%20Photos/fortune_xcb5jb.jpg'
+  //   }
+  // ]
+
   return (
     <StyledTeam>
       <div className="container-fluid pry-padd-form">
@@ -256,18 +269,18 @@ const Team = () => {
         </div>
         <div className="row my-5 py-5">
           <h1 className="title text center">
-            Our Team
+            Meet our team
           </h1>
         </div>
         
         <div className="row">
           
-        <TeamMember />
-        <TeamMember/>
-        <TeamMember/>
-        <TeamMember/>
-        <TeamMember/>
-      </div>
+          <TeamMember />
+          <TeamMember/>
+          <TeamMember/>
+          <TeamMember/>
+          <TeamMember/>
+        </div>
       
       </div>
       <Footer/>
