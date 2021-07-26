@@ -67,7 +67,7 @@ footer.pry-padd-form {
 }
  @media only screen and (max-width: 968px) {
    .footer-link-groups > * {
-      width: 50%;
+      width: 50% !important;
       margin-bottom: 20px;
     }
  }
