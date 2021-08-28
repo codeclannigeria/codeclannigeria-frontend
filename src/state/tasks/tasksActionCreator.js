@@ -1,5 +1,6 @@
 import * as types from './tasksActionTypes';
 import codeClanApi from '../../api/apiUtils';
+import history from '../../history';
 
 export const getAllTasksAction = trackId => {
   return async dispatch => {
@@ -39,9 +40,9 @@ export const getAllTasksAction = trackId => {
             dispatch({ type: types.TASKS_SUCCESS, payload: tasksObj });
           });
 
-        // console.log(submittedTasks());
+        console.log(submittedTasks());
 
-        // history.push(`/dashboard`)
+        history.push(`/dashboard`);
       })
       .catch(err => {
         const error_msg = err.response
