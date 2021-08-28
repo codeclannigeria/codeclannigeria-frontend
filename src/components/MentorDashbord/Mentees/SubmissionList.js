@@ -40,7 +40,7 @@ function SubmissionList({
     } else {
       setVisible(false);
     }
-  }, [currentRecord]);
+  }, [currentRecord, form]);
 
   const handleModalVisibility = record => {
     dispatch({ type: 'TASKS_RESET' });

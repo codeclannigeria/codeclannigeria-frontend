@@ -1,5 +1,4 @@
 import * as types from './tasksActionTypes';
-import { act } from 'react-dom/test-utils';
 
 const initialState = {
   loading: false,

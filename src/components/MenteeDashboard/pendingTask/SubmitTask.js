@@ -21,11 +21,11 @@ function SubmitTask(props) {
 
   const fetchData = useCallback(async () => {
     await dispatch(getSingleTaskAction(id));
-  }, []);
+  }, [dispatch, id]);
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [fetchData]);
 
   useEffect(() => {
     if (error) {

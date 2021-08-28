@@ -40,7 +40,7 @@ function LoginForm({ authLogin, loading, error, errResponse, token, history }) {
     } else if (role === 'MENTOR') {
       history.push('/dashboard/mentor/mentees');
     }
-  }, []);
+  }, [history]);
 
   useEffect(() => {
     if (token) {
