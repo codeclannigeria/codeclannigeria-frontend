@@ -5,7 +5,7 @@ import history from '../../history';
 export const apiURL = 'https://codeclannigeria-api.herokuapp.com/api/auth';
 
 export const signup = userData => {
-  return dispatch => {
+  return async dispatch => {
     dispatch({ type: types.AUTH_START });
     const token_data = {
       email: userData.email,
@@ -13,54 +13,45 @@ export const signup = userData => {
       tokenParamName: 'token',
       emailParamName: 'email',
     };
-    return axios
-      .post(`${apiURL}/register`, userData)
-      .then(res => {
-        dispatch({ type: types.AUTH_SUCCESS, payload: { token: 'true' } });
-        authSendEmailConfirmationToken(token_data);
+    try {
+      const res = await axios.post(`${apiURL}/register`, userData);
+      dispatch({ type: types.AUTH_SUCCESS, payload: { token: true } });
+      authSendEmailConfirmationToken(token_data);
+      console.log(res);
+    } catch (err) {
+      const error_msg = err.response
+        ? err.response.data.message
+        : 'An error occured';
 
-        // const expirationDate = new Date(new Date().getTime() + 3600 * 1000);
-        // localStorage.setItem('codeclan_token', res.data);
-        // localStorage.setItem('expirationDate', expirationDate);
-
-        // history.push(`/dashboard`)
-      })
-      .catch(err => {
-        const error_msg = err.response
-          ? err.response.data.message
-          : 'An error occured';
-
-        dispatch({
-          type: types.AUTH_FAILURE,
-          payload: error_msg,
-        });
+      dispatch({
+        type: types.AUTH_FAILURE,
+        payload: error_msg,
       });
+    }
   };
 };
 
 export const authLogin = userData => {
-  return function (dispatch) {
+  return async function (dispatch) {
     dispatch({ type: types.AUTH_START });
 
-    return axios
-      .post(`${apiURL}/login`, userData)
-      .then(res => {
-        const token = res.data.accessToken;
-        const expirationDate = new Date(new Date().getTime() + 3600 * 1000);
-        localStorage.setItem('codeclan_token', token);
-        localStorage.setItem('expirationDate', expirationDate);
-        dispatch({ type: types.AUTH_SUCCESS, payload: token });
-      })
-      .catch(err => {
-        const error_msg = err.response
-          ? err.response.data.message
-          : 'An error occured';
+    try {
+      const res = await axios.post(`${apiURL}/login`, userData);
+      const token = res.data.accessToken;
+      const expirationDate = new Date(new Date().getTime() + 3600 * 1000);
+      localStorage.setItem('codeclan_token', token);
+      localStorage.setItem('expirationDate', expirationDate);
+      dispatch({ type: types.AUTH_SUCCESS, payload: token });
+    } catch (err) {
+      const error_msg = err.response
+        ? err.response.data.message
+        : 'An error occured';
 
-        dispatch({
-          type: types.AUTH_FAILURE,
-          payload: error_msg,
-        });
+      dispatch({
+        type: types.AUTH_FAILURE,
+        payload: error_msg,
       });
+    }
   };
 };
 
@@ -74,7 +65,7 @@ export const authLogoutApi = () => {
 
 export const fogetPasswordRequestAction = emailObj => {
   const { email } = emailObj;
-  return dispatch => {
+  return async dispatch => {
     dispatch({ type: types.AUTH_START });
     const token_data = {
       email,
@@ -82,58 +73,58 @@ export const fogetPasswordRequestAction = emailObj => {
       tokenParamName: 'token',
       emailParamName: 'email',
     };
-    return axios
-      .post(`${apiURL}/send-password-reset-token`, token_data)
-      .then(res => {
-        dispatch({ type: types.AUTH_SUCCESS, payload: { token: true } });
-      })
-      .catch(err => {
-        const error_msg = err.response
-          ? err.response.data.message
-          : 'An error occured';
+    try {
+      const res = await axios.post(
+        `${apiURL}/send-password-reset-token`,
+        token_data
+      );
+      dispatch({ type: types.AUTH_SUCCESS, payload: { token: true } });
+      console.log(res);
+    } catch (err) {
+      const error_msg = err.response
+        ? err.response.data.message
+        : 'An error occured';
 
-        dispatch({
-          type: types.AUTH_FAILURE,
-          payload: error_msg,
-        });
+      dispatch({
+        type: types.AUTH_FAILURE,
+        payload: error_msg,
       });
+    }
   };
 };
 
 export const resetPasswordRequestAction = userData => {
-  return dispatch => {
+  return async dispatch => {
     dispatch({ type: types.AUTH_START });
 
-    return axios
-      .post(`${apiURL}/reset-password`, userData)
-      .then(res => {
-        dispatch({ type: types.AUTH_SUCCESS, payload: { token: true } });
-      })
-      .catch(err => {
-        const error_msg = err.response
-          ? err.response.data.message
-          : 'An error occured';
+    try {
+      const res = await axios.post(`${apiURL}/reset-password`, userData);
+      dispatch({ type: types.AUTH_SUCCESS, payload: { token: true } });
+      console.log(res);
+    } catch (err) {
+      const error_msg = err.response
+        ? err.response.data.message
+        : 'An error occured';
 
-        dispatch({
-          type: types.AUTH_FAILURE,
-          payload: error_msg,
-        });
+      dispatch({
+        type: types.AUTH_FAILURE,
+        payload: error_msg,
       });
+    }
   };
 };
 
-export const authSendEmailConfirmationToken = data => {
-  return axios
-    .post(`${apiURL}/send-email-confirmation-token`, data)
-    .then(res => {
-      // Do nothing for now
-
-      return res;
-    })
-    .catch(err => {
-      history.push('/');
-      throw err;
-    });
+export const authSendEmailConfirmationToken = async data => {
+  try {
+    const res = await axios.post(
+      `${apiURL}/send-email-confirmation-token`,
+      data
+    );
+    return res;
+  } catch (err) {
+    history.push('/');
+    throw err;
+  }
 };
 
 // {

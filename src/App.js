@@ -1,7 +1,6 @@
 import React from 'react';
 // import { useLocation } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useLocation } from 'react-router-dom';
 import BaseRouter from './routes';
 
 import { ThemeProvider } from 'styled-components';

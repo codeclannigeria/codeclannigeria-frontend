@@ -1,8 +1,7 @@
 import React from 'react';
-import DashboardSidebarStyled from './DashboardSidebarStyled';
 import codeClanLogo from '../assets/image/codeClanLogoWhite.png';
 import { Popconfirm } from 'antd';
-import { QuestionCircleOutlined, LogoutOutlined } from '@ant-design/icons';
+import { QuestionCircleOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { authLogoutApi } from '../../state/auth/authActionCreator';

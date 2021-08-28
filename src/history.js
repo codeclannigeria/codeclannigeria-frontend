@@ -1,4 +1,3 @@
-// history.js
 import { createBrowserHistory } from 'history';
 import { store } from './index';
 const history = createBrowserHistory();
