@@ -14,7 +14,6 @@ import { Popconfirm } from 'antd';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 import EnrollmentStatus from './EnrollmentStatus';
 import CustomLoader from '../../common/Spinner/CustomLoader';
-import { TrackMentors } from './MentorSelector/TrackMentors';
 import SelectMentorStep from './MentorSelector/SelectMentorStep';
 const { Step } = Steps;
 

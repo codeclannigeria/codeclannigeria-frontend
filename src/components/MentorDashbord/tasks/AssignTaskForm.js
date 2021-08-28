@@ -1,19 +1,8 @@
 import React from 'react';
-import { Select, Modal, Form, Input, DatePicker, Typography } from 'antd';
+import { Select, Modal } from 'antd';
 
 function AssignTaskForm({ onCancel, onCreate, visible }) {
   const { Option } = Select;
-  const [form] = Form.useForm();
-
-  const config = {
-    rules: [
-      {
-        type: 'object',
-        required: true,
-        message: 'Please select time!',
-      },
-    ],
-  };
 
   const children = [];
   for (let i = 10; i < 36; i++) {
@@ -22,9 +11,7 @@ function AssignTaskForm({ onCancel, onCreate, visible }) {
     );
   }
 
-  function handleChange(value) {
-    console.log(`selected ${value}`);
-  }
+
 
   return (
     <React.Fragment>
@@ -74,12 +61,6 @@ function AssignTaskForm({ onCancel, onCreate, visible }) {
             <DatePicker showTime format="YYYY-MM-DD HH:mm:ss" />
           </Form.Item>
         </Form> */}
-
-        <Typography>Task 1: Google the meaning og google</Typography>
-        <Typography>
-          Desc: lorem10lorem10lorem10lorem10lorem10lorem10lorem10
-        </Typography>
-        <Typography>Deadline: 10, fasanya alago</Typography>
       </Modal>
     </React.Fragment>
   );

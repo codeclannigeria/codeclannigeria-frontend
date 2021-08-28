@@ -75,7 +75,7 @@ function ResetPassword({ history, location }) {
     // if (!token || !email) {
     //   history.push('/');
     // }
-  }, []);
+  }, [location.search]);
 
   return (
     <React.Fragment>

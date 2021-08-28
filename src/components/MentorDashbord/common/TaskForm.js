@@ -14,12 +14,7 @@ function TaskForm({
   form,
   errResponse,
 }) {
-  const handleFormSubmit = async values => {
-    console.log(values);
-    // if (error) {
-    //   message.error(errResponse);
-    // }
-  };
+
 
   const [commentLimit, setcommentLimit] = useState(0);
 
@@ -31,7 +26,7 @@ function TaskForm({
     if (error) {
       message.error(errResponse);
     }
-  }, [error]);
+  }, [error, errResponse]);
 
   useEffect(() => {
     if (!loading && !error && gradeTask === 'success') {

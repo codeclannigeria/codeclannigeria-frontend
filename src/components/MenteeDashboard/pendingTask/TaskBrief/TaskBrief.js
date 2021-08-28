@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import DashboardLayout from '../../../common/DashboardLayout';
 import TaskBriefStyled from './TaskBriefStyled';
 import { Link } from 'react-router-dom';
@@ -12,7 +12,6 @@ import Interweave from 'interweave';
 import he from 'he';
 function TaskBrief(props) {
   const { id } = props.match.params;
-  let { query } = props.location;
   const dispatch = useDispatch();
   const task = useSelector(state => state.tasks);
   const track = useSelector(state => state.tracks);
@@ -20,12 +19,11 @@ function TaskBrief(props) {
 
   const fetchData = useCallback(async () => {
     await dispatch(getSingleTaskAction(id));
-    // await dispatch()
-  }, []);
+  }, [dispatch, id]);
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [fetchData]);
 
   useEffect(() => {
     if (task.singleTask) {
@@ -35,7 +33,7 @@ function TaskBrief(props) {
         dispatch(getSingleCourse(task.singleTask.course));
       }
     }
-  }, [task]);
+  }, [task, dispatch]);
 
   return (
     <TaskBriefStyled>
@@ -61,7 +59,6 @@ function TaskBrief(props) {
             ) : (
               <Spin />
             )}
-            {/* {task.singleTask ? {}: <Spin />} */}
           </div>
           {task.singleTask.course ? (
             <div>
@@ -89,46 +86,8 @@ function TaskBrief(props) {
       ) : (
         <CustomLoader />
       )}
-      {/*
-      <p>
-        You can use any tools you like to help you complete the challenge. So
-        if you've got something you'd like to practice, feel free to give it a
-        go.
-      </p>
-      <p>
-        The only JavaScript you'll need for this challenge is to initiate the
-        share options when someone clicks the share icon.
-      </p>
 
-      <p>Your users should be able to:</p>
-
-      <ul>
-        <li>
-          View the optimal layout for the component depending on their
-          device's screen size
-        </li>
-
-        <li>
-          See the social media share links when they click the share icon
-        </li>
-      </ul>
-
-      <p>
-        Download the starter code and go through the README.md file. This will
-        provide further details about the project. The style-guide.md file is
-        where you'll find colors, fonts, etc.
-      </p>
-
-      <p>
-        Want some support on the challenge? Join our Slack community and ask
-        questions in the help channel.
-      </p>
-
-    */}
       <div className="cta_container mt-4">
-        {/* <button classNameName="btn btn-outline-secondary">
-        Download starter files
-      </button> */}
         <Link
           to={`/dashboard/pending-task/submit/${id}`}
           className="btn btn-outline-primary mr-0"

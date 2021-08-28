@@ -14,7 +14,7 @@ export const getAllTasksAction = trackId => {
         // const submittedTasks = submittedTasksUnfiltered().then(
         //   res => res !== undefined
         // );
-        const submittedTasks = submittedTasksUnfiltered()
+        submittedTasksUnfiltered()
           .then(res => {
             return res.filter(task => task !== undefined);
           })

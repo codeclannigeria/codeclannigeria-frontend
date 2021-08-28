@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import DashboardSidebar from './DashboardSidebar';
 import DashboardHeader from './DashboardHeader';
-import DashboardLayoutStyled from './DashboardLayoutStyled';
-
 import { useStore, useDispatch, useSelector } from 'react-redux';
 import {
   getUserProfileApi,

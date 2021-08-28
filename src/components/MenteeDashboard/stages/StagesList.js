@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import tempCourseLogo from '../../assets/image/dashboard/science_image.png';
 import TrackCard from '../../common/TrackCard/TrackCard';
 import DashboardLayout from '../../common/DashboardLayout';
 import StagesListStyled from './StagesListStyled';
@@ -9,44 +8,6 @@ import { getAllTrackStagesAction } from '../../../state/stages/stagesActionCreat
 import CustomLoader from '../../common/Spinner/CustomLoader';
 
 function StagesList(props, rest) {
-  const courses = [
-    {
-      title: 'JavaScript Fundamentals',
-      description:
-        'Our introductory course serves as an easy way in for people just starting out in their developer journey.',
-      image: tempCourseLogo,
-    },
-    {
-      title: 'Advanced JavaScript',
-      description:
-        'Our introductory course serves as an easy way in for people just starting out in their developer journey.',
-      image: tempCourseLogo,
-    },
-    {
-      title: 'Python Fundamentals',
-      description:
-        'Our introductory course serves as an easy way in for people just starting out in their developer journey.',
-      image: tempCourseLogo,
-    },
-    {
-      title: 'Flutter Fundamentals',
-      description:
-        'Our introductory course serves as an easy way in for people just starting out in their developer journey.',
-      image: tempCourseLogo,
-    },
-    {
-      title: 'Java Fundamentals',
-      description:
-        'Our introductory course serves as an easy way in for people just starting out in their developer journey.',
-      image: tempCourseLogo,
-    },
-    {
-      title: 'JavaScript Fundamentals',
-      description:
-        'Our introductory course serves as an easy way in for people just starting out in their developer journey.',
-      image: tempCourseLogo,
-    },
-  ];
   const dispatch = useDispatch();
   const stages = useSelector(state => state.stages);
 
@@ -54,6 +15,7 @@ function StagesList(props, rest) {
 
   useEffect(() => {
     dispatch(getAllTrackStagesAction(track));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [track]);
 
   return (

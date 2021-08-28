@@ -12,17 +12,13 @@ function PendingTasksPage() {
   const dispatch = useDispatch();
   useEffect(() => {
     if (!tasksState.data) {
-      console.log(user);
       if (user.data.tracks && user.data.tracks.length > 0) {
         dispatch(getAllTasksAction(user.data.tracks[0].id));
       }
     }
-    // dispatch(getAllTasksAction());
-  }, [user]);
+  }, [user, dispatch, tasksState.data]);
 
-  // if (tasksState.error) {
-  //   return 'Error';
-  // }
+
   return (
     <React.Fragment>
       {tasksState.data && !tasksState.loading ? (

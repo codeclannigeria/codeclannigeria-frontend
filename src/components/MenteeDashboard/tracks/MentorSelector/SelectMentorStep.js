@@ -22,8 +22,9 @@ function SelectMentorStep({ trackId, handleSetMentorId }) {
 
   useEffect(() => {
     getTrackMentors();
+    // eslint-disable-next-line
   }, []);
-  // const handleSetMentor = () => {};
+ 
   return (
     <React.Fragment>
       <Radio.Group onChange={handleSetMentorId} defaultValue={null}>
