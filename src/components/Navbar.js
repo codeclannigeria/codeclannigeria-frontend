@@ -22,23 +22,21 @@ function Navbar() {
             <nav className="navbar">
               <ul className="topnav-links">
                 <li className="nav-item">
-                  <Link className="nav-link" to="/">About</Link>
+                  <Link className="nav-link" to="/team">Our Team</Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/">Services</Link>
+                  <Link className="nav-link" to="/contactus">Contact Us</Link>
                 </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/">Blog</Link>
+                <li className="nav-item btn btn-success mx-2">
+                  <Link className="nav-link text-light" to="/login">Login</Link>
                 </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/">Jobs</Link>
+                <li className="nav-item btn btn-warning">
+                  <Link className="nav-link text-dark" to="/register">Register</Link>
                 </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/">Contact</Link>
-                </li>
+                
               </ul>
             
-          </nav>
+            </nav>
           </div>
     
           <div className="toggle-btn" onClick={() => handleOpenMobileNav()}>
@@ -57,19 +55,16 @@ function Navbar() {
               <div>
                 <ul>
                   <li className="nav-item">
-                    <Link to="/about">About</Link>
+                    <Link className="nav-link" to="/team">Our Team</Link>
                   </li>
                   <li className="nav-item">
-                    <Link to="/services">Services</Link>
+                    <Link className="nav-link" to="/contactus">Contact Us</Link>
                   </li>
-                  <li className="nav-item">
-                    <Link to="/blog">Blog</Link>
+                  <li className="nav-item btn btn-success mx-2">
+                    <Link className="nav-link text-light" to="/login">Login</Link>
                   </li>
-                  <li className="nav-item">
-                    <Link to="/jobs">Jobs</Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link to="/"> Contact</Link>
+                  <li className="nav-item btn btn-warning">
+                    <Link className="nav-link text-dark" to="/register">Register</Link>
                   </li>
                 </ul>
               </div>

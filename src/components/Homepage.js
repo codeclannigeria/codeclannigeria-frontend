@@ -37,8 +37,7 @@ function Homepage() {
             <div className="banner-text-wrapper">
               <h3>Tap into the Power of Community Learning</h3>
                 <p className="ft18to16">
-                  In eget quam vitae sed sagittis massa laoreet. Nascetur sem natoque imperdiet lacus, eget
-                  consectetur urna. Mattis bibendum ullamcorper turpis sagittis, non quam eu pellentesque.
+                  We are a non-profit organisation that strives to help the next generation of tech professionals, by teaching them code
                 </p>
             </div>
             <div className="desktop-img-wrapper text-right">
@@ -48,8 +47,10 @@ function Homepage() {
         </div>
       <section className="clan-stats pry-padd-form d-flex flex-wrap justify-content-between py-4">
         <div className="student-count mb-4 mr-5">
-          <p className="ft48 extrabold-libre mb-2">1,500,000+</p>
-          <p className="ft18to16 mb-0">People who have been trained and belong to our community now work with</p>
+          <p className="ft48 extrabold-libre mb-2">500+</p>
+            <p className="ft18to16 mb-0">
+              People who have been trained and belong to our community now work with.
+            </p>
         </div>
         <div className="alumni-companies d-flex">
             <div className="client-logo">
@@ -83,13 +84,14 @@ function Homepage() {
       <section className="clan-reputation pry-padd-form d-flex">
         <div className="desktop-img-wrapper mr-5"><img src={TestedAndTrustedImage} alt="two techies collaborating" /></div>
         <div>
-          <h4 className="section-title mt-4 mb-3">Tested and Trusted all over the World</h4>
+          <h4 className="section-title mt-4 mb-3">What are we about?</h4>
           <p className="mb-4">
-            Cursus sem amet, quisque consequat sagittis. Tincidunt ut posuere nulla in. Scelerisque vivamus vestibulum
-            risus habitasse amet purus a turpis sed. Pellentesque urna pharetra lorem enim eu tellus rutrum fringilla.
-            Facilisis in
-            purus sit vel posuere fermentum.
-          </p>
+              We offer programs to teach you how to code. To date, we have helped over 500 people from all walks of life to get hands-on experience in the tech sector. We are the only organisation in Nigeria with this specific focus.
+              
+            </p>
+            <p className="mb-4">
+              We understand how difficult it can be to get into tech, so we provide a mentoring program that will guide you through the process of getting your first job, and offer continued mentorship support for as long as you need it.
+            </p>
           <Link to="/" className="link-as-blue-btn light-bg-btn learn-more-link">Learn More</Link>
         </div>
       </section>
@@ -97,10 +99,9 @@ function Homepage() {
 
       <section className="clan-requirements pry-padd-form d-flex mb-5">
         <div className="mr-4">
-          <h4 className="section-title">Requirements gathering and analysis for references.</h4>
+          <h4 className="section-title">Who are we for?</h4>
           <p>
-            Convallis turpis erat tempus, viverra aliquet. Nullam viverra nam auctor sit ipsum malesuada a, duis volutpat.
-            Convallis turpis erat tempus, viverra aliquet. Nullam viverra nam auctor sit ipsum malesuada a, duis volutpat.
+            You don't need to be a genius or have a degree in Computer Science to learn how to code with us! Our courses are designed for anyone who has basic knowledge about computers and wants to build their own career in technology.
           </p>
           <div className="desktop-img-wrapper">
             <img src={RequirementImage} alt="code clan requirement" />
@@ -111,8 +112,7 @@ function Homepage() {
             <div className="desktop-img-wrapper mb-2">
               <img src={RequirementImage2} alt="fingers pointing at screen code clan" /></div>
             <p>
-              Nullam viverra nam auctor sit ipsum malesuada a, duis volutpat. , viverra aliquet. Nullam viverra nam auctor
-              sit ipsum malesuada a, duis volutpat.
+              We'll guide you through the process of getting into tech and help you make connections with mentors and peers!.
             </p>
 
             <Link to="#" className="link-as-blue-btn light-bg-btn learn-more-link">
@@ -129,7 +129,7 @@ function Homepage() {
       <TestimonialList />
         
       <section className="call-to-action pry-padd-form">
-        <h4 className="section-title text-center contained-778p">Join the Codeclan Nigeria Community Today</h4>
+        <h4 className="section-title text-center contained-778p">Join the Code Clan Nigeria Community Today</h4>
         <ul className="list-unstyled d-flex flex-wrap text-nowrap my-5">
             <li className="cta-list">
               <img src={CheckIcon} alt="check mark" />
@@ -140,9 +140,13 @@ function Homepage() {
               &nbsp;Belong to an amazing Community
               </li>
             <li className="cta-list">
-              <img src={CheckIcon} alt="check mark" />&nbsp;I no know again</li>
-        </ul>
-        <Link to="#" className="link-as-blue-btn dark-bg-btn join-now-btn">Join Now</Link>
+              <img src={CheckIcon} alt="check mark" />&nbsp;Helpful resources for beginners</li>
+          </ul>
+          <div className="buttons">
+            <Link to="/register" className="link-as-blue-btn dark-bg-btn join-now-btn">Join Now</Link>
+          <a className="link-as-blue-btn light-bg-btn learn-more-link ml" href="https://discord.gg/3EUBZRByAm" target="_blank" rel = "noopener noreferrer"> Join Discord</a>
+          </div>
+          
         </section>
         
       <Footer/>

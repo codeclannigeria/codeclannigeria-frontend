@@ -15,6 +15,7 @@ import { ReactComponent as AboutSVG } from './assets/svgs/about_me.svg';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 
+
 function Landing() {
   return (
     <LandingStyled>
