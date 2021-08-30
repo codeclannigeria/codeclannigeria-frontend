@@ -37,51 +37,47 @@ export const getSingleTrack = trackId => {
 };
 
 export const getTracksAction = () => {
-  return dispatch => {
+  return async dispatch => {
     dispatch({ type: types.TRACKS_START });
-    return codeClanApi
-      .get('/tracks')
-      .then(res => {
-        dispatch({ type: types.TRACKS_SUCCESS, payload: res.data });
-        dispatch(getAllStagesAction());
-        // history.push(`/dashboard`)
-      })
-      .catch(err => {
-        const error_msg = err.response
-          ? err.response.data.message
-          : 'An error occured';
+    try {
+      const res = await codeClanApi.get('/tracks');
+      dispatch({ type: types.TRACKS_SUCCESS, payload: res.data });
+      dispatch(getAllStagesAction());
+    } catch (err) {
+      const error_msg = err.response
+        ? err.response.data.message
+        : 'An error occured';
 
-        dispatch({
-          type: types.TRACKS_FAILURE,
-          payload: error_msg,
-        });
+      dispatch({
+        type: types.TRACKS_FAILURE,
+        payload: error_msg,
       });
+    }
   };
 };
 // tracks/22/enroll
 
 export const userEnrollTrackAction = (trackId, mentorId) => {
-  return dispatch => {
+  return async dispatch => {
     dispatch({ type: types.TRACKS_START });
 
-    return codeClanApi
-      .post(`/tracks/${trackId}/enroll`, { mentorId })
-      .then(res => {
-        dispatch({ type: types.TRACKS_SUCCESS, payload: res.data });
-        dispatch(getUserProfileApi());
-        dispatch(getUserMentorProfileApi());
-        dispatch(getAllTasksAction());
-        // history.push(`/dashboard`)
-      })
-      .catch(err => {
-        const error_msg = err.response
-          ? err.response.data.message
-          : 'An error occured';
-
-        dispatch({
-          type: types.TRACKS_FAILURE,
-          payload: error_msg,
-        });
+    try {
+      const res = await codeClanApi.post(`/tracks/${trackId}/enroll`, {
+        mentorId,
       });
+      dispatch({ type: types.TRACKS_SUCCESS, payload: res.data });
+      dispatch(getUserProfileApi());
+      dispatch(getUserMentorProfileApi());
+      dispatch(getAllTasksAction());
+    } catch (err) {
+      const error_msg = err.response
+        ? err.response.data.message
+        : 'An error occured';
+
+      dispatch({
+        type: types.TRACKS_FAILURE,
+        payload: error_msg,
+      });
+    }
   };
 };
