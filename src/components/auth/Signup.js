@@ -4,7 +4,6 @@ import { connect, useDispatch } from 'react-redux';
 import SignupStyled from './SignupStyled';
 // import { validateEmail } from './utils';
 import { Link } from 'react-router-dom';
-import AlertComponent from '../common/AuthAlert';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import codeClanLogo from '../assets/image/codeClanLogo.png';
