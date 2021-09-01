@@ -1,12 +1,9 @@
 import React, { useEffect, useCallback } from 'react';
-import { MentorDetailsStyled } from './mentorDetailsStyled';
 import DashboardLayout from '../../common/DashboardLayout';
-import UserProfileStyled from '../userProfile/userProfileStyled';
-import UserCard from '../../common/UserCard/UserCard';
-import InfoCardBig from '../userProfile/InfoCardBig';
 import { getUserMentorProfileApi } from '../../../state/user/userActionCreator';
 import { useDispatch, useSelector } from 'react-redux';
 import UserProfile from '../userProfile/UserProfile';
+
 function MentorDetails() {
   const dispatch = useDispatch();
   const user = useSelector(state => state.user);
@@ -17,7 +14,7 @@ function MentorDetails() {
         dispatch(getUserMentorProfileApi());
       }
     }
-  }, []);
+  }, [user]);
   useEffect(() => {
     fetchMentor();
   }, [fetchMentor]);
@@ -67,6 +64,7 @@ function MentorDetails() {
       title: 'Github',
     },
   ];
+  console.log(Tracks, SocialMedia);
 
   // const data = {
   //   role: 'ADMIN',

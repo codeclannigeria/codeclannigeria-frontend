@@ -19,7 +19,11 @@ function Events() {
             }}
           >
             <div className="">
-              <img src={code} style={{ objectFit: 'contain', width: '100%' }} />
+              <img
+                src={code}
+                alt=""
+                style={{ objectFit: 'contain', width: '100%' }}
+              />
             </div>
             <div
               className=""

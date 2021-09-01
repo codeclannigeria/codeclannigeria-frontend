@@ -12,7 +12,6 @@ import TrackEnroll from './tracks/TrackEnroll';
 
 import { connect } from 'react-redux';
 import { getAllTasksAction } from '../../state/tasks/tasksActionCreator';
-import CustomLoader from '../common/Spinner/CustomLoader';
 import { getUserMentorProfileApi } from '../../state/user/userActionCreator';
 
 function Dashboard({
