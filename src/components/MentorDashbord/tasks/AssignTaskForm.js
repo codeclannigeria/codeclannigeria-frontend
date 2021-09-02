@@ -22,9 +22,9 @@ function AssignTaskForm({ onCancel, onCreate, visible }) {
     );
   }
 
-  function handleChange(value) {
-    console.log(`selected ${value}`);
-  }
+  // function handleChange(value) {
+  //   console.log(`selected ${value}`);
+  // }
 
   return (
     <React.Fragment>

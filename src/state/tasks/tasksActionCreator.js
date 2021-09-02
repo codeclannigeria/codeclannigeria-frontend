@@ -40,7 +40,7 @@ export const getAllTasksAction = trackId => {
             dispatch({ type: types.TASKS_SUCCESS, payload: tasksObj });
           });
 
-        console.log(submittedTasks());
+        console.log(submittedTasks);
 
         history.push(`/dashboard`);
       })

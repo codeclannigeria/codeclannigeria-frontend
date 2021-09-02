@@ -26,23 +26,23 @@ function MenteeProfile(props) {
 
   const Tracks = [
     {
-      icon: <i class="far fa-check-circle"></i>,
+      icon: <i className="far fa-check-circle"></i>,
       title: 'Develop an API for a page',
     },
     {
-      icon: <i class="far fa-check-circle"></i>,
+      icon: <i className="far fa-check-circle"></i>,
       title: 'Build a Tribute page',
     },
     {
-      icon: <i class="far fa-check-circle"></i>,
+      icon: <i className="far fa-check-circle"></i>,
       title: 'Mobile Development',
     },
     {
-      icon: <i class="far fa-check-circle"></i>,
+      icon: <i className="far fa-check-circle"></i>,
       title: 'Desktop Development',
     },
     {
-      icon: <i class="far fa-check-circle"></i>,
+      icon: <i className="far fa-check-circle"></i>,
       title: 'Ui/UX',
     },
   ];
