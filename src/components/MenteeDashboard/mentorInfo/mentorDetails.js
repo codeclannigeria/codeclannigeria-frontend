@@ -21,23 +21,23 @@ function MentorDetails() {
 
   const Tracks = [
     {
-      icon: <i class="far fa-check-circle"></i>,
+      icon: <i className="far fa-check-circle"></i>,
       title: 'Frontend Development',
     },
     {
-      icon: <i class="far fa-check-circle"></i>,
+      icon: <i className="far fa-check-circle"></i>,
       title: 'Backend Development',
     },
     {
-      icon: <i class="far fa-check-circle"></i>,
+      icon: <i className="far fa-check-circle"></i>,
       title: 'Mobile Development',
     },
     {
-      icon: <i class="far fa-check-circle"></i>,
+      icon: <i className="far fa-check-circle"></i>,
       title: 'Desktop Development',
     },
     {
-      icon: <i class="far fa-check-circle"></i>,
+      icon: <i className="far fa-check-circle"></i>,
       title: 'Ui/UX',
     },
   ];
