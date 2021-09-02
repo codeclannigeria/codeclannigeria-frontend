@@ -1,8 +1,6 @@
 import React from 'react';
 import UserProfileStyled from './userProfileStyled';
-import DashboardLayout from '../../common/DashboardLayout';
 import InfoCardBig from './InfoCardBig';
-import { connect } from 'react-redux';
 
 import UserCard from '../../common/UserCard/UserCard';
 import { message } from 'antd';

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import DashboardLayout from '../../../common/DashboardLayout';
 import TaskBriefStyled from './TaskBriefStyled';
 import { Link } from 'react-router-dom';
@@ -19,7 +19,7 @@ function TaskBrief(props) {
   const course = useSelector(state => state.courses);
 
   const fetchData = useCallback(async () => {
-    await dispatch(getSingleTaskAction(id));
+    dispatch(getSingleTaskAction(id));
     // await dispatch()
   }, []);
 

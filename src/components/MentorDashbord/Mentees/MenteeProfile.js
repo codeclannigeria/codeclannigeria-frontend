@@ -1,16 +1,12 @@
 import React, { useCallback, useEffect } from 'react';
-import UserProfileStyled from './MenteeProfileStyled';
-import UserCard from '../../common/UserCard/UserCard';
 import MentorDashboardLayout from '../MentorDashboardHOC';
 
-import PendingTasksCard from '../common/PendingTasksCard';
 import {
   getSingleMenteeProfile,
   getUserMenteesProfileApi,
 } from '../../../state/user/userActionCreator';
 import { useDispatch, useSelector } from 'react-redux';
 import UserProfile from '../../MenteeDashboard/userProfile/UserProfile';
-import CustomLoader from '../../common/Spinner/CustomLoader';
 
 function MenteeProfile(props) {
   const dispatch = useDispatch();

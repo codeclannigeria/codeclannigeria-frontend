@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import PendingTaskStyled from './pendingTaskStyled';
-import { Link } from 'react-router-dom';
 import SinglePendingTask from './singlePendingTask';
 import { Pagination } from 'antd';
 

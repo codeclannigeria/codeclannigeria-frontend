@@ -4,6 +4,7 @@ import Modal from 'antd/lib/modal/Modal';
 import { Descriptions } from 'antd';
 import { getTaskSubmissionAction } from '../../../state/tasks/tasksActionCreator';
 import CustomLoader from '../../common/Spinner/CustomLoader';
+
 export const GradingModal = ({ visible, onCancel, onCreate, taskId }) => {
   const tasks = {
     updatedAt: '2020-08-23T00:11:04.963Z',
