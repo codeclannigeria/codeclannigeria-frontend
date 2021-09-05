@@ -1,5 +1,5 @@
 // import React from 'react';
-// import StyledTeam from './TeamStyled';
+// './TeamStyled.css';
 // import groupSession from './assets/image/homepage/groupSession.jpg';
 // import Navbar from './Navbar';
 // import Footer from './Footer';

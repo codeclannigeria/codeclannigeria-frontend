@@ -13,7 +13,7 @@ function ContactUs() {
         </div>
         <div className="row my-5 py-5">
           <h1 className="title text-center">Contact Us</h1>
-          <div class="icons-container">
+          <div className="icons-container">
             <h4>Get in touch with us on</h4>
             <ul>
               <li>

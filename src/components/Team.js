@@ -1,5 +1,5 @@
 import React from 'react';
-import StyledTeam from './TeamStyled';
+import './TeamStyled.css';
 import Navbar from './Navbar';
 import Footer from './Footer';
 
@@ -63,7 +63,7 @@ const Team = () => {
   // and so on...
 
   return (
-    <StyledTeam>
+    <div>
       <div className="container-fluid pry-padd-form">
         <div className="row">
           <Navbar />
@@ -79,7 +79,7 @@ const Team = () => {
         </div>
       </div>
       <Footer />
-    </StyledTeam>
+    </div>
   );
 };
 
