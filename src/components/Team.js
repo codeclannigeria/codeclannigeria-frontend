@@ -32,7 +32,9 @@ const Team = () => {
                   href="https://twitter.com/olu_tayormi"
                   target="_blank"
                   rel="noopener noreferrer"
-                ></a>
+                >
+                  {' '}
+                </a>
               </li>
               <li>
                 <a
@@ -40,7 +42,9 @@ const Team = () => {
                   href="https://github.com/tayormi"
                   target="_blank"
                   rel="noopener noreferrer"
-                ></a>
+                >
+                  {' '}
+                </a>
               </li>
               <li>
                 <a
@@ -48,7 +52,9 @@ const Team = () => {
                   href="https://www.linkedin.com/in/tayormi/"
                   target="_blank"
                   rel="noopener noreferrer"
-                ></a>
+                >
+                  {' '}
+                </a>
               </li>
             </ul>
           </div>
@@ -69,7 +75,7 @@ const Team = () => {
           <Navbar />
         </div>
         <div className="row my-5 py-5">
-          <h1 className="title text center">Meet our team</h1>
+          <h1 className="title text-center qa">Meet our team</h1>
         </div>
 
         <div className="row">

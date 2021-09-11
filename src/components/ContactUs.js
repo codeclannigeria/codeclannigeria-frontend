@@ -12,13 +12,13 @@ function ContactUs() {
           <Navbar />
         </div>
         <div className="row my-5 py-5">
-          <h1 className="title text-center">Contact Us</h1>
+          <h1 className="title text-center za">Contact Us</h1>
           <div className="icons-container">
             <h4>Get in touch with us on</h4>
             <ul>
               <li>
                 <a
-                  href="https://discord.com/codeclannigeria"
+                  href="https://discord.gg/EUesGvttYA"
                   target="_blank"
                   rel="noreferrer"
                 >

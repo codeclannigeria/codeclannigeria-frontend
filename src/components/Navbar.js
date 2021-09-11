@@ -22,23 +22,29 @@ function Navbar() {
             <nav className="navbar">
               <ul className="topnav-links">
                 <li className="nav-item">
-                  <Link className="nav-link" to="/team">Our Team</Link>
+                  <Link className="nav-link" to="/team">
+                    Our Team
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/contactus">Contact Us</Link>
+                  <Link className="nav-link" to="/contactus">
+                    Contact Us
+                  </Link>
                 </li>
                 <li className="nav-item btn btn-success mx-2">
-                  <Link className="nav-link text-light" to="/login">Login</Link>
+                  <Link className="nav-link text-light" to="/login">
+                    Login
+                  </Link>
                 </li>
                 <li className="nav-item btn btn-warning">
-                  <Link className="nav-link text-dark" to="/register">Register</Link>
+                  <Link className="nav-link text-dark" to="/register">
+                    Register
+                  </Link>
                 </li>
-                
               </ul>
-            
             </nav>
           </div>
-    
+
           <div className="toggle-btn" onClick={() => handleOpenMobileNav()}>
             {!openMobileNav ? (
               <i className="fas fa-bars fa-2x text-dark"></i>
@@ -55,21 +61,27 @@ function Navbar() {
               <div>
                 <ul>
                   <li className="nav-item">
-                    <Link className="nav-link" to="/team">Our Team</Link>
+                    <Link className="nav-link" to="/team">
+                      Our Team
+                    </Link>
                   </li>
                   <li className="nav-item">
-                    <Link className="nav-link" to="/contactus">Contact Us</Link>
+                    <Link className="nav-link" to="/contactus">
+                      Contact Us
+                    </Link>
                   </li>
                   <li className="nav-item btn btn-success mx-2">
-                    <Link className="nav-link text-light" to="/login">Login</Link>
+                    <Link className="nav-link text-light" to="/login">
+                      Login
+                    </Link>
                   </li>
                   <li className="nav-item btn btn-warning">
-                    <Link className="nav-link text-dark" to="/register">Register</Link>
+                    <Link className="nav-link text-dark" to="/register">
+                      Register
+                    </Link>
                   </li>
                 </ul>
               </div>
-             
-              
             </div>
           </Fade>
         </div>

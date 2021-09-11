@@ -3,12 +3,12 @@
   padding: 0 clamp(24px, 6vw, 120px) 30px;
 }
 
-.title {
+.qa {
   color: #12376d;
   text-align: center;
   font-weight: 700;
   font-size: 3.5rem;
-  margin-bottom: -10%;
+  margin-bottom: -30%;
 }
 
 .pry-padd-form .row {
