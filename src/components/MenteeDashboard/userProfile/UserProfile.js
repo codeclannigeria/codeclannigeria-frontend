@@ -1,7 +1,6 @@
 import React from 'react';
 import UserProfileStyled from './userProfileStyled';
 import InfoCardBig from './InfoCardBig';
-
 import UserCard from '../../common/UserCard/UserCard';
 import { message } from 'antd';
 
@@ -36,6 +35,7 @@ function UserProfile({ loading, data, location }) {
       title: 'Ui/UX',
     },
   ];
+  consol.log(Tracks);
 
   const SocialMedia = [
     {

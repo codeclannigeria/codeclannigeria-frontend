@@ -41,7 +41,7 @@ function ConfirmEmail(props) {
         setError(true);
         setLoading(false);
       });
-  }, []);
+  }, [props.location.search]);
 
   if (loading) {
     return (

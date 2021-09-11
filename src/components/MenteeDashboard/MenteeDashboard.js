@@ -45,7 +45,7 @@ function Dashboard({
         });
       }
     }
-  }, [userData]);
+  }, [userData, history]);
 
   useEffect(() => {
     if (userData) {

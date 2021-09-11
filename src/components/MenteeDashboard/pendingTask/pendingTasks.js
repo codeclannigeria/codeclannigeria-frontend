@@ -4,39 +4,6 @@ import SinglePendingTask from './singlePendingTask';
 import { Pagination } from 'antd';
 
 function PendingTasks({ tasksData, track, completed, taskTableHeader }) {
-  // const dummyData = [
-  //   {
-  //     id: 1,
-  //     taskName: ' Task 1: Article preview component ',
-  //     track: 'Frontend',
-  //     deadline: '19/03',
-  //   },
-  //   {
-  //     id: 2,
-  //     taskName: ' Task 4: Build an API',
-  //     track: 'Frontend',
-  //     deadline: '19/03',
-  //   },
-  //   {
-  //     id: 3,
-  //     taskName: ' Task 4: Build an API',
-  //     track: 'Frontend',
-  //     deadline: '19/03',
-  //   },
-  //   {
-  //     id: 4,
-  //     taskName: ' Task 4: Build an API',
-  //     track: 'Frontend',
-  //     deadline: '19/03',
-  //   },
-  //   {
-  //     id: 5,
-  //     taskName: ' Task 4: Build an API',
-  //     track: 'Frontend',
-  //     deadline: '19/03',
-  //   },
-  // ];
-
   const [currentPage, setCurrentPage] = useState(1);
   // eslint-disable-next-line
   const [cardPerPage, setCardperPage] = useState(3);

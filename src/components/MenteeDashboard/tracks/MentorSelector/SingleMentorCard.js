@@ -1,10 +1,5 @@
 import React from 'react';
 import { Card, Tag } from 'antd';
-// import {
-//   GithubOutlined,
-//   EllipsisOutlined,
-//   TwitterOutlined,
-// } from '@ant-design/icons';
 
 function SingleMentorCard({ mentor }) {
   const {

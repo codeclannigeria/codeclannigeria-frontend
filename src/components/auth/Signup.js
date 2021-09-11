@@ -59,7 +59,7 @@ function Signup({ register, loading, error, errResponse, token, history }) {
     if (checkAuth()) {
       history.push('/dashboard');
     }
-  }, []);
+  }, [history]);
 
   useEffect(() => {
     if (token) {

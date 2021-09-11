@@ -14,7 +14,8 @@ function MentorDetails() {
         dispatch(getUserMentorProfileApi());
       }
     }
-  }, [user]);
+  }, [user, dispatch]);
+  
   useEffect(() => {
     fetchMentor();
   }, [fetchMentor]);
@@ -40,7 +41,7 @@ function MentorDetails() {
       icon: <i className="far fa-check-circle"></i>,
       title: 'Ui/UX',
     },
-  ];
+  ]; 
 
   const SocialMedia = [
     {
@@ -81,6 +82,7 @@ function MentorDetails() {
   //     'https://res.cloudinary.com/codeclannigeria/image/upload/v1594255930/ccn/avatars/5ed8391c6ee42f00178d4518.jpg',
   //   tasks: [],
   // };
+
 
   return (
     <React.Fragment>

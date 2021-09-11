@@ -33,34 +33,23 @@ const EditProfileForm = ({
   const [form] = Form.useForm();
 
   const handleFormSubmit = async values => {
-    // values.technologies = [];
-    // values.description = '';
     values.dob = values.dob._d.toISOString();
     if (!values.phoneNumber.startsWith('+')) {
       values.phoneNumber = `+${values.phoneNumber}`;
     }
     await editUserProfileApi(values);
-    // if (error) {
-    //   message.error(errResponse);
-    // }
   };
 
-  // useEffect(() => {
-  //   if (error) {
-  //     message.error(errResponse);
-  //   }
-  // }, [error]);
-
-  // const technologies = ['React'];
 
   useEffect(() => {
     if (!loading && !error && editUser === 'success') {
       message.success('Profile succesfully updated');
       onCreate();
     }
-  }, [error, loading]);
+  }, [error, loading, onCreate, editUser]);
 
   const [country, setCountry] = useState();
+  // eslint-disable-next-line
   const [technologies, setTechnologies] = useState([
     'Javascript',
     'React',
@@ -83,7 +72,7 @@ const EditProfileForm = ({
     // for (let i = 10; i < 36; i++) {
     //   technologies.push(<Option key={i}>{'Angular'}</Option>);
     // }
-  }, []);
+  }, [initialData]);
   return (
     <EditProfileStyled>
       <Modal

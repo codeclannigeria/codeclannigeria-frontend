@@ -21,9 +21,10 @@ function Events() {
             <div className="">
               <img
                 src={code}
-                alt=""
+                alt="code"
                 style={{ objectFit: 'contain', width: '100%' }}
               />
+
             </div>
             <div
               className=""

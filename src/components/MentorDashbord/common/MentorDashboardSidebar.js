@@ -1,7 +1,6 @@
 import React from 'react';
 import MentorDashboardSidebarStyled from './MentorDashboardSidebarStyled';
 import codeClanLogo from '../../assets/image/codeClanLogoWhite.png';
-// import { ReactComponent as DashboardStackLogo } from '../../assets/svgs/dashboard/DashboardStack.svg';
 import { ReactComponent as DashboardBulletLogo } from '../../assets/svgs/dashboard/DashboardBullet.svg';
 import { Link, useHistory } from 'react-router-dom';
 import { Popconfirm } from 'antd';

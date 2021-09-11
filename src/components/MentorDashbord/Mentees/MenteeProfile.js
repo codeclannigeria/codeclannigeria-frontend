@@ -1,12 +1,12 @@
 import React, { useCallback, useEffect } from 'react';
 import MentorDashboardLayout from '../MentorDashboardHOC';
-
 import {
   getSingleMenteeProfile,
   getUserMenteesProfileApi,
 } from '../../../state/user/userActionCreator';
 import { useDispatch, useSelector } from 'react-redux';
 import UserProfile from '../../MenteeDashboard/userProfile/UserProfile';
+
 
 function MenteeProfile(props) {
   const dispatch = useDispatch();
@@ -18,11 +18,13 @@ function MenteeProfile(props) {
       dispatch(getUserMenteesProfileApi());
     }
     dispatch(getSingleMenteeProfile(userId));
+    // Because we used user.mentee and I don't want it to run into an error on initial load
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     fetchMentee();
-  }, []);
+  }, [fetchMentee]);
 
   const Tracks = [
     {
@@ -46,22 +48,8 @@ function MenteeProfile(props) {
       title: 'Ui/UX',
     },
   ];
+  consol.log(Tracks);
 
-  const data = {
-    role: 'ADMIN',
-    id: '5ed8391c6ee42f00178d4518',
-    updatedAt: '2020-07-10T16:58:51.865Z',
-    createdAt: '2020-06-03T23:05:57.055Z',
-    firstName: 'Onasanya',
-    lastName: 'Tunde',
-    email: 'onasanyatunde67@gmail.com',
-    description: null,
-    phoneNumber: null,
-    technologies: [],
-    photoUrl:
-      'https://res.cloudinary.com/codeclannigeria/image/upload/v1594255930/ccn/avatars/5ed8391c6ee42f00178d4518.jpg',
-    tasks: [],
-  };
   return (
     <React.Fragment>
       {user ? (
