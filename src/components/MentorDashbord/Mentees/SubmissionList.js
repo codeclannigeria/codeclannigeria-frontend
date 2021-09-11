@@ -73,8 +73,8 @@ function SubmissionList({
     {
       title: 'Task',
       dataIndex: 'task',
-      sorter: (a, b) => a.task.title > b.task.title,
-      render: (_, { task }) => task.title,
+      // sorter: (a, b) => a.task.title > b.task.title,
+      render: (_, { task }) => task ? task.title: null,
     },
     {
       title: 'Updated',
