@@ -35,7 +35,7 @@ function UserProfile({ loading, data, location }) {
       title: 'Ui/UX',
     },
   ];
-  consol.log(Tracks);
+  console.log(Tracks);
 
   const SocialMedia = [
     {

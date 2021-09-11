@@ -40,8 +40,6 @@ export const getAllTasksAction = trackId => {
             dispatch({ type: types.TASKS_SUCCESS, payload: tasksObj });
           });
 
-        console.log(submittedTasks);
-
         history.push(`/dashboard`);
       })
       .catch(err => {
@@ -84,6 +82,7 @@ export const submitTaskAction = (taskId, url, comments) => {
         menteeComment: comments,
         taskUrl: url,
       });
+      console.log(res);
       dispatch({ type: types.SUBMIT_TASK, payload: taskId });
     } catch (err) {
       const error_msg = err.response

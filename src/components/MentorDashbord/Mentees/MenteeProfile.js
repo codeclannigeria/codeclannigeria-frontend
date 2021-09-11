@@ -7,7 +7,6 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import UserProfile from '../../MenteeDashboard/userProfile/UserProfile';
 
-
 function MenteeProfile(props) {
   const dispatch = useDispatch();
   const userId = props.match.params.userID;
@@ -48,7 +47,7 @@ function MenteeProfile(props) {
       title: 'Ui/UX',
     },
   ];
-  consol.log(Tracks);
+  console.log(Tracks);
 
   return (
     <React.Fragment>
