@@ -18,8 +18,10 @@ function TaskBrief(props) {
   const course = useSelector(state => state.courses);
 
   const fetchData = useCallback(async () => {
+
     await dispatch(getSingleTaskAction(id));
   }, [dispatch, id]);
+
 
   useEffect(() => {
     fetchData();

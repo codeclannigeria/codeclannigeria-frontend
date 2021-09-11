@@ -3,64 +3,58 @@ import codeClanApi from '../../api/apiUtils';
 import { store } from '../../index';
 
 export const getUserProfileApi = () => {
-  return dispatch => {
+  return async dispatch => {
     dispatch({ type: types.USER_START });
-    return codeClanApi
-      .get('profile')
-      .then(res => {
-        dispatch({ type: types.USER_SUCCESS, payload: res.data });
-      })
-      .catch(err => {
-        const error_msg = err.response
-          ? err.response.data.message
-          : 'An error occured';
+    try {
+      const res = await codeClanApi.get('profile');
+      dispatch({ type: types.USER_SUCCESS, payload: res.data });
+    } catch (err) {
+      const error_msg = err.response
+        ? err.response.data.message
+        : 'An error occured';
 
-        dispatch({
-          type: types.USER_FAILURE,
-          payload: error_msg,
-        });
+      dispatch({
+        type: types.USER_FAILURE,
+        payload: error_msg,
       });
+    }
   };
 };
 
 export const getUserMentorProfileApi = () => {
-  return dispatch => {
+  return async dispatch => {
     dispatch({ type: types.USER_START });
-    return codeClanApi
-      .get('profile/mentors')
-      .then(res => {
-        dispatch({ type: types.GET_MENTOR, payload: res.data.items });
-      })
-      .catch(err => {
-        const error_msg = err.response
-          ? err.response.data.message
-          : 'An error occured';
+    try {
+      const res = await codeClanApi.get('profile/mentors');
+      dispatch({ type: types.GET_MENTOR, payload: res.data.items });
+    } catch (err) {
+      const error_msg = err.response
+        ? err.response.data.message
+        : 'An error occured';
 
-        dispatch({
-          type: types.USER_FAILURE,
-          payload: error_msg,
-        });
+      dispatch({
+        type: types.USER_FAILURE,
+        payload: error_msg,
       });
+    }
   };
 };
 
 export const getUserMenteesProfileApi = () => {
-  return dispatch => {
+  return async dispatch => {
     dispatch({ type: types.USER_START });
-    return codeClanApi
-      .get('profile/mentees')
-      .then(res => {
-        dispatch({ type: types.GET_MENTEES, payload: res.data.items });
-      })
-      .catch(err => {
-        const error_msg = err.response
-          ? err.response.data.message
-          : 'An error occured';
-        dispatch({
-          type: types.USER_FAILURE,
-          payload: error_msg,
-        });
+    try {
+      const res = await codeClanApi.get('profile/mentees');
+      dispatch({ type: types.GET_MENTEES, payload: res.data.items });
+    } catch (err) {
+      const error_msg = err.response
+        ? err.response.data.message
+        : 'An error occured';
+      dispatch({
+        type: types.USER_FAILURE,
+        payload: error_msg,
       });
+    }
   };
 };
 
@@ -119,22 +113,20 @@ export const getSingleMenteeProfile = userId => {
 // };
 
 export const editUserProfileApi = userData => {
-  return dispatch => {
+  return async dispatch => {
     dispatch({ type: types.USER_START });
-    return codeClanApi
-      .put('profile', userData)
-      .then(res => {
-        dispatch({ type: types.EDIT_USER, payload: res.data });
-      })
-      .catch(err => {
-        const error_msg = err.response
-          ? err.response.data.message
-          : 'An error occured';
+    try {
+      const res = await codeClanApi.put('profile', userData);
+      dispatch({ type: types.EDIT_USER, payload: res.data });
+    } catch (err) {
+      const error_msg = err.response
+        ? err.response.data.message
+        : 'An error occured';
 
-        dispatch({
-          type: types.USER_FAILURE,
-          payload: error_msg,
-        });
+      dispatch({
+        type: types.USER_FAILURE,
+        payload: error_msg,
       });
+    }
   };
 };

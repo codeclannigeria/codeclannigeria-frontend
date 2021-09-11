@@ -13,26 +13,49 @@ function UserProfile({ loading, data, location }) {
       message.warning('Update your profile to continue');
     }
   }
+  const Tracks = [
+    {
+      icon: <i className="far fa-check-circle"></i>,
+      title: 'Frontend Development',
+    },
+    {
+      icon: <i className="far fa-check-circle"></i>,
+      title: 'Backend Development',
+    },
+    {
+      icon: <i className="far fa-check-circle"></i>,
+      title: 'Mobile Development',
+    },
+    {
+      icon: <i className="far fa-check-circle"></i>,
+      title: 'Desktop Development',
+    },
+    {
+      icon: <i className="far fa-check-circle"></i>,
+      title: 'Ui/UX',
+    },
+  ];
+  console.log(Tracks);
 
   const SocialMedia = [
     {
-      icon: <i class="fab fa-twitter"></i>,
+      icon: <i className="fab fa-twitter"></i>,
       title: 'Twitter',
     },
     {
-      icon: <i class="fab fa-dribbble"></i>,
+      icon: <i className="fab fa-dribbble"></i>,
       title: 'Dribble',
     },
     {
-      icon: <i class="fab fa-behance"></i>,
+      icon: <i className="fab fa-behance"></i>,
       title: 'Behance',
     },
     {
-      icon: <i class="fab fa-linkedin-in"></i>,
+      icon: <i className="fab fa-linkedin-in"></i>,
       title: 'LinkedIn',
     },
     {
-      icon: <i class="fab fa-github"></i>,
+      icon: <i className="fab fa-github"></i>,
       title: 'Github',
     },
   ];

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Card, Tag } from 'antd';
 
-
 function SingleMentorCard({ mentor }) {
   const {
     firstName,

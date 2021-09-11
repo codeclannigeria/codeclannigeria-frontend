@@ -29,22 +29,22 @@ const StyledNav = styled.div`
     background-color: transparent;
     height: 72px;
   }
-  .nav-link{
+  .nav-link {
     font-family: 'Libre Franklin', serif;
     font-weight: 600;
-  font-size: 0.875rem;
+    font-size: 0.875rem;
   }
   nav {
-  height: 72px;
-}
-.navbar-brand img {
-  height: 34px;
-}
-.navbar .topnav-links .nav-link {
-  color: #131b49;
-  font-family: 'Libre Franklin', serif;
-  font-size: 0.875rem;
-}
+    height: 72px;
+  }
+  .navbar-brand img {
+    height: 34px;
+  }
+  .navbar .topnav-links .nav-link {
+    color: #131b49;
+    font-family: 'Libre Franklin', serif;
+    font-size: 0.875rem;
+  }
 
   .inner-header {
     background-color: transparent;
@@ -66,8 +66,8 @@ const StyledNav = styled.div`
     display: inline-block;
     font-size: 18px;
     line-height: 27px;
-    padding-right: .5rem;
-    padding-left: .5rem;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
     text-align: center;
   }
   .button {
@@ -96,7 +96,6 @@ const StyledNav = styled.div`
     /* margin: auto; */
   }
   @media only screen and (max-width: 968px) {
-    
     .menu li {
       font-size: 1.1rem;
       line-height: 5rem;
@@ -125,7 +124,6 @@ const StyledNav = styled.div`
       margin-top: 5rem;
       margin-left: auto;
       opacity: 1;
-      
     }
 
     .inner-header {

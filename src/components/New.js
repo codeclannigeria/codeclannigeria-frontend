@@ -3,12 +3,12 @@ import React, { Component } from 'react';
 import teamMember from './components/assets/image/teamMember.jpg';
 import karen from './components/assets/image/karen.jfif';
 import Navbar from './components/Navbar';
-import StyledTeam from './TeamStyled';
+import './TeamStyled.css';
 
 class Team extends Component {
   render() {
     return (
-      <StyledTeam>
+      <div>
         <Navbar />
         <div className="team-div">
           <div className="team-intro">
@@ -94,8 +94,7 @@ class Team extends Component {
         </div>
 
         {/* End of Row 2 */}
-        <div></div>
-      </StyledTeam>
+      </div>
     );
   }
 }

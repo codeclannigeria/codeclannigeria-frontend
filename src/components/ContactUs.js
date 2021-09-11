@@ -2,39 +2,70 @@
 import React from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import ContactUsStyled from './ContactUsStyled';
+import './ContactUsStyled.css';
 
 function ContactUs() {
   return (
     <div>
-      <ContactUsStyled>
-        
       <div className="container-fluid pry-padd-form">
         <div className="row">
-          <Navbar/>
+          <Navbar />
         </div>
         <div className="row my-5 py-5">
-          <h1 className="title text-center">
-            Contact Us
-            </h1>
-            <h3 className="text-center">
-              Get in Touch with us through any channel
-            </h3>
-            <ul className="social">
-                <li>
-                  <a href="mailto:info@codeclan.com" className="fa fa-envelope" target="_blank" rel="noopener noreferrer"></a>
-                </li>
-                <li>
-                  <a href="https://twitter.com/codeclannigeria" className="fa fa-twitter" target="_blank" rel="noopener noreferrer"></a>
-                </li>
-                
+          <h1 className="title text-center za">Contact Us</h1>
+          <div className="icons-container">
+            <h4>Get in touch with us on</h4>
+            <ul>
+              <li>
+                <a
+                  href="https://discord.gg/EUesGvttYA"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <i className="fab fa-discord"></i>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://twitter.com/codeclannigeria"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <i className="fab fa-twitter"></i>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="mailto:info@codeclan.com"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <i className="fa fa-envelope"></i>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://facebook.com/codeclannigeria"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <i className="fab fa-facebook"></i>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://instagram.com/codeclannigeria"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <i className="fab fa-instagram"></i>
+                </a>
+              </li>
             </ul>
+          </div>
         </div>
-        
-      
       </div>
-      <Footer/>
-      </ContactUsStyled>
+      <Footer />
     </div>
   );
 }

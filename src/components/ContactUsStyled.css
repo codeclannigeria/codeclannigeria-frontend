@@ -1,0 +1,76 @@
+.pry-padd-form {
+  padding: 0 30px 30px;
+  padding: 0 clamp(24px, 6vw, 120px) 30px;
+}
+
+.py-5 {
+  display: flex;
+  justify-content: center;
+}
+
+.za {
+  color: #12376d;
+  text-align: center;
+  font-weight: 700;
+  font-size: 3.5rem;
+  padding-bottom: 10px;
+}
+
+.icons-container {
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  width: 500px;
+  max-width: calc(100% - 10px);
+}
+
+.icons-container h4 {
+  margin: 20px 0;
+  color: hsl(225, 36%, 70%);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  line-height: 30px;
+  text-transform: uppercase;
+}
+
+.icons-container ul {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.icons-container ul li {
+  margin: 0 10px;
+  overflow: auto;
+  padding-bottom: 30px;
+}
+
+.icons-container ul li a {
+  border: 1px solid #dce1f2;
+  border-radius: 50%;
+  color: #001f61;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  width: 70px;
+  text-decoration: none;
+  transition: all 0.2s linear;
+}
+
+.icons-container ul li a:hover {
+  border-color: #ff6a00;
+  font-size: 40px;
+  box-shadow: 0 9px 12px -9px #ff6a00;
+}
+
+.icons-container ul li a:hover i {
+  color: #ff6a00;
+}

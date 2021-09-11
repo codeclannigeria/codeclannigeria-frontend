@@ -1,13 +1,11 @@
 import React, { useCallback, useEffect } from 'react';
 import MentorDashboardLayout from '../MentorDashboardHOC';
-
 import {
   getSingleMenteeProfile,
   getUserMenteesProfileApi,
 } from '../../../state/user/userActionCreator';
 import { useDispatch, useSelector } from 'react-redux';
 import UserProfile from '../../MenteeDashboard/userProfile/UserProfile';
-
 
 function MenteeProfile(props) {
   const dispatch = useDispatch();
@@ -27,6 +25,29 @@ function MenteeProfile(props) {
     fetchMentee();
   }, [fetchMentee]);
 
+  const Tracks = [
+    {
+      icon: <i className="far fa-check-circle"></i>,
+      title: 'Develop an API for a page',
+    },
+    {
+      icon: <i className="far fa-check-circle"></i>,
+      title: 'Build a Tribute page',
+    },
+    {
+      icon: <i className="far fa-check-circle"></i>,
+      title: 'Mobile Development',
+    },
+    {
+      icon: <i className="far fa-check-circle"></i>,
+      title: 'Desktop Development',
+    },
+    {
+      icon: <i className="far fa-check-circle"></i>,
+      title: 'Ui/UX',
+    },
+  ];
+  console.log(Tracks);
 
   return (
     <React.Fragment>

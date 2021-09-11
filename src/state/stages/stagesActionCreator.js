@@ -3,25 +3,21 @@ import codeClanApi from '../../api/apiUtils';
 import { store } from '../../index';
 
 export const getAllStagesAction = () => {
-  return dispatch => {
+  return async dispatch => {
     dispatch({ type: types.STAGES_START });
-    return codeClanApi
-      .get('/stages')
-      .then(res => {
-        dispatch({ type: types.STAGES_SUCCESS, payload: res.data.items });
+    try {
+      const res = await codeClanApi.get('/stages');
+      dispatch({ type: types.STAGES_SUCCESS, payload: res.data.items });
+    } catch (err) {
+      const error_msg = err.response
+        ? err.response.data.message
+        : 'An error occured';
 
-        // history.push(`/dashboard`)
-      })
-      .catch(err => {
-        const error_msg = err.response
-          ? err.response.data.message
-          : 'An error occured';
-
-        dispatch({
-          type: types.STAGES_FAILURE,
-          payload: error_msg,
-        });
+      dispatch({
+        type: types.STAGES_FAILURE,
+        payload: error_msg,
       });
+    }
   };
 };
 
