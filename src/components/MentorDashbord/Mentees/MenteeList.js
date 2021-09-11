@@ -49,8 +49,7 @@ function MenteeList({ mentees, userData, history, getUserMenteesProfileApi }) {
       if (
         !city ||
         !country ||
-        !phoneNumber ||
-        technologies.length <= 0
+        !phoneNumber
       ) {
         // return
         history.push({
