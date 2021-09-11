@@ -50,7 +50,6 @@ function MenteeList({ mentees, userData, history, getUserMenteesProfileApi }) {
         !city ||
         !country ||
         !phoneNumber ||
-        !description ||
         technologies.length <= 0
       ) {
         // return
