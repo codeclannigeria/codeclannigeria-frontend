@@ -25,6 +25,16 @@ const Team = () => {
             <p className="tech-stack">
               Tech Stack: .Net, Node.js, Angular, Flutter
             </p>
+            <p className="tech-stack">
+              Phone: +2349065266070
+            </p>
+            <p className="tech-stack">
+              Email: mrtayormi@gmail.com
+            </p>
+
+            <p className="tech-stack">
+            This site is owned and operated by Ajiboye Temitope.
+            </p>
             <ul className="social">
               <li>
                 <a
