@@ -55,6 +55,7 @@ function Footer() {
             <span><img src={FooterLogo} alt="code clan logo" /></span>
           </div>
           <div className="text-center mb-5 mt-4"><small>© 2021 CodeClan Nigeria. All rights reserved.</small></div>
+          <div className="text-center mb-5 mt-4"><small>This site is owned and operated by Ajiboye Temitope.</small></div>
         </div>
       </footer>
       </FooterStyled>
