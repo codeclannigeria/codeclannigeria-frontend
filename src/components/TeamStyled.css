@@ -2,6 +2,12 @@
   padding: 0 30px 30px;
   padding: 0 clamp(24px, 6vw, 120px) 30px;
 }
+.team-shell {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 .qa {
   color: #12376d;
