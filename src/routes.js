@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Team from './components/Team';
+import Team from './components/TeamMember';
 import Events from './components/Events';
 import About from './components/About';
 import ContactUs from './components/ContactUs';

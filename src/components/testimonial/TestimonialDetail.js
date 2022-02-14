@@ -1,5 +1,5 @@
 import React from 'react';
-import testimonialImage from '../assets/image/homepage/course-img.png';
+import testimonialImage from '../assets/image/homepage/course-img.png'; 
 const TestimonialDetail = ({name, company, description, summary, position, imgUrl}) => {
     return (
         <div className="testimonial-item">
@@ -13,7 +13,7 @@ const TestimonialDetail = ({name, company, description, summary, position, imgUr
                     </p>
                     </div>
                     <div className="client-details text-white mt-3">
-                    <img src={testimonialImage} alt="" />
+                    <img src={imgUrl} alt={name} />
                     <div className="ml-3">
                         <p className="bold-manrope mb-0">
                             {name}
