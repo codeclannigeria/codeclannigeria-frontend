@@ -11,7 +11,7 @@
     "@testing-library/user-event": "^13.1.9",
     "antd": "^4.4.0",
     "antd-img-crop": "^3.9.0",
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "bootstrap": "^5.0.1",
     "font-awesome": "^4.7.0",
     "formik": "^2.1.4",
