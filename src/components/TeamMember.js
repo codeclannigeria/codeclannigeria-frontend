@@ -35,6 +35,20 @@ const TeamMates = [
     githubProfile: 'https://github.com/ofuochi',
     linkedinProfile: 'https://www.linkedin.com/in/fortunatus-ochi/',
   },
+
+  {
+    repName: 'Grace Youpele',
+    srcPhoto:
+      'https://res.cloudinary.com/daduedwru/image/upload/v1692566207/gracep_yrukda.jpg',
+    profession: 'Mobile Engineer',
+    story: 'Community Lead Code clan Nigeria',
+    motto: 'Start somewhere, it doesn't matter where',
+    jobDescription: 'Flutter, Dart, HTML, CSS',
+    twitterProfile: 'https://twitter.com/Youpele_G',
+    facebookProfile: 'https://facebook.com',
+    githubProfile: 'https://github.com/youpelegrace',
+    linkedinProfile: 'https://www.linkedin.com/in/graceyoupele',
+  },
   {
     repName: 'Onasanya Babatunde',
     srcPhoto:
