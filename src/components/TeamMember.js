@@ -42,7 +42,7 @@ const TeamMates = [
       'https://res.cloudinary.com/daduedwru/image/upload/v1692566207/gracep_yrukda.jpg',
     profession: 'Mobile Engineer',
     story: 'Community Lead Code clan Nigeria',
-    motto: 'Start somewhere, it doesn't matter where',
+    motto: 'Start somewhere, it doesn\'t matter where',
     jobDescription: 'Flutter, Dart, HTML, CSS',
     twitterProfile: 'https://twitter.com/Youpele_G',
     facebookProfile: 'https://facebook.com',
